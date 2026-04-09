@@ -174,6 +174,5 @@ registerCalculator({
   keywords: ["calorie calculator", "daily calories", "TDEE", "BMR", "weight loss", "calorie needs"],
   popular: true,
   faqs: CALORIE_FAQS,
-  ymyl: true,
   dateModified: "2026-04-09",
 });

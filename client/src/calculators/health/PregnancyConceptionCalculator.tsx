@@ -128,6 +128,5 @@ registerCalculator({
     "due date",
     "prenatal",
   ],
-  ymyl: true,
   dateModified: "2026-04-09",
 });

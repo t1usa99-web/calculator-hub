@@ -147,6 +147,5 @@ registerCalculator({
     "effective rate",
     "mortgage rate",
   ],
-  ymyl: true,
   dateModified: "2026-04-09",
 });

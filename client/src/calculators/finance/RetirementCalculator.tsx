@@ -244,6 +244,5 @@ registerCalculator({
   keywords: ["retirement", "savings", "401k", "IRA", "income planning"],
   popular: true,
   faqs: RETIREMENT_FAQS,
-  ymyl: true,
   dateModified: "2026-04-09",
 });

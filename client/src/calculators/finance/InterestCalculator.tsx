@@ -117,6 +117,5 @@ registerCalculator({
     "interest earned",
     "financial",
   ],
-  ymyl: true,
   dateModified: "2026-04-09",
 });

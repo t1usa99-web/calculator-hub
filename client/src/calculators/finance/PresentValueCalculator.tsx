@@ -99,6 +99,5 @@ registerCalculator({
     "investment analysis",
     "finance",
   ],
-  ymyl: true,
   dateModified: "2026-04-09",
 });

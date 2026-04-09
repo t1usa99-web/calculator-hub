@@ -174,6 +174,5 @@ registerCalculator({
   keywords: ["loan", "payment", "interest", "APR", "debt"],
   popular: true,
   faqs: LOAN_FAQS,
-  ymyl: true,
   dateModified: "2026-04-09",
 });

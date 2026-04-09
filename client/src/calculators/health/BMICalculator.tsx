@@ -152,6 +152,5 @@ registerCalculator({
   keywords: ["BMI", "body mass index", "healthy weight", "obesity", "weight calculator"],
   popular: true,
   faqs: BMI_FAQS,
-  ymyl: true,
   dateModified: "2026-04-09",
 });

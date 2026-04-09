@@ -117,19 +117,12 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
                 </div>
               )}
               <div className="text-xs text-gray-500 mt-2">
-                {calculator.ymyl && (
-                  <span className="block mb-0.5">
-                    Informational only — not financial, medical, or legal advice.
-                  </span>
-                )}
-                <span>
-                  Last updated{" "}
-                  {new Date(dateModified).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
+                Last updated{" "}
+                {new Date(dateModified).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
               </div>
             </div>
           </div>

@@ -97,6 +97,5 @@ registerCalculator({
     "loan interest",
     "financial",
   ],
-  ymyl: true,
   dateModified: "2026-04-09",
 });

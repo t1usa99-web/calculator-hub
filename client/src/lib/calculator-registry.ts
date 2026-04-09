@@ -16,8 +16,6 @@ export interface CalculatorMeta {
   popular?: boolean;
   /** Optional rich FAQ data — when provided, renders FAQ section + FAQPage schema */
   faqs?: FAQ[];
-  /** Whether this is a YMYL (Your Money Your Life) calculator needing expert attribution */
-  ymyl?: boolean;
   /** ISO date string — when content was last updated */
   dateModified?: string;
 }

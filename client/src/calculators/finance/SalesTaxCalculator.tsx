@@ -108,6 +108,5 @@ registerCalculator({
   category: "finance",
   icon: "🛒",
   keywords: ["sales tax", "tax calculation", "total", "price", "retail"],
-  ymyl: true,
   dateModified: "2026-04-09",
 });

@@ -194,6 +194,5 @@ registerCalculator({
   keywords: ["investment", "stock market", "growth", "returns", "portfolio"],
   popular: true,
   faqs: INVESTMENT_FAQS,
-  ymyl: true,
   dateModified: "2026-04-09",
 });

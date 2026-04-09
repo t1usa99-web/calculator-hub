@@ -187,6 +187,5 @@ registerCalculator({
   keywords: ["compound interest", "investment growth", "savings", "interest"],
   popular: true,
   faqs: COMPOUND_INTEREST_FAQS,
-  ymyl: true,
   dateModified: "2026-04-09",
 });

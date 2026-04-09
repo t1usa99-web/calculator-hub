@@ -191,6 +191,5 @@ registerCalculator({
   keywords: ["mortgage", "home loan", "monthly payment", "amortization"],
   popular: true,
   faqs: MORTGAGE_FAQS,
-  ymyl: true,
   dateModified: "2026-04-09",
 });

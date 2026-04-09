@@ -124,6 +124,5 @@ registerCalculator({
     "savings growth",
     "retirement planning",
   ],
-  ymyl: true,
   dateModified: "2026-04-09",
 });

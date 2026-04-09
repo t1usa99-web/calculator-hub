@@ -109,6 +109,5 @@ registerCalculator({
     "APR",
     "amortization",
   ],
-  ymyl: true,
   dateModified: "2026-04-09",
 });
