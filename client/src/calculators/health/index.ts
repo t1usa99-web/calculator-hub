@@ -9,3 +9,6 @@ import "./IdealWeightCalculator";
 import "./MacroCalculator";
 import "./PaceCalculator";
 import "./BACCalculator";
+
+// Phase 3 additions
+import "./PregnancyConceptionCalculator";

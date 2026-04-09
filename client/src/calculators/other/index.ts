@@ -8,3 +8,7 @@ export { default as RandomNumberCalculator } from "./RandomNumberCalculator";
 export { default as PasswordGeneratorCalculator } from "./PasswordGeneratorCalculator";
 export { default as ElectricityCostCalculator } from "./ElectricityCostCalculator";
 export { default as ConcreteCalculator } from "./ConcreteCalculator";
+
+// Phase 3 additions
+export { default as HoursCalculator } from "./HoursCalculator";
+export { default as SubnetCalculator } from "./SubnetCalculator";

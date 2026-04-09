@@ -7,17 +7,17 @@ const PORT = process.env.PORT || 5000;
 
 // All calculator slugs for SEO
 const CALCULATOR_SLUGS = [
-  // Finance (28)
+  // Finance (38)
   "mortgage-calculator",
   "loan-calculator",
   "compound-interest-calculator",
   "investment-calculator",
   "retirement-calculator",
-  "auto-loan-calculator",
-  "savings-goal-calculator",
-  "debt-payoff-calculator",
-  "credit-card-calculator",
-  "tip-calculator",
+  "auto-loan",
+  "savings-goal",
+  "debt-payoff",
+  "credit-card",
+  "tip",
   "paycheck-calculator",
   "budget-calculator",
   "net-worth-calculator",
@@ -32,11 +32,21 @@ const CALCULATOR_SLUGS = [
   "home-affordability-calculator",
   "cost-of-living-calculator",
   "business-loan-calculator",
-  "currency-converter",
-  "break-even-calculator",
+  "currency-converter-calculator",
+  "breakeven-calculator",
   "margin-calculator",
   "annuity-calculator",
-  // Health (10)
+  "amortization-calculator",
+  "sales-tax-calculator",
+  "interest-calculator",
+  "simple-interest-calculator",
+  "future-value-calculator",
+  "present-value-calculator",
+  "payment-calculator",
+  "interest-rate-calculator",
+  "401k-calculator",
+  "mortgage-payoff-calculator",
+  // Health (11)
   "bmi-calculator",
   "calorie-calculator",
   "body-fat-calculator",
@@ -47,7 +57,8 @@ const CALCULATOR_SLUGS = [
   "macro-calculator",
   "pace-calculator",
   "bac-calculator",
-  // Math (10)
+  "pregnancy-conception-calculator",
+  // Math (16)
   "percentage-calculator",
   "fraction-calculator",
   "scientific-calculator",
@@ -58,7 +69,13 @@ const CALCULATOR_SLUGS = [
   "volume-calculator",
   "standard-deviation-calculator",
   "probability-calculator",
-  // Other (10)
+  "mean-median-mode-calculator",
+  "triangle-calculator",
+  "mixed-numbers-calculator",
+  "simplify-fractions-calculator",
+  "rounding-calculator",
+  "numbers-to-words-calculator",
+  // Other (12)
   "age-calculator",
   "date-calculator",
   "time-calculator",
@@ -69,6 +86,8 @@ const CALCULATOR_SLUGS = [
   "password-generator",
   "electricity-cost-calculator",
   "concrete-calculator",
+  "hours-calculator",
+  "subnet-calculator",
 ];
 
 const CATEGORY_SLUGS = ["finance", "math", "health", "other"];

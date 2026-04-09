@@ -33,3 +33,15 @@ import "./CurrencyConverterCalculator";
 import "./BreakEvenCalculator";
 import "./MarginCalculator";
 import "./AnnuityCalculator";
+
+// Phase 3 additions (competitor-gap calculators)
+import "./AmortizationCalculator";
+import "./SalesTaxCalculator";
+import "./InterestCalculator";
+import "./SimpleInterestCalculator";
+import "./FutureValueCalculator";
+import "./PresentValueCalculator";
+import "./PaymentCalculator";
+import "./InterestRateCalculator";
+import "./FourOhOneKCalculator";
+import "./MortgagePayoffCalculator";
