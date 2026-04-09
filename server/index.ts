@@ -88,9 +88,40 @@ const CALCULATOR_SLUGS = [
   "concrete-calculator",
   "hours-calculator",
   "subnet-calculator",
+  // Physics (30)
+  "projectile-motion-calculator",
+  "free-fall-calculator",
+  "kinetic-energy-calculator",
+  "potential-energy-calculator",
+  "momentum-calculator",
+  "force-calculator",
+  "pressure-calculator",
+  "torque-calculator",
+  "centripetal-force-calculator",
+  "gravitational-force-calculator",
+  "wavelength-calculator",
+  "frequency-calculator",
+  "wave-speed-calculator",
+  "doppler-effect-calculator",
+  "sound-intensity-calculator",
+  "ohms-law-calculator",
+  "electric-power-calculator",
+  "resistor-calculator",
+  "capacitor-calculator",
+  "coulombs-law-calculator",
+  "electric-field-calculator",
+  "heat-capacity-calculator",
+  "temperature-converter-calculator",
+  "ideal-gas-law-calculator",
+  "thermal-expansion-calculator",
+  "photon-energy-calculator",
+  "relativistic-kinetic-energy-calculator",
+  "half-life-calculator",
+  "escape-velocity-calculator",
+  "density-calculator",
 ];
 
-const CATEGORY_SLUGS = ["finance", "math", "health", "other"];
+const CATEGORY_SLUGS = ["finance", "math", "health", "other", "physics"];
 const DOMAIN = "https://calculator-hub-production.up.railway.app";
 
 // Middleware

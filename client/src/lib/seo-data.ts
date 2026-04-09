@@ -393,6 +393,13 @@ export const CATEGORY_DATA = [
     title: "Everyday Calculators",
     seoTitle: "Free Everyday Calculators | Age, Tip, Unit Converter & More | CalcHub",
   },
+  {
+    id: "physics",
+    label: "Physics",
+    description: "Mechanics, waves, electricity, thermodynamics, and quantum calculators",
+    title: "Physics Calculators",
+    seoTitle: "Free Physics Calculators | Mechanics, Waves, Electricity & More | CalcHub",
+  },
 ];
 
 export function getCalculatorSEOData(slug: string): CalculatorSEOData | undefined {

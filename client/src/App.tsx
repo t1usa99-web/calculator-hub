@@ -10,6 +10,7 @@ import "@/calculators/finance";
 import "@/calculators/health";
 import "@/calculators/math";
 import "@/calculators/other";
+import "@/calculators/physics";
 
 export default function App() {
   return (
