@@ -5,12 +5,130 @@ import path from "path";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// All calculator slugs for SEO
+const CALCULATOR_SLUGS = [
+  // Finance (28)
+  "mortgage-calculator",
+  "loan-calculator",
+  "compound-interest-calculator",
+  "investment-calculator",
+  "retirement-calculator",
+  "auto-loan-calculator",
+  "savings-goal-calculator",
+  "debt-payoff-calculator",
+  "credit-card-calculator",
+  "tip-calculator",
+  "paycheck-calculator",
+  "budget-calculator",
+  "net-worth-calculator",
+  "rent-vs-buy-calculator",
+  "student-loan-calculator",
+  "salary-calculator",
+  "roi-calculator",
+  "inflation-calculator",
+  "tax-calculator",
+  "down-payment-calculator",
+  "refinance-calculator",
+  "home-affordability-calculator",
+  "cost-of-living-calculator",
+  "business-loan-calculator",
+  "currency-converter",
+  "break-even-calculator",
+  "margin-calculator",
+  "annuity-calculator",
+  // Health (10)
+  "bmi-calculator",
+  "calorie-calculator",
+  "body-fat-calculator",
+  "bmr-calculator",
+  "tdee-calculator",
+  "pregnancy-due-date-calculator",
+  "ideal-weight-calculator",
+  "macro-calculator",
+  "pace-calculator",
+  "bac-calculator",
+  // Math (10)
+  "percentage-calculator",
+  "fraction-calculator",
+  "scientific-calculator",
+  "gpa-calculator",
+  "grade-calculator",
+  "square-root-calculator",
+  "area-calculator",
+  "volume-calculator",
+  "standard-deviation-calculator",
+  "probability-calculator",
+  // Other (10)
+  "age-calculator",
+  "date-calculator",
+  "time-calculator",
+  "discount-calculator",
+  "fuel-cost-calculator",
+  "unit-converter",
+  "random-number-generator",
+  "password-generator",
+  "electricity-cost-calculator",
+  "concrete-calculator",
+];
+
+const CATEGORY_SLUGS = ["finance", "math", "health", "other"];
+const DOMAIN = "https://calculator-hub-production.up.railway.app";
+
 // Middleware
 app.use(compression());
 
 // Serve static files from dist/public
 const staticPath = path.resolve("dist/public");
 app.use(express.static(staticPath));
+
+// GET /robots.txt
+app.get("/robots.txt", (req, res) => {
+  const robotsTxt = `User-agent: *
+Allow: /
+Sitemap: ${DOMAIN}/sitemap.xml
+`;
+  res.type("text/plain").send(robotsTxt);
+});
+
+// GET /sitemap.xml
+app.get("/sitemap.xml", (req, res) => {
+  const now = new Date().toISOString().split("T")[0];
+
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+  // Homepage - highest priority, daily changefreq
+  xml += "  <url>\n";
+  xml += `    <loc>${DOMAIN}</loc>\n`;
+  xml += `    <lastmod>${now}</lastmod>\n`;
+  xml += '    <changefreq>daily</changefreq>\n';
+  xml += '    <priority>1.0</priority>\n';
+  xml += "  </url>\n";
+
+  // Category pages - 0.7 priority, weekly changefreq
+  CATEGORY_SLUGS.forEach((slug) => {
+    xml += "  <url>\n";
+    xml += `    <loc>${DOMAIN}/category/${slug}</loc>\n`;
+    xml += `    <lastmod>${now}</lastmod>\n`;
+    xml += '    <changefreq>weekly</changefreq>\n';
+    xml += '    <priority>0.7</priority>\n';
+    xml += "  </url>\n";
+  });
+
+  // Calculator pages - 0.8 priority, weekly changefreq
+  CALCULATOR_SLUGS.forEach((slug) => {
+    xml += "  <url>\n";
+    xml += `    <loc>${DOMAIN}/${slug}</loc>\n`;
+    xml += `    <lastmod>${now}</lastmod>\n`;
+    xml += '    <changefreq>weekly</changefreq>\n';
+    xml += '    <priority>0.8</priority>\n';
+    xml += "  </url>\n";
+  });
+
+  xml += "</urlset>";
+
+  res.type("application/xml").send(xml);
+});
 
 // SPA fallback - serve index.html for all non-API routes
 app.get("/{*path}", (req, res) => {

@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
-import { Search as SearchIcon, ArrowRight } from "lucide-react";
+import { Search as SearchIcon, ArrowRight, ChevronRight } from "lucide-react";
 import { getAllCalculators } from "@/lib/calculator-registry";
 
 export default function SearchPage() {
@@ -27,6 +27,37 @@ export default function SearchPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb Navigation */}
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
+        <ol
+          className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-2 text-sm"
+          itemScope
+          itemType="https://schema.org/BreadcrumbList"
+        >
+          <li
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/ListItem"
+            className="flex items-center gap-2"
+          >
+            <Link href="/" itemProp="item" className="text-gray-600 hover:text-gray-900">
+              <span itemProp="name">Home</span>
+            </Link>
+            <meta itemProp="position" content="1" />
+            <ChevronRight size={16} className="text-gray-400" />
+          </li>
+          <li
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/ListItem"
+            className="flex items-center"
+          >
+            <span itemProp="name" className="text-gray-900 font-medium">Search</span>
+            <meta itemProp="position" content="2" />
+          </li>
+        </ol>
+      </nav>
+
       {/* Search Header */}
       <section className="bg-white border-b border-gray-200 py-8">
         <div className="max-w-7xl mx-auto px-4">

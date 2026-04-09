@@ -7,6 +7,9 @@ import CalculatorPage from "@/pages/CalculatorPage";
 import EmbedPage from "@/pages/EmbedPage";
 import SearchPage from "@/pages/SearchPage";
 import "@/calculators/finance";
+import "@/calculators/health";
+import "@/calculators/math";
+import "@/calculators/other";
 
 export default function App() {
   return (

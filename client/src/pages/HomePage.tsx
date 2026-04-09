@@ -6,6 +6,7 @@ import {
   getPopularCalculators,
   getAllCalculators,
 } from "@/lib/calculator-registry";
+import SEOHead from "@/components/SEOHead";
 
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -20,7 +21,13 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <>
+      <SEOHead
+        title="Free Online Calculators for Finance, Math, Health & More"
+        description="200+ free online calculators for finance, math, health, and everyday life. Educational content and embeddable widgets for your website."
+        type="home"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 py-20">
         <div className="text-center">
@@ -51,6 +58,17 @@ export default function HomePage() {
             </button>
           </div>
         </div>
+      </section>
+
+      {/* SEO Intro Text */}
+      <section className="max-w-4xl mx-auto px-4 text-center py-8">
+        <p className="text-gray-600 leading-relaxed">
+          CalcHub provides free, easy-to-use online calculators for all your financial planning,
+          mathematical computations, health tracking, and everyday needs. Whether you're calculating
+          mortgage payments, tracking your BMI, solving complex equations, or converting units,
+          our {allCalcs.length}+ calculators deliver instant, accurate results with educational
+          explanations to help you understand the math behind the numbers.
+        </p>
       </section>
 
       {/* Popular Calculators Section */}
@@ -135,6 +153,7 @@ export default function HomePage() {
           </a>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

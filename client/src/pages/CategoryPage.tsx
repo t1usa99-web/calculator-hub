@@ -4,6 +4,8 @@ import {
   CATEGORIES,
   getCalculatorsByCategory,
 } from "@/lib/calculator-registry";
+import SEOHead from "@/components/SEOHead";
+import { getCategorySEOData } from "@/lib/seo-data";
 
 interface CategoryPageProps {
   categoryId: string;
@@ -12,6 +14,7 @@ interface CategoryPageProps {
 export default function CategoryPage({ categoryId }: CategoryPageProps) {
   const category = CATEGORIES.find((c) => c.id === categoryId);
   const calculators = getCalculatorsByCategory(categoryId);
+  const seoData = getCategorySEOData(categoryId);
 
   if (!category) {
     return (
@@ -30,17 +33,44 @@ export default function CategoryPage({ categoryId }: CategoryPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <SEOHead
+        title={seoData?.title || category.label}
+        description={category.description}
+        slug={`category/${categoryId}`}
+        type="category"
+      />
+      <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-2 text-sm">
-          <Link href="/" className="text-gray-600 hover:text-gray-900">
-            Home
-          </Link>
-          <ChevronRight size={16} className="text-gray-400" />
-          <span className="text-gray-900 font-medium">{category.label}</span>
-        </div>
-      </div>
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
+        <ol
+          className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-2 text-sm"
+          itemScope
+          itemType="https://schema.org/BreadcrumbList"
+        >
+          <li
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/ListItem"
+            className="flex items-center gap-2"
+          >
+            <Link href="/" itemProp="item" className="text-gray-600 hover:text-gray-900">
+              <span itemProp="name">Home</span>
+            </Link>
+            <meta itemProp="position" content="1" />
+            <ChevronRight size={16} className="text-gray-400" />
+          </li>
+          <li
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/ListItem"
+            className="flex items-center"
+          >
+            <span itemProp="name" className="text-gray-900 font-medium">{category.label}</span>
+            <meta itemProp="position" content="2" />
+          </li>
+        </ol>
+      </nav>
 
       {/* Category Header */}
       <section className="bg-gradient-to-r from-blue-50 to-purple-50 py-12">
@@ -68,9 +98,9 @@ export default function CategoryPage({ categoryId }: CategoryPageProps) {
               <Link key={calc.slug} href={`/${calc.slug}`}>
                 <div className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow p-6 cursor-pointer h-full flex flex-col">
                   <div className="text-5xl mb-4">{calc.icon}</div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h2 className="text-lg font-semibold text-gray-900 mb-2">
                     {calc.title}
-                  </h3>
+                  </h2>
                   <p className="text-gray-600 mb-4 flex-1">
                     {calc.description}
                   </p>
@@ -83,6 +113,7 @@ export default function CategoryPage({ categoryId }: CategoryPageProps) {
           </div>
         )}
       </section>
-    </div>
+      </div>
+    </>
   );
 }

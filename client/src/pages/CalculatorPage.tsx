@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { ChevronRight } from "lucide-react";
 import { getCalculator, CATEGORIES } from "@/lib/calculator-registry";
+import SEOHead from "@/components/SEOHead";
 
 interface CalculatorPageProps {
   slug: string;
@@ -29,28 +30,62 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
   const CalculatorComponent = calculator.component;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <SEOHead
+        title={calculator.title}
+        description={calculator.description}
+        slug={slug}
+        type="calculator"
+      />
+      <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-2 text-sm">
-          <Link href="/" className="text-gray-600 hover:text-gray-900">
-            Home
-          </Link>
-          <ChevronRight size={16} className="text-gray-400" />
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
+        <ol
+          className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-2 text-sm"
+          itemScope
+          itemType="https://schema.org/BreadcrumbList"
+        >
+          <li
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/ListItem"
+            className="flex items-center gap-2"
+          >
+            <Link href="/" itemProp="item" className="text-gray-600 hover:text-gray-900">
+              <span itemProp="name">Home</span>
+            </Link>
+            <meta itemProp="position" content="1" />
+            <ChevronRight size={16} className="text-gray-400" />
+          </li>
           {category && (
-            <>
+            <li
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/ListItem"
+              className="flex items-center gap-2"
+            >
               <Link
                 href={`/category/${category.id}`}
+                itemProp="item"
                 className="text-gray-600 hover:text-gray-900"
               >
-                {category.label}
+                <span itemProp="name">{category.label}</span>
               </Link>
+              <meta itemProp="position" content="2" />
               <ChevronRight size={16} className="text-gray-400" />
-            </>
+            </li>
           )}
-          <span className="text-gray-900 font-medium">{calculator.title}</span>
-        </div>
-      </div>
+          <li
+            itemProp="itemListElement"
+            itemScope
+            itemType="https://schema.org/ListItem"
+            className="flex items-center"
+          >
+            <span itemProp="name" className="text-gray-900 font-medium">{calculator.title}</span>
+            <meta itemProp="position" content={category ? "3" : "2"} />
+          </li>
+        </ol>
+      </nav>
 
       {/* Page Header */}
       <section className="bg-white border-b border-gray-200 py-8">
@@ -108,6 +143,7 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
           </p>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
