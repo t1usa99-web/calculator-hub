@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { MORTGAGE_FAQS } from "@/lib/faq-content";
 
 export default function MortgageCalculator() {
   const [homePrice, setHomePrice] = useState(300000);
@@ -189,4 +190,7 @@ registerCalculator({
   icon: "🏠",
   keywords: ["mortgage", "home loan", "monthly payment", "amortization"],
   popular: true,
+  faqs: MORTGAGE_FAQS,
+  ymyl: true,
+  dateModified: "2026-04-09",
 });

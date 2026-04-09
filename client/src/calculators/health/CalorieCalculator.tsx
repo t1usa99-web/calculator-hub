@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { CALORIE_FAQS } from "@/lib/faq-content";
 
 export default function CalorieCalculator() {
   const [age, setAge] = useState(30);
@@ -172,4 +173,7 @@ registerCalculator({
   icon: "🔥",
   keywords: ["calorie calculator", "daily calories", "TDEE", "BMR", "weight loss", "calorie needs"],
   popular: true,
+  faqs: CALORIE_FAQS,
+  ymyl: true,
+  dateModified: "2026-04-09",
 });

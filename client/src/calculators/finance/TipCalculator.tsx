@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { TIP_FAQS } from "@/lib/faq-content";
 
 export default function TipCalculator() {
   const [billAmount, setBillAmount] = useState(50);
@@ -164,4 +165,6 @@ registerCalculator({
   keywords: ["tip", "gratuity", "bill", "restaurant", "split"],
   popular: true,
   component: TipCalculator,
+  faqs: TIP_FAQS,
+  dateModified: "2026-04-09",
 });

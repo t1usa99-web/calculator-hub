@@ -4,6 +4,7 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { GPA_FAQS } from "@/lib/faq-content";
 
 interface Course {
   id: number;
@@ -209,4 +210,6 @@ registerCalculator({
   icon: "🎓",
   keywords: ["GPA", "grade point average", "calculate GPA", "semester GPA", "college"],
   popular: true,
+  faqs: GPA_FAQS,
+  dateModified: "2026-04-09",
 });

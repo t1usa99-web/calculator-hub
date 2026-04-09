@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { BMI_FAQS } from "@/lib/faq-content";
 
 export default function BMICalculator() {
   const [weight, setWeight] = useState(170);
@@ -150,4 +151,7 @@ registerCalculator({
   icon: "⚖️",
   keywords: ["BMI", "body mass index", "healthy weight", "obesity", "weight calculator"],
   popular: true,
+  faqs: BMI_FAQS,
+  ymyl: true,
+  dateModified: "2026-04-09",
 });

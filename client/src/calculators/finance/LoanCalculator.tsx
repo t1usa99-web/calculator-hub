@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { LOAN_FAQS } from "@/lib/faq-content";
 
 export default function LoanCalculator() {
   const [loanAmount, setLoanAmount] = useState(50000);
@@ -172,4 +173,7 @@ registerCalculator({
   icon: "💳",
   keywords: ["loan", "payment", "interest", "APR", "debt"],
   popular: true,
+  faqs: LOAN_FAQS,
+  ymyl: true,
+  dateModified: "2026-04-09",
 });

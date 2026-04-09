@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { COMPOUND_INTEREST_FAQS } from "@/lib/faq-content";
 
 export default function CompoundInterestCalculator() {
   const [principal, setPrincipal] = useState(10000);
@@ -185,4 +186,7 @@ registerCalculator({
   icon: "📈",
   keywords: ["compound interest", "investment growth", "savings", "interest"],
   popular: true,
+  faqs: COMPOUND_INTEREST_FAQS,
+  ymyl: true,
+  dateModified: "2026-04-09",
 });

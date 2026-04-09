@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { INVESTMENT_FAQS } from "@/lib/faq-content";
 
 export default function InvestmentCalculator() {
   const [initialInvestment, setInitialInvestment] = useState(25000);
@@ -192,4 +193,7 @@ registerCalculator({
   icon: "💰",
   keywords: ["investment", "stock market", "growth", "returns", "portfolio"],
   popular: true,
+  faqs: INVESTMENT_FAQS,
+  ymyl: true,
+  dateModified: "2026-04-09",
 });
