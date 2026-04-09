@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ChevronRight, ShieldCheck } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { getCalculator, CATEGORIES } from "@/lib/calculator-registry";
 import SEOHead from "@/components/SEOHead";
 import FAQSection from "@/components/FAQSection";
@@ -116,30 +116,21 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
                   ))}
                 </div>
               )}
-              {/* YMYL E-E-A-T signals */}
-              {calculator.ymyl && (
-                <div className="flex items-center gap-2 text-xs text-gray-500 mt-2">
-                  <ShieldCheck size={14} className="text-green-600" />
-                  <span>
-                    Reviewed by the CalcHub Editorial Team · Last updated{" "}
-                    {new Date(dateModified).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
+              <div className="text-xs text-gray-500 mt-2">
+                {calculator.ymyl && (
+                  <span className="block mb-0.5">
+                    Informational only — not financial, medical, or legal advice.
                   </span>
-                </div>
-              )}
-              {!calculator.ymyl && (
-                <div className="text-xs text-gray-500 mt-2">
+                )}
+                <span>
                   Last updated{" "}
                   {new Date(dateModified).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
                   })}
-                </div>
-              )}
+                </span>
+              </div>
             </div>
           </div>
         </div>

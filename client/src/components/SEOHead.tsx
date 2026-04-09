@@ -14,12 +14,10 @@ interface SEOHeadProps {
   faqs?: FAQItem[];
   datePublished?: string;
   dateModified?: string;
-  author?: string;
 }
 
 const DOMAIN = "https://calculator-hub-production.up.railway.app";
 const DEFAULT_PUBLISHED = "2026-04-01";
-const DEFAULT_AUTHOR = "CalcHub Editorial Team";
 
 export default function SEOHead({
   title,
@@ -29,7 +27,6 @@ export default function SEOHead({
   faqs,
   datePublished,
   dateModified,
-  author,
 }: SEOHeadProps) {
   useEffect(() => {
     // Set document title
@@ -164,7 +161,7 @@ export default function SEOHead({
       };
       jsonldScripts.push(JSON.stringify(softwareApplicationSchema));
 
-      // Article schema - signals editorial content for E-E-A-T
+      // Article schema - publisher/date signals only, no fabricated author
       const articleSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -175,7 +172,7 @@ export default function SEOHead({
         dateModified: dateModified || new Date().toISOString().split("T")[0],
         author: {
           "@type": "Organization",
-          name: author || DEFAULT_AUTHOR,
+          name: "CalcHub",
           url: DOMAIN,
         },
         publisher: {
@@ -289,7 +286,7 @@ export default function SEOHead({
       );
       scripts.forEach((script) => script.remove());
     };
-  }, [title, description, slug, type, faqs, datePublished, dateModified, author]);
+  }, [title, description, slug, type, faqs, datePublished, dateModified]);
 
   return null;
 }
