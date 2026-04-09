@@ -1,20 +1,35 @@
 import { useEffect } from "react";
 import { getCalculator, CATEGORIES } from "@/lib/calculator-registry";
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
   slug?: string;
   type?: "calculator" | "category" | "home";
+  faqs?: FAQItem[];
+  datePublished?: string;
+  dateModified?: string;
+  author?: string;
 }
 
 const DOMAIN = "https://calculator-hub-production.up.railway.app";
+const DEFAULT_PUBLISHED = "2026-04-01";
+const DEFAULT_AUTHOR = "CalcHub Editorial Team";
 
 export default function SEOHead({
   title,
   description,
   slug,
   type = "calculator",
+  faqs,
+  datePublished,
+  dateModified,
+  author,
 }: SEOHeadProps) {
   useEffect(() => {
     // Set document title
@@ -149,6 +164,49 @@ export default function SEOHead({
       };
       jsonldScripts.push(JSON.stringify(softwareApplicationSchema));
 
+      // Article schema - signals editorial content for E-E-A-T
+      const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description: description,
+        url: url,
+        datePublished: datePublished || DEFAULT_PUBLISHED,
+        dateModified: dateModified || new Date().toISOString().split("T")[0],
+        author: {
+          "@type": "Organization",
+          name: author || DEFAULT_AUTHOR,
+          url: DOMAIN,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "CalcHub",
+          url: DOMAIN,
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": url,
+        },
+      };
+      jsonldScripts.push(JSON.stringify(articleSchema));
+
+      // FAQPage schema - rich snippet eligible
+      if (faqs && faqs.length > 0) {
+        const faqSchema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        };
+        jsonldScripts.push(JSON.stringify(faqSchema));
+      }
+
       // BreadcrumbList schema for calculator
       const calculator = getCalculator(slug);
       if (calculator) {
@@ -231,7 +289,7 @@ export default function SEOHead({
       );
       scripts.forEach((script) => script.remove());
     };
-  }, [title, description, slug, type]);
+  }, [title, description, slug, type, faqs, datePublished, dateModified, author]);
 
   return null;
 }

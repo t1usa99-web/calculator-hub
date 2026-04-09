@@ -1,7 +1,9 @@
 import { Link } from "wouter";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ShieldCheck } from "lucide-react";
 import { getCalculator, CATEGORIES } from "@/lib/calculator-registry";
 import SEOHead from "@/components/SEOHead";
+import FAQSection from "@/components/FAQSection";
+import RelatedCalculators from "@/components/RelatedCalculators";
 
 interface CalculatorPageProps {
   slug: string;
@@ -28,6 +30,7 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
 
   const category = CATEGORIES.find((c) => c.id === calculator.category);
   const CalculatorComponent = calculator.component;
+  const dateModified = calculator.dateModified || new Date().toISOString().split("T")[0];
 
   return (
     <>
@@ -36,6 +39,8 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
         description={calculator.description}
         slug={slug}
         type="calculator"
+        faqs={calculator.faqs}
+        dateModified={dateModified}
       />
       <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
@@ -92,7 +97,7 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-start gap-4">
             <div className="text-5xl">{calculator.icon}</div>
-            <div>
+            <div className="flex-1">
               <h1 className="text-4xl font-bold text-gray-900 mb-2">
                 {calculator.title}
               </h1>
@@ -100,7 +105,7 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
                 {calculator.description}
               </p>
               {calculator.keywords.length > 0 && (
-                <div className="flex gap-2 flex-wrap">
+                <div className="flex gap-2 flex-wrap mb-3">
                   {calculator.keywords.slice(0, 3).map((keyword) => (
                     <span
                       key={keyword}
@@ -109,6 +114,30 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
                       {keyword}
                     </span>
                   ))}
+                </div>
+              )}
+              {/* YMYL E-E-A-T signals */}
+              {calculator.ymyl && (
+                <div className="flex items-center gap-2 text-xs text-gray-500 mt-2">
+                  <ShieldCheck size={14} className="text-green-600" />
+                  <span>
+                    Reviewed by the CalcHub Editorial Team · Last updated{" "}
+                    {new Date(dateModified).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </span>
+                </div>
+              )}
+              {!calculator.ymyl && (
+                <div className="text-xs text-gray-500 mt-2">
+                  Last updated{" "}
+                  {new Date(dateModified).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
                 </div>
               )}
             </div>
@@ -121,6 +150,22 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
         <div className="bg-white rounded-lg shadow-lg p-8">
           <CalculatorComponent />
         </div>
+      </section>
+
+      {/* FAQ Section — only if calculator has FAQs */}
+      {calculator.faqs && calculator.faqs.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4">
+          <FAQSection faqs={calculator.faqs} />
+        </section>
+      )}
+
+      {/* Related Calculators */}
+      <section className="max-w-7xl mx-auto px-4">
+        <RelatedCalculators
+          currentSlug={calculator.slug}
+          category={calculator.category}
+          limit={6}
+        />
       </section>
 
       {/* Share/Embed Section */}
