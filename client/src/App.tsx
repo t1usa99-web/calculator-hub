@@ -13,6 +13,7 @@ import "@/calculators/math";
 import "@/calculators/other";
 import "@/calculators/physics";
 import "@/calculators/metals";
+import "@/calculators/construction";
 
 /** Scroll to top on every client-side navigation */
 function ScrollToTop() {

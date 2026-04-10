@@ -326,6 +326,20 @@ const CALCULATOR_SLUGS = [
   "debt-to-income-calculator",
   "personal-loan-calculator",
   "commission-calculator",
+  // Finance — Wave 2
+  "roth-ira-calculator",
+  "ira-calculator",
+  "rmd-calculator",
+  "depreciation-calculator",
+  "fha-loan-calculator",
+  "va-mortgage-calculator",
+  "home-equity-calculator",
+  "debt-consolidation-calculator",
+  "stock-calculator",
+  "payback-period-calculator",
+  "take-home-pay-calculator",
+  "irr-calculator",
+  "net-income-calculator",
   // Health (11)
   "bmi-calculator",
   "calorie-calculator",
@@ -430,9 +444,22 @@ const CALCULATOR_SLUGS = [
   "aluminum-value-calculator",
   "zinc-value-calculator",
   "lead-value-calculator",
+  // Construction (12)
+  "square-footage-calculator",
+  "roofing-calculator",
+  "tile-calculator",
+  "paint-calculator",
+  "fence-calculator",
+  "deck-calculator",
+  "drywall-calculator",
+  "insulation-calculator",
+  "gravel-calculator",
+  "mulch-calculator",
+  "stairs-calculator",
+  "btu-calculator",
 ];
 
-const CATEGORY_SLUGS = ["finance", "math", "health", "other", "physics", "metals"];
+const CATEGORY_SLUGS = ["finance", "math", "health", "other", "physics", "metals", "construction"];
 const DOMAIN = "https://calculator-hub-production.up.railway.app";
 
 // Middleware

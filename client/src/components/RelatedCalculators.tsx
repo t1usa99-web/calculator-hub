@@ -6,7 +6,7 @@ interface RelatedCalculatorsProps {
   /** The slug of the current calculator (to exclude it from the list) */
   currentSlug: string;
   /** The category to pull related calculators from */
-  category: "finance" | "math" | "health" | "other" | "physics" | "metals";
+  category: "finance" | "math" | "health" | "other" | "physics" | "metals" | "construction";
   /** Maximum number of related calculators to show (default 6) */
   limit?: number;
 }

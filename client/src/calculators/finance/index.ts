@@ -54,3 +54,18 @@ import "./CDCalculator";
 import "./DebtToIncomeCalculator";
 import "./PersonalLoanCalculator";
 import "./CommissionCalculator";
+
+// Wave 2 additions
+import "./RothIRACalculator";
+import "./IRACalculator";
+import "./RMDCalculator";
+import "./DepreciationCalculator";
+import "./FHALoanCalculator";
+import "./VAMortgageCalculator";
+import "./HomeEquityCalculator";
+import "./DebtConsolidationCalculator";
+import "./StockCalculator";
+import "./PaybackPeriodCalculator";
+import "./TakeHomePayCalculator";
+import "./IRRCalculator";
+import "./NetIncomeCalculator";
