@@ -21,3 +21,11 @@ import "./WeightLossCalculator";
 import "./ProteinCalculator";
 import "./OneRepMaxCalculator";
 import "./TargetHeartRateCalculator";
+
+// Wave 3 additions
+import "./PregnancyWeightGainCalculator";
+import "./OvulationCalculator";
+import "./PeriodCalculator";
+import "./KetoDietCalculator";
+import "./CarbCalculator";
+import "./FatIntakeCalculator";

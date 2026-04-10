@@ -69,3 +69,8 @@ import "./PaybackPeriodCalculator";
 import "./TakeHomePayCalculator";
 import "./IRRCalculator";
 import "./NetIncomeCalculator";
+
+// Wave 3 additions
+import "./FIRECalculator";
+import "./NPVCalculator";
+import "./WACCCalculator";

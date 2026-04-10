@@ -340,6 +340,10 @@ const CALCULATOR_SLUGS = [
   "take-home-pay-calculator",
   "irr-calculator",
   "net-income-calculator",
+  // Finance — Wave 3
+  "fire-calculator",
+  "npv-calculator",
+  "wacc-calculator",
   // Health (11)
   "bmi-calculator",
   "calorie-calculator",
@@ -360,6 +364,13 @@ const CALCULATOR_SLUGS = [
   "protein-calculator",
   "one-rep-max-calculator",
   "target-heart-rate-calculator",
+  // Health — Wave 3
+  "pregnancy-weight-gain-calculator",
+  "ovulation-calculator",
+  "period-calculator",
+  "keto-calculator",
+  "carb-calculator",
+  "fat-intake-calculator",
   // Math (16)
   "percentage-calculator",
   "fraction-calculator",
@@ -390,6 +401,11 @@ const CALCULATOR_SLUGS = [
   "surface-area-calculator",
   "ratio-calculator",
   "distance-calculator",
+  // Math — Wave 3
+  "matrix-calculator",
+  "permutation-combination-calculator",
+  "z-score-calculator",
+  "confidence-interval-calculator",
   // Other (12)
   "age-calculator",
   "date-calculator",
@@ -403,6 +419,19 @@ const CALCULATOR_SLUGS = [
   "concrete-calculator",
   "hours-calculator",
   "subnet-calculator",
+  // Other — Wave 3
+  "speed-calculator",
+  "wind-chill-calculator",
+  "heat-index-calculator",
+  "dew-point-calculator",
+  "mileage-calculator",
+  "gas-mileage-calculator",
+  "time-card-calculator",
+  "time-zone-calculator",
+  "shoe-size-calculator",
+  "screen-size-calculator",
+  "tip-calculator-advanced",
+  "inflation-adjuster-calculator",
   // Physics (30)
   "projectile-motion-calculator",
   "free-fall-calculator",

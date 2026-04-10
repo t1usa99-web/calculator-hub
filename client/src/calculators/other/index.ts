@@ -12,3 +12,17 @@ export { default as ConcreteCalculator } from "./ConcreteCalculator";
 // Phase 3 additions
 export { default as HoursCalculator } from "./HoursCalculator";
 export { default as SubnetCalculator } from "./SubnetCalculator";
+
+// Wave 3 additions
+export { default as SpeedCalculator } from "./SpeedCalculator";
+export { default as WindChillCalculator } from "./WindChillCalculator";
+export { default as HeatIndexCalculator } from "./HeatIndexCalculator";
+export { default as DewPointCalculator } from "./DewPointCalculator";
+export { default as MileageCalculator } from "./MileageCalculator";
+export { default as GasMileageCalculator } from "./GasMileageCalculator";
+export { default as TimeCardCalculator } from "./TimeCardCalculator";
+export { default as TimeZoneCalculator } from "./TimeZoneCalculator";
+export { default as ShoeSizeCalculator } from "./ShoeSizeCalculator";
+export { default as ScreenSizeCalculator } from "./ScreenSizeCalculator";
+export { default as TipCalculatorAdvanced } from "./TipCalculatorAdvanced";
+export { default as InflationAdjusterCalculator } from "./InflationAdjusterCalculator";

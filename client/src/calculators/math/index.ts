@@ -31,6 +31,12 @@ import "./SurfaceAreaCalculator";
 import "./RatioCalculator";
 import "./DistanceCalculator";
 
+// Wave 3 additions
+import "./MatrixCalculator";
+import "./PermutationCombinationCalculator";
+import "./ZScoreCalculator";
+import "./ConfidenceIntervalCalculator";
+
 export {
   PercentageCalculator,
   FractionCalculator,
