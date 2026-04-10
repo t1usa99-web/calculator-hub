@@ -26,3 +26,25 @@ export { default as ShoeSizeCalculator } from "./ShoeSizeCalculator";
 export { default as ScreenSizeCalculator } from "./ScreenSizeCalculator";
 export { default as TipCalculatorAdvanced } from "./TipCalculatorAdvanced";
 export { default as InflationAdjusterCalculator } from "./InflationAdjusterCalculator";
+
+// Standalone conversion pages
+export { default as InchesToCmCalculator } from "./InchesToCmCalculator";
+export { default as CmToInchesCalculator } from "./CmToInchesCalculator";
+export { default as FeetToMetersCalculator } from "./FeetToMetersCalculator";
+export { default as MetersToFeetCalculator } from "./MetersToFeetCalculator";
+export { default as MilesToKmCalculator } from "./MilesToKmCalculator";
+export { default as KmToMilesCalculator } from "./KmToMilesCalculator";
+export { default as KgToLbsCalculator } from "./KgToLbsCalculator";
+export { default as LbsToKgCalculator } from "./LbsToKgCalculator";
+export { default as OzToGramsCalculator } from "./OzToGramsCalculator";
+
+// Standalone conversion pages (batch 2)
+export { default as FahrenheitToCelsiusCalculator } from "./FahrenheitToCelsiusCalculator";
+export { default as CelsiusToFahrenheitCalculator } from "./CelsiusToFahrenheitCalculator";
+export { default as GallonsToLitersCalculator } from "./GallonsToLitersCalculator";
+export { default as LitersToGallonsCalculator } from "./LitersToGallonsCalculator";
+export { default as CupsToMlCalculator } from "./CupsToMlCalculator";
+export { default as SqftToSqmCalculator } from "./SqftToSqmCalculator";
+export { default as SqmToSqftCalculator } from "./SqmToSqftCalculator";
+export { default as AcresToHectaresCalculator } from "./AcresToHectaresCalculator";
+export { default as MmToInchesCalculator } from "./MmToInchesCalculator";
