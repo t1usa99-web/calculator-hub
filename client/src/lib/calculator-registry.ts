@@ -10,7 +10,7 @@ export interface CalculatorMeta {
   title: string;
   shortTitle: string;
   description: string;
-  category: "finance" | "math" | "health" | "other" | "physics";
+  category: "finance" | "math" | "health" | "other" | "physics" | "metals";
   icon: string;
   keywords: string[];
   popular?: boolean;
@@ -52,4 +52,5 @@ export const CATEGORIES = [
   { id: "health", label: "Health & Fitness", icon: "❤️", description: "BMI, calorie, body fat, and wellness calculators" },
   { id: "physics", label: "Physics", icon: "⚛️", description: "Mechanics, waves, electricity, thermodynamics, and quantum calculators" },
   { id: "other", label: "Everyday", icon: "🔧", description: "Age, tip, GPA, fuel cost, and conversion calculators" },
+  { id: "metals", label: "Metal Value", icon: "🪙", description: "Gold, silver, copper, platinum, and other precious & base metal value calculators" },
 ] as const;

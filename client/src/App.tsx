@@ -11,6 +11,7 @@ import "@/calculators/health";
 import "@/calculators/math";
 import "@/calculators/other";
 import "@/calculators/physics";
+import "@/calculators/metals";
 
 export default function App() {
   return (

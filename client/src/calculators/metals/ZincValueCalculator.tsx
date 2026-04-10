@@ -1,0 +1,45 @@
+import MetalValueCalculator from "@/components/MetalValueCalculator";
+import { registerCalculator } from "@/lib/calculator-registry";
+import { METALS } from "@/lib/metals-config";
+import { ZINC_VALUE_FAQS } from "@/lib/faq-metals";
+
+const metal = METALS.find((m) => m.apiKey === "zinc")!;
+
+const educational = (
+  <div className="space-y-4 text-gray-700">
+    <h3 className="text-lg font-semibold text-gray-900">Zinc: The Galvanization Metal and EV Component</h3>
+    <p>
+      Zinc is an industrial metal whose primary value comes from galvanization—the process of coating steel with zinc to prevent rust. Approximately 50% of global zinc consumption goes toward galvanization, protecting infrastructure like power lines, bridges, automotive bodies, and roofing from corrosion. The remaining demand is split between die-casting (automotive and appliance components), alloys (brass), and a small but growing portion for EV battery research. Unlike precious metals, zinc prices are driven by construction and manufacturing cycles, making it a macro-sensitive commodity that investors and traders use as a barometer for economic health. Understanding zinc's diverse industrial applications, its role in galvanization chemistry, and the emerging opportunities in battery technology helps explain zinc's persistent demand and long-term growth trajectory.
+    </p>
+    <p>
+      <strong>Galvanization: Zinc's Primary Application:</strong> Galvanization is a electrochemical coating process where steel is immersed in molten zinc (typically at 840 degrees Celsius), creating a zinc-iron alloy layer 0.5–2 millimeters thick that bonds metallurgically to the steel surface. The zinc coating protects the underlying steel through two mechanisms: (1) Physical barrier—the zinc layer blocks oxygen and moisture from reaching the steel, preventing rust formation. (2) Sacrificial corrosion—zinc oxidizes preferentially before steel, meaning the zinc coating corrodes first, leaving the steel intact even if the coating is scratched or damaged. A properly galvanized coating lasts 30–50 years in typical outdoor environments, justifying the cost of the galvanization process. Galvanized steel is used in construction (roofing panels, structural beams), automotive (body panels, undercarriage components), infrastructure (guardrails, power poles, bridge components), and appliances (washing machines, HVAC systems). The economic logic is simple: adding 0.5 kg of zinc (cost ~$1–$2) to a 10 kg steel component prevents $50–$100 in rust damage and replacement costs over decades.
+    </p>
+    <p>
+      <strong>Die-Casting and Alloy Applications:</strong> Zinc die-casting is a high-speed manufacturing process where molten zinc (380–420 degrees Celsius) is injected under high pressure into steel dies, producing precision metal parts in seconds. Die-cast zinc is valued for its ability to produce complex geometries with tight tolerances (±0.05 millimeters), requiring no secondary machining. Applications include automotive valve bodies, electrical connectors, carburetor bodies, transmission housings, door locks, and hardware fittings. Zinc die-casting competes with aluminum die-casting and plastic injection molding; zinc is chosen when strength, precision, and cost efficiency are balanced. Another major use is in brass alloys—brasses typically contain 60–70% copper + 20–30% zinc, providing good electrical conductivity and corrosion resistance for plumbing fixtures, musical instruments, ammunition cartridges, and electrical components. Finally, zinc is used in small quantities as an anti-corrosion coating on fasteners, automotive parts, and industrial equipment, capturing additional demand across manufacturing sectors.
+    </p>
+    <p>
+      <strong>Zinc Pricing and the London Metal Exchange:</strong> Zinc is traded as a commodity on the LME in futures contracts for 25 metric tonnes of high-grade slab zinc (99.9%+ purity). Spot prices typically range from $0.90–$1.20 per pound or $1,800–$2,400 per metric ton, though historical swings have ranged from $0.40/lb (2001 trough) to $1.40/lb (2008 peak). LME prices reflect real-time supply-demand balance, inventory levels reported by the exchange, and macroeconomic sentiment about construction and manufacturing. Your scrap dealer will quote 8–15% below the LME spot price, accounting for grading, logistics, and refining costs. Zinc prices are highly cyclical, swinging 20–40% annually as construction cycles and industrial production fluctuate; watching Chinese construction data and US housing starts provides a 2–3 month lead on zinc price trends.
+    </p>
+    <p>
+      <strong>Historical Oddity: Zinc Pennies and Currency:</strong> All US pennies minted from 1982 onward contain 97.5% zinc with a 2.5% copper plating, a dramatic departure from pre-1982 pennies, which were 95% copper. The switch occurred because copper prices had spiked in the late 1970s and early 1980s, making copper pennies nearly valuable as metal scrap, leading to widespread hoarding and melting. To prevent melt-down, the US Mint switched to cheap zinc-core pennies. Today, each penny contains 2.4 grams of zinc + 0.1 gram of copper, totaling ~$0.008 in metal value at current commodity prices—less than the $0.01 face value, making melting uneconomical. Historically, pre-1982 "copper pennies" were occasionally worth melting because copper prices spiked; today, this is federally prohibited, and coins have only their face value plus any numismatic premium (rare dates).
+    </p>
+    <p>
+      <strong>Zinc's Role in EV Battery Development:</strong> Emerging battery research is exploring zinc-air and zinc-ion batteries as potentially cheaper alternatives to lithium-ion technology for stationary (grid) energy storage. Zinc-air batteries offer very high theoretical energy density and use abundant, non-toxic materials, but they face technological hurdles around rechargeable operation and lifespan. Zinc-ion batteries promise cost reduction and safety advantages over lithium-ion. If these technologies achieve commercialization (5–10 year timeframe), zinc demand could increase 5–10% from a new industrial segment. However, this opportunity remains speculative; lithium-ion technology continues improving and may maintain dominance. For now, zinc's EV exposure comes primarily through galvanized steel components (vehicle bodies, fasteners, structural elements), which already represent significant demand. The long-term zinc outlook is stable to slightly positive, driven by construction cycles, manufacturing growth, and potential battery breakthroughs, making it a reliable if unspectacular commodity.
+    </p>
+  </div>
+);
+
+export default function ZincValueCalculator() {
+  return <MetalValueCalculator metal={metal} educational={educational} />;
+}
+
+registerCalculator({
+  ...metal,
+  title: "Zinc Value Calculator",
+  shortTitle: "Zinc Value",
+  category: "metals",
+  popular: false,
+  faqs: ZINC_VALUE_FAQS,
+  dateModified: "2026-04-10",
+  component: ZincValueCalculator,
+});

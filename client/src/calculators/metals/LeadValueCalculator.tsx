@@ -1,0 +1,45 @@
+import MetalValueCalculator from "@/components/MetalValueCalculator";
+import { registerCalculator } from "@/lib/calculator-registry";
+import { METALS } from "@/lib/metals-config";
+import { LEAD_VALUE_FAQS } from "@/lib/faq-metals";
+
+const metal = METALS.find((m) => m.apiKey === "lead")!;
+
+const educational = (
+  <div className="space-y-4 text-gray-700">
+    <h3 className="text-lg font-semibold text-gray-900">Lead: The Battery Metal and Recycling Champion</h3>
+    <p>
+      Lead is one of the most successfully recycled metals on Earth, with a closed-loop recycling system that recovers over 98% of lead from used car batteries. While lead is toxic and hazardous if mishandled, responsible recycling practices have made lead-acid battery recycling one of the most efficient material cycles in modern manufacturing. A typical 12-volt car battery contains 13–15 kilograms of lead and lead dioxide, worth approximately $13–$15 in scrap value at current commodity prices ($0.40–$0.50/lb). This economic value, combined with regulatory mandates to recycle batteries and strong environmental incentives, means that the lead recycling industry operates profitably without subsidies. Understanding lead's role in battery technology, the economics of battery recycling, and safe handling practices is important for anyone working with or interested in this fundamental metal.
+    </p>
+    <p>
+      <strong>Lead-Acid Batteries and Recycling Economics:</strong> A standard 12-volt car battery is essentially a container of lead plates immersed in sulfuric acid. The battery contains approximately 13 kg of pure lead, 6 kg of lead dioxide (lead peroxide), 3 kg of sulfuric acid electrolyte, 8 kg of plastic casing, and terminal posts. When a battery dies, it has lost the ability to accept a charge and hold voltage, but the lead and lead dioxide are chemically undiminished and worth recovering. A dead battery typically costs $15–$30 to purchase as a replacement; its recovered lead scrap is worth $12–$15, making the battery's lead content economically significant. When a battery is smelted at a recycling facility, the lead and lead dioxide are both melted and refined to 99.9%+ purity, indistinguishable chemically from lead recovered from ore mining. The sulfuric acid is neutralized and recycled (becoming sulfuric acid for industrial use or fertilizer production) rather than discarded. This circular closed-loop means that lead-acid batteries are among the most recycled industrial products; the US and Europe achieve 98%+ battery recycling rates because the economics are so favorable.
+    </p>
+    <p>
+      <strong>Alternative Uses for Lead and Demand Drivers:</strong> While lead-acid car batteries dominate recycled lead demand (80%), secondary applications include radiation shielding (medical imaging, nuclear facilities, X-ray rooms), ammunition (bullets, shotgun pellets), wheel weights (increasingly phased out), cable sheathing (historic power cables), solder (older electronics), and pigments (declining due to toxicity regulations). Lead's high density (11.34 g/cm³, one of the highest of any metal) makes it ideal for radiation protection; a thin lead barrier blocks X-rays and gamma radiation effectively. Medical imaging requires lead-lined vests, walls, and containers. However, lead demand is increasingly constrained by health and environmental regulations; many jurisdictions have banned lead ammunition, lead-based paint, and lead additives in fuel (historically a major demand). Lead-acid battery demand for vehicles is slowly declining as electric vehicles (which use lithium-ion batteries and a small 12V lead-acid auxiliary battery) grow, but replacement demand from stationary backup power systems and renewable energy storage is offsetting those losses, keeping overall demand relatively flat.
+    </p>
+    <p>
+      <strong>Health Hazards and Safe Handling:</strong> Lead is highly toxic and requires careful handling. Chronic exposure to lead dust, fumes, or particles causes neurological damage (reduced IQ, learning disabilities in children), kidney damage, anemia, hypertension, and reproductive harm. Children are particularly vulnerable because their developing nervous systems absorb lead more efficiently than adults. Exposure pathways include inhalation (lead dust or fumes from smelting, grinding, or burning lead-painted items) and ingestion (lead particles on hands, especially dangerous for children). Safe handling requires wearing nitrile gloves, respirator with a P100 particulate filter, and eye protection when disassembling batteries, grinding lead scrap, or working near smelting operations. Work in well-ventilated areas and wash hands thoroughly before eating or smoking. OSHA enforces an occupational exposure limit of 0.05 mg/m³ for airborne lead, with medical monitoring required for workers exceeding the action level of 0.03 mg/m³. Battery recycling facilities have strict lead management protocols and employee training to meet these standards. For consumers, recycling a dead car battery through a certified facility is entirely safe—professional handlers have proper equipment and training.
+    </p>
+    <p>
+      <strong>Lead Commodity Pricing and Market Dynamics:</strong> Lead prices are traded on the London Metal Exchange (LME) in contracts for 25 metric tonnes of 99.97% pure lead. Spot prices typically range from $0.40–$0.50 per pound ($800–$1,000 per metric ton), with historical ranges from $0.20/lb (2001 trough) to $1.40/lb (2008 peak). Prices are influenced by automotive production cycles (lead-acid battery demand), construction activity (roofing, radiation shielding demand), and global economic sentiment. Chinese economic data is particularly influential because China is both a major lead consumer and producer. Your scrap dealer will quote 8–15% below LME spot price for clean lead scrap (95%+ purity), with greater discounts for contaminated material (80–85% purity) due to refining costs. Lead prices are less volatile than precious metals but more volatile than base industrial metals like zinc or aluminum, reflecting moderate demand stability and periodic supply shocks.
+    </p>
+    <p>
+      <strong>Long-Term Outlook for Lead Demand:</strong> Lead demand is expected to remain stable to slightly declining through 2035 as electric vehicles reduce lead-acid battery demand for propulsion. However, substitution sources are emerging: (1) Renewable energy storage—solar and wind farms use lead-acid batteries for backup and grid stabilization because of their cost-effectiveness ($100–$150/kWh vs. lithium-ion at $300–$500/kWh). (2) Uninterruptible power supplies (UPS)—data centers, hospitals, and critical infrastructure rely on lead-acid backup batteries. (3) Off-grid and portable power—remote installations favor lead-acid for reliability and low cost. These uses may offset 30–50% of automotive battery losses, keeping overall lead demand relatively stable. Lead is not a rare or critical metal; China and India have ample reserves and smelting capacity. Regulatory headwinds (ammunition bans, paint restrictions) are real but limited to specific applications. For investors, lead is a stable, slow-growth commodity best viewed as industrial ballast, not appreciation play.
+    </p>
+  </div>
+);
+
+export default function LeadValueCalculator() {
+  return <MetalValueCalculator metal={metal} educational={educational} />;
+}
+
+registerCalculator({
+  ...metal,
+  title: "Lead Value Calculator",
+  shortTitle: "Lead Value",
+  category: "metals",
+  popular: false,
+  faqs: LEAD_VALUE_FAQS,
+  dateModified: "2026-04-10",
+  component: LeadValueCalculator,
+});
