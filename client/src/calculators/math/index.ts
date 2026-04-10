@@ -17,6 +17,20 @@ import SimplifyFractionsCalculator from "./SimplifyFractionsCalculator";
 import RoundingCalculator from "./RoundingCalculator";
 import NumbersToWordsCalculator from "./NumbersToWordsCalculator";
 
+// Wave 1 additions
+import "./QuadraticFormulaCalculator";
+import "./PythagoreanTheoremCalculator";
+import "./SlopeCalculator";
+import "./LogCalculator";
+import "./ExponentCalculator";
+import "./AverageCalculator";
+import "./BinaryCalculator";
+import "./HexCalculator";
+import "./CircleCalculator";
+import "./SurfaceAreaCalculator";
+import "./RatioCalculator";
+import "./DistanceCalculator";
+
 export {
   PercentageCalculator,
   FractionCalculator,

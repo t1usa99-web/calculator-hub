@@ -45,3 +45,12 @@ import "./PaymentCalculator";
 import "./InterestRateCalculator";
 import "./FourOhOneKCalculator";
 import "./MortgagePayoffCalculator";
+
+// Wave 1 additions
+import "./CAGRCalculator";
+import "./DividendCalculator";
+import "./APRCalculator";
+import "./CDCalculator";
+import "./DebtToIncomeCalculator";
+import "./PersonalLoanCalculator";
+import "./CommissionCalculator";

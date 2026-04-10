@@ -12,3 +12,12 @@ import "./BACCalculator";
 
 // Phase 3 additions
 import "./PregnancyConceptionCalculator";
+
+// Wave 1 additions
+import "./CaloriesBurnedCalculator";
+import "./SleepCalculator";
+import "./WaterIntakeCalculator";
+import "./WeightLossCalculator";
+import "./ProteinCalculator";
+import "./OneRepMaxCalculator";
+import "./TargetHeartRateCalculator";
