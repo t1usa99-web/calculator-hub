@@ -204,27 +204,6 @@ export const METALS: MetalDefinition[] = [
     ],
   },
   {
-    slug: "rhodium-value-calculator",
-    name: "Rhodium",
-    symbol: "Rh",
-    apiKey: "rhodium",
-    priceUnit: "troy_oz",
-    icon: "Diamond",
-    description:
-      "Calculate the value of rhodium by weight. Rhodium is one of the rarest and most expensive precious metals.",
-    keywords: [
-      "rhodium value calculator",
-      "rhodium price per gram",
-      "rhodium melt value",
-      "rhodium catalytic converter value",
-      "rhodium scrap calculator",
-    ],
-    purities: [
-      { label: "Pure (99.9%)", factor: 0.999 },
-      { label: "Industrial (99%)", factor: 0.99 },
-    ],
-  },
-  {
     slug: "nickel-value-calculator",
     name: "Nickel",
     symbol: "Ni",
@@ -311,28 +290,6 @@ export const METALS: MetalDefinition[] = [
       { label: "Pure (99.9%)", factor: 0.999 },
       { label: "Battery Lead (~95%)", factor: 0.95 },
       { label: "Mixed Scrap (~85%)", factor: 0.85 },
-    ],
-  },
-  {
-    slug: "tin-value-calculator",
-    name: "Tin",
-    symbol: "Sn",
-    apiKey: "tin",
-    priceUnit: "metric_ton",
-    icon: "Package",
-    description:
-      "Calculate the commodity value of tin by weight. Uses live LME commodity prices.",
-    keywords: [
-      "tin value calculator",
-      "tin scrap value",
-      "tin price per pound",
-      "tin commodity price",
-      "tin solder value",
-    ],
-    purities: [
-      { label: "Pure (99.9%)", factor: 0.999 },
-      { label: "Solder (60/40: ~60%)", factor: 0.6 },
-      { label: "Block Tin (~98%)", factor: 0.98 },
     ],
   },
 ];

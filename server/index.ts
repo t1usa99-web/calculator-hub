@@ -7,42 +7,116 @@ const PORT = process.env.PORT || 5000;
 const METALS_API_KEY = process.env.METALS_API_KEY || "";
 
 // ---------------------------------------------------------------------------
-// Metals price cache (in-memory, 1-hour TTL)
+// Metals price cache
+//
+// Two sources:
+//   1. Yahoo Finance (free, unlimited) → gold, silver, copper, platinum,
+//      palladium, aluminum — cached 1 hour
+//   2. Metals.dev (free 100 calls/mo) → nickel, zinc, lead — cached 12 hours
+//      to stay well within the free tier
 // ---------------------------------------------------------------------------
+
 interface MetalsPriceCache {
   data: Record<string, number> | null;
   fetchedAt: number;
 }
 
-const metalsCache: MetalsPriceCache = { data: null, fetchedAt: 0 };
-const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
+const yahooCache: MetalsPriceCache = { data: null, fetchedAt: 0 };
+const metalsDevCache: MetalsPriceCache = { data: null, fetchedAt: 0 };
+const YAHOO_TTL_MS = 60 * 60 * 1000; // 1 hour
+const METALSDEV_TTL_MS = 12 * 60 * 60 * 1000; // 12 hours (~60 calls/mo)
 
-// Fallback prices (USD) — used when no API key is configured or API is down.
-// Precious metals: per troy ounce.  Base metals: per metric ton.
+// Fallback prices (USD) — used when APIs are unreachable.
+// All prices normalised to: precious = USD/troy oz, base = USD/metric ton
 const FALLBACK_PRICES: Record<string, number> = {
   gold: 3100,
   silver: 34,
   platinum: 1020,
   palladium: 980,
-  rhodium: 5200,
   copper: 9500,
   nickel: 16000,
   aluminum: 2400,
   zinc: 2800,
   lead: 2100,
-  tin: 28000,
 };
 
-async function fetchMetalsPrices(): Promise<Record<string, number>> {
+// Yahoo Finance tickers → our metal key + unit info
+const YAHOO_METALS: {
+  ticker: string;
+  key: string;
+  /** What Yahoo returns, so we can convert to our standard unit */
+  yahooUnit: "troy_oz" | "lb" | "metric_ton";
+  /** Our standard unit for this metal */
+  stdUnit: "troy_oz" | "metric_ton";
+}[] = [
+  { ticker: "GC=F", key: "gold", yahooUnit: "troy_oz", stdUnit: "troy_oz" },
+  { ticker: "SI=F", key: "silver", yahooUnit: "troy_oz", stdUnit: "troy_oz" },
+  { ticker: "HG=F", key: "copper", yahooUnit: "lb", stdUnit: "metric_ton" },
+  { ticker: "PL=F", key: "platinum", yahooUnit: "troy_oz", stdUnit: "troy_oz" },
+  { ticker: "PA=F", key: "palladium", yahooUnit: "troy_oz", stdUnit: "troy_oz" },
+  { ticker: "ALI=F", key: "aluminum", yahooUnit: "metric_ton", stdUnit: "metric_ton" },
+];
+
+const LBS_PER_METRIC_TON = 2204.62;
+
+/** Fetch 6 metals from Yahoo Finance (free, no key, no rate limit) */
+async function fetchYahooPrices(): Promise<Record<string, number>> {
   const now = Date.now();
-  if (metalsCache.data && now - metalsCache.fetchedAt < CACHE_TTL_MS) {
-    return metalsCache.data;
+  if (yahooCache.data && now - yahooCache.fetchedAt < YAHOO_TTL_MS) {
+    return yahooCache.data;
+  }
+
+  const prices: Record<string, number> = {};
+  try {
+    // Fetch all tickers in parallel
+    const results = await Promise.allSettled(
+      YAHOO_METALS.map(async (m) => {
+        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${m.ticker}?interval=1d&range=1d`;
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error(`Yahoo ${m.ticker}: ${resp.status}`);
+        const json = (await resp.json()) as any;
+        const price =
+          json?.chart?.result?.[0]?.meta?.regularMarketPrice ?? null;
+        return { key: m.key, price, yahooUnit: m.yahooUnit, stdUnit: m.stdUnit };
+      })
+    );
+
+    for (const r of results) {
+      if (r.status === "fulfilled" && r.value.price != null) {
+        let p = r.value.price;
+        // Convert Yahoo's native unit to our standard unit if needed
+        if (r.value.yahooUnit === "lb" && r.value.stdUnit === "metric_ton") {
+          p = p * LBS_PER_METRIC_TON; // $/lb → $/metric-ton
+        }
+        prices[r.value.key] = p;
+      }
+    }
+
+    if (Object.keys(prices).length > 0) {
+      yahooCache.data = prices;
+      yahooCache.fetchedAt = now;
+      console.log(`[metals] Yahoo: fetched ${Object.keys(prices).length} prices`);
+    }
+  } catch (err) {
+    console.error("[metals] Yahoo fetch error:", err);
+  }
+  return prices;
+}
+
+/** Fetch nickel, zinc, lead from metals.dev (requires API key) */
+async function fetchMetalsDevPrices(): Promise<Record<string, number>> {
+  const now = Date.now();
+  if (metalsDevCache.data && now - metalsDevCache.fetchedAt < METALSDEV_TTL_MS) {
+    return metalsDevCache.data;
   }
 
   if (!METALS_API_KEY) {
-    console.log("[metals] No METALS_API_KEY set — using fallback prices");
-    return FALLBACK_PRICES;
+    return {}; // no key → skip, fallback will be used
   }
+
+  const GRAMS_PER_TROY_OZ = 31.1035;
+  const GRAMS_PER_METRIC_TON = 1_000_000;
+  const TOZ_PER_METRIC_TON = GRAMS_PER_METRIC_TON / GRAMS_PER_TROY_OZ;
 
   try {
     const url = `https://api.metals.dev/v1/latest?api_key=${METALS_API_KEY}&currency=USD&unit=toz`;
@@ -50,40 +124,49 @@ async function fetchMetalsPrices(): Promise<Record<string, number>> {
     if (!resp.ok) throw new Error(`metals.dev responded ${resp.status}`);
     const json = (await resp.json()) as { metals: Record<string, number> };
 
-    // metals.dev returns prices per troy ounce for precious metals.
-    // For base metals it also returns per troy ounce, so we need to convert
-    // base metals to per-metric-ton for consistency with our MetalDefinition.
-    const GRAMS_PER_TROY_OZ = 31.1035;
-    const GRAMS_PER_METRIC_TON = 1_000_000;
-    const TOZ_PER_METRIC_TON = GRAMS_PER_METRIC_TON / GRAMS_PER_TROY_OZ;
-
-    const baseMetal = new Set([
-      "copper",
-      "nickel",
-      "aluminum",
-      "zinc",
-      "lead",
-      "tin",
-    ]);
-
+    const wanted = ["nickel", "zinc", "lead"];
     const prices: Record<string, number> = {};
-    for (const [key, val] of Object.entries(json.metals)) {
-      if (baseMetal.has(key)) {
-        // API gives $/toz for base metals — convert to $/metric-ton
-        prices[key] = val * TOZ_PER_METRIC_TON;
-      } else {
-        prices[key] = val; // already $/toz for precious metals
+    for (const key of wanted) {
+      if (json.metals[key] != null) {
+        // metals.dev returns $/toz for base metals — convert to $/metric-ton
+        prices[key] = json.metals[key] * TOZ_PER_METRIC_TON;
       }
     }
 
-    metalsCache.data = prices;
-    metalsCache.fetchedAt = now;
-    console.log("[metals] Fetched fresh prices from metals.dev");
+    if (Object.keys(prices).length > 0) {
+      metalsDevCache.data = prices;
+      metalsDevCache.fetchedAt = now;
+      console.log(`[metals] metals.dev: fetched ${Object.keys(prices).length} prices`);
+    }
     return prices;
   } catch (err) {
-    console.error("[metals] API fetch failed, using fallback:", err);
-    return metalsCache.data || FALLBACK_PRICES;
+    console.error("[metals] metals.dev fetch error:", err);
+    return metalsDevCache.data || {};
   }
+}
+
+/** Combined: Yahoo (6 metals) + metals.dev (3 metals) + fallback */
+async function fetchAllMetalsPrices(): Promise<{
+  prices: Record<string, number>;
+  sources: string[];
+}> {
+  const [yahooPrices, metalsDevPrices] = await Promise.all([
+    fetchYahooPrices(),
+    fetchMetalsDevPrices(),
+  ]);
+
+  const sources: string[] = [];
+  if (Object.keys(yahooPrices).length > 0) sources.push("yahoo");
+  if (Object.keys(metalsDevPrices).length > 0) sources.push("metals.dev");
+
+  // Merge: Yahoo first, then metals.dev, then fallback for anything missing
+  const prices: Record<string, number> = { ...FALLBACK_PRICES };
+  Object.assign(prices, metalsDevPrices);
+  Object.assign(prices, yahooPrices); // Yahoo wins if overlap
+
+  if (sources.length === 0) sources.push("fallback");
+
+  return { prices, sources };
 }
 
 // All calculator slugs for SEO
@@ -200,18 +283,16 @@ const CALCULATOR_SLUGS = [
   "half-life-calculator",
   "escape-velocity-calculator",
   "density-calculator",
-  // Metals (11)
+  // Metals (9)
   "gold-value-calculator",
   "silver-value-calculator",
   "copper-value-calculator",
   "platinum-value-calculator",
   "palladium-value-calculator",
-  "rhodium-value-calculator",
   "nickel-value-calculator",
   "aluminum-value-calculator",
   "zinc-value-calculator",
   "lead-value-calculator",
-  "tin-value-calculator",
 ];
 
 const CATEGORY_SLUGS = ["finance", "math", "health", "other", "physics", "metals"];
@@ -276,15 +357,17 @@ app.get("/sitemap.xml", (req, res) => {
 // GET /api/metals-prices — returns live (or fallback) spot prices
 app.get("/api/metals-prices", async (req, res) => {
   try {
-    const prices = await fetchMetalsPrices();
+    const { prices, sources } = await fetchAllMetalsPrices();
     res.json({
       prices,
-      source: METALS_API_KEY ? "metals.dev" : "fallback",
-      cachedAt: new Date(metalsCache.fetchedAt || Date.now()).toISOString(),
+      sources,
+      cachedAt: new Date(
+        Math.max(yahooCache.fetchedAt, metalsDevCache.fetchedAt) || Date.now()
+      ).toISOString(),
     });
   } catch (err) {
     console.error("[metals] Endpoint error:", err);
-    res.json({ prices: FALLBACK_PRICES, source: "fallback", cachedAt: null });
+    res.json({ prices: FALLBACK_PRICES, sources: ["fallback"], cachedAt: null });
   }
 });
 

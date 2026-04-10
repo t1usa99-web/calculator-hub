@@ -104,9 +104,9 @@ export default function MetalValueCalculator({ metal, educational }: Props) {
         />
       </div>
 
-      {data?.source && (
+      {data?.sources && (
         <p className="text-xs text-gray-400 mt-2">
-          Prices: {data.source === "metals.dev" ? "Live via metals.dev" : "Estimated (live data unavailable)"}
+          Prices: {data.sources.includes("yahoo") || data.sources.includes("metals.dev") ? `Live via ${data.sources.join(" + ")}` : "Estimated (live data unavailable)"}
           {data.cachedAt && ` — last updated ${new Date(data.cachedAt).toLocaleString()}`}
         </p>
       )}
