@@ -92,7 +92,7 @@ export const METALS: MetalDefinition[] = [
     symbol: "Au",
     apiKey: "gold",
     priceUnit: "troy_oz",
-    icon: "Gem",
+    icon: "🥇",
     description:
       "Calculate the melt value of gold by weight and purity. Uses live spot prices updated throughout the day.",
     keywords: [
@@ -117,7 +117,7 @@ export const METALS: MetalDefinition[] = [
     symbol: "Ag",
     apiKey: "silver",
     priceUnit: "troy_oz",
-    icon: "CircleDollarSign",
+    icon: "🥈",
     description:
       "Calculate the melt value of silver by weight and purity. Uses live spot prices updated throughout the day.",
     keywords: [
@@ -141,7 +141,7 @@ export const METALS: MetalDefinition[] = [
     symbol: "Cu",
     apiKey: "copper",
     priceUnit: "metric_ton",
-    icon: "Coins",
+    icon: "🪙",
     description:
       "Calculate the scrap or melt value of copper by weight. Uses live commodity prices updated daily.",
     keywords: [
@@ -164,7 +164,7 @@ export const METALS: MetalDefinition[] = [
     symbol: "Pt",
     apiKey: "platinum",
     priceUnit: "troy_oz",
-    icon: "Award",
+    icon: "💎",
     description:
       "Calculate the melt value of platinum by weight and purity. Uses live spot prices updated throughout the day.",
     keywords: [
@@ -187,7 +187,7 @@ export const METALS: MetalDefinition[] = [
     symbol: "Pd",
     apiKey: "palladium",
     priceUnit: "troy_oz",
-    icon: "Sparkles",
+    icon: "✨",
     description:
       "Calculate the melt value of palladium by weight. Uses live spot prices updated throughout the day.",
     keywords: [
@@ -209,7 +209,7 @@ export const METALS: MetalDefinition[] = [
     symbol: "Ni",
     apiKey: "nickel",
     priceUnit: "metric_ton",
-    icon: "Disc",
+    icon: "🔩",
     description:
       "Calculate the scrap or commodity value of nickel by weight. Uses live LME commodity prices.",
     keywords: [
@@ -231,7 +231,7 @@ export const METALS: MetalDefinition[] = [
     symbol: "Al",
     apiKey: "aluminum",
     priceUnit: "metric_ton",
-    icon: "Box",
+    icon: "🧱",
     description:
       "Calculate the scrap or commodity value of aluminum by weight. Uses live LME commodity prices.",
     keywords: [
@@ -254,7 +254,7 @@ export const METALS: MetalDefinition[] = [
     symbol: "Zn",
     apiKey: "zinc",
     priceUnit: "metric_ton",
-    icon: "Layers",
+    icon: "⚙️",
     description:
       "Calculate the commodity value of zinc by weight. Uses live LME commodity prices.",
     keywords: [
@@ -276,7 +276,7 @@ export const METALS: MetalDefinition[] = [
     symbol: "Pb",
     apiKey: "lead",
     priceUnit: "metric_ton",
-    icon: "Weight",
+    icon: "🔋",
     description:
       "Calculate the commodity value of lead by weight. Uses live LME commodity prices.",
     keywords: [
