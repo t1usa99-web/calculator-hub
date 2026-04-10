@@ -37,6 +37,18 @@ import "./PermutationCombinationCalculator";
 import "./ZScoreCalculator";
 import "./ConfidenceIntervalCalculator";
 
+// Wave 4 additions
+import "./PercentErrorCalculator";
+import "./NumberSequenceCalculator";
+import "./SampleSizeCalculator";
+import "./PValueCalculator";
+import "./LongDivisionCalculator";
+import "./PrimeFactorizationCalculator";
+import "./ScientificNotationCalculator";
+import "./GCFCalculator";
+import "./LCMCalculator";
+import "./FactorCalculator";
+
 export {
   PercentageCalculator,
   FractionCalculator,

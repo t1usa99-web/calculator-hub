@@ -74,3 +74,10 @@ import "./NetIncomeCalculator";
 import "./FIRECalculator";
 import "./NPVCalculator";
 import "./WACCCalculator";
+
+// Wave 4 additions
+import "./BondCalculator";
+import "./MutualFundCalculator";
+import "./CarLeaseCalculator";
+import "./RealEstateCommissionCalculator";
+import "./PensionCalculator";

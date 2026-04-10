@@ -344,6 +344,12 @@ const CALCULATOR_SLUGS = [
   "fire-calculator",
   "npv-calculator",
   "wacc-calculator",
+  // Finance — Wave 4
+  "bond-calculator",
+  "mutual-fund-calculator",
+  "car-lease-calculator",
+  "real-estate-commission-calculator",
+  "pension-calculator",
   // Health (11)
   "bmi-calculator",
   "calorie-calculator",
@@ -371,6 +377,12 @@ const CALCULATOR_SLUGS = [
   "keto-calculator",
   "carb-calculator",
   "fat-intake-calculator",
+  // Health — Wave 4
+  "lean-body-mass-calculator",
+  "body-surface-area-calculator",
+  "gfr-calculator",
+  "army-body-fat-calculator",
+  "healthy-weight-calculator",
   // Math (16)
   "percentage-calculator",
   "fraction-calculator",
@@ -406,6 +418,17 @@ const CALCULATOR_SLUGS = [
   "permutation-combination-calculator",
   "z-score-calculator",
   "confidence-interval-calculator",
+  // Math — Wave 4
+  "percent-error-calculator",
+  "number-sequence-calculator",
+  "sample-size-calculator",
+  "p-value-calculator",
+  "long-division-calculator",
+  "prime-factorization-calculator",
+  "scientific-notation-calculator",
+  "gcf-calculator",
+  "lcm-calculator",
+  "factor-calculator",
   // Other (12)
   "age-calculator",
   "date-calculator",
@@ -432,6 +455,17 @@ const CALCULATOR_SLUGS = [
   "screen-size-calculator",
   "tip-calculator-advanced",
   "inflation-adjuster-calculator",
+  // Other — Wave 4
+  "golf-handicap-calculator",
+  "dice-roller-calculator",
+  "roman-numeral-calculator",
+  "bandwidth-calculator",
+  "horsepower-calculator",
+  "voltage-drop-calculator",
+  "tire-size-calculator",
+  "day-counter-calculator",
+  "time-duration-calculator",
+  "dog-age-calculator",
   // Standalone conversion pages
   "inches-to-cm",
   "cm-to-inches",

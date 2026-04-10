@@ -48,3 +48,15 @@ export { default as SqftToSqmCalculator } from "./SqftToSqmCalculator";
 export { default as SqmToSqftCalculator } from "./SqmToSqftCalculator";
 export { default as AcresToHectaresCalculator } from "./AcresToHectaresCalculator";
 export { default as MmToInchesCalculator } from "./MmToInchesCalculator";
+
+// Wave 4 additions
+export { default as GolfHandicapCalculator } from "./GolfHandicapCalculator";
+export { default as DiceRollerCalculator } from "./DiceRollerCalculator";
+export { default as RomanNumeralCalculator } from "./RomanNumeralCalculator";
+export { default as BandwidthCalculator } from "./BandwidthCalculator";
+export { default as HorsepowerCalculator } from "./HorsepowerCalculator";
+export { default as VoltageDropCalculator } from "./VoltageDropCalculator";
+export { default as TireSizeCalculator } from "./TireSizeCalculator";
+export { default as DayCounterCalculator } from "./DayCounterCalculator";
+export { default as TimeDurationCalculator } from "./TimeDurationCalculator";
+export { default as DogAgeCalculator } from "./DogAgeCalculator";

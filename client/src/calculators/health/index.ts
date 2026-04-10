@@ -29,3 +29,10 @@ import "./PeriodCalculator";
 import "./KetoDietCalculator";
 import "./CarbCalculator";
 import "./FatIntakeCalculator";
+
+// Wave 4 additions
+import "./LeanBodyMassCalculator";
+import "./BodySurfaceAreaCalculator";
+import "./GFRCalculator";
+import "./ArmyBodyFatCalculator";
+import "./HealthyWeightCalculator";
