@@ -17,6 +17,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { AUTO_LOAN_FAQS } from "@/lib/faq-finance-loans";
 
 export default function AutoLoanCalculator() {
   const [vehiclePrice, setVehiclePrice] = useState(25000);
@@ -214,4 +215,5 @@ registerCalculator({
   keywords: ["auto", "car", "loan", "payment", "vehicle"],
   popular: true,
   component: AutoLoanCalculator,
+  faqs: AUTO_LOAN_FAQS,
 });

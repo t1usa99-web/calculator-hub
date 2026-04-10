@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { FOUR_OH_ONE_K_FAQS } from "@/lib/faq-finance-invest";
 
 export default function FourOhOneKCalculator() {
   const [currentBalance, setCurrentBalance] = useState(50000);
@@ -79,12 +80,33 @@ export default function FourOhOneKCalculator() {
     </div>
   );
 
+  const educational = (
+    <div className="space-y-4 text-gray-700">
+      <h3 className="text-lg font-semibold text-gray-900">
+        401(k) Plans and Retirement Savings Strategy
+      </h3>
+      <p>
+        A 401(k) is an employer-sponsored retirement plan allowing employees to save for retirement with significant tax advantages. You contribute pre-tax dollars (reducing taxable income), employers often match contributions, and investments grow tax-deferred until withdrawal. For 2024, the contribution limit is $23,500 annually. An employee earning $60,000 contributing 6% ($3,600) with a 3% employer match ($1,800) totals $5,400 saved annually. Over 25 years at 7% returns, this grows to approximately $640,000—with roughly $240,000 from employer match alone. Failing to contribute at least enough to capture full employer matching is leaving free money on the table.
+      </p>
+      <p>
+        <strong>Maximizing employer match:</strong> Most employers match 50-100% of contributions up to 3-6% of salary. Contributing less than the full match is suboptimal. For a $100,000 salary with a 3% match, contributing only 2% yields $2,000 in match (on $2,000 contributions), but contributing the full 3% yields $3,000 in match—a $1,000 annual advantage. Over 20 years, this $1,000 annual difference compounds to roughly $50,000 in additional retirement savings. Salary growth amplifies match value: by retirement, compound growth and increased salaries make early match capture exponentially more valuable.
+      </p>
+      <p>
+        <strong>Investment allocation:</strong> Choose a diversified mix of stocks and bonds appropriate for your age. Use the rule of "110 minus age" for stock allocation: a 30-year-old allocates roughly 80% stocks, 20% bonds. Younger workers can tolerate volatility and benefit from long-term growth; older workers need stability. Use low-cost index funds (expense ratios under 0.20%) rather than actively managed funds charging 0.5-1% annually. A 0.5% expense ratio difference, compounded over 30 years on $500,000, costs over $200,000 in lost growth. Rebalance annually to maintain target allocation.
+      </p>
+      <p>
+        <strong>Withdrawal strategy:</strong> 401(k) withdrawals before age 59.5 incur a 10% early withdrawal penalty plus income taxes, making emergency borrowing expensive. Aim to let money compound until retirement, using other savings for short-term needs. At retirement, Required Minimum Distributions (RMDs) begin at age 73 (2023 rules), forcing taxable withdrawals. Plan withdrawals to minimize taxes: consider Roth conversions while income is lower, harvest losses on taxable accounts, and coordinate with Social Security timing. A disciplined 401(k) strategy—maximizing match, diversifying appropriately, and minimizing fees—creates substantial wealth by retirement.
+      </p>
+    </div>
+  );
+
   return (
     <CalculatorLayout
       title="401(k) Calculator"
       description="Project 401(k) growth with compound returns and employer matching"
       slug="401k-calculator"
       results={results}
+      educational={educational}
     >
       <div className="space-y-4">
         <InputField
@@ -181,6 +203,7 @@ export default function FourOhOneKCalculator() {
 
 registerCalculator({
   component: FourOhOneKCalculator,
+  faqs: FOUR_OH_ONE_K_FAQS,
   slug: "401k-calculator",
   title: "401(k) Calculator",
   shortTitle: "401(k)",

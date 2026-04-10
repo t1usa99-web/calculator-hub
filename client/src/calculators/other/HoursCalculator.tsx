@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { HOURS_FAQS } from "@/lib/faq-other";
 
 export default function HoursCalculator() {
   const [startTime, setStartTime] = useState("09:00");
@@ -133,5 +134,6 @@ registerCalculator({
     "break time",
     "payroll",
   ],
+  faqs: HOURS_FAQS,
   dateModified: "2026-04-09",
 });

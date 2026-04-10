@@ -2,6 +2,7 @@ import { useState } from "react";
 import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
+import { NUMBERS_TO_WORDS_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 const ONES = [
@@ -135,6 +136,21 @@ export default function NumbersToWordsCalculator() {
     </div>
   );
 
+  const educational = (
+    <div className="space-y-4 text-gray-700">
+      <h3 className="text-lg font-semibold text-gray-900">Converting Numbers to Words</h3>
+      <p>
+        <strong>Number-to-word conversion</strong> is essential for writing checks, legal documents, and formal communication where numerals alone are insufficient or ambiguous. <strong>Basic groups:</strong> Numbers 0–19 have unique names (zero, one, ..., nineteen). Numbers 20–99 combine tens (twenty, thirty, ..., ninety) with ones. Example: 37 = thirty-seven. Hundreds: say the hundreds digit, then the remaining two digits. Example: 456 = four hundred fifty-six. <strong>Larger numbers group by thousands:</strong> 1,234,567 = one million two hundred thirty-four thousand five hundred sixty-seven. Key rule: hyphenate compound numbers 21–99 (twenty-one, ninety-nine), but not multiples of ten.
+      </p>
+      <p>
+        <strong>Decimals and Special Cases:</strong> For decimals, say "point" followed by each digit: 3.45 = three point four five. Alternatively, use place values: 3.45 = three and forty-five hundredths. Fractions use numerators and ordinal denominators: 3/4 = three-fourths, 5/8 = five-eighths. Negative numbers: "negative" or "minus" precedes the number. Percentages: 45% = forty-five percent. <strong>Formal vs. casual:</strong> Formal writing spells out smaller numbers (one through ten); numerals for larger. Checks require spelled-out amounts (prevents fraud). Legal contracts spell everything out for clarity.
+      </p>
+      <p>
+        <strong>Common Uses:</strong> Checks: "One thousand two hundred thirty-four and 56/100 dollars." Age/years: "She turned twenty-one." Ordinals (positions): "First place," "Twenty-third in line." Understanding number-to-word conversion is practical for communication, especially in contexts where numerals alone could be misunderstood or where formality and precision are required.
+      </p>
+    </div>
+  );
+
   return (
     <CalculatorLayout
       title="Numbers to Words Calculator"
@@ -178,5 +194,6 @@ registerCalculator({
     "english words",
     "numerals",
   ],
+  faqs: NUMBERS_TO_WORDS_FAQS,
   dateModified: "2026-04-09",
 });

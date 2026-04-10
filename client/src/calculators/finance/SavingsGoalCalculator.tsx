@@ -14,6 +14,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { SAVINGS_GOAL_FAQS } from "@/lib/faq-finance-invest";
 
 export default function SavingsGoalCalculator() {
   const [goalAmount, setGoalAmount] = useState(50000);
@@ -258,4 +259,5 @@ registerCalculator({
   keywords: ["savings", "goal", "money", "interest", "emergency fund"],
   popular: true,
   component: SavingsGoalCalculator,
+  faqs: SAVINGS_GOAL_FAQS,
 });

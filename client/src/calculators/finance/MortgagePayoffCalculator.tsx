@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { MORTGAGE_PAYOFF_FAQS } from "@/lib/faq-finance-loans";
 
 export default function MortgagePayoffCalculator() {
   const [loanBalance, setLoanBalance] = useState(250000);
@@ -96,12 +97,34 @@ export default function MortgagePayoffCalculator() {
     </div>
   );
 
+  const educational = (
+    <div className="space-y-4 text-gray-700">
+      <h3 className="text-lg font-semibold text-gray-900">Accelerating Mortgage Payoff</h3>
+      <p>
+        One of the most powerful wealth-building strategies is paying off your mortgage early through extra principal payments. Even small additional payments compound into massive interest savings over decades. The key principle is that any payment above your required minimum that's applied directly to principal reduces your loan balance faster. With a smaller balance, less interest accrues each month (because interest = balance × monthly rate). This creates a compounding effect where extra payments save exponentially more interest as time goes on.
+      </p>
+      <p>
+        <strong>The Math Behind Early Payoff:</strong> On a $300,000 mortgage at 6.5% for 30 years, the standard payment is roughly $1,896/month. Over 30 years, you pay about $682,560 total, of which $382,560 is interest. By paying an extra $200/month toward principal, you reduce the loan to about 22 years (96 months faster) and save approximately $120,000 in total interest. Paying an extra $500/month saves roughly $200,000 in interest and shortens the loan to about 17 years. The earlier in the loan you make extra payments, the more interest you save, because the balance is higher and interest accrues faster on larger balances.
+      </p>
+      <p>
+        <strong>Common Acceleration Strategies:</strong> (1) <strong>Biweekly payments:</strong> Instead of paying monthly, pay half your mortgage every two weeks. This results in 26 half-payments per year, equivalent to 13 full monthly payments, adding one extra payment annually. Biweekly payments cut 4+ years off a 30-year mortgage. (2) <strong>Round-up payments:</strong> If your payment is $1,896, pay $2,000 — the $104 extra goes to principal. (3) <strong>Windfalls:</strong> Apply bonuses, tax refunds, or annual raises directly to principal. (4) <strong>Lump-sum payments:</strong> When possible, make a large principal payment to significantly reduce the balance.
+      </p>
+      <p>
+        <strong>Should You Invest Instead?</strong> This is a legitimate question. Mortgages at 6.5% guaranteed return from paying them off compete with stock market returns (historically 8-10% annually). Mathematically, investing might win over long time horizons. However, paying off the mortgage delivers a guaranteed return, reduces financial stress, and simplifies finances. Many people prefer the psychological certainty of being mortgage-free. A balanced approach: max out employer 401(k) matches (free money), then decide between extra mortgage payments and additional investing based on your risk tolerance and financial goals.
+      </p>
+      <p>
+        <strong>Important: Verify No Prepayment Penalties:</strong> Always confirm your mortgage allows penalty-free prepayment. Federal law prohibits prepayment penalties on mortgages originated after 2009 for most borrowers, but some ARM loans and older mortgages may have limited penalties. Check your loan documents or call your lender. If your lender allows biweekly payments, set up automatic withdrawals to ensure consistency. Even if you can't afford extra payments every month, making one extra payment per year (during bonus season or tax refund) meaningfully accelerates payoff.
+      </p>
+    </div>
+  );
+
   return (
     <CalculatorLayout
       title="Mortgage Payoff Calculator"
       description="Calculate how extra payments can accelerate mortgage payoff and save interest"
       slug="mortgage-payoff-calculator"
       results={results}
+      educational={educational}
     >
       <div className="space-y-4">
         <InputField
@@ -168,4 +191,5 @@ registerCalculator({
     "home loan",
   ],
   dateModified: "2026-04-09",
+  faqs: MORTGAGE_PAYOFF_FAQS,
 });

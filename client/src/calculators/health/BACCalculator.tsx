@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { BAC_FAQS } from "@/lib/faq-health";
 
 export default function BACCalculator() {
   const [gender, setGender] = useState("male");
@@ -194,4 +195,6 @@ registerCalculator({
   icon: "🍺",
   keywords: ["BAC", "blood alcohol concentration", "alcohol calculator", "drunk driving"],
   popular: false,
+  faqs: BAC_FAQS,
+  dateModified: "2026-04-09",
 });

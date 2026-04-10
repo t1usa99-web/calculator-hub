@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { TIME_FAQS } from "@/lib/faq-other";
 
 export default function TimeCalculator() {
   const [hours1, setHours1] = useState(2);
@@ -198,4 +199,6 @@ registerCalculator({
   icon: "⏱️",
   keywords: ["time calculator", "add time", "subtract time", "time conversion"],
   popular: false,
+  faqs: TIME_FAQS,
+  dateModified: "2026-04-09",
 });

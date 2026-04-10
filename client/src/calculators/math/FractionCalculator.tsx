@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { FRACTION_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 function gcd(a: number, b: number): number {
@@ -194,4 +195,6 @@ registerCalculator({
   icon: "🔢",
   keywords: ["fraction", "fractions", "simplify fraction", "add fractions", "fraction calculator"],
   popular: true,
+  faqs: FRACTION_FAQS,
+  dateModified: "2026-04-09"
 });

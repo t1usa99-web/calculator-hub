@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { HOME_AFFORDABILITY_FAQS } from "@/lib/faq-finance-loans";
 
 export default function HomeAffordabilityCalculator() {
   const [annualIncome, setAnnualIncome] = useState(100000);
@@ -248,4 +249,5 @@ registerCalculator({
   icon: "🏡",
   keywords: ["home affordability", "DTI ratio", "housing budget", "max home price"],
   popular: true,
+  faqs: HOME_AFFORDABILITY_FAQS,
 });

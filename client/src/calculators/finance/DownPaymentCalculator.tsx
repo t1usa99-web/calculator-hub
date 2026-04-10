@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { DOWN_PAYMENT_FAQS } from "@/lib/faq-finance-loans";
 
 export default function DownPaymentCalculator() {
   const [homePrice, setHomePrice] = useState(400000);
@@ -220,4 +221,5 @@ registerCalculator({
   category: "finance",
   icon: "🏦",
   keywords: ["down payment", "home savings", "PMI", "first-time buyer", "mortgage"],
+  faqs: DOWN_PAYMENT_FAQS,
 });

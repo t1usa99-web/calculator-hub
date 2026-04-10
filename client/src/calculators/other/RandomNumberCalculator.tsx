@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { RANDOM_NUMBER_FAQS } from "@/lib/faq-other";
 
 export default function RandomNumberCalculator() {
   const [min, setMin] = useState(1);
@@ -200,4 +201,6 @@ registerCalculator({
   icon: "🎲",
   keywords: ["random number generator", "random number", "lottery", "random selection"],
   popular: false,
+  faqs: RANDOM_NUMBER_FAQS,
+  dateModified: "2026-04-09",
 });

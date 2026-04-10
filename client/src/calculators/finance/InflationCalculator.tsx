@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { INFLATION_FAQS } from "@/lib/faq-finance-invest";
 
 export default function InflationCalculator() {
   const [amount, setAmount] = useState(100000);
@@ -224,6 +225,7 @@ export default function InflationCalculator() {
 
 registerCalculator({
   component: InflationCalculator,
+  faqs: INFLATION_FAQS,
   slug: "inflation-calculator",
   title: "Inflation Calculator",
   shortTitle: "Inflation",

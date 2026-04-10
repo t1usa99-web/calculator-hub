@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { RENT_VS_BUY_FAQS } from "@/lib/faq-finance-loans";
 
 export default function RentVsBuyCalculator() {
   const [homePrice, setHomePrice] = useState(400000);
@@ -257,4 +258,5 @@ registerCalculator({
   icon: "🏠",
   keywords: ["rent", "buy", "home", "mortgage", "property", "housing"],
   popular: true,
+  faqs: RENT_VS_BUY_FAQS,
 });

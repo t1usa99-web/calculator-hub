@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { STUDENT_LOAN_FAQS } from "@/lib/faq-finance-loans";
 
 export default function StudentLoanCalculator() {
   const [loanBalance, setLoanBalance] = useState(50000);
@@ -181,4 +182,5 @@ registerCalculator({
   category: "finance",
   icon: "🎓",
   keywords: ["student loans", "loan repayment", "education debt", "interest", "payoff"],
+  faqs: STUDENT_LOAN_FAQS,
 });

@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { BREAK_EVEN_FAQS } from "@/lib/faq-finance-invest";
 
 export default function BreakEvenCalculator() {
   const [fixedCosts, setFixedCosts] = useState(50000);
@@ -196,6 +197,7 @@ export default function BreakEvenCalculator() {
 
 registerCalculator({
   component: BreakEvenCalculator,
+  faqs: BREAK_EVEN_FAQS,
   slug: "breakeven-calculator",
   title: "Breakeven Calculator",
   shortTitle: "Breakeven",

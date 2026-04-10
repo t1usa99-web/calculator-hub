@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { BUSINESS_LOAN_FAQS } from "@/lib/faq-finance-loans";
 
 export default function BusinessLoanCalculator() {
   const [loanAmount, setLoanAmount] = useState(100000);
@@ -210,4 +211,5 @@ registerCalculator({
   icon: "💼",
   keywords: ["business loan", "SBA loan", "small business", "loan payment"],
   popular: false,
+  faqs: BUSINESS_LOAN_FAQS,
 });

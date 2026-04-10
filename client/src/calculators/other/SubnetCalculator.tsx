@@ -3,6 +3,7 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { SUBNET_FAQS } from "@/lib/faq-other";
 
 function ipStringToNumber(ip: string): number {
   const parts = ip.split(".").map(Number);
@@ -169,5 +170,6 @@ registerCalculator({
     "IPv4",
     "networking",
   ],
+  faqs: SUBNET_FAQS,
   dateModified: "2026-04-09",
 });

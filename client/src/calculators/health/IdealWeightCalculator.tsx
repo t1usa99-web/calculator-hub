@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { IDEAL_WEIGHT_FAQS } from "@/lib/faq-health";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function IdealWeightCalculator() {
@@ -167,4 +168,6 @@ registerCalculator({
   icon: "🎯",
   keywords: ["ideal weight", "healthy weight", "weight calculator", "Devine formula"],
   popular: false,
+  faqs: IDEAL_WEIGHT_FAQS,
+  dateModified: "2026-04-09",
 });

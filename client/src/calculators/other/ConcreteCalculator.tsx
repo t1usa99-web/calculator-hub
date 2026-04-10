@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { CONCRETE_FAQS } from "@/lib/faq-other";
 
 export default function ConcreteCalculator() {
   const [length, setLength] = useState(10);
@@ -237,4 +238,6 @@ registerCalculator({
   icon: "🏗️",
   keywords: ["concrete calculator", "cubic yards", "concrete bags", "concrete volume"],
   popular: false,
+  faqs: CONCRETE_FAQS,
+  dateModified: "2026-04-09",
 });

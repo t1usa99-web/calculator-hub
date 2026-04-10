@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { PROJECTILE_MOTION_FAQS } from "@/lib/faq-physics-mechanics";
 
 export default function ProjectileMotionCalculator() {
   const [velocity, setVelocity] = useState(50);
@@ -34,6 +35,24 @@ export default function ProjectileMotionCalculator() {
       />
       <ResultCard label="Time of Flight" value={`${formatNumber(timeOfFlight, 2)} s`} />
       <ResultCard label="Final Velocity" value={`${formatNumber(finalVelocity, 2)} m/s`} />
+    </div>
+  );
+
+  const educational = (
+    <div className="space-y-4 text-gray-700">
+      <h3 className="text-lg font-semibold text-gray-900">Projectile Motion Fundamentals</h3>
+      <p>
+        Projectile motion combines horizontal (constant velocity) and vertical (constant acceleration) components. Horizontal velocity remains constant: <strong>vx = v × cos(θ)</strong>, where v is initial velocity and θ is launch angle. Vertical velocity changes due to gravity: <strong>vy = v × sin(θ) − g × t</strong>. Position: <strong>x = vx × t</strong>, <strong>y = vy × t − 0.5g × t²</strong>. Example: launching at 20 m/s at 45°, vx = vy ≈ 14.1 m/s. Maximum height occurs when vy = 0: <strong>hmax = vy² / (2g)</strong> ≈ 10.2 m. Range: <strong>R = (v² × sin(2θ)) / g</strong> ≈ 40.8 m. Maximum range occurs at 45° for level ground.
+      </p>
+      <p>
+        <strong>Key Observations:</strong> Launch angle significantly affects trajectory. A 30° launch and 60° launch have equal ranges but different maximum heights (30° is lower, flatter; 60° is higher, steeper). Doubling initial velocity quadruples range and maximum height (v² dependence). Vertical motion is independent of horizontal motion—each component can be analyzed separately. Air resistance, neglected in ideal calculations, becomes significant in real scenarios, reducing range and maximum height. Understanding these components allows prediction of projectile paths in sports, ballistics, and engineering.
+      </p>
+      <p>
+        <strong>Time of Flight Calculation:</strong> Total flight time depends on initial height and vertical velocity: <strong>y = y₀ + vy × t − 0.5g × t²</strong>. Setting y = 0 (landing height) and solving for t gives time of flight. For level ground (y₀ = 0): <strong>t = 2vy / g = (2v × sin(θ)) / g</strong>. Example: 20 m/s at 45° gives t ≈ 2.88 seconds. Higher launch angles increase flight time. Initial height also increases flight time—launching from a cliff extends range. Steeper angles maximize height but reduce range; optimal angle depends on the specific problem.
+      </p>
+      <p>
+        <strong>Real-World Applications:</strong> Projectile motion applies to sports (basketball, baseball, soccer), ballistics (bullet trajectory), and water fountains. Athletes intuitively understand optimal angles for distance vs. height. Artillery and firearms use ballistics calculations accounting for air resistance, wind, and gravity variations. Fireworks trajectories follow parabolic paths. Skydiving and parachute deployment involve projectile motion analysis. Understanding projectile motion helps design safer equipment, predict motion outcomes, and optimize performance in numerous applications from sports to warfare.
+      </p>
     </div>
   );
 
@@ -96,5 +115,6 @@ registerCalculator({
   icon: "🎯",
   keywords: ["projectile motion", "physics calculator", "trajectory", "kinematics"],
   component: ProjectileMotionCalculator,
+  faqs: PROJECTILE_MOTION_FAQS,
   dateModified: "2026-04-09",
 });

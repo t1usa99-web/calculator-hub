@@ -3,6 +3,7 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { TRIANGLE_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TriangleCalculator() {
@@ -101,6 +102,21 @@ export default function TriangleCalculator() {
     </div>
   );
 
+  const educational = (
+    <div className="space-y-4 text-gray-700">
+      <h3 className="text-lg font-semibold text-gray-900">Understanding Triangle Properties</h3>
+      <p>
+        Triangles are defined by three vertices connected by three sides. <strong>Sum of angles:</strong> All three interior angles always sum to 180°. This fundamental rule allows you to find the third angle if you know two others. <strong>Triangle inequality:</strong> The sum of any two sides must be greater than the third side. For example, if two sides are 3 and 4, the third must be less than 7 and greater than 1. <strong>Triangle types by sides:</strong> Equilateral (all equal), isosceles (two equal), scalene (none equal). <strong>By angles:</strong> Acute (all {'<'} 90°), right (one = 90°), obtuse (one {'>'} 90°). The relationships between sides and angles matter: longer sides are opposite larger angles. A right triangle satisfies the Pythagorean theorem: a² + b² = c².
+      </p>
+      <p>
+        <strong>Calculating Area and Perimeter:</strong> Perimeter is simply the sum of all three sides. Area depends on what you know: <strong>base × height ÷ 2</strong> if you know base and perpendicular height. <strong>Heron's formula:</strong> A = √[s(s−a)(s−b)(s−c)], where s = (a+b+c)/2 (semi-perimeter). This works when you know all three sides. For right triangles, the two legs serve as base and height, making area calculation straightforward. Example: right triangle with legs 5 and 12. Area = 5 × 12 ÷ 2 = 30. Using Pythagorean theorem, hypotenuse = √(25+144) = √169 = 13.
+      </p>
+      <p>
+        <strong>Practical Applications:</strong> Triangles are fundamental in surveying, architecture, and construction. The law of sines and law of cosines extend calculations to any triangle (not just right triangles), solving real-world problems like finding distances or angles in landscapes. Understanding triangle properties helps in geometry, trigonometry, and even physics (forces, motion). When working with triangles, always verify the triangle inequality to ensure sides can form a valid triangle.
+      </p>
+    </div>
+  );
+
   return (
     <CalculatorLayout
       title="Triangle Calculator"
@@ -164,5 +180,6 @@ registerCalculator({
     "angles",
     "Heron's formula",
   ],
+  faqs: TRIANGLE_FAQS,
   dateModified: "2026-04-09",
 });

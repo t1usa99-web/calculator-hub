@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { FUEL_COST_FAQS } from "@/lib/faq-other";
 
 export default function FuelCostCalculator() {
   const [distance, setDistance] = useState(500);
@@ -161,4 +162,6 @@ registerCalculator({
   icon: "⛽",
   keywords: ["fuel cost", "gas calculator", "MPG calculator", "trip cost"],
   popular: false,
+  faqs: FUEL_COST_FAQS,
+  dateModified: "2026-04-09",
 });

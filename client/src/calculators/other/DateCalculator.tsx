@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { DATE_FAQS } from "@/lib/faq-other";
 
 export default function DateCalculator() {
   const [startYear, setStartYear] = useState(2024);
@@ -181,4 +182,6 @@ registerCalculator({
   icon: "📅",
   keywords: ["date calculator", "days between dates", "date difference", "business days"],
   popular: false,
+  faqs: DATE_FAQS,
+  dateModified: "2026-04-09",
 });

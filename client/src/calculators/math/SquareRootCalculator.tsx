@@ -4,6 +4,7 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { SQUARE_ROOT_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function SquareRootCalculator() {
@@ -146,4 +147,6 @@ registerCalculator({
   icon: "√",
   keywords: ["square root", "cube root", "radical", "nth root", "simplify radical"],
   popular: false,
+  faqs: SQUARE_ROOT_FAQS,
+  dateModified: "2026-04-09"
 });

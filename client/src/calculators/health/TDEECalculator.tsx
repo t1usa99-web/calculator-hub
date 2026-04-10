@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { TDEE_FAQS } from "@/lib/faq-health";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TDEECalculator() {
@@ -200,4 +201,6 @@ registerCalculator({
   icon: "🍎",
   keywords: ["TDEE", "total daily energy expenditure", "macros", "calorie calculator", "nutrition"],
   popular: false,
+  faqs: TDEE_FAQS,
+  dateModified: "2026-04-09",
 });

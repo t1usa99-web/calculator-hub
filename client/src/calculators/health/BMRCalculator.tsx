@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { BMR_FAQS } from "@/lib/faq-health";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function BMRCalculator() {
@@ -161,4 +162,6 @@ registerCalculator({
   icon: "🔋",
   keywords: ["BMR", "basal metabolic rate", "resting metabolic rate", "metabolism"],
   popular: false,
+  faqs: BMR_FAQS,
+  dateModified: "2026-04-09",
 });

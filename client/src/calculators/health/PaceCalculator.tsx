@@ -4,6 +4,7 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { PACE_FAQS } from "@/lib/faq-health";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PaceCalculator() {
@@ -171,4 +172,6 @@ registerCalculator({
   icon: "🏃",
   keywords: ["pace calculator", "running pace", "cycling pace", "race time", "marathon calculator"],
   popular: false,
+  faqs: PACE_FAQS,
+  dateModified: "2026-04-09",
 });

@@ -14,6 +14,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { CREDIT_CARD_FAQS } from "@/lib/faq-finance-loans";
 
 export default function CreditCardCalculator() {
   const [balance, setBalance] = useState(5000);
@@ -314,4 +315,5 @@ registerCalculator({
   keywords: ["credit", "card", "interest", "payoff", "debt", "APR"],
   popular: true,
   component: CreditCardCalculator,
+  faqs: CREDIT_CARD_FAQS,
 });

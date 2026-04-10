@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { MACRO_FAQS } from "@/lib/faq-health";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function MacroCalculator() {
@@ -234,4 +235,6 @@ registerCalculator({
   icon: "🥗",
   keywords: ["macro calculator", "macronutrients", "protein", "carbs", "fat", "nutrition", "diet"],
   popular: false,
+  faqs: MACRO_FAQS,
+  dateModified: "2026-04-09",
 });

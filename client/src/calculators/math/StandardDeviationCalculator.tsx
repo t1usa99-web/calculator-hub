@@ -3,6 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import CalculatorLayout from "@/components/CalculatorLayout";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { STANDARD_DEVIATION_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function StandardDeviationCalculator() {
@@ -149,4 +150,6 @@ registerCalculator({
   icon: "📈",
   keywords: ["standard deviation", "statistics", "variance", "mean", "median", "mode", "data analysis"],
   popular: false,
+  faqs: STANDARD_DEVIATION_FAQS,
+  dateModified: "2026-04-09"
 });

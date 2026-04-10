@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { ROI_FAQS } from "@/lib/faq-finance-invest";
 
 export default function ROICalculator() {
   const [initialInvestment, setInitialInvestment] = useState(10000);
@@ -130,6 +131,7 @@ export default function ROICalculator() {
 
 registerCalculator({
   component: ROICalculator,
+  faqs: ROI_FAQS,
   slug: "roi-calculator",
   title: "ROI Calculator",
   shortTitle: "ROI",

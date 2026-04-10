@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { MIXED_NUMBERS_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 function gcd(a: number, b: number): number {
@@ -109,6 +110,21 @@ export default function MixedNumbersCalculator() {
     </div>
   );
 
+  const educational = (
+    <div className="space-y-4 text-gray-700">
+      <h3 className="text-lg font-semibold text-gray-900">Working with Mixed Numbers</h3>
+      <p>
+        A <strong>mixed number</strong> combines a whole number and a proper fraction (numerator {'<'} denominator): 2 3/5 means "two and three-fifths" or 2 + 3/5. Mixed numbers are intuitive for everyday measurements—2 3/4 cups flour is clearer than 11/4 cups. <strong>Converting to improper fractions:</strong> Multiply the whole by the denominator, add the numerator, place over the denominator. Example: 2 3/5 = (2×5+3)/5 = 13/5. <strong>Converting improper to mixed:</strong> Divide numerator by denominator; quotient is the whole, remainder is the new numerator. Example: 13/5 ÷ 5 = 2 remainder 3, so 13/5 = 2 3/5. Always simplify the fraction part (3/6 becomes 1/2).
+      </p>
+      <p>
+        <strong>Arithmetic with Mixed Numbers:</strong> For addition/subtraction, you can add wholes and fractions separately (if denominators match) or convert to improper fractions first. Example: 2 1/3 + 1 1/3 = (2+1) + (1/3+1/3) = 3 2/3, or 7/3 + 4/3 = 11/3 = 3 2/3. For multiplication/division, <strong>always convert to improper fractions first</strong> because mixed number arithmetic is undefined. Example: 2 1/2 × 1 1/3 = 5/2 × 4/3 = 20/6 = 10/3 = 3 1/3. Forgetting to convert is a common mistake.
+      </p>
+      <p>
+        <strong>Real-World Uses:</strong> Cooking (2 1/2 cups), construction (boards 8 3/4 inches wide), time (1 1/2 hours). Mixed numbers are practical and human-friendly. When calculating, convert to improper for accuracy, then convert back to mixed for clarity. Understanding both forms is essential for practical mathematics and communication with others about measurements and quantities.
+      </p>
+    </div>
+  );
+
   return (
     <CalculatorLayout
       title="Mixed Numbers Calculator"
@@ -209,5 +225,6 @@ registerCalculator({
     "simplify",
     "improper fractions",
   ],
+  faqs: MIXED_NUMBERS_FAQS,
   dateModified: "2026-04-09",
 });

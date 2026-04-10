@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { ELECTRICITY_COST_FAQS } from "@/lib/faq-other";
 
 export default function ElectricityCostCalculator() {
   const [watts, setWatts] = useState(1000);
@@ -188,4 +189,6 @@ registerCalculator({
   icon: "⚡",
   keywords: ["electricity cost", "power calculator", "energy cost", "kWh calculator"],
   popular: false,
+  faqs: ELECTRICITY_COST_FAQS,
+  dateModified: "2026-04-09",
 });

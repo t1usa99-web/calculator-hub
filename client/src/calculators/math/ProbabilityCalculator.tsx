@@ -4,6 +4,7 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatPercent } from "@/lib/utils";
+import { PROBABILITY_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function ProbabilityCalculator() {
@@ -159,4 +160,6 @@ registerCalculator({
   icon: "🎲",
   keywords: ["probability", "odds", "expected value", "statistics", "likelihood"],
   popular: false,
+  faqs: PROBABILITY_FAQS,
+  dateModified: "2026-04-09"
 });

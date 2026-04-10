@@ -5,6 +5,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { TAX_FAQS } from "@/lib/faq-finance-invest";
 
 export default function TaxCalculator() {
   const [filingStatus, setFilingStatus] = useState("single");
@@ -228,6 +229,7 @@ export default function TaxCalculator() {
 
 registerCalculator({
   component: TaxCalculator,
+  faqs: TAX_FAQS,
   slug: "tax-calculator",
   title: "Tax Calculator",
   shortTitle: "Taxes",

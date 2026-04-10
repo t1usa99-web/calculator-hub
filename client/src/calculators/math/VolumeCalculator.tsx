@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { VOLUME_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function VolumeCalculator() {
@@ -225,4 +226,6 @@ registerCalculator({
   icon: "📦",
   keywords: ["volume", "surface area", "sphere", "cylinder", "cone", "cube"],
   popular: false,
+  faqs: VOLUME_FAQS,
+  dateModified: "2026-04-09"
 });

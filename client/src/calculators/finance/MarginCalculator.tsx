@@ -5,6 +5,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { MARGIN_FAQS } from "@/lib/faq-finance-invest";
 
 export default function MarginCalculator() {
   const [costPrice, setCostPrice] = useState(50);
@@ -169,6 +170,7 @@ export default function MarginCalculator() {
 
 registerCalculator({
   component: MarginCalculator,
+  faqs: MARGIN_FAQS,
   slug: "margin-calculator",
   title: "Margin Calculator",
   shortTitle: "Margin",

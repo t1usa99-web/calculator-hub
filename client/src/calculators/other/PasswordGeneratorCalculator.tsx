@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { PASSWORD_GENERATOR_FAQS } from "@/lib/faq-other";
 
 export default function PasswordGeneratorCalculator() {
   const [length, setLength] = useState(16);
@@ -233,4 +234,6 @@ registerCalculator({
   icon: "🔐",
   keywords: ["password generator", "strong password", "random password", "password security"],
   popular: false,
+  faqs: PASSWORD_GENERATOR_FAQS,
+  dateModified: "2026-04-09",
 });

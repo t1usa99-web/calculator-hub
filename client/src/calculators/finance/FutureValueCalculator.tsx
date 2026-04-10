@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { FUTURE_VALUE_FAQS } from "@/lib/faq-finance-invest";
 
 export default function FutureValueCalculator() {
   const [presentValue, setPresentValue] = useState(50000);
@@ -54,12 +55,33 @@ export default function FutureValueCalculator() {
     </div>
   );
 
+  const educational = (
+    <div className="space-y-4 text-gray-700">
+      <h3 className="text-lg font-semibold text-gray-900">
+        Understanding Future Value and Compound Growth
+      </h3>
+      <p>
+        Future value calculations show how money grows over time through investing. The fundamental formula is <strong>FV = PV × (1 + r)ⁿ</strong>, where PV is your initial investment, r is the annual return rate, and n is the number of years. Understanding this principle reveals why starting to invest early makes such an enormous difference in long-term wealth accumulation. A dollar invested today grows exponentially, not linearly—the first years contribute a small amount, but later years generate dramatically larger returns due to compounding effects.
+      </p>
+      <p>
+        <strong>Compounding frequency matters:</strong> The more frequently interest compounds (daily vs. annually), the more you earn. Most savings accounts compound daily, while investment returns typically compound quarterly or annually. Regular monthly contributions amplify growth significantly beyond lump-sum investing. Adding $500/month for 20 years at 7% returns yields roughly $278,000, with $120,000 coming from investment growth and interest. The same $120,000 invested as a lump sum only grows to $232,000 without the additional contributions, highlighting the power of consistent, disciplined saving.
+      </p>
+      <p>
+        <strong>Rate of return is critical:</strong> A seemingly small difference in annual returns compounds into substantial variations. An investment earning 6% annually becomes $322,000 in 20 years (assuming $500/month contributions), while 8% returns yield $366,000—a $44,000 difference from just 2% higher returns. This demonstrates why selecting appropriate investments with suitable risk-adjusted returns is essential. However, always account for inflation; a 7% nominal return minus 3% inflation equals 4% real growth in purchasing power.
+      </p>
+      <p>
+        <strong>Planning and flexibility:</strong> Use future value calculations for retirement planning, major purchase goals, education savings, or business planning. Adjust the time period to see how delaying investments impacts outcomes: starting at 25 versus 35 shows vastly different retirement balances. Changes in contribution amounts, return rates, and time horizons reveal sensitivity: more aggressive investors targeting higher returns need to balance that with market risk and potential volatility.
+      </p>
+    </div>
+  );
+
   return (
     <CalculatorLayout
       title="Future Value Calculator"
       description="Calculate the future value of investments with regular contributions"
       slug="future-value-calculator"
       results={results}
+      educational={educational}
     >
       <div className="space-y-4">
         <InputField
@@ -110,6 +132,7 @@ export default function FutureValueCalculator() {
 
 registerCalculator({
   component: FutureValueCalculator,
+  faqs: FUTURE_VALUE_FAQS,
   slug: "future-value-calculator",
   title: "Future Value Calculator",
   shortTitle: "Future Value",

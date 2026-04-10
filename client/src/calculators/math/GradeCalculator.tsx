@@ -4,6 +4,7 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { GRADE_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function GradeCalculator() {
@@ -150,4 +151,6 @@ registerCalculator({
   icon: "📝",
   keywords: ["grade calculator", "final exam score", "calculate grade", "needed grade"],
   popular: false,
+  faqs: GRADE_FAQS,
+  dateModified: "2026-04-09"
 });

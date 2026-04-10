@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { UNIT_CONVERTER_FAQS } from "@/lib/faq-other";
 
 export default function UnitConverterCalculator() {
   const [category, setCategory] = useState("length");
@@ -205,4 +206,6 @@ registerCalculator({
   icon: "📏",
   keywords: ["unit converter", "metric conversion", "length converter", "weight converter"],
   popular: true,
+  faqs: UNIT_CONVERTER_FAQS,
+  dateModified: "2026-04-09",
 });

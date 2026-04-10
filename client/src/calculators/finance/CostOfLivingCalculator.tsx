@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { COST_OF_LIVING_FAQS } from "@/lib/faq-finance-invest";
 
 // Cost of living indices for major US cities (relative to national average of 100)
 const CITY_INDICES = {
@@ -189,6 +190,7 @@ export default function CostOfLivingCalculator() {
 
 registerCalculator({
   component: CostOfLivingCalculator,
+  faqs: COST_OF_LIVING_FAQS,
   slug: "cost-of-living-calculator",
   title: "Cost of Living Calculator",
   shortTitle: "Cost of Living",

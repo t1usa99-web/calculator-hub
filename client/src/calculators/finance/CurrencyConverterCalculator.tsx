@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { CURRENCY_CONVERTER_FAQS } from "@/lib/faq-finance-invest";
 
 // Hardcoded exchange rates (USD base)
 const EXCHANGE_RATES: { [key: string]: number } = {
@@ -200,6 +201,7 @@ export default function CurrencyConverterCalculator() {
 
 registerCalculator({
   component: CurrencyConverterCalculator,
+  faqs: CURRENCY_CONVERTER_FAQS,
   slug: "currency-converter-calculator",
   title: "Currency Converter Calculator",
   shortTitle: "Currency Converter",

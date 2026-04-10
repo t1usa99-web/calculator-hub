@@ -14,6 +14,7 @@ import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { DEBT_PAYOFF_FAQS } from "@/lib/faq-finance-loans";
 
 export default function DebtPayoffCalculator() {
   const [totalDebt, setTotalDebt] = useState(15000);
@@ -268,4 +269,5 @@ registerCalculator({
   keywords: ["debt", "payoff", "loan", "credit", "interest"],
   popular: true,
   component: DebtPayoffCalculator,
+  faqs: DEBT_PAYOFF_FAQS,
 });

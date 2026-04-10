@@ -6,6 +6,7 @@ import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
 import { registerCalculator } from "@/lib/calculator-registry";
+import { ANNUITY_FAQS } from "@/lib/faq-finance-invest";
 
 export default function AnnuityCalculator() {
   const [periodicPayment, setPeriodicPayment] = useState(1000);
@@ -233,6 +234,7 @@ export default function AnnuityCalculator() {
 
 registerCalculator({
   component: AnnuityCalculator,
+  faqs: ANNUITY_FAQS,
   slug: "annuity-calculator",
   title: "Annuity Calculator",
   shortTitle: "Annuity",

@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { ROUNDING_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function RoundingCalculator() {
@@ -65,6 +66,21 @@ export default function RoundingCalculator() {
         label="Rounded to Nearest Even"
         value={formatNumber(roundedEven)}
       />
+    </div>
+  );
+
+  const educational = (
+    <div className="space-y-4 text-gray-700">
+      <h3 className="text-lg font-semibold text-gray-900">Understanding Rounding</h3>
+      <p>
+        <strong>Rounding</strong> replaces a number with a simpler approximation while keeping it close to the original value. <strong>Basic rule:</strong> Identify the rounding place (e.g., nearest tenth). Look at the digit to the right (test digit). If test ≥ 5, round up; if {'<'} 5, round down. Example: 3.46 rounded to nearest tenth: test digit = 6 ≥ 5, so round up → 3.5. Another: 3.44 → test = 4 {'<'} 5 → round down → 3.4. <strong>Rounding place values:</strong> To nearest whole: look at tenths. To nearest tenth: look at hundredths. To nearest hundred: look at tens. Always remember the rule: 5 and above, give it a shove (round up); 4 and below, let it go (round down).
+      </p>
+      <p>
+        <strong>Why Round?</strong> Simplifies numbers for communication and mental math. $3.486 is awkward; $3.49 or $3.50 is clearer. Scientific measurements often round to significant figures to convey precision. <strong>Cascading carries:</strong> Sometimes rounding causes a carry. Example: 9.96 rounded to nearest tenth: hundredths = 6 ≥ 5, round tenths from 9 to 10, which carries: 9.96 → 10.0. <strong>Rounding vs. Truncating:</strong> Rounding adjusts based on the test digit. Truncating (chopping) simply removes digits without adjustment. 3.67 rounded → 3.7; truncated → 3.6. Rounding is more accurate; truncating is faster in programming.
+      </p>
+      <p>
+        <strong>Significant Figures and Precision:</strong> Rounding to significant figures (sig figs) controls the precision of your answer. 1.234 to 2 sig figs = 1.2. To 3 sig figs = 1.23. Sig figs account for measurement uncertainty. A measurement of "100 m" is ambiguous (could be ±0.5 to ±50 m); "1.00 × 10² m" is clearer (±0.5 m). In science, rounding appropriately prevents false precision and communicates confidence in your measurements.
+      </p>
     </div>
   );
 
@@ -134,5 +150,6 @@ registerCalculator({
     "floor",
     "precision",
   ],
+  faqs: ROUNDING_FAQS,
   dateModified: "2026-04-09",
 });

@@ -4,6 +4,7 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { PREGNANCY_FAQS } from "@/lib/faq-health";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PregnancyCalculator() {
@@ -163,4 +164,6 @@ registerCalculator({
   icon: "🤰",
   keywords: ["pregnancy", "due date", "pregnancy calculator", "gestational age", "trimester"],
   popular: true,
+  faqs: PREGNANCY_FAQS,
+  dateModified: "2026-04-09",
 });

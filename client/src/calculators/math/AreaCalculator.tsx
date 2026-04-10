@@ -4,6 +4,7 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
+import { AREA_FAQS } from "@/lib/faq-math";
 import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function AreaCalculator() {
@@ -222,4 +223,6 @@ registerCalculator({
   icon: "📐",
   keywords: ["area", "perimeter", "calculate area", "circle area", "rectangle area"],
   popular: false,
+  faqs: AREA_FAQS,
+  dateModified: "2026-04-09"
 });
