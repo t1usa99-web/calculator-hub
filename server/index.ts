@@ -169,6 +169,114 @@ async function fetchAllMetalsPrices(): Promise<{
   return { prices, sources };
 }
 
+// ---------------------------------------------------------------------------
+// Exchange rate cache (Yahoo Finance forex)
+//
+// Yahoo Finance provides free forex data via the same chart endpoint.
+// Ticker format: EURUSD=X  (always relative to USD)
+// We store everything as "1 USD = X units" so USD is always 1.0.
+// Cached for 1 hour — forex rates don't move that fast for a calculator.
+// ---------------------------------------------------------------------------
+
+interface ExchangeRateCache {
+  rates: Record<string, number> | null;
+  fetchedAt: number;
+}
+
+const fxCache: ExchangeRateCache = { rates: null, fetchedAt: 0 };
+const FX_TTL_MS = 60 * 60 * 1000; // 1 hour
+
+// Currencies we support — ticker is how Yahoo quotes them vs USD
+// For "XXXUSD=X" tickers Yahoo returns how many USD per 1 XXX,
+// so we invert to get "how many XXX per 1 USD".
+// For "USDXXX=X" tickers Yahoo returns how many XXX per 1 USD (no invert).
+const FX_PAIRS: { ticker: string; code: string; invert: boolean }[] = [
+  // Major
+  { ticker: "EURUSD=X", code: "EUR", invert: true },
+  { ticker: "GBPUSD=X", code: "GBP", invert: true },
+  { ticker: "USDJPY=X", code: "JPY", invert: false },
+  { ticker: "USDCAD=X", code: "CAD", invert: false },
+  { ticker: "AUDUSD=X", code: "AUD", invert: true },
+  { ticker: "USDCHF=X", code: "CHF", invert: false },
+  { ticker: "NZDUSD=X", code: "NZD", invert: true },
+  // Asia-Pacific
+  { ticker: "USDCNY=X", code: "CNY", invert: false },
+  { ticker: "USDHKD=X", code: "HKD", invert: false },
+  { ticker: "USDSGD=X", code: "SGD", invert: false },
+  { ticker: "USDINR=X", code: "INR", invert: false },
+  { ticker: "USDKRW=X", code: "KRW", invert: false },
+  { ticker: "USDTWD=X", code: "TWD", invert: false },
+  { ticker: "USDTHB=X", code: "THB", invert: false },
+  { ticker: "USDPHP=X", code: "PHP", invert: false },
+  // Europe & Middle East
+  { ticker: "USDSEK=X", code: "SEK", invert: false },
+  { ticker: "USDNOK=X", code: "NOK", invert: false },
+  { ticker: "USDDKK=X", code: "DKK", invert: false },
+  { ticker: "USDPLN=X", code: "PLN", invert: false },
+  { ticker: "USDCZK=X", code: "CZK", invert: false },
+  { ticker: "USDTRY=X", code: "TRY", invert: false },
+  { ticker: "USDILS=X", code: "ILS", invert: false },
+  { ticker: "USDAED=X", code: "AED", invert: false },
+  { ticker: "USDSAR=X", code: "SAR", invert: false },
+  // Americas
+  { ticker: "USDMXN=X", code: "MXN", invert: false },
+  { ticker: "USDBRL=X", code: "BRL", invert: false },
+  { ticker: "USDARS=X", code: "ARS", invert: false },
+  { ticker: "USDCLP=X", code: "CLP", invert: false },
+  // Africa & Others
+  { ticker: "USDZAR=X", code: "ZAR", invert: false },
+  { ticker: "USDNGN=X", code: "NGN", invert: false },
+];
+
+const FALLBACK_FX: Record<string, number> = {
+  USD: 1, EUR: 0.92, GBP: 0.79, JPY: 149.5, CAD: 1.36, AUD: 1.51,
+  CHF: 0.88, CNY: 7.24, NZD: 1.58, HKD: 7.82, SGD: 1.34, INR: 83.4,
+  KRW: 1320, TWD: 31.5, THB: 35.5, PHP: 56.0, SEK: 10.5, NOK: 10.7,
+  DKK: 6.88, PLN: 4.02, CZK: 23.2, TRY: 32.0, ILS: 3.65, AED: 3.67,
+  SAR: 3.75, MXN: 17.1, BRL: 4.95, ARS: 850, CLP: 920, ZAR: 18.5, NGN: 1550,
+};
+
+/** Fetch ~30 currency rates from Yahoo Finance */
+async function fetchExchangeRates(): Promise<Record<string, number>> {
+  const now = Date.now();
+  if (fxCache.rates && now - fxCache.fetchedAt < FX_TTL_MS) {
+    return fxCache.rates;
+  }
+
+  const rates: Record<string, number> = { USD: 1 };
+  try {
+    const results = await Promise.allSettled(
+      FX_PAIRS.map(async (pair) => {
+        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${pair.ticker}?interval=1d&range=1d`;
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error(`Yahoo FX ${pair.ticker}: ${resp.status}`);
+        const json = (await resp.json()) as any;
+        const price = json?.chart?.result?.[0]?.meta?.regularMarketPrice ?? null;
+        return { code: pair.code, price, invert: pair.invert };
+      })
+    );
+
+    for (const r of results) {
+      if (r.status === "fulfilled" && r.value.price != null) {
+        // If invert: Yahoo gave us USD-per-1-XXX, we need XXX-per-1-USD
+        rates[r.value.code] = r.value.invert
+          ? 1 / r.value.price
+          : r.value.price;
+      }
+    }
+
+    if (Object.keys(rates).length > 1) {
+      fxCache.rates = rates;
+      fxCache.fetchedAt = now;
+      console.log(`[fx] Yahoo: fetched ${Object.keys(rates).length} rates`);
+    }
+  } catch (err) {
+    console.error("[fx] Yahoo fetch error:", err);
+  }
+
+  return Object.keys(rates).length > 1 ? rates : { ...FALLBACK_FX };
+}
+
 // All calculator slugs for SEO
 const CALCULATOR_SLUGS = [
   // Finance (38)
@@ -368,6 +476,30 @@ app.get("/api/metals-prices", async (req, res) => {
   } catch (err) {
     console.error("[metals] Endpoint error:", err);
     res.json({ prices: FALLBACK_PRICES, sources: ["fallback"], cachedAt: null });
+  }
+});
+
+// GET /api/exchange-rates — returns live forex rates (USD base)
+app.get("/api/exchange-rates", async (req, res) => {
+  try {
+    const rates = await fetchExchangeRates();
+    const isLive = fxCache.rates !== null;
+    res.json({
+      base: "USD",
+      rates,
+      source: isLive ? "yahoo" : "fallback",
+      cachedAt: fxCache.fetchedAt
+        ? new Date(fxCache.fetchedAt).toISOString()
+        : null,
+    });
+  } catch (err) {
+    console.error("[fx] Endpoint error:", err);
+    res.json({
+      base: "USD",
+      rates: FALLBACK_FX,
+      source: "fallback",
+      cachedAt: null,
+    });
   }
 });
 
