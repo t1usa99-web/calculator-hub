@@ -1,4 +1,5 @@
-import { Router, Route } from "wouter";
+import { useEffect } from "react";
+import { Router, Route, useLocation } from "wouter";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
@@ -13,9 +14,19 @@ import "@/calculators/other";
 import "@/calculators/physics";
 import "@/calculators/metals";
 
+/** Scroll to top on every client-side navigation */
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  return null;
+}
+
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Route path="/embed/:slug">
         {(params) => <EmbedPage slug={params.slug} />}
       </Route>
