@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function HealthyWeightCalculator() {
   const [heightFeet, setHeightFeet] = useState(5);
@@ -192,38 +191,3 @@ export default function HealthyWeightCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: HealthyWeightCalculator,
-  slug: "healthy-weight-calculator",
-  title: "Healthy Weight Calculator",
-  shortTitle: "Healthy Weight",
-  description: "Calculate your healthy weight range using BMI and Hamwi formulas",
-  category: "health",
-  icon: "⚖️",
-  keywords: ["healthy weight", "BMI", "ideal weight", "weight range", "health"],
-  popular: false,
-  faqs: [
-    {
-      question: "Why is there a range instead of a single number?",
-      answer: "Health weights vary by body composition, genetics, and muscle mass. Someone muscular at the high end may be healthier than someone sedentary at the low end. Use the range as a guideline, but focus on fitness and health markers like blood pressure and cholesterol, not just weight."
-    },
-    {
-      question: "Is BMI accurate for muscular people?",
-      answer: "No. BMI doesn't distinguish muscle from fat. Very muscular athletes may be classified as overweight by BMI despite being very lean. If you're strength-training heavily, BMI may not reflect your actual body composition. Consider body fat percentage alongside BMI."
-    },
-    {
-      question: "How do I know my frame size?",
-      answer: "Measure your wrist circumference: if less than 5.5 inches (women) or 6.5 inches (men), you're small frame. If more than 6.25 inches (women) or 7.5 inches (men), you're large frame. Otherwise, you're medium frame."
-    },
-    {
-      question: "What if I'm significantly above or below the healthy range?",
-      answer: "If you're far outside the range, consult a doctor or registered dietitian. Significant weight changes may indicate underlying health issues. Aim for gradual changes (1-2 lbs/week) through diet and exercise rather than rapid weight loss or gain."
-    },
-    {
-      question: "Does this account for age?",
-      answer: "This calculator uses the standard adult ranges. Healthy weights may shift slightly with age due to changes in metabolism and body composition. Children and very elderly individuals should consult healthcare providers for age-specific guidance."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

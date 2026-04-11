@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { HOME_AFFORDABILITY_FAQS } from "@/lib/faq-finance-loans";
 
 export default function HomeAffordabilityCalculator() {
   const [annualIncome, setAnnualIncome] = useState(100000);
@@ -238,16 +236,3 @@ export default function HomeAffordabilityCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: HomeAffordabilityCalculator,
-  slug: "home-affordability-calculator",
-  title: "Home Affordability Calculator",
-  shortTitle: "Home Affordability",
-  description: "Calculate maximum home price based on income and debt-to-income ratios",
-  category: "finance",
-  icon: "🏡",
-  keywords: ["home affordability", "DTI ratio", "housing budget", "max home price"],
-  popular: true,
-  faqs: HOME_AFFORDABILITY_FAQS,
-});

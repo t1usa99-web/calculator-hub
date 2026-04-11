@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PaintCalculator() {
   const [roomLength, setRoomLength] = useState(20);
@@ -185,38 +184,3 @@ export default function PaintCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PaintCalculator,
-  slug: "paint-calculator",
-  title: "Paint Calculator",
-  shortTitle: "Paint",
-  description: "Calculate interior paint needed for rooms with doors and windows",
-  category: "construction",
-  icon: "🎨",
-  keywords: ["paint", "interior", "room", "wall", "home improvement"],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "How do I calculate the square footage of walls in a room?",
-      answer: "Calculate perimeter (2 {'×'} (length + width)), then multiply by ceiling height. For a 20x15 room with 8-foot ceilings: perimeter is 70 feet, so wall area is 70 {'×'} 8 = 560 sqft. Subtract approximately 21 sqft per door and 15 sqft per window to avoid overordering paint.",
-    },
-    {
-      question: "How many coats of paint do I need?",
-      answer: "Most interior painting requires 2 coats for even coverage. One coat rarely provides adequate color uniformity and coverage. Some colors, especially light colors over dark walls, require 3 coats. Primer is a separate product applied first to new drywall, stains, or when changing colors dramatically.",
-    },
-    {
-      question: "What does paint coverage mean?",
-      answer: "Paint coverage (typically 300-400 sqft per gallon) indicates how much area one gallon of paint covers. Higher-quality paints cover more area and require fewer coats. Textured or porous surfaces require more paint than smooth surfaces. Always check the manufacturer's coverage on the can, as it varies by product.",
-    },
-    {
-      question: "Which paint finish should I use for different rooms?",
-      answer: "Use flat finish in bedrooms and living areas (hides imperfections but marks easily). Eggshell and satin are ideal for family living spaces (durable, subtle sheen). Semi-gloss is best for kitchens, bathrooms, and trim (highly durable and washable). Choose moisture-resistant paint for bathrooms and kitchens to prevent mildew.",
-    },
-    {
-      question: "How much extra paint should I buy?",
-      answer: "Always add 10-20% extra for touch-ups and future maintenance. Buying extra in the same batch ensures consistent color matching. Save leftover paint in airtight containers for up to 5 years. Store in a cool, dry location. Having extra paint available makes repairs and refreshes much easier over time.",
-    },
-  ],
-});

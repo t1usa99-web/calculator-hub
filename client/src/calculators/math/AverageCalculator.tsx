@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function AverageCalculator() {
   const [inputText, setInputText] = useState("2, 4, 6, 8, 10");
@@ -174,38 +173,3 @@ export default function AverageCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: AverageCalculator,
-  slug: "average-calculator",
-  title: "Average Calculator",
-  shortTitle: "Average",
-  description: "Calculate mean, median, mode, range, and sum of any list of numbers",
-  category: "math",
-  icon: "📊",
-  keywords: ["average", "mean", "median", "mode", "range", "statistics", "data analysis"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the difference between mean, median, and mode?",
-      answer: "Mean is the sum divided by count. Median is the middle value. Mode is the most frequent value. They measure different aspects of a dataset."
-    },
-    {
-      question: "When should I use median instead of mean?",
-      answer: "Use median when you have outliers, as it{'\''}s not affected by them. For example, median house price is better than mean when some very expensive homes exist."
-    },
-    {
-      question: "What if there is no mode?",
-      answer: "If all values appear equally, there is no mode. If multiple values tie for most frequent, they are all modes."
-    },
-    {
-      question: "What is range and why does it matter?",
-      answer: "Range is max - min. It shows spread: two datasets with the same mean can have very different ranges, indicating different variability."
-    },
-    {
-      question: "How do I interpret these statistics?",
-      answer: "Mean shows the average/typical value. Median shows the center unaffected by extremes. Mode shows what{'\''}s most common. Range shows variability. Together they paint a complete picture."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

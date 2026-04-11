@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PregnancyWeightGainCalculator() {
   const [preWeight, setPreWeight] = useState(150);
@@ -175,38 +174,3 @@ export default function PregnancyWeightGainCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PregnancyWeightGainCalculator,
-  slug: "pregnancy-weight-gain-calculator",
-  title: "Pregnancy Weight Gain Calculator",
-  shortTitle: "Pregnancy Weight Gain",
-  description: "Calculate recommended pregnancy weight gain based on pre-pregnancy BMI and current week",
-  category: "health",
-  icon: "🤰",
-  keywords: ["pregnancy weight gain", "prenatal calculator", "fetal development", "gestational health", "BMI pregnancy"],
-  popular: true,
-  faqs: [
-    {
-      question: "Why do weight gain recommendations differ by BMI?",
-      answer: "Different BMI categories have different risks and benefits from weight gain. Underweight women and babies benefit from higher gains to support healthy fetal development. Normal weight women achieve optimal outcomes with moderate gains. Overweight and obese women have higher inherent risks of gestational diabetes and preeclampsia, so lower gains are recommended to reduce complications while still supporting fetal development.",
-    },
-    {
-      question: "What if I'm gaining too fast or too slow?",
-      answer: "Some variation from the linear progression shown here is normal. Discuss your specific weight gain pattern with your healthcare provider at prenatal visits. Too-rapid gains might indicate fluid retention or excessive fat gain (adjustable through diet and activity). Too-slow gains might need investigation if accompanied by other symptoms. Your provider can give personalized guidance based on your health and fetal development.",
-    },
-    {
-      question: "How much of pregnancy weight is baby and how much is me?",
-      answer: "Of a typical 30-lb gain, only about 7.5 lbs is the baby itself. Other components include: placenta (1.5 lbs), amniotic fluid (2 lbs), increased blood volume (4 lbs), expanded uterus (2.5 lbs), breast tissue (1.5 lbs), and maternal fat/fluid stores (about 11 lbs). Most of the mother's weight gain is essential for pregnancy health and is naturally lost postpartum through delivery, lactation, and normal metabolism.",
-    },
-    {
-      question: "When does most pregnancy weight gain occur?",
-      answer: "First trimester brings minimal weight gain (1{'\u2013'}5 lbs). Weight gain accelerates in the second trimester as the fetus grows. Third trimester continues at moderate rates (0.5{'\u2013'}1 lb per week). Most women gain about 1 lb per week on average during the second and third trimesters. Individual patterns vary based on pre-pregnancy weight, metabolism, diet, and activity level. Your provider tracks your progress at each visit.",
-    },
-    {
-      question: "How do I lose pregnancy weight after delivery?",
-      answer: "About 10{'\u2013'}13 lbs are immediately lost at delivery (baby, placenta, amniotic fluid). Additional loss occurs in the next few weeks as the body sheds excess fluid through sweating and urination. Breastfeeding burns extra calories (about 300{'\u2013'}500 daily), aiding weight loss. The remaining fat stores may take 6{'\u2013'}12 months to lose through balanced nutrition and regular activity. Consult your healthcare provider before starting exercise postpartum.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

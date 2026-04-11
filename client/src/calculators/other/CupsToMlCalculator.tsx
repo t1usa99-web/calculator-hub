@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function CupsToMlCalculator() {
   const [cups, setCups] = useState(1);
@@ -129,38 +128,3 @@ export default function CupsToMlCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CupsToMlCalculator,
-  slug: "cups-to-ml",
-  title: "Cups to Milliliters Calculator",
-  shortTitle: "Cups to ml",
-  description: "Convert cups to milliliters for recipes and cooking",
-  category: "other",
-  icon: "🥤",
-  keywords: ["cups to milliliters", "cooking conversion", "recipe measurement", "ml converter"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is the exact conversion factor from cups to milliliters?",
-      answer: "One US cup equals 236.588 milliliters. For practical cooking, 240 ml is often used as a convenient approximation. The difference between 236.6 ml and 240 ml is about 1.4%, which is negligible for most recipes. In baking, where precision matters, use 236.6 ml for accuracy. Note that a metric cup used in some countries equals 250 ml, which is slightly larger, creating a small difference when following international recipes.",
-    },
-    {
-      question: "How much is 1/4 cup in milliliters?",
-      answer: "One quarter cup (1/4 cup) equals approximately 59 milliliters. This is a commonly used measurement in recipes, especially for butter, shredded cheese, nuts, or small amounts of spices. A quarter cup dry measuring cup filled level will hold roughly 59 ml. Some recipes list it as 60 ml for simplicity. Quarter cup measurements are useful for controlling portion sizes of rich or flavorful ingredients without using the full cup quantity.",
-    },
-    {
-      question: "What is 1/2 cup in milliliters?",
-      answer: "One half cup (1/2 cup) equals approximately 118 milliliters, often rounded to 120 ml for practical purposes. Half cup is one of the most common recipe measurements, used for milk, oil, flour, sugar, and other ingredients. A half cup liquid measuring cup or a heaping half cup of dry ingredients will hold roughly this volume. This is a standard portion that appears frequently in American recipes.",
-    },
-    {
-      question: "Are US cups different from metric cups?",
-      answer: "Yes, they differ slightly. The US cup (236.6 ml) is smaller than the metric cup (250 ml), a difference of about 5.7%. When following recipes from different countries, verify which cup size is assumed. US cookbooks use US cups; metric recipes and international cookbooks use either metric cups (250 ml) or milliliters directly. Bakers who use cups from one system with recipes designed for another will get slightly different results. Modern recipe books often include both cup and metric measurements to avoid confusion.",
-    },
-    {
-      question: "Why are milliliters better for precise recipes?",
-      answer: "Milliliters measure volume directly and consistently. Cups depend on how tightly you pack ingredients: flour can vary by 20-30% in weight when using cups due to packing differences. Milliliters provide a stable volume measure, though for dry ingredients, weight (grams) is even better. Professional bakers weigh ingredients in grams rather than measuring by volume. Liquids work well in milliliters since their density doesn't change with packing. For casual cooking, cups work fine; for baking or precision work, use ml or grams.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

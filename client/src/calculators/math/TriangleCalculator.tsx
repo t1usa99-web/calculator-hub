@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { TRIANGLE_FAQS } from "@/lib/faq-math";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TriangleCalculator() {
   const [sideA, setSideA] = useState(3);
@@ -162,24 +160,3 @@ export default function TriangleCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TriangleCalculator,
-  slug: "triangle-calculator",
-  title: "Triangle Calculator",
-  shortTitle: "Triangle",
-  description:
-    "Calculate area, perimeter, angles, and classify triangles by type",
-  category: "math",
-  icon: "📐",
-  keywords: [
-    "triangle",
-    "geometry",
-    "area",
-    "perimeter",
-    "angles",
-    "Heron's formula",
-  ],
-  faqs: TRIANGLE_FAQS,
-  dateModified: "2026-04-09",
-});

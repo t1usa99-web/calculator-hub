@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function DividendCalculator() {
   const [investmentAmount, setInvestmentAmount] = useState(50000);
@@ -217,50 +216,3 @@ export default function DividendCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DividendCalculator,
-  slug: "dividend-calculator",
-  title: "Dividend Calculator",
-  shortTitle: "Dividend Income",
-  description:
-    "Calculate dividend income and visualize the power of dividend reinvestment",
-  category: "finance",
-  icon: "💰",
-  keywords: [
-    "dividend",
-    "dividend yield",
-    "dividend income",
-    "dividend reinvestment",
-    "passive income",
-  ],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is dividend yield?",
-      answer:
-        "Dividend yield is the annual dividend payment divided by the stock price, expressed as a percentage. For example, a $100 stock paying $4 annually has a 4% dividend yield. Higher yields can indicate strong income but may also signal market concerns about the company.",
-    },
-    {
-      question: "What is dividend reinvestment (DRIP)?",
-      answer:
-        "DRIP automatically uses dividend payments to buy additional shares of the company. This accelerates wealth growth through compounding. Over long periods, reinvestment can double or triple wealth compared to taking dividends as cash income, especially with growing dividends.",
-    },
-    {
-      question: "What is a sustainable dividend?",
-      answer:
-        "A sustainable dividend has a payout ratio (annual dividend / annual earnings) below 75%, indicating the company generates enough profit to maintain and grow dividends. Check the balance sheet and cash flow to ensure the company isn't borrowing to pay dividends, which signals trouble ahead.",
-    },
-    {
-      question: "Are dividends taxed?",
-      answer:
-        "Qualified dividends from U.S. stocks held over 60 days are taxed at favorable long-term capital gains rates (0%, 15%, or 20%). Non-qualified dividends are taxed as ordinary income. International dividends may face withholding taxes. Hold dividends in tax-advantaged accounts when possible.",
-    },
-    {
-      question: "Which sectors pay the highest dividends?",
-      answer:
-        "Utilities, real estate investment trusts (REITs), and consumer staples typically pay the highest dividends (3-8% yields). Growth sectors like technology and healthcare usually pay lower dividends (0-2%) because they reinvest profits. Match dividend strategy to your income needs and risk tolerance.",
-    },
-  ],
-});

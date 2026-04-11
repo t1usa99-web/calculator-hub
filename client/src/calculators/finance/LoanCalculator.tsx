@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { LOAN_FAQS } from "@/lib/faq-content";
 
 export default function LoanCalculator() {
   const [loanAmount, setLoanAmount] = useState(50000);
@@ -162,17 +160,3 @@ export default function LoanCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: LoanCalculator,
-  slug: "loan-calculator",
-  title: "Loan Calculator",
-  shortTitle: "Loan",
-  description: "Calculate loan payments and total interest for any loan type",
-  category: "finance",
-  icon: "💳",
-  keywords: ["loan", "payment", "interest", "APR", "debt"],
-  popular: true,
-  faqs: LOAN_FAQS,
-  dateModified: "2026-04-09",
-});

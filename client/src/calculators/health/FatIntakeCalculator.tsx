@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function FatIntakeCalculator() {
   const [weight, setWeight] = useState(175);
@@ -197,38 +196,3 @@ export default function FatIntakeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: FatIntakeCalculator,
-  slug: "fat-intake-calculator",
-  title: "Fat Intake Calculator",
-  shortTitle: "Fat Intake",
-  description: "Calculate daily fat intake based on your calorie needs and preferred dietary approach",
-  category: "health",
-  icon: "🧈",
-  keywords: ["fat intake calculator", "dietary fat", "saturated fat", "unsaturated fat", "nutrition macros"],
-  popular: true,
-  faqs: [
-    {
-      question: "Is saturated fat bad for heart health?",
-      answer: "The relationship is complex. Modern research shows saturated fat{'\u2019'}s effect depends on type (stearic acid vs. palmitic acid), food source (butter vs. coconut oil vs. beef), and individual factors (genetics, overall diet, inflammation). Some saturated fat in a healthy diet isn{'\u2019'}t inherently harmful; the American Heart Association recommends limiting it to {'{'}less than 10% of calories. Quality matters: butter in whole foods is different from trans fats in processed foods. Individual response varies; some people see no adverse effects at higher saturated fat intake.",
-    },
-    {
-      question: "What are the best sources of unsaturated fat?",
-      answer: "Top sources: extra virgin olive oil, avocados, nuts (almonds, walnuts, cashews), seeds (chia, flax, pumpkin), fatty fish (salmon, sardines, mackerel {'\u2013'} rich in omega-3s), and plant oils (canola, safflower). These provide unsaturated fats plus nutrients like vitamin E, magnesium, and polyphenols. Include a variety; different sources offer different benefits. Whole food sources are preferable to oils for satiety and nutrient density, though oils are acceptable in moderation.",
-    },
-    {
-      question: "How much omega-3 should I eat daily?",
-      answer: "The FDA and most organizations recommend 1.1{'\u2013'}1.6g daily alpha-linolenic acid (ALA), found in flax, chia, and walnuts. For EPA and DHA (long-chain omega-3s from fish), 250{'\u2013'}500mg daily is beneficial for heart and brain health. If you don{'\u2019'}t eat fatty fish, consider: 2{'\u2013'}3x weekly (about 8 oz total), flax/chia seeds daily, or a fish oil supplement. Plant-based sources are less efficiently converted to EPA/DHA; vegetarians might benefit from algae supplements.",
-    },
-    {
-      question: "Can I lose weight on a high-fat diet?",
-      answer: "Yes, if total calories are in deficit. Fat is satiating {'\u2013'} 1g provides 9 calories but often keeps you fuller longer than carbs (4 cal/g) because fat slows digestion. A higher-fat, lower-carb diet works well for many people because they eat fewer total calories naturally. However, fat is calorie-dense; it{'\u2019'}s easy to overeat if not mindful. Track intake; weight loss still requires calorie deficit regardless of macro split. Find the approach that makes eating less feel sustainable for you.",
-    },
-    {
-      question: "Are there fats I should avoid entirely?",
-      answer: "Yes, avoid or minimize trans fats (hydrogenated oils, some margarines, fried foods), which increase inflammation and heart disease risk. Also limit highly processed fats and oils combined with refined carbs and additives. Focus on whole food sources of fat and minimize processed foods. If choosing between avocado oil and vegetable shortening, avocado oil is clearly superior. Avoid deep-fried foods regularly; occasional fried food in an otherwise healthy diet isn{'\u2019'}t catastrophic but shouldn{'\u2019'}t be regular.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

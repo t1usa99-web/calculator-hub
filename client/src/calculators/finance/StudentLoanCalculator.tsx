@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { STUDENT_LOAN_FAQS } from "@/lib/faq-finance-loans";
 
 export default function StudentLoanCalculator() {
   const [loanBalance, setLoanBalance] = useState(50000);
@@ -172,15 +170,3 @@ export default function StudentLoanCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: StudentLoanCalculator,
-  slug: "student-loan-calculator",
-  title: "Student Loan Calculator",
-  shortTitle: "Student Loans",
-  description: "Calculate student loan payments and find your payoff timeline",
-  category: "finance",
-  icon: "🎓",
-  keywords: ["student loans", "loan repayment", "education debt", "interest", "payoff"],
-  faqs: STUDENT_LOAN_FAQS,
-});

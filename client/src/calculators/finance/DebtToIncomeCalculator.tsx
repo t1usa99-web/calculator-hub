@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function DebtToIncomeCalculator() {
   const [monthlyIncome, setMonthlyIncome] = useState(5000);
@@ -219,50 +218,3 @@ export default function DebtToIncomeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DebtToIncomeCalculator,
-  slug: "debt-to-income-calculator",
-  title: "Debt-to-Income Calculator",
-  shortTitle: "DTI Ratio",
-  description:
-    "Calculate debt-to-income ratio and assess loan qualification readiness",
-  category: "finance",
-  icon: "📉",
-  keywords: [
-    "debt to income",
-    "DTI",
-    "debt ratio",
-    "lending qualification",
-    "mortgage approval",
-  ],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is Debt-to-Income ratio (DTI)?",
-      answer:
-        "DTI is a percentage comparing your total monthly debt payments to gross monthly income. For example, if you earn $5,000 monthly and owe $1,500 in debts, your DTI is 30%. Lenders use DTI to assess your ability to repay new loans. Lower DTI (under 43%) indicates you can comfortably handle additional debt.",
-    },
-    {
-      question: "What is front-end vs. back-end DTI?",
-      answer:
-        "Front-end DTI (housing ratio) compares only housing costs to income; lenders prefer this under 28%. Back-end DTI compares all monthly debts to income; lenders prefer under 36-43%. For mortgages, lenders evaluate both. You could have good front-end DTI but fail back-end DTI if you have substantial other debts like student loans or credit cards.",
-    },
-    {
-      question: "What DTI do lenders require for a mortgage?",
-      answer:
-        "Most mortgage lenders require back-end DTI under 43%, with 36% being preferred for better rates and terms. Some jumbo lenders accept up to 50% for excellent credit and large down payments. Fannie Mae and Freddie Mac typically cap at 43%. Check with your lender for specific requirements, as DTI thresholds vary.",
-    },
-    {
-      question: "How can I improve my DTI?",
-      answer:
-        "Increase income (raises, side gigs) or reduce debt. Paying down credit cards, eliminating auto loans, or refinancing student loans lowers your debt load. Prioritize high-interest debt first (credit cards). Avoid taking on new debt while improving DTI. Some lenders allow closing low-balance credit cards to improve DTI by excluding them from the calculation.",
-    },
-    {
-      question: "Does DTI include all debts?",
-      answer:
-        "For mortgage qualification, DTI typically includes mortgage/rent, auto loans, student loans, credit cards, and personal loans (using minimum monthly payments). It usually excludes utilities, insurance, and subscriptions unless specifically listed on credit reports. Check with your lender for their exact DTI calculation method, as requirements vary.",
-    },
-  ],
-});

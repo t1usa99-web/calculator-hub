@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function RoofingCalculator() {
   const [roofLength, setRoofLength] = useState(40);
@@ -178,38 +177,3 @@ export default function RoofingCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: RoofingCalculator,
-  slug: "roofing-calculator",
-  title: "Roofing Calculator",
-  shortTitle: "Roofing",
-  description: "Calculate roofing materials and costs based on roof pitch and dimensions",
-  category: "construction",
-  icon: "🏠",
-  keywords: ["roofing", "shingles", "roof pitch", "materials", "home improvement"],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "How does roof pitch affect the amount of materials needed?",
-      answer: "Roof pitch directly affects material quantity because steeper roofs have greater actual surface area than their horizontal footprint. A 6/12 pitch multiplies the area by 1.118, while a 12/12 pitch multiplies by 1.414. Always use the pitch-adjusted area, not just the horizontal dimensions, to order the correct amount of materials.",
-    },
-    {
-      question: "What is a roofing square and why is it important?",
-      answer: "A roofing square equals 100 square feet of roof area. Roofing materials are priced and estimated in squares. A 2,000 sqft roof is 20 squares. Most shingle bundles cover one-third of a square, so you need 3 bundles per square. Understanding squares helps you communicate with contractors and order materials accurately.",
-    },
-    {
-      question: "How many shingle bundles do I need per square?",
-      answer: "A standard roofing square (100 sqft) requires 3 bundles of asphalt shingles. Each bundle covers approximately 33 sqft. Always add 10-15% extra bundles for waste, repairs, and future touch-ups. Premium or architectural shingles may require more or fewer bundles depending on coverage rates.",
-    },
-    {
-      question: "What is underlayment and is it necessary?",
-      answer: "Underlayment is a water barrier installed under shingles to prevent water infiltration and extend roof life. It is essential in most climates and is often required by building codes. Synthetic underlayment is more durable than traditional felt. Plan on approximately 1 roll per 400 sqft of roof area.",
-    },
-    {
-      question: "What should I budget for labor costs on a roofing project?",
-      answer: "Labor typically accounts for 50-60% of total roofing costs, while materials are 40-50%. Professional installation ensures proper ventilation, flashing, and waterproofing. Always hire licensed, insured roofers. Get multiple quotes and ensure all labor quotes include underlayment, ridge cap, flashing, and proper installation techniques.",
-    },
-  ],
-});

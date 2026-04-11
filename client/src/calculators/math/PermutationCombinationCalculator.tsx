@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PermutationCombinationCalculator() {
   const [n, setN] = useState(10);
@@ -170,16 +169,3 @@ export default function PermutationCombinationCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PermutationCombinationCalculator,
-  slug: "permutation-combination-calculator",
-  title: "Permutation and Combination Calculator",
-  shortTitle: "Permutation/Combination",
-  description: "Calculate permutations (nPr) and combinations (nCr) with detailed factorial breakdown",
-  category: "math",
-  icon: "🔢",
-  keywords: ["permutation", "combination", "nPr", "nCr", "factorial", "counting", "probability"],
-  popular: false,
-  dateModified: "2026-04-10"
-});

@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function DayCounterCalculator() {
   const [startDate, setStartDate] = useState("2024-01-01");
@@ -147,43 +146,3 @@ export default function DayCounterCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DayCounterCalculator,
-  slug: "day-counter-calculator",
-  title: "Day Counter Calculator",
-  shortTitle: "Day Counter",
-  description: "Count days, business days, and weeks between dates",
-  category: "other",
-  icon: "📅",
-  keywords: ["day counter", "days between dates", "business days", "date calculator"],
-  popular: true,
-  faqs: [
-    {
-      question: "How are business days calculated differently from calendar days?",
-      answer:
-        "Business days count only weekdays (Monday through Friday), excluding weekends (Saturday and Sunday). Calendar days count every day including weekends. For a date range spanning one weekend, there are 7 calendar days but only 5 business days. In a month with 30 calendar days (4 full weeks + 2 days), there are typically 22 business days (20 from full weeks + 2 from remaining weekdays). Delivery estimates, project timelines, and payroll often use business days. When a website says 'ships in 3 business days,' it means 3 weekdays, potentially 5 or more calendar days if weekends are included.",
-    },
-    {
-      question: "Why do some dates have different day names if I count the same number of days?",
-      answer:
-        "The day of the week depends on which day you start from. Two 7-day spans starting on different days of the week will end on different days. For example, 7 days from Monday ends on Sunday, while 7 days from Wednesday ends on Tuesday. This is why understanding the starting day matters for scheduling. If you need to ship a package on Tuesday and it takes 5 business days, it will arrive on Tuesday of the following week (skipping one weekend). This calculator shows the starting and ending day of the week to help visualize where your dates fall in the weekly cycle.",
-    },
-    {
-      question: "How do leap years affect day calculations?",
-      answer:
-        "Leap years occur every 4 years (with exceptions for century years) and add an extra day in February (February 29th instead of 28th). This makes leap years 366 days instead of 365. When calculating a span that includes February during a leap year, the total is one day higher than in non-leap years. For example, January 1 to March 1 is 59 days in non-leap years but 60 days in leap years (leap day is February 29). This calculator accounts for leap years automatically, ensuring accurate counts across multi-year date ranges.",
-    },
-    {
-      question: "What is the difference between age in years, months, and days?",
-      answer:
-        "Age broken down by years, months, and days provides a more precise measurement than just rounding to the nearest year. Someone born January 1, 2000, on April 10, 2026, is 26 years old if rounding, but exactly 26 years, 3 months, and 10 days old. This precision matters for legal documents (some age requirements are exact), medical applications, and formal records. For simple conversation, saying someone is 26 years old is sufficient. For legal or medical contexts, the full breakdown ensures accuracy. This calculator provides both the total days and the years/months/days breakdown for flexibility.",
-    },
-    {
-      question: "Can this calculator handle dates far in the past or future?",
-      answer:
-        "This calculator uses standard date format (YYYY-MM-DD) and the Gregorian calendar system. Most modern systems support dates from January 1, 1900, to December 31, 2100, though some support wider ranges. For historical dates before the Gregorian calendar adoption (before October 15, 1582, in most countries), the calculation may not be historically accurate as different calendar systems were in use. For far-future dates (beyond 2100), the calculations work mathematically but may not reflect potential calendar reforms. For routine business use (past 50 years to future 50 years), this calculator is reliably accurate.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

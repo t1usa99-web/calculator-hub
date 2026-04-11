@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { DENSITY_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function DensityCalculator() {
   const [mass, setMass] = useState(1000);
@@ -76,16 +74,3 @@ export default function DensityCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "density-calculator",
-  title: "Density Calculator",
-  shortTitle: "Density",
-  description: "Calculate density from mass and volume",
-  category: "physics",
-  icon: "⚖️",
-  keywords: ["density", "mass", "volume", "material"],
-  component: DensityCalculator,
-  faqs: DENSITY_FAQS,
-  dateModified: "2026-04-09",
-});

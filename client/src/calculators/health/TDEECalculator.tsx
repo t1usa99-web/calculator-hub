@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { TDEE_FAQS } from "@/lib/faq-health";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TDEECalculator() {
   const [age, setAge] = useState(30);
@@ -190,17 +188,3 @@ export default function TDEECalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TDEECalculator,
-  slug: "tdee-calculator",
-  title: "TDEE Calculator",
-  shortTitle: "TDEE",
-  description: "Calculate your total daily energy expenditure and macronutrient targets based on your goals",
-  category: "health",
-  icon: "🍎",
-  keywords: ["TDEE", "total daily energy expenditure", "macros", "calorie calculator", "nutrition"],
-  popular: false,
-  faqs: TDEE_FAQS,
-  dateModified: "2026-04-09",
-});

@@ -3,7 +3,6 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import CalculatorLayout from "@/components/CalculatorLayout";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 function gcd(a: number, b: number): number {
   a = Math.abs(a);
@@ -222,38 +221,3 @@ export default function GCFCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: GCFCalculator,
-  slug: "gcf-calculator",
-  title: "GCF Calculator",
-  shortTitle: "GCF / LCM",
-  description: "Calculate greatest common factor and least common multiple",
-  category: "math",
-  icon: "🔄",
-  keywords: ["gcf", "gcd", "lcm", "greatest common factor", "least common multiple", "common divisor"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the difference between GCF and LCM?",
-      answer: "GCF is the largest number that divides all given numbers. LCM is the smallest number that all given numbers divide into. For 12 and 18: GCF is 6 (largest factor both share), LCM is 36 (smallest number both divide evenly). GCF is used for reducing fractions; LCM for finding common denominators."
-    },
-    {
-      question: "How do I simplify a fraction using GCF?",
-      answer: "Find the GCF of the numerator and denominator, then divide both by the GCF. For 48/36, GCF(48,36) = 12, so 48/36 = (48÷12)/(36÷12) = 4/3. This gives the fraction in lowest terms."
-    },
-    {
-      question: "What is the Euclidean Algorithm?",
-      answer: "It{'\''}s an efficient method to find GCF: repeatedly divide and take remainders until the remainder is 0. The last non-zero remainder is the GCF. For GCF(48, 36): 48 mod 36 = 12, then 36 mod 12 = 0, so GCF = 12. It works for any two positive integers."
-    },
-    {
-      question: "Can GCF and LCM be equal?",
-      answer: "Only when the numbers are identical. For example, GCF(5,5) = 5 and LCM(5,5) = 5. For any two different numbers, GCF is always smaller than LCM. If numbers are coprime (GCF = 1), then LCM = a × b."
-    },
-    {
-      question: "What does coprime mean?",
-      answer: "Two numbers are coprime if their GCF is 1, meaning they share no common factors except 1. For example, 7 and 12 are coprime because GCF(7,12) = 1. Coprime numbers are useful in cryptography and have special properties in number theory."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

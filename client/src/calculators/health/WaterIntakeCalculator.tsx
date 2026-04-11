@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function WaterIntakeCalculator() {
   const [weight, setWeight] = useState(170);
@@ -163,38 +162,3 @@ export default function WaterIntakeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: WaterIntakeCalculator,
-  slug: "water-intake-calculator",
-  title: "Water Intake Calculator",
-  shortTitle: "Water Intake",
-  description: "Calculate your daily water intake recommendation based on body weight, activity level, and climate conditions",
-  category: "health",
-  icon: "💧",
-  keywords: ["water intake", "daily hydration", "water requirement", "fluid intake", "thirst calculator"],
-  popular: true,
-  faqs: [
-    {
-      question: "Is the {'\u0022'}8 glasses a day{'\u0022'} rule accurate?",
-      answer: "The {'\u0022'}8 glasses a day{'\u0022'} rule (about 2 liters) is a reasonable general guideline but not one-size-fits-all. Individual needs depend on weight, activity, climate, diet, and health status. A 200 lb active person needs more than a 120 lb sedentary person. About 20{'\u2013'}30% of water intake comes from food. The {'\u0022'}drink to thirst{'\u0022'} approach often works well for healthy people, though athletes and older adults should drink more intentionally.",
-    },
-    {
-      question: "Does drinking more water help with weight loss?",
-      answer: "Adequate hydration supports metabolism and can help with weight management indirectly. Drinking water before meals may reduce calorie intake slightly (25{'\u2013'}50 calories per meal). Proper hydration maintains energy for exercise and prevents fatigue. However, water itself has no calories {'\u2014'} weight loss comes from calorie deficit. Replacing sugary drinks with water definitely helps reduce calorie intake and supports overall health.",
-    },
-    {
-      question: "Can you drink too much water?",
-      answer: "Yes. Hyponatremia (water intoxication) occurs when drinking excessive water without electrolytes, diluting blood sodium. This is rare and typically occurs in endurance athletes or psychiatric patients but is a real danger. Drink to thirst for most people. During intense exercise over 1{'\u2013'}2+ hours, consume sports drinks with sodium and carbs, not just water. Signs of overhydration include nausea, headache, and swelling {'\u2014'} seek medical attention if these occur.",
-    },
-    {
-      question: "How do I know if I{'\u2019'}m dehydrated?",
-      answer: "Signs of dehydration include thirst, dark urine, dry mouth, fatigue, dizziness, and reduced urination. Urine color is a reliable indicator: pale yellow {'\u003d'} well-hydrated, dark yellow/brown {'\u003d'} dehydrated. Mild dehydration causes fatigue and reduced performance; severe dehydration is dangerous and requires medical attention. Prevent dehydration by drinking regularly and increasing intake with activity or heat. Older adults and children dehydrate more easily and should drink proactively.",
-    },
-    {
-      question: "Do electrolytes (sodium, potassium) matter in hydration?",
-      answer: "Electrolytes {'\u2014'} especially sodium and potassium {'\u2014'} are essential for hydration. Water alone doesn{'\u2019'}t fully rehydrate; you need electrolytes to help your body retain water. During exercise lasting over 1{'\u2013'}2 hours, drink sports drinks containing sodium (300{'\u2013'}600 mg/L) and carbs to improve fluid absorption and prevent hyponatremia. Regular diet provides enough electrolytes for daily life; supplementation is mainly for intense/prolonged exercise.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

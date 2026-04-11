@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function SleepCalculator() {
   const [mode, setMode] = useState("wakeup");
@@ -164,38 +163,3 @@ export default function SleepCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SleepCalculator,
-  slug: "sleep-calculator",
-  title: "Sleep Calculator",
-  shortTitle: "Sleep Cycles",
-  description: "Calculate optimal sleep and wake times aligned with 90-minute sleep cycles for better rest",
-  category: "health",
-  icon: "💤",
-  keywords: ["sleep calculator", "sleep cycles", "optimal bedtime", "wake time", "sleep quality"],
-  popular: true,
-  faqs: [
-    {
-      question: "Why are sleep cycles 90 minutes?",
-      answer: "Sleep occurs in cycles lasting approximately 90 minutes, during which your brain progresses through light sleep (NREM stage 1{'\u2013'}2), deep sleep (NREM stage 3), and REM sleep. This 90-minute pattern repeats throughout the night, with longer and more intense REM periods toward morning. Most people complete 4{'\u2013'}6 full cycles per night, totaling 6{'\u2013'}9 hours of sleep.",
-    },
-    {
-      question: "What is REM sleep and why is it important?",
-      answer: "REM (Rapid Eye Movement) sleep is when most vivid dreaming occurs and is essential for memory consolidation, emotional regulation, and brain development. Adults spend about 20{'\u2013'}25% of sleep in REM, occurring primarily in later cycles. Missing REM sleep impairs learning, mood, and cognitive function. Getting full cycles ensures adequate REM time.",
-    },
-    {
-      question: "How long does it take to fall asleep?",
-      answer: "On average, it takes 10{'\u2013'}20 minutes to fall asleep for healthy sleepers. This calculator uses 14 minutes as a standard estimate. Sleep-deprived individuals may fall asleep in minutes, while insomniacs may take much longer. If falling asleep takes consistently over 30 minutes, consult a sleep specialist. Relaxation techniques can help reduce sleep onset time.",
-    },
-    {
-      question: "Is waking during light sleep better than deep sleep?",
-      answer: "Yes. Waking during light sleep (NREM stages 1{'\u2013'}2) results in feeling refreshed; waking during deep sleep or transitioning out of REM causes sleep inertia {'\u2014'} grogginess that can last 30{'\u2013'}60 minutes. This calculator aligns wake times with the end of sleep cycles when you{'\u2019'}re naturally in lighter sleep stages, making waking easier and leaving you more alert.",
-    },
-    {
-      question: "Do I really need 7{'\u2013'}9 hours of sleep every night?",
-      answer: "Most adults need 7{'\u2013'}9 hours to function optimally, but individual needs vary (6{'\u2013'}10 hours is normal range). Age matters: teenagers need 8{'\u2013'}10 hours, while older adults may need slightly less. Consistently getting less than 6 hours increases risk of heart disease, diabetes, obesity, and cognitive decline. Quality matters too {'\u2014'} 7 hours of quality sleep beats 9 hours of fragmented sleep.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

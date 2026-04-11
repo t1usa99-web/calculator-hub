@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function WeightLossCalculator() {
   const [currentWeight, setCurrentWeight] = useState(200);
@@ -220,38 +219,3 @@ export default function WeightLossCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: WeightLossCalculator,
-  slug: "weight-loss-calculator",
-  title: "Weight Loss Calculator",
-  shortTitle: "Weight Loss",
-  description: "Calculate daily calorie targets and create a safe weight loss plan based on your TDEE and goals",
-  category: "health",
-  icon: "⚖️",
-  keywords: ["weight loss calculator", "calorie deficit", "diet plan", "TDEE", "weight loss goal"],
-  popular: true,
-  faqs: [
-    {
-      question: "How many calories should I cut to lose weight safely?",
-      answer: "A safe calorie deficit is 300{'\u2013'}750 calories per day, yielding 0.5{'\u2013'}1.5 lbs per week. Deficits above 1,000 calories/day are aggressive and unsustainable for most people; they risk muscle loss, nutrient deficiencies, and metabolic adaptation. The {'\u0022'}sweet spot{'\u0022'} for most is 500 cal/day (~1 lb/week), combining diet with exercise. Rapid weight loss (3{'\u2013'}5 lbs/week) usually includes water and muscle, not just fat.",
-    },
-    {
-      question: "Why does weight loss slow down over time?",
-      answer: "As you lose weight, your TDEE decreases because a smaller body burns fewer calories. Additionally, your body adapts to reduced calorie intake by lowering metabolic rate slightly (metabolic adaptation). Weight loss also reveals water retention patterns. Building/maintaining muscle through strength training helps offset metabolic slowdown. Recalculate your calorie target every 10{'\u2013'}15 lbs lost to stay on track.",
-    },
-    {
-      question: "What{'\u2019'}s the minimum calories I should eat?",
-      answer: "General guidelines suggest 1,200 cal/day for women and 1,500 cal/day for men as minimums, though individual needs vary. Eating below these risks nutrient deficiency, muscle loss, fatigue, and hormonal disruption. Very low-calorie diets (under 800 cal/day) require medical supervision. If severely overweight, a doctor may recommend structured VLCD programs. Sustainable loss comes from moderate deficits you can maintain, not crash diets.",
-    },
-    {
-      question: "Does protein matter during weight loss?",
-      answer: "Yes, significantly. Aim for 1.2{'\u2013'}2.2 grams per kg of body weight during weight loss. Protein preserves muscle mass, increases satiety (keeping you full longer), has a higher thermic effect (burns calories during digestion), and supports recovery. Higher protein intake reduces the muscle loss that occurs with calorie restriction. Prioritize protein sources: lean meats, fish, eggs, legumes, dairy, and plant-based options.",
-    },
-    {
-      question: "Can I eat anything I want as long as calories match?",
-      answer: "Technically yes for weight loss, but quality matters for sustainability and health. A diet of pure junk food (same calories) will leave you hungry, tired, and deprived. Whole foods {'\u2014'} vegetables, fruits, lean proteins, whole grains {'\u2014'} are more satiating, nutrient-dense, and support energy for exercise. An 80/20 approach (mostly whole foods, some flexibility) often works best. Focus on foods that keep you satisfied within your calorie goal.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

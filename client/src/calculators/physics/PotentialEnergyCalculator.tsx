@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { POTENTIAL_ENERGY_FAQS } from "@/lib/faq-physics-mechanics";
 
 export default function PotentialEnergyCalculator() {
   const [mass, setMass] = useState(10);
@@ -81,16 +79,3 @@ export default function PotentialEnergyCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "potential-energy-calculator",
-  title: "Potential Energy Calculator",
-  shortTitle: "Potential Energy",
-  description: "Calculate gravitational potential energy at a given height",
-  category: "physics",
-  icon: "⛰️",
-  keywords: ["potential energy", "gravitational energy", "height", "physics"],
-  component: PotentialEnergyCalculator,
-  faqs: POTENTIAL_ENERGY_FAQS,
-  dateModified: "2026-04-09",
-});

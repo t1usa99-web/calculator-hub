@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function CDCalculator() {
   const [initialDeposit, setInitialDeposit] = useState(10000);
@@ -199,51 +198,3 @@ export default function CDCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CDCalculator,
-  slug: "cd-calculator",
-  title: "CD Calculator",
-  shortTitle: "Certificate of Deposit",
-  description:
-    "Calculate CD maturity value and interest with various compounding frequencies",
-  category: "finance",
-  icon: "💳",
-  keywords: [
-    "CD",
-    "certificate of deposit",
-    "savings",
-    "APY",
-    "interest earned",
-    "CD rates",
-  ],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is a Certificate of Deposit (CD)?",
-      answer:
-        "A CD is a savings product where you deposit money for a fixed term (3 months to 5 years) at a guaranteed interest rate. CDs are FDIC-insured up to $250,000, making them extremely safe. You receive a higher interest rate than savings accounts in exchange for locking up your money until maturity.",
-    },
-    {
-      question: "What is the difference between APY and interest rate?",
-      answer:
-        "APY (Annual Percentage Yield) is the effective annual return after accounting for compounding, while the interest rate is the simple rate without compounding effects. For CDs, APY is the figure quoted by banks and represents your actual annual return. Compounding frequency (daily vs. monthly) slightly affects how interest accrues but doesn't change the APY for CDs.",
-    },
-    {
-      question: "What happens if I withdraw money early?",
-      answer:
-        "Early withdrawal typically incurs a penalty, usually forfeiting 3-12 months of interest (varies by bank and CD term). Some banks offer no-penalty CDs with slightly lower rates, providing withdrawal flexibility. Always read the CD terms before investing, and never invest money you might need before maturity to avoid penalties.",
-    },
-    {
-      question: "What is a CD ladder?",
-      answer:
-        "A CD ladder is a strategy where you buy multiple CDs with staggered maturity dates (e.g., five 1-year CDs maturing 6 months apart). As each CD matures, reinvest it in a new longest-term CD. Laddering provides regular access to portions of your money while capturing higher yields than savings accounts, balancing safety with returns.",
-    },
-    {
-      question: "Are CDs safe? Are they FDIC-insured?",
-      answer:
-        "CDs are extremely safe if purchased from FDIC-insured banks or NCUA-insured credit unions. FDIC insurance protects up to $250,000 per depositor per institution, meaning even if the bank fails, your CD is protected. This makes CDs ideal for risk-averse savers and emergency funds.",
-    },
-  ],
-});

@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { MARGIN_FAQS } from "@/lib/faq-finance-invest";
 
 export default function MarginCalculator() {
   const [costPrice, setCostPrice] = useState(50);
@@ -167,16 +165,3 @@ export default function MarginCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MarginCalculator,
-  faqs: MARGIN_FAQS,
-  slug: "margin-calculator",
-  title: "Margin Calculator",
-  shortTitle: "Margin",
-  description: "Calculate markup and profit margins for accurate pricing",
-  category: "finance",
-  icon: "💲",
-  keywords: ["margin", "markup", "profitability", "pricing"],
-  popular: false,
-});

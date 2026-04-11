@@ -13,8 +13,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { SAVINGS_GOAL_FAQS } from "@/lib/faq-finance-invest";
 
 export default function SavingsGoalCalculator() {
   const [goalAmount, setGoalAmount] = useState(50000);
@@ -248,16 +246,3 @@ export default function SavingsGoalCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "savings-goal",
-  title: "Savings Goal Calculator",
-  shortTitle: "Savings Goal",
-  description: "Plan and track your savings goals with compound interest",
-  category: "finance",
-  icon: "🏦",
-  keywords: ["savings", "goal", "money", "interest", "emergency fund"],
-  popular: true,
-  component: SavingsGoalCalculator,
-  faqs: SAVINGS_GOAL_FAQS,
-});

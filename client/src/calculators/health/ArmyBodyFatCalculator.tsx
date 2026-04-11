@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function ArmyBodyFatCalculator() {
   const [gender, setGender] = useState("male");
@@ -199,38 +198,3 @@ export default function ArmyBodyFatCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ArmyBodyFatCalculator,
-  slug: "army-body-fat-calculator",
-  title: "Army Body Fat Calculator",
-  shortTitle: "Army Body Fat",
-  description: "Calculate body fat percentage using U.S. Army circumference measurements",
-  category: "health",
-  icon: "🎖️",
-  keywords: ["army body fat", "military fitness", "body fat percentage", "body composition", "circumference"],
-  popular: false,
-  faqs: [
-    {
-      question: "How accurate is the Army method compared to DEXA?",
-      answer: "The Army method has a margin of error of about ±3-5% compared to DEXA or underwater weighing. It's accurate enough for military screening purposes but not as precise as direct measurement methods. Very muscular or sedentary individuals may see larger discrepancies."
-    },
-    {
-      question: "What if I exceed the Army standard?",
-      answer: "In active military, exceeding standards typically triggers remedial physical training. Soldiers are given a timeline to meet standards or face discharge. Standards increase slightly with age to account for natural changes. Seek fitness guidance to safely reduce body fat while maintaining health and muscle."
-    },
-    {
-      question: "Why are women's standards higher than men's?",
-      answer: "Women naturally have more essential body fat due to biological differences (hormones, reproductive tissue). A woman at 28% body fat is healthier than a man at 28%. Army standards reflect these physiological differences while maintaining fitness expectations."
-    },
-    {
-      question: "Do I need to measure at specific times of day?",
-      answer: "Measure in the morning before eating or exercising for consistency. Hydration status, food intake, and exercise can cause fluid shifts affecting measurements. Consistent measurement timing reduces variability between repeated measurements."
-    },
-    {
-      question: "Can I use this calculator if I'm not in the military?",
-      answer: "Yes. The Army method is used by fitness professionals, civilian employers, and health researchers worldwide. It's a standard body composition assessment method. If you don't meet military standards, that doesn't mean you're unhealthy—civilian fitness varies widely by sport and goals."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

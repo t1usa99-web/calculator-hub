@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { SCIENTIFIC_FAQS } from "@/lib/faq-math";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function ScientificCalculator() {
   const [number, setNumber] = useState(16);
@@ -184,17 +182,3 @@ export default function ScientificCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ScientificCalculator,
-  slug: "scientific-calculator",
-  title: "Scientific Calculator",
-  shortTitle: "Scientific",
-  description: "Calculate roots, powers, logarithms, trigonometric functions, and more",
-  category: "math",
-  icon: "🔬",
-  keywords: ["scientific calculator", "square root", "exponent", "logarithm", "sine", "cosine"],
-  popular: true,
-  faqs: SCIENTIFIC_FAQS,
-  dateModified: "2026-04-09"
-});

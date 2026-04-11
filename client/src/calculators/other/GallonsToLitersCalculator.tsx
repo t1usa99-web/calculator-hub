@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function GallonsToLitersCalculator() {
   const [gallons, setGallons] = useState(5);
@@ -129,38 +128,3 @@ export default function GallonsToLitersCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: GallonsToLitersCalculator,
-  slug: "gallons-to-liters",
-  title: "Gallons to Liters Calculator",
-  shortTitle: "Gal to L",
-  description: "Convert gallons to liters instantly",
-  category: "other",
-  icon: "🫗",
-  keywords: ["gallons to liters", "volume conversion", "gal to l", "liquid measurement"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is the conversion factor from gallons to liters?",
-      answer: "One US gallon equals 3.78541 liters. For quick mental math, you can use 3.8 or even round to 4 for rough estimates. The conversion factor is consistent for all gallon measurements: 5 gallons = 18.9 liters, 10 gallons = 37.9 liters. This is the US gallon; the imperial gallon used in the UK is different at 4.546 liters.",
-    },
-    {
-      question: "What is the difference between US gallons and imperial gallons?",
-      answer: "The US gallon (3.78541 liters) is smaller than the imperial gallon (4.546 liters) used in the UK and some Commonwealth countries. This difference comes from different historical standards. A US gallon is about 83% of an imperial gallon. When converting or comparing liquid measurements internationally, verify which gallon is being used. The US gallon is standard in the United States; most other English-speaking countries use imperial gallons, though they're increasingly switching to liters for commerce.",
-    },
-    {
-      question: "How many liters are in a typical US gas tank?",
-      answer: "A typical US car has a fuel tank capacity of 12-16 gallons, which equals 45-60 liters. A 15-gallon tank holds 56.8 liters. Larger SUVs and trucks may have 20-25 gallon tanks (75-95 liters). Knowing this helps estimate driving range and fuel costs when traveling internationally. When renting cars abroad, you'll see fuel consumption in liters per 100 kilometers instead of miles per gallon.",
-    },
-    {
-      question: "Why do some countries use gallons and others use liters?",
-      answer: "The US still uses gallons due to historical tradition and established infrastructure. The British imperial system (which used gallons) was the global standard before the metric system was adopted. Most countries switched to the metric system and liters in the 1970s-1980s. The US chose not to fully adopt the metric system, keeping gallons for fuel and some beverages. Today, the US is the primary hold-out for gallons, though liters are increasingly used in science, medicine, and international commerce.",
-    },
-    {
-      question: "How can I estimate gallons to liters without a calculator?",
-      answer: "The simplest approximation: multiply gallons by 4 and subtract a small amount. Example: 5 gallons ≈ 5 × 4 - 0.5 = 19.5 liters (actual is 18.9). Another method: multiply by 3.8 for better accuracy but faster than 3.78541. For quick estimates while shopping or traveling, knowing that 1 gallon ≈ 3.8 liters helps you judge product sizes. Common reference points help too: 1 gallon ≈ 3.8 L, 5 gallons ≈ 19 L, 10 gallons ≈ 38 L.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

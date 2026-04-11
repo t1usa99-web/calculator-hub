@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { REFINANCE_FAQS } from "@/lib/faq-finance-loans";
 
 export default function RefinanceCalculator() {
   const [currentBalance, setCurrentBalance] = useState(300000);
@@ -209,16 +207,3 @@ export default function RefinanceCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: RefinanceCalculator,
-  slug: "refinance-calculator",
-  title: "Refinance Calculator",
-  shortTitle: "Refinance",
-  description: "Compare current mortgage to refinanced option and calculate breakeven",
-  category: "finance",
-  icon: "🔄",
-  keywords: ["refinance", "mortgage refinance", "breakeven", "interest rate"],
-  popular: false,
-  faqs: REFINANCE_FAQS,
-});

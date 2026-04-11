@@ -3,7 +3,6 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import CalculatorLayout from "@/components/CalculatorLayout";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 function gcd(a: number, b: number): number {
   a = Math.abs(a);
@@ -223,38 +222,3 @@ export default function LCMCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: LCMCalculator,
-  slug: "lcm-calculator",
-  title: "LCM Calculator",
-  shortTitle: "LCM",
-  description: "Calculate the least common multiple of numbers",
-  category: "math",
-  icon: "🔢",
-  keywords: ["lcm", "least common multiple", "common multiple", "lowest common multiple"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the least common multiple used for?",
-      answer: "LCM is used when finding common denominators for fractions, solving problems with repeating cycles, scheduling events, and synchronizing processes. For example, adding 1/12 + 1/18 requires the denominator 36 (the LCM). It{'\''}s fundamental in arithmetic and practical applications."
-    },
-    {
-      question: "How do I find LCM using prime factorization?",
-      answer: "List the prime factorization of each number. Take each prime that appears and use the highest exponent. For 12 = 2² × 3 and 18 = 2 × 3², take 2² and 3² to get LCM = 4 × 9 = 36. This method is intuitive and works for any quantity of numbers."
-    },
-    {
-      question: "What is the relationship between LCM and GCD?",
-      answer: "For two numbers a and b: LCM(a, b) × GCD(a, b) = a × b. For 12 and 18, LCM = 36 and GCD = 6, so 36 × 6 = 216 = 12 × 18. This relationship allows you to calculate one from the other. With GCD known, LCM = (a × b) / GCD."
-    },
-    {
-      question: "Can LCM equal one of the input numbers?",
-      answer: "Yes, if one number divides the other. For example, LCM(6, 12) = 12 because 6 divides 12 evenly. More generally, LCM(a, b) = max(a, b) when one divides the other. If numbers are coprime (GCD = 1), then LCM = a × b."
-    },
-    {
-      question: "How do I find LCM of more than two numbers?",
-      answer: "Find LCM iteratively: LCM(a, b, c) = LCM(LCM(a, b), c). Or, use prime factorization: factor all numbers, take the highest exponent of each prime across all factorizations. For 12, 18, 20: use 2², 3², and 5 to get LCM = 4 × 9 × 5 = 180."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

@@ -1,7 +1,5 @@
 import MetalValueCalculator from "@/components/MetalValueCalculator";
-import { registerCalculator } from "@/lib/calculator-registry";
 import { METALS } from "@/lib/metals-config";
-import { GOLD_VALUE_FAQS } from "@/lib/faq-metals";
 
 const metal = METALS.find((m) => m.apiKey === "gold")!;
 
@@ -29,14 +27,3 @@ const educational = (
 export default function GoldValueCalculator() {
   return <MetalValueCalculator metal={metal} educational={educational} />;
 }
-
-registerCalculator({
-  ...metal,
-  title: "Gold Value Calculator",
-  shortTitle: "Gold Value",
-  category: "metals",
-  popular: true,
-  faqs: GOLD_VALUE_FAQS,
-  dateModified: "2026-04-10",
-  component: GoldValueCalculator,
-});

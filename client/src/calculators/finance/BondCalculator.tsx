@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function BondCalculator() {
   const [faceValue, setFaceValue] = useState(1000);
@@ -187,38 +186,3 @@ export default function BondCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BondCalculator,
-  slug: "bond-calculator",
-  title: "Bond Calculator",
-  shortTitle: "Bond Calculator",
-  description: "Calculate bond prices, current yield, YTM, and duration for fixed-income investing",
-  category: "finance",
-  icon: "💳",
-  keywords: ["bond calculator", "bond price", "yield to maturity", "YTM", "duration", "fixed income"],
-  popular: true,
-  faqs: [
-    {
-      question: "What does it mean if the bond price is above face value?",
-      answer: "The bond is trading at a premium. This happens when the coupon rate is higher than the market yield. The bond will gradually decline in price as it approaches maturity, converging to face value. You're paying more upfront but receiving above-market coupon payments."
-    },
-    {
-      question: "Should I buy a bond trading at a discount or premium?",
-      answer: "Both can be appropriate depending on your strategy. A discounted bond offers the potential for price appreciation if yields fall. A premium bond offers above-market coupon income. Compare the YTM to available alternatives and consider your interest rate outlook and investment timeline."
-    },
-    {
-      question: "What's the difference between coupon rate and yield?",
-      answer: "Coupon rate is fixed at issuance (set as a percentage of face value). Yield changes as bond prices fluctuate in the market. If you buy a 5% coupon bond for a premium price, your actual yield (return) will be less than 5%. YTM accounts for the purchase price and return of principal."
-    },
-    {
-      question: "How does duration help me?",
-      answer: "Duration tells you how much a bond's price will move if yields change. A 5-year duration bond loses about 5% if yields rise 1%. Longer duration = more price volatility but typically higher yield. Use duration to understand your interest rate risk and to match your investment timeline."
-    },
-    {
-      question: "What's the relationship between interest rates and bond prices?",
-      answer: "They're inversely related. When interest rates rise, new bonds offer higher yields, making existing bonds worth less (to sell, you'd have to discount them to compete). When rates fall, existing bonds become more valuable. This is why bond prices fluctuate in the secondary market."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function RMDCalculator() {
   const [currentAge, setCurrentAge] = useState(73);
@@ -176,38 +175,3 @@ export default function RMDCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: RMDCalculator,
-  slug: "rmd-calculator",
-  title: "Required Minimum Distribution (RMD) Calculator",
-  shortTitle: "RMD",
-  description: "Calculate required minimum distributions from retirement accounts at age 73+",
-  category: "finance",
-  icon: "📊",
-  keywords: ["RMD", "required minimum distribution", "retirement", "IRA", "401k", "distribution"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "At what age do I have to start taking RMDs?",
-      answer: "You must start taking Required Minimum Distributions (RMDs) at age 73 as of 2023 (this age was increased from 72 under the SECURE Act 2.0). Your first RMD must be taken by April 1 of the year following the year you reach age 73. After that, you must take RMDs by December 31 each year. Note: Roth IRAs are exempt from RMD requirements during your lifetime, but Roth 401(k)s do require RMDs (they can be rolled to a Roth IRA to avoid them).",
-    },
-    {
-      question: "How is the RMD amount calculated?",
-      answer: "Your RMD is calculated by dividing your retirement account balance as of December 31 of the prior year by an IRS life expectancy divisor. The divisor decreases each year, requiring larger withdrawals as you age. At age 73, the divisor is 26.5; at 80, it's 20.2; at 90, it's 11.9. For example, a {formatCurrency(500000)} balance at age 73 requires an RMD of {formatCurrency(18868)} ({formatCurrency(500000)} divided by 26.5). Most financial institutions calculate RMDs for you automatically.",
-    },
-    {
-      question: "What happens if I miss my RMD deadline?",
-      answer: "If you fail to withdraw your full RMD, you face a penalty of 25% of the shortfall amount under current rules (or 10% if corrected within 2 years). This is a substantial penalty. For example, if your RMD is {formatCurrency(20000)} and you only withdraw {formatCurrency(15000)}, you owe a {formatCurrency(1250)} penalty (25% of {formatCurrency(5000)}). The deadline is December 31 of each year. For your first RMD, you have until April 1 of the following year, but this pushes two RMDs into one calendar year.",
-    },
-    {
-      question: "Can I take my RMD as a lump sum or must I spread it out?",
-      answer: "<strong>You can take your full RMD anytime during the year</strong>—as a single withdrawal or spread across multiple withdrawals. Many people take it in December to simplify taxes. Some take it in January to spread income across two tax years. The key is that your total withdrawals must equal the RMD by December 31. You cannot take it early in January and defer to later (the annual total must meet the RMD requirement).",
-    },
-    {
-      question: "What is a Qualified Charitable Distribution (QCD) and how does it help with RMDs?",
-      answer: "A Qualified Charitable Distribution (QCD) allows you to donate your RMD directly to a charity without paying income tax on it. If you're over 73 and charitably inclined, you can direct up to {formatCurrency(100000)} of your IRA to qualifying charities, and that amount counts toward your RMD. This reduces your taxable income and is especially valuable for those who don't itemize deductions. You must donate directly to the charity (not through a donor-advised fund) for it to qualify.",
-    },
-  ],
-});

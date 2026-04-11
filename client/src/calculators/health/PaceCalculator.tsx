@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { PACE_FAQS } from "@/lib/faq-health";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PaceCalculator() {
   const [distance, setDistance] = useState(5);
@@ -161,17 +159,3 @@ export default function PaceCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PaceCalculator,
-  slug: "pace-calculator",
-  title: "Running/Cycling Pace Calculator",
-  shortTitle: "Pace",
-  description: "Calculate your running or cycling pace per mile and estimate finish times for common race distances",
-  category: "health",
-  icon: "🏃",
-  keywords: ["pace calculator", "running pace", "cycling pace", "race time", "marathon calculator"],
-  popular: false,
-  faqs: PACE_FAQS,
-  dateModified: "2026-04-09",
-});

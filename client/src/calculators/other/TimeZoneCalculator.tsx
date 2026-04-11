@@ -3,7 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TimeZoneCalculator() {
   const [hours, setHours] = useState(14);
@@ -183,38 +182,3 @@ export default function TimeZoneCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TimeZoneCalculator,
-  slug: "time-zone-calculator",
-  title: "Time Zone Calculator",
-  shortTitle: "Time Zone",
-  description: "Convert times between world time zones",
-  category: "other",
-  icon: "🌍",
-  keywords: ["time zone converter", "UTC offset", "world time", "convert time", "timezone"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is UTC and how do time zones relate to it?",
-      answer: "UTC (Coordinated Universal Time) is the international standard time, also called Greenwich Mean Time (GMT). All time zones are based on UTC offsets. Eastern Time is UTC-5 (5 hours behind UTC). Central Europe is UTC+1 (1 hour ahead). Tokyo is UTC+9. When it's noon UTC, it's 7am in New York (UTC-5) and 9pm in Tokyo (UTC+9). Most digital systems and aviation use UTC internally, then convert to local time for display. Understanding UTC helps when working with international teams, logs, and scheduling.",
-    },
-    {
-      question: "How do I calculate time differences between zones?",
-      answer: "Find the UTC offset for each timezone, then subtract. Example: New York (UTC-5) to London (UTC+0): 0 - (-5) = 5 hours difference. If it's 3pm in New York, add 5 hours to get 8pm in London. If the result exceeds 24 hours or goes negative, add or subtract 24 hours to stay within a single day. Example: 9pm in New York to Tokyo (UTC+9): 9 + 14 hours = 11am next day in Tokyo. Most calendars and time apps do this automatically, but understanding the math helps you verify conversions.",
-    },
-    {
-      question: "What is daylight saving time and how does it affect time zones?",
-      answer: "Daylight saving time (DST) shifts local time one hour forward during warmer months to use daylight more efficiently. In the U.S., it starts on the second Sunday in March and ends on the first Sunday in November. Europe has similar dates but not identical. Some places don't observe DST (Arizona, Hawaii, parts of Canada). During DST, New York becomes UTC-4 instead of UTC-5. Time differences between regions that observe DST on different dates are confusing. Always use timezone-aware tools that account for DST; manual calculations are error-prone during transitions.",
-    },
-    {
-      question: "What are the major world time zones?",
-      answer: "Major time zones include: Hawaii (UTC-10), Los Angeles (UTC-8), Denver (UTC-7), Chicago (UTC-6), New York (UTC-5), London/GMT (UTC+0), Paris/Central Europe (UTC+1), Cairo/Eastern Europe (UTC+2), New Delhi (UTC+5:30), Singapore (UTC+8), Tokyo (UTC+9), Sydney (UTC+10). These are standard time offsets; add 1 hour for daylight saving time in observing regions. Large countries like Russia, China, and Australia span multiple time zones. Use a map or timezone app to determine the correct zone for specific cities.",
-    },
-    {
-      question: "How do I schedule a call across multiple time zones?",
-      answer: "Find a time that works for all participants' working hours (typically 9am-6pm). Use a time zone converter to see what times correspond across regions. For example, 9am Pacific (UTC-8) is 12pm Eastern (UTC-5) and 5pm London (UTC+0). Consider each region's standard working hours and lunch times. Google Calendar automatically shows events in each attendee's local time. Always confirm the timezone in meeting invitations to prevent confusion. When deadlines are international, specify both the timezone and UTC time for clarity.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

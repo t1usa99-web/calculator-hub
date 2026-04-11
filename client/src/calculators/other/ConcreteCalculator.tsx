@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { CONCRETE_FAQS } from "@/lib/faq-other";
 
 export default function ConcreteCalculator() {
   const [length, setLength] = useState(10);
@@ -227,17 +225,3 @@ export default function ConcreteCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ConcreteCalculator,
-  slug: "concrete-calculator",
-  title: "Concrete Calculator",
-  shortTitle: "Concrete",
-  description: "Calculate concrete volume and bags needed for projects",
-  category: "other",
-  icon: "🏗️",
-  keywords: ["concrete calculator", "cubic yards", "concrete bags", "concrete volume"],
-  popular: false,
-  faqs: CONCRETE_FAQS,
-  dateModified: "2026-04-09",
-});

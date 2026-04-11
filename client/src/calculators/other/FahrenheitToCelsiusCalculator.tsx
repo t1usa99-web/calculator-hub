@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function FahrenheitToCelsiusCalculator() {
   const [fahrenheit, setFahrenheit] = useState(72);
@@ -129,38 +128,3 @@ export default function FahrenheitToCelsiusCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: FahrenheitToCelsiusCalculator,
-  slug: "fahrenheit-to-celsius",
-  title: "Fahrenheit to Celsius Calculator",
-  shortTitle: "°F to °C",
-  description: "Convert temperature from Fahrenheit to Celsius instantly",
-  category: "other",
-  icon: "🌡️",
-  keywords: ["fahrenheit to celsius", "temperature conversion", "f to c", "weather", "temperature"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the formula to convert Fahrenheit to Celsius?",
-      answer: "The formula is: °C = (°F - 32) × 5/9. First subtract 32 from the Fahrenheit temperature, then multiply the result by 5/9 (or divide by 1.8). Example: 72°F becomes (72 - 32) × 5/9 = 40 × 5/9 = 22.2°C. This linear conversion works for any temperature value.",
-    },
-    {
-      question: "Why are there two different temperature scales?",
-      answer: "Fahrenheit was developed in 1724 and was the first widely used scale, especially in English-speaking countries. Celsius was created later in 1742 using water's freezing and boiling points (0°C and 100°C) as reference points, making it more scientific and internationally standardized. Celsius became the global standard for science, medicine, and most countries. The United States still uses Fahrenheit due to historical tradition and infrastructure built around it. Understanding both scales is necessary for international communication.",
-    },
-    {
-      question: "What is body temperature in both scales?",
-      answer: "Normal human body temperature is approximately 98.6°F or 37°C. Mild fever starts around 100.4°F (38°C). A high fever is 103°F (39.4°C) or above. These values represent typical healthy adult body temperature. Slight variations are normal; body temperature fluctuates throughout the day, with higher values in the afternoon and lower values early morning. Children may have slightly different normal ranges. Medical thermometers in the US display Fahrenheit; international thermometers display Celsius.",
-    },
-    {
-      question: "What temperature conversions should I memorize?",
-      answer: "Key temperatures to remember: 32°F = 0°C (water freezes), 68°F = 20°C (cool room), 72°F = 22.2°C (comfortable indoor), 86°F = 30°C (warm day), 98.6°F = 37°C (body temperature), 100°F = 37.8°C (very hot), 212°F = 100°C (water boils). Also remember that -40°F = -40°C, the one point where both scales equal. A rough approximation: multiply Celsius by 2 and add 30 to estimate Fahrenheit, though this has a small margin of error.",
-    },
-    {
-      question: "Which scale is used for scientific research?",
-      answer: "Celsius is universally used for scientific research and is the SI (International System of Units) standard. Scientists use Celsius for nearly all calculations and measurements. For very low temperatures near absolute zero, the Kelvin scale is used (absolute zero = 0 K = -273.15°C). Global scientific data, climate research, physics experiments, and chemistry work all use Celsius. If you're reading scientific papers or weather data from international sources, temperatures will be in Celsius.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

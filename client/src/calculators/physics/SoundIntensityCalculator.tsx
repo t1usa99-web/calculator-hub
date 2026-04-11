@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { SOUND_INTENSITY_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function SoundIntensityCalculator() {
   const [intensity, setIntensity] = useState(1e-5);
@@ -65,16 +63,3 @@ export default function SoundIntensityCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "sound-intensity-calculator",
-  title: "Sound Intensity Calculator",
-  shortTitle: "Sound Intensity",
-  description: "Calculate decibel level from sound intensity",
-  category: "physics",
-  icon: "🔊",
-  keywords: ["sound intensity", "decibels", "acoustics", "dB"],
-  component: SoundIntensityCalculator,
-  faqs: SOUND_INTENSITY_FAQS,
-  dateModified: "2026-04-09",
-});

@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 function getAllFactors(num: number): number[] {
   const factors: number[] = [];
@@ -183,38 +182,3 @@ export default function FactorCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: FactorCalculator,
-  slug: "factor-calculator",
-  title: "Factor Calculator",
-  shortTitle: "Factors",
-  description: "Find all factors and divisors of any number",
-  category: "math",
-  icon: "🔢",
-  keywords: ["factors", "divisors", "factor pairs", "prime factors", "factorization"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is a factor?",
-      answer: "A factor of a number n is any positive integer that divides n evenly with no remainder. For example, factors of 12 are 1, 2, 3, 4, 6, and 12. Every number is a factor of itself, and 1 is a factor of every number."
-    },
-    {
-      question: "What is the difference between factors and multiples?",
-      answer: "A factor divides a number evenly. A multiple is a number you get by multiplying. For example, 3 is a factor of 12, and 12 is a multiple of 3. Factors are smaller or equal; multiples are larger or equal. They are inverse relationships."
-    },
-    {
-      question: "What are factor pairs?",
-      answer: "Factor pairs are two numbers whose product equals the original number. For 24, the pairs are (1, 24), (2, 12), (3, 8), and (4, 6). Every factorization can be viewed as organizing factor pairs. The middle factor pair is closest when the number is not a perfect square."
-    },
-    {
-      question: "How many factors does a number have?",
-      answer: "If the prime factorization is n = p1^a × p2^b × p3^c, then the number of factors is (a+1)(b+1)(c+1). For example, 24 = 2³ × 3¹ has (3+1)(1+1) = 8 factors. This formula comes from combinatorics: independently choose exponents for each prime."
-    },
-    {
-      question: "What is the relationship between factors and simplifying fractions?",
-      answer: "To simplify a fraction, divide both numerator and denominator by their common factors (ideally the GCF). For 24/36, factors of 24 are 1,2,3,4,6,8,12,24 and factors of 36 are 1,2,3,4,6,9,12,18,36. Common factors are 1,2,3,4,6,12. The GCF is 12, so 24/36 = 2/3."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

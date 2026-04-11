@@ -13,8 +13,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { DEBT_PAYOFF_FAQS } from "@/lib/faq-finance-loans";
 
 export default function DebtPayoffCalculator() {
   const [totalDebt, setTotalDebt] = useState(15000);
@@ -258,16 +256,3 @@ export default function DebtPayoffCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "debt-payoff",
-  title: "Debt Payoff Calculator",
-  shortTitle: "Debt Payoff",
-  description: "Calculate your debt payoff timeline and savings with extra payments",
-  category: "finance",
-  icon: "💳",
-  keywords: ["debt", "payoff", "loan", "credit", "interest"],
-  popular: true,
-  component: DebtPayoffCalculator,
-  faqs: DEBT_PAYOFF_FAQS,
-});

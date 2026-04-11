@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function CaloriesBurnedCalculator() {
   const [weight, setWeight] = useState(170);
@@ -159,38 +158,3 @@ export default function CaloriesBurnedCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CaloriesBurnedCalculator,
-  slug: "calories-burned-calculator",
-  title: "Calories Burned Calculator",
-  shortTitle: "Calories Burned",
-  description: "Estimate the number of calories you burn during various physical activities based on your weight, activity type, and duration",
-  category: "health",
-  icon: "🔥",
-  keywords: ["calories burned", "exercise calories", "activity calories", "calorie expenditure", "workout"],
-  popular: true,
-  faqs: [
-    {
-      question: "What does MET mean in the calories burned calculator?",
-      answer: "MET stands for Metabolic Equivalent of Task. One MET is the amount of oxygen your body uses at rest. A 5.0 MET activity means you're working at 5 times your resting metabolic rate. Higher MET values indicate more intense exercise and higher calorie burn. The MET values used in this calculator represent average intensities for each activity.",
-    },
-    {
-      question: "Why do people of different weights burn different amounts of calories?",
-      answer: "Heavier individuals burn more calories during the same activity because their bodies require more energy to move additional mass. The calorie burn formula includes body weight as a key variable: more weight {'\u00d7'} same activity {'\u003d'} more calories burned. This is why weight loss and gain can shift your calorie burn rates.",
-    },
-    {
-      question: "Are these calorie burn estimates accurate?",
-      answer: "These estimates are based on average MET values from exercise science research, but individual variation is significant. Your actual burn depends on fitness level, intensity, metabolism, age, gender, and muscle mass. Use these estimates as guidelines rather than exact measurements. A fitness tracker or smartwatch provides more personalized data.",
-    },
-    {
-      question: "Does intensity affect calorie burn?",
-      answer: "Absolutely. Sprinting burns more calories than jogging; high-intensity interval training (HIIT) burns more than steady-state cardio. The MET values here assume moderate intensity for each activity. Push harder, and you burn more. Effort, not just time spent, determines total calorie expenditure.",
-    },
-    {
-      question: "Can I lose weight just by exercising, without changing my diet?",
-      answer: "Exercise is essential for health but is not the most efficient way to create a calorie deficit. Weight loss requires burning more calories than you consume {'\u2014'} diet typically contributes 70{'\u20131'}80% of weight loss results. Combine moderate exercise with a balanced, calorie-controlled diet for best results. Strength training preserves muscle during weight loss, which is crucial for maintaining metabolism.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

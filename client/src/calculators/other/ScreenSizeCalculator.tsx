@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function ScreenSizeCalculator() {
   const [diagonalSize, setDiagonalSize] = useState(24);
@@ -157,38 +156,3 @@ export default function ScreenSizeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ScreenSizeCalculator,
-  slug: "screen-size-calculator",
-  title: "Screen Size Calculator",
-  shortTitle: "Screen Size",
-  description: "Calculate monitor width, height, and pixel density",
-  category: "other",
-  icon: "🖥️",
-  keywords: ["screen size calculator", "monitor dimensions", "PPI", "resolution", "aspect ratio", "display"],
-  popular: true,
-  faqs: [
-    {
-      question: "How is screen size measured?",
-      answer: "Screen size is measured diagonally from one corner to the opposite corner, typically in inches. A 24-inch monitor has a diagonal of 24 inches. This measurement doesn't directly tell you the width or height; you need the aspect ratio for that. A 24-inch 16:9 monitor is about 21 inches wide and 12 inches tall. A 24-inch 4:3 monitor is about 19 inches wide and 14.5 inches tall. The same diagonal size with different aspect ratios results in different physical dimensions. Always check both diagonal size and aspect ratio when choosing a monitor.",
-    },
-    {
-      question: "What aspect ratio should I choose?",
-      answer: "16:9 (widescreen) is the standard for most modern monitors and TVs; it's suitable for most uses. 16:10 (taller) was common on older monitors and provides slightly more vertical space. 4:3 (square) was dominant before widescreen but is rare today. 21:9 (ultrawide) provides extra horizontal space for gaming, video editing, or multitasking; it's more expensive and requires more desk space. Choose based on your use case: widescreen for general use, ultrawide for content creation or gaming, taller aspect ratios for coding or document editing.",
-    },
-    {
-      question: "What is PPI and why does it matter?",
-      answer: "PPI (pixels per inch) measures pixel density; higher PPI means sharper text and images. A 24-inch 1080p monitor has about 92 PPI (acceptable for normal office work). A 27-inch 1440p monitor has about 109 PPI (crisp and clear). A 4K monitor has very high PPI (150+ PPI, extremely sharp). For comfortable viewing without strain, higher PPI is better. Viewing distance matters: sitting far away, lower PPI is acceptable; sitting close, higher PPI is necessary. For laptops, 130+ PPI is comfortable; for desktops, 90-110 PPI is typical.",
-    },
-    {
-      question: "How do I choose the right monitor size for my desk?",
-      answer: "Measure your desk depth and determine your sitting distance. Most people sit 20-30 inches from a monitor. At 24 inches viewing distance, a 24-inch monitor is appropriate (viewing angle is about 60-70 degrees). At 30+ inches, a 27-inch or larger monitor is better. Ultrawide monitors (34-35 inches) require 30+ inches viewing distance and significant desk space (approximately 40 inches wide). Desk depth should be at least 24 inches for a 24-inch monitor. Leave space for keyboard and mouse. Monitor stands take less space than monitor arms. Ensure your monitor is at eye level to reduce neck strain.",
-    },
-    {
-      question: "What resolution should I choose?",
-      answer: "Common resolutions: 1920x1080 (Full HD) for 24-inch monitors, 2560x1440 (QHD) for 27-inch, 3840x2160 (4K) for 32-inch and larger. Higher resolution provides more screen real estate and sharper text. For coding and document editing, higher resolution (2560+ width) is beneficial. For gaming, consider your GPU capability; high resolution requires powerful graphics cards. For general office work, 1920x1080 is sufficient. For photo/video editing, 2560+ resolution and color-accurate displays are recommended. Balance resolution with refresh rate; high refresh (144+ Hz) is better for gaming.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

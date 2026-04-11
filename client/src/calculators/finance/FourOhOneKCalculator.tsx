@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { FOUR_OH_ONE_K_FAQS } from "@/lib/faq-finance-invest";
 
 export default function FourOhOneKCalculator() {
   const [currentBalance, setCurrentBalance] = useState(50000);
@@ -200,23 +198,3 @@ export default function FourOhOneKCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: FourOhOneKCalculator,
-  faqs: FOUR_OH_ONE_K_FAQS,
-  slug: "401k-calculator",
-  title: "401(k) Calculator",
-  shortTitle: "401(k)",
-  description:
-    "Estimate your 401(k) balance at retirement with employer matching and growth projections",
-  category: "finance",
-  icon: "🏦",
-  keywords: [
-    "401k",
-    "retirement",
-    "employer match",
-    "investment growth",
-    "retirement planning",
-  ],
-  dateModified: "2026-04-09",
-});

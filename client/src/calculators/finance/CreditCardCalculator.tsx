@@ -13,8 +13,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { CREDIT_CARD_FAQS } from "@/lib/faq-finance-loans";
 
 export default function CreditCardCalculator() {
   const [balance, setBalance] = useState(5000);
@@ -304,16 +302,3 @@ export default function CreditCardCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "credit-card",
-  title: "Credit Card Calculator",
-  shortTitle: "Credit Card",
-  description: "Compare payoff scenarios and understand credit card interest",
-  category: "finance",
-  icon: "💰",
-  keywords: ["credit", "card", "interest", "payoff", "debt", "APR"],
-  popular: true,
-  component: CreditCardCalculator,
-  faqs: CREDIT_CARD_FAQS,
-});

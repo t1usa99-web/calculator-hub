@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { PRESSURE_FAQS } from "@/lib/faq-physics-mechanics";
 
 export default function PressureCalculator() {
   const [force, setForce] = useState(1000);
@@ -78,16 +76,3 @@ export default function PressureCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "pressure-calculator",
-  title: "Pressure Calculator",
-  shortTitle: "Pressure",
-  description: "Calculate pressure and convert between pressure units",
-  category: "physics",
-  icon: "🌡️",
-  keywords: ["pressure", "force", "area", "units"],
-  component: PressureCalculator,
-  faqs: PRESSURE_FAQS,
-  dateModified: "2026-04-09",
-});

@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function StockCalculator() {
   const [buyPrice, setBuyPrice] = useState(50);
@@ -194,38 +193,3 @@ export default function StockCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: StockCalculator,
-  slug: "stock-calculator",
-  title: "Stock Profit/Loss Calculator",
-  shortTitle: "Stock P/L",
-  description: "Calculate stock trading profits, losses, returns, and annualized performance",
-  category: "finance",
-  icon: "📈",
-  keywords: ["stock", "profit", "loss", "trading", "return", "capital gains"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "How do I calculate my stock profit or loss?",
-      answer: "Profit = (Sell Price × Shares - Sell Commission) - (Buy Price × Shares + Buy Commission). Example: Buy 100 shares at {formatCurrency(50)} + {formatCurrency(10)} commission = {formatCurrency(5010)} cost. Sell 100 shares at {formatCurrency(75)} - {formatCurrency(10)} commission = {formatCurrency(7490)} proceeds. Profit = {formatCurrency(7490)} - {formatCurrency(5010)} = {formatCurrency(2480)}. Commission reduces profit, so use zero-commission brokers.",
-    },
-    {
-      question: "What's the difference between short-term and long-term capital gains?",
-      answer: "<strong>Short-term capital gains:</strong> Stocks held {'<'} 1 year, taxed at your ordinary income tax rate (10%-37% federal). <strong>Long-term capital gains:</strong> Stocks held {'>='} 1 year, taxed at 0% (if income {'<'} {formatCurrency(47025)}), 15% ({formatCurrency(47025)}-{formatCurrency(518900)}), or 20% (income {'>='} {formatCurrency(518900)}). Long-term rates are much lower. Holding for 1 year can reduce tax by 50%+ depending on income. Tax planning matters for active traders.",
-    },
-    {
-      question: "What is annualized return and why does it matter?",
-      answer: "Annualized return scales your holding period return to an annual rate. A 20% return over 6 months annualizes to ~44% annually. A 10% return over 3 years annualizes to 3.2% annually. Annualized return lets you compare investments across different holding periods. The S&P 500 averages ~10% annually; if you beat that, you're doing well. Most active traders underperform the market average after taxes and fees. Use annualized return to evaluate if your stock trading beats index funds.",
-    },
-    {
-      question: "Why do commissions matter so much?",
-      answer: "{formatCurrency(20)} commissions on a {formatCurrency(1000)} stock purchase is 2% of capital gone immediately. On a {formatCurrency(50000)} portfolio with {formatCurrency(10)} per trade, trading 100 times/year costs {formatCurrency(1000)}, reducing returns 2%. Most brokers offer zero-commission stock and ETF trading, so there's no reason to pay. If your broker charges commissions, switch immediately. Commissions are a drag on returns that compounds over time.",
-    },
-    {
-      question: "Should I be day trading or holding long-term?",
-      answer: "Research shows <strong>long-term holding outperforms day trading</strong> for most people. Day trading is taxed as short-term capital gains (higher tax), triggers frequent commissions (if any), requires emotional discipline (fear/greed), and 90% of active day traders lose money. Long-term holding benefits from: lower taxes (long-term capital gains rates), zero or low commissions, compound growth, and removes emotion. The S&P 500 returns 10% annually without picking stocks. For most investors, buy-and-hold index funds beat active trading.",
-    },
-  ],
-});

@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function NetIncomeCalculator() {
   const [revenue, setRevenue] = useState(500000);
@@ -230,38 +229,3 @@ export default function NetIncomeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: NetIncomeCalculator,
-  slug: "net-income-calculator",
-  title: "Net Income (P&L) Calculator",
-  shortTitle: "Net Income",
-  description: "Calculate net income and analyze business profitability through income statement",
-  category: "finance",
-  icon: "💼",
-  keywords: ["net income", "profit", "income statement", "P&L", "margin", "EBITDA", "profitability"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is the difference between gross profit and net income?",
-      answer: "<strong>Gross Profit</strong> = Revenue - COGS. Shows manufacturing efficiency. A {{formatCurrency(500000)}} revenue with {{formatCurrency(150000)}} COGS = {{formatCurrency(350000)}} gross profit (70% margin). <strong>Net Income</strong> = EBT - Taxes. Shows overall profitability after all expenses. Same {{formatCurrency(500000)}} revenue might have {{formatCurrency(50000)}} net income (10% margin) after operating expenses, interest, and taxes. Gross profit is pre-overhead; net income is the true profit to shareholders. High gross profit but low net income means operating costs or debt are excessive.",
-    },
-    {
-      question: "What is EBITDA and why does it matter?",
-      answer: "EBITDA = Earnings Before Interest, Taxes, Depreciation, Amortization. It's {{formatCurrency(ebitda)}} in your example—operational earnings before financing and accounting. EBITDA matters because: (1) Comparable across companies with different tax rates, capital structures, depreciation methods. (2) Shows core operational profitability without distortions. (3) Used for valuation multiples (Price/EBITDA). However, EBITDA ignores debt service, taxes, and capital expenditures. A company with high EBITDA but massive debt and taxes can have negative net income. Always combine EBITDA with net income and cash flow.",
-    },
-    {
-      question: "How do I improve net income?",
-      answer: "Attack the largest expense categories: (1) <strong>Increase Revenue:</strong> Raise prices, expand customer base, upsell. (2) <strong>Reduce COGS:</strong> Improve manufacturing efficiency, negotiate supplier discounts, improve yield. (3) <strong>Reduce OpEx:</strong> Automate, outsource, cut overhead, reduce headcount. (4) <strong>Reduce Interest:</strong> Refinance debt at lower rates, pay down debt. (5) <strong>Manage Taxes:</strong> Tax-efficient structure, deductions, timing. In your example, reducing COGS by {{formatCurrency(10000)}} increases net income by {{formatCurrency(7500)}} (after taxes at 25%); reducing OpEx by {{formatCurrency(10000)}} increases net income by {{formatCurrency(7500)}}.",
-    },
-    {
-      question: "What profit margins should my business target?",
-      answer: "Profit margins vary significantly by industry: <strong>Retail:</strong> 2-5% net margin (high volume, low margin). <strong>SaaS:</strong> 25-40% net margin (software, high margin). <strong>Manufacturing:</strong> 5-15% net margin. <strong>Consulting:</strong> 20-30% net margin. <strong>Financial Services:</strong> 15-25% net margin. A 10% net margin is generally healthy. Above 20% is excellent. Below 5% is struggling. Improve margins by: reducing COGS (manufacturing focus), reducing OpEx (operational efficiency), raising prices (market positioning). Benchmark against competitors to see where improvements are needed.",
-    },
-    {
-      question: "How do depreciation and non-cash expenses affect net income?",
-      answer: "<strong>Depreciation</strong> ({{formatCurrency(depreciation)}}) reduces net income but is a non-cash expense—it doesn't reduce cash flow. A {{formatCurrency(25000)}} depreciation reduces net income by {{formatCurrency(25000)}}, but no cash leaves the company that year. This makes cash flow different from net income. A company can have negative net income (due to depreciation) but positive cash flow. Conversely, high net income with high capital expenditures results in negative cash flow. Always analyze both net income (accounting profit) and cash flow (actual money) together. For valuation, add depreciation back (D{'{&}'} A add-back) to get to normalized earnings.",
-    },
-  ],
-});

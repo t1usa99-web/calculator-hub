@@ -1,6 +1,14 @@
 import express from "express";
 import compression from "compression";
 import path from "path";
+import fs from "fs";
+
+// ---------------------------------------------------------------------------
+// SEO metadata for server-side meta tag injection
+// Crawlers (Google, Bing, social bots) see proper title/description/OG tags
+// without needing to execute JavaScript. This is critical for indexing speed.
+// ---------------------------------------------------------------------------
+import seoMetadata from "../shared/seo-metadata.json" with { type: "json" };
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -641,9 +649,105 @@ app.get("/api/exchange-rates", async (req, res) => {
   }
 });
 
-// SPA fallback - serve index.html for all non-API routes
+// ---------------------------------------------------------------------------
+// SPA fallback with server-side meta tag injection
+//
+// For every page, we read index.html and replace the default meta tags with
+// page-specific ones. This ensures crawlers see correct title, description,
+// OG tags, and canonical URLs without executing JavaScript.
+// ---------------------------------------------------------------------------
+const indexHtml = fs.readFileSync(path.join(staticPath, "index.html"), "utf8");
+
+function injectMeta(html: string, opts: { title: string; description: string; url: string; type?: string }): string {
+  const fullTitle = `${opts.title} | CalcHub - Free Online Calculators`;
+  const ogType = opts.type || "article";
+
+  return html
+    // <title>
+    .replace(/<title>[^<]*<\/title>/, `<title>${fullTitle}</title>`)
+    // meta description
+    .replace(
+      /<meta name="description" content="[^"]*"/,
+      `<meta name="description" content="${opts.description}"`
+    )
+    // OG tags
+    .replace(
+      /<meta property="og:title" content="[^"]*"/,
+      `<meta property="og:title" content="${fullTitle}"`
+    )
+    .replace(
+      /<meta property="og:description" content="[^"]*"/,
+      `<meta property="og:description" content="${opts.description}"`
+    )
+    .replace(
+      /<meta property="og:url" content="[^"]*"/,
+      `<meta property="og:url" content="${opts.url}"`
+    )
+    .replace(
+      /<meta property="og:type" content="[^"]*"/,
+      `<meta property="og:type" content="${ogType}"`
+    )
+    // Twitter tags
+    .replace(
+      /<meta name="twitter:title" content="[^"]*"/,
+      `<meta name="twitter:title" content="${fullTitle}"`
+    )
+    .replace(
+      /<meta name="twitter:description" content="[^"]*"/,
+      `<meta name="twitter:description" content="${opts.description}"`
+    )
+    .replace(
+      /<meta name="twitter:url" content="[^"]*"/,
+      `<meta name="twitter:url" content="${opts.url}"`
+    )
+    // Canonical URL
+    .replace(
+      /<link rel="canonical" href="[^"]*"/,
+      `<link rel="canonical" href="${opts.url}"`
+    );
+}
+
 app.get("/{*path}", (req, res) => {
-  res.sendFile(path.join(staticPath, "index.html"));
+  const reqPath = req.path.replace(/^\/+/, "");
+
+  // Calculator pages: /:slug
+  const calcMeta = (seoMetadata as any).calculators[reqPath];
+  if (calcMeta) {
+    const html = injectMeta(indexHtml, {
+      title: calcMeta.title,
+      description: calcMeta.description,
+      url: `${DOMAIN}/${reqPath}`,
+    });
+    return res.type("html").send(html);
+  }
+
+  // Category pages: /category/:id
+  const catMatch = reqPath.match(/^category\/(\w+)$/);
+  if (catMatch) {
+    const catMeta = (seoMetadata as any).categories[catMatch[1]];
+    if (catMeta) {
+      const html = injectMeta(indexHtml, {
+        title: catMeta.title,
+        description: catMeta.description,
+        url: `${DOMAIN}/${reqPath}`,
+      });
+      return res.type("html").send(html);
+    }
+  }
+
+  // Homepage
+  if (reqPath === "" || reqPath === "/") {
+    const html = injectMeta(indexHtml, {
+      title: "Free Online Calculators for Finance, Math, Health & More",
+      description: "240+ free online calculators for finance, math, health, physics, construction, and everyday life. Accurate results with educational explanations.",
+      url: DOMAIN,
+      type: "website",
+    });
+    return res.type("html").send(html);
+  }
+
+  // All other paths — serve default index.html
+  res.type("html").send(indexHtml);
 });
 
 // Error handling middleware

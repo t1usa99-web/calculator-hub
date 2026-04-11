@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function SqmToSqftCalculator() {
   const [squareMeters, setSquareMeters] = useState(100);
@@ -129,38 +128,3 @@ export default function SqmToSqftCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SqmToSqftCalculator,
-  slug: "sqm-to-sqft",
-  title: "Square Meters to Square Feet Calculator",
-  shortTitle: "m² to ft²",
-  description: "Convert square meters to square feet for real estate",
-  category: "other",
-  icon: "📐",
-  keywords: ["square meters to square feet", "area conversion", "international real estate", "property size"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is the exact conversion factor from square meters to square feet?",
-      answer: "One square meter equals 10.7639 square feet. For practical purposes, multiply square meters by 10.76 or round to 10.8. A quick approximation: multiply by 11 for easy mental math, which is accurate within about 2%. Example: 100 square meters × 11 = 1100 square feet (actual is 1076). These approximations work well for real estate and property comparisons.",
-    },
-    {
-      question: "How many square feet is a typical European apartment?",
-      answer: "European apartments typically range from 40-120 square meters. A 50 square meter apartment (538 square feet) is small but common in city centers. A 75 square meter apartment (807 square feet) is considered medium-sized. A 100 square meter apartment (1076 square feet) is spacious. These are smaller than typical US apartments of 600-1200 square feet (56-111 square meters) because land is more expensive and space more limited in European cities.",
-    },
-    {
-      question: "How do I quickly estimate square meters to square feet in my head?",
-      answer: "The simplest method: multiply square meters by 10. Example: 50 m² × 10 = 500 ft² (actual is 538). For more accuracy, multiply by 11 instead. A 100 m² property × 11 = 1100 ft² (actual is 1076). These approximations are within 5% and helpful when browsing international real estate listings. With practice, you'll develop intuition for common property sizes without calculating.",
-    },
-    {
-      question: "Why do real estate prices differ so much between countries?",
-      answer: "Land scarcity, demand, location, local economy, and building regulations all affect prices. Additionally, direct comparison requires understanding both area units and local market conditions. A 100 square meter apartment in London costs far more than a 100 square meter apartment in many other cities due to high demand and limited supply. Knowing size conversions allows you to compare price per square unit across markets. Price per square meter in one city versus price per square foot in another requires conversion to make fair comparisons.",
-    },
-    {
-      question: "How can I convert square feet back to square meters?",
-      answer: "Divide square feet by 10.7639 to get square meters. For approximation, divide by 11 for quick estimates. Example: 1000 square feet ÷ 11 = 91 square meters (actual is 92.9). A 2000 square foot house is about 186 square meters. This reverse conversion helps when reading US property listings and comparing them to international markets.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

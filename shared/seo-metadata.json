@@ -1,0 +1,1193 @@
+{
+  "calculators": {
+    "apr-calculator": {
+      "title": "APR Calculator",
+      "description": "Calculate annual percentage rate including all fees and costs",
+      "category": "finance"
+    },
+    "amortization-calculator": {
+      "title": "Amortization Calculator",
+      "description": "Calculate monthly loan payments, total interest, and amortization schedule breakdown",
+      "category": "finance"
+    },
+    "annuity-calculator": {
+      "title": "Annuity Calculator",
+      "description": "Calculate present and future values of annuities for retirement and financial planning",
+      "category": "finance"
+    },
+    "auto-loan": {
+      "title": "Auto Loan Calculator",
+      "description": "Calculate monthly payments, total interest, and loan costs",
+      "category": "finance"
+    },
+    "bond-calculator": {
+      "title": "Bond Calculator",
+      "description": "Calculate bond prices, current yield, YTM, and duration for fixed-income investing",
+      "category": "finance"
+    },
+    "breakeven-calculator": {
+      "title": "Breakeven Calculator",
+      "description": "Calculate breakeven point and analyze profit/loss at different sales volumes",
+      "category": "finance"
+    },
+    "budget-calculator": {
+      "title": "Budget Calculator",
+      "description": "Allocate your income and compare to the 50/30/20 budgeting rule",
+      "category": "finance"
+    },
+    "business-loan-calculator": {
+      "title": "Business Loan Calculator",
+      "description": "Calculate monthly payments and costs for business loans with origination fees",
+      "category": "finance"
+    },
+    "cagr-calculator": {
+      "title": "CAGR Calculator",
+      "description": "Calculate compound annual growth rate and visualize investment growth over time",
+      "category": "finance"
+    },
+    "cd-calculator": {
+      "title": "CD Calculator",
+      "description": "Calculate CD maturity value and interest with various compounding frequencies",
+      "category": "finance"
+    },
+    "car-lease-calculator": {
+      "title": "Car Lease Calculator",
+      "description": "Calculate car lease payments, residual value, and total lease costs",
+      "category": "finance"
+    },
+    "commission-calculator": {
+      "title": "Commission Calculator",
+      "description": "Calculate sales commission with flat, tiered, and draw structures",
+      "category": "finance"
+    },
+    "compound-interest-calculator": {
+      "title": "Compound Interest Calculator",
+      "description": "Calculate investment growth with compound interest and regular contributions",
+      "category": "finance"
+    },
+    "cost-of-living-calculator": {
+      "title": "Cost of Living Calculator",
+      "description": "Compare cost of living between cities and calculate equivalent salary",
+      "category": "finance"
+    },
+    "credit-card": {
+      "title": "Credit Card Calculator",
+      "description": "Compare payoff scenarios and understand credit card interest",
+      "category": "finance"
+    },
+    "currency-converter-calculator": {
+      "title": "Currency Converter Calculator",
+      "description": "Convert between 30+ world currencies with live exchange rates updated hourly",
+      "category": "finance"
+    },
+    "debt-consolidation-calculator": {
+      "title": "Debt Consolidation Calculator",
+      "description": "Calculate consolidation savings and compare multiple debts with single loan option",
+      "category": "finance"
+    },
+    "debt-payoff": {
+      "title": "Debt Payoff Calculator",
+      "description": "Calculate your debt payoff timeline and savings with extra payments",
+      "category": "finance"
+    },
+    "debt-to-income-calculator": {
+      "title": "Debt-to-Income Calculator",
+      "description": "Calculate debt-to-income ratio and assess loan qualification readiness",
+      "category": "finance"
+    },
+    "depreciation-calculator": {
+      "title": "Asset Depreciation Calculator",
+      "description": "Calculate depreciation using straight-line, declining balance, or sum-of-years methods",
+      "category": "finance"
+    },
+    "dividend-calculator": {
+      "title": "Dividend Calculator",
+      "description": "Calculate dividend income and visualize the power of dividend reinvestment",
+      "category": "finance"
+    },
+    "down-payment-calculator": {
+      "title": "Down Payment Calculator",
+      "description": "Calculate savings needed for your down payment and understand PMI impact",
+      "category": "finance"
+    },
+    "fha-loan-calculator": {
+      "title": "FHA Loan Calculator",
+      "description": "Calculate FHA mortgage payments with upfront and annual mortgage insurance premiums",
+      "category": "finance"
+    },
+    "fire-calculator": {
+      "title": "FIRE Calculator",
+      "description": "Calculate years to financial independence using the 4% rule and compound growth projections",
+      "category": "finance"
+    },
+    "401k-calculator": {
+      "title": "401(k) Calculator",
+      "description": "Estimate your 401(k) balance at retirement with employer matching and growth projections",
+      "category": "finance"
+    },
+    "future-value-calculator": {
+      "title": "Future Value Calculator",
+      "description": "Calculate future value with compound interest and regular contributions",
+      "category": "finance"
+    },
+    "home-affordability-calculator": {
+      "title": "Home Affordability Calculator",
+      "description": "Calculate maximum home price based on income and debt-to-income ratios",
+      "category": "finance"
+    },
+    "home-equity-calculator": {
+      "title": "Home Equity Calculator",
+      "description": "Calculate available home equity and compare home equity loan vs. HELOC options",
+      "category": "finance"
+    },
+    "ira-calculator": {
+      "title": "Traditional IRA Calculator",
+      "description": "Plan Traditional IRA savings and compare tax benefits with Roth IRA",
+      "category": "finance"
+    },
+    "irr-calculator": {
+      "title": "Internal Rate of Return (IRR) Calculator",
+      "description": "Calculate IRR and NPV for investment and capital budgeting analysis",
+      "category": "finance"
+    },
+    "inflation-calculator": {
+      "title": "Inflation Calculator",
+      "description": "Calculate purchasing power changes due to inflation over time",
+      "category": "finance"
+    },
+    "interest-calculator": {
+      "title": "Compound Interest Calculator",
+      "description": "Calculate compound interest with multiple compounding frequencies",
+      "category": "finance"
+    },
+    "interest-rate-calculator": {
+      "title": "Interest Rate Calculator",
+      "description": "Determine the implied interest rate from loan payment and term",
+      "category": "finance"
+    },
+    "investment-calculator": {
+      "title": "Investment Calculator",
+      "description": "Calculate investment growth with returns and inflation adjustment",
+      "category": "finance"
+    },
+    "loan-calculator": {
+      "title": "Loan Calculator",
+      "description": "Calculate loan payments and total interest for any loan type",
+      "category": "finance"
+    },
+    "margin-calculator": {
+      "title": "Margin Calculator",
+      "description": "Calculate markup and profit margins for accurate pricing",
+      "category": "finance"
+    },
+    "mortgage-calculator": {
+      "title": "Mortgage Calculator",
+      "description": "Calculate monthly mortgage payments, total interest, and amortization schedule",
+      "category": "finance"
+    },
+    "mortgage-payoff-calculator": {
+      "title": "Mortgage Payoff Calculator",
+      "description": "Calculate payoff time and interest savings with extra mortgage payments",
+      "category": "finance"
+    },
+    "mutual-fund-calculator": {
+      "title": "Mutual Fund Calculator",
+      "description": "Calculate mutual fund growth and compare the impact of expense ratios on returns",
+      "category": "finance"
+    },
+    "npv-calculator": {
+      "title": "NPV Calculator",
+      "description": "Calculate net present value, internal rate of return, and profitability index",
+      "category": "finance"
+    },
+    "net-income-calculator": {
+      "title": "Net Income (P&L) Calculator",
+      "description": "Calculate net income and analyze business profitability through income statement",
+      "category": "finance"
+    },
+    "net-worth-calculator": {
+      "title": "Net Worth Calculator",
+      "description": "Calculate your total net worth by tracking all assets and liabilities",
+      "category": "finance"
+    },
+    "payback-period-calculator": {
+      "title": "Payback Period Calculator",
+      "description": "Calculate simple and discounted payback periods and NPV for investment decisions",
+      "category": "finance"
+    },
+    "paycheck-calculator": {
+      "title": "Paycheck Calculator",
+      "description": "Calculate your take-home pay and understand all your paycheck deductions",
+      "category": "finance"
+    },
+    "payment-calculator": {
+      "title": "Payment Calculator",
+      "description": "Calculate monthly loan payments for mortgages, auto loans, and other debts",
+      "category": "finance"
+    },
+    "pension-calculator": {
+      "title": "Pension Calculator",
+      "description": "Calculate pension benefits and lifetime retirement income projections",
+      "category": "finance"
+    },
+    "personal-loan-calculator": {
+      "title": "Personal Loan Calculator",
+      "description": "Calculate personal loan payments with origination fees and APR",
+      "category": "finance"
+    },
+    "present-value-calculator": {
+      "title": "Present Value Calculator",
+      "description": "Determine the current worth of a future sum of money",
+      "category": "finance"
+    },
+    "rmd-calculator": {
+      "title": "Required Minimum Distribution (RMD) Calculator",
+      "description": "Calculate required minimum distributions from retirement accounts at age 73+",
+      "category": "finance"
+    },
+    "roi-calculator": {
+      "title": "ROI Calculator",
+      "description": "Calculate return on investment and annualized returns",
+      "category": "finance"
+    },
+    "real-estate-commission-calculator": {
+      "title": "Real Estate Commission Calculator",
+      "description": "Calculate real estate commissions and compare different commission rates",
+      "category": "finance"
+    },
+    "refinance-calculator": {
+      "title": "Refinance Calculator",
+      "description": "Compare current mortgage to refinanced option and calculate breakeven",
+      "category": "finance"
+    },
+    "rent-vs-buy-calculator": {
+      "title": "Rent vs Buy Calculator",
+      "description": "Compare the financial impact of renting versus buying a home over time",
+      "category": "finance"
+    },
+    "retirement-calculator": {
+      "title": "Retirement Calculator",
+      "description": "Plan your retirement savings and income using the 4% rule and inflation",
+      "category": "finance"
+    },
+    "roth-ira-calculator": {
+      "title": "Roth IRA Calculator",
+      "description": "Project Roth IRA growth with tax-free earnings and withdrawals in retirement",
+      "category": "finance"
+    },
+    "salary-calculator": {
+      "title": "Salary Calculator",
+      "description": "Convert salary between hourly, weekly, monthly, and annual rates",
+      "category": "finance"
+    },
+    "sales-tax-calculator": {
+      "title": "Sales Tax Calculator",
+      "description": "Calculate sales tax, total amounts, and reverse-calculate pre-tax prices",
+      "category": "finance"
+    },
+    "savings-goal": {
+      "title": "Savings Goal Calculator",
+      "description": "Plan and track your savings goals with compound interest",
+      "category": "finance"
+    },
+    "simple-interest-calculator": {
+      "title": "Simple Interest Calculator",
+      "description": "Calculate simple interest without compounding effects",
+      "category": "finance"
+    },
+    "stock-calculator": {
+      "title": "Stock Profit/Loss Calculator",
+      "description": "Calculate stock trading profits, losses, returns, and annualized performance",
+      "category": "finance"
+    },
+    "student-loan-calculator": {
+      "title": "Student Loan Calculator",
+      "description": "Calculate student loan payments and find your payoff timeline",
+      "category": "finance"
+    },
+    "take-home-pay-calculator": {
+      "title": "Take-Home Pay Calculator",
+      "description": "Calculate net pay after federal, FICA, and state income taxes",
+      "category": "finance"
+    },
+    "tax-calculator": {
+      "title": "Tax Calculator",
+      "description": "Calculate federal income tax using 2024 tax brackets and deductions",
+      "category": "finance"
+    },
+    "tip": {
+      "title": "Tip Calculator",
+      "description": "Calculate tips quickly with preset percentages and bill splitting",
+      "category": "finance"
+    },
+    "va-mortgage-calculator": {
+      "title": "VA Mortgage Calculator",
+      "description": "Calculate VA loan payments and compare funding fees across service levels",
+      "category": "finance"
+    },
+    "wacc-calculator": {
+      "title": "WACC Calculator",
+      "description": "Calculate weighted average cost of capital and analyze capital structure",
+      "category": "finance"
+    },
+    "army-body-fat-calculator": {
+      "title": "Army Body Fat Calculator",
+      "description": "Calculate body fat percentage using U.S. Army circumference measurements",
+      "category": "health"
+    },
+    "bac-calculator": {
+      "title": "BAC Calculator",
+      "description": "Calculate your estimated blood alcohol concentration and impairment level",
+      "category": "health"
+    },
+    "bmi-calculator": {
+      "title": "BMI Calculator",
+      "description": "Calculate your Body Mass Index (BMI) and determine if you",
+      "category": "health"
+    },
+    "bmr-calculator": {
+      "title": "BMR Calculator",
+      "description": "Calculate your Basal Metabolic Rate using the accurate Mifflin-St Jeor equation",
+      "category": "health"
+    },
+    "body-fat-calculator": {
+      "title": "Body Fat Calculator",
+      "description": "Calculate your body fat percentage using the US Navy circumference formula",
+      "category": "health"
+    },
+    "body-surface-area-calculator": {
+      "title": "Body Surface Area Calculator",
+      "description": "Calculate BSA using Mosteller, DuBois, and Haycock formulas for medical dosing",
+      "category": "health"
+    },
+    "calorie-calculator": {
+      "title": "Calorie Calculator",
+      "description": "Calculate your daily calorie needs using the Mifflin-St Jeor equation based on BMR and activity level",
+      "category": "health"
+    },
+    "calories-burned-calculator": {
+      "title": "Calories Burned Calculator",
+      "description": "Estimate the number of calories you burn during various physical activities based on your weight, activity type, and duration",
+      "category": "health"
+    },
+    "carb-calculator": {
+      "title": "Carb Calculator",
+      "description": "Calculate your daily carbohydrate needs based on activity level and fitness goals",
+      "category": "health"
+    },
+    "fat-intake-calculator": {
+      "title": "Fat Intake Calculator",
+      "description": "Calculate daily fat intake based on your calorie needs and preferred dietary approach",
+      "category": "health"
+    },
+    "gfr-calculator": {
+      "title": "GFR Calculator (CKD-EPI 2021)",
+      "description": "Estimate glomerular filtration rate to assess chronic kidney disease stage",
+      "category": "health"
+    },
+    "healthy-weight-calculator": {
+      "title": "Healthy Weight Calculator",
+      "description": "Calculate your healthy weight range using BMI and Hamwi formulas",
+      "category": "health"
+    },
+    "ideal-weight-calculator": {
+      "title": "Ideal Weight Calculator",
+      "description": "Calculate your ideal healthy weight range using medical formulas (Devine, Robinson, Miller, Hamwi)",
+      "category": "health"
+    },
+    "keto-calculator": {
+      "title": "Keto Diet Calculator",
+      "description": "Calculate your ketogenic diet macros based on your body metrics and fitness goals",
+      "category": "health"
+    },
+    "lean-body-mass-calculator": {
+      "title": "Lean Body Mass Calculator",
+      "description": "Calculate your lean body mass, fat mass, and muscle-to-fat ratio",
+      "category": "health"
+    },
+    "macro-calculator": {
+      "title": "Macro Calculator",
+      "description": "Calculate your personalized macronutrient targets based on your goals and preferred diet type",
+      "category": "health"
+    },
+    "one-rep-max-calculator": {
+      "title": "One Rep Max Calculator",
+      "description": "Estimate your one-rep max from submaximal lifts using Brzycki, Epley, Lander, and O",
+      "category": "health"
+    },
+    "ovulation-calculator": {
+      "title": "Ovulation Calculator",
+      "description": "Estimate your ovulation date and fertile window based on your menstrual cycle length",
+      "category": "health"
+    },
+    "pace-calculator": {
+      "title": "Running/Cycling Pace Calculator",
+      "description": "Calculate your running or cycling pace per mile and estimate finish times for common race distances",
+      "category": "health"
+    },
+    "period-calculator": {
+      "title": "Period Calculator",
+      "description": "Predict your upcoming periods based on your average cycle length and period duration",
+      "category": "health"
+    },
+    "pregnancy-due-date-calculator": {
+      "title": "Pregnancy Due Date Calculator",
+      "description": "Calculate your estimated due date and track your pregnancy week by week",
+      "category": "health"
+    },
+    "pregnancy-conception-calculator": {
+      "title": "Pregnancy Conception Calculator",
+      "description": "Calculate estimated conception date, last menstrual period, and current gestational age",
+      "category": "health"
+    },
+    "pregnancy-weight-gain-calculator": {
+      "title": "Pregnancy Weight Gain Calculator",
+      "description": "Calculate recommended pregnancy weight gain based on pre-pregnancy BMI and current week",
+      "category": "health"
+    },
+    "protein-calculator": {
+      "title": "Protein Calculator",
+      "description": "Calculate your daily protein requirement based on body weight, fitness goals, and meal frequency",
+      "category": "health"
+    },
+    "sleep-calculator": {
+      "title": "Sleep Calculator",
+      "description": "Calculate optimal sleep and wake times aligned with 90-minute sleep cycles for better rest",
+      "category": "health"
+    },
+    "tdee-calculator": {
+      "title": "TDEE Calculator",
+      "description": "Calculate your total daily energy expenditure and macronutrient targets based on your goals",
+      "category": "health"
+    },
+    "target-heart-rate-calculator": {
+      "title": "Target Heart Rate Calculator",
+      "description": "Calculate your target heart rate zones for different exercise intensities using age or Karvonen formula",
+      "category": "health"
+    },
+    "water-intake-calculator": {
+      "title": "Water Intake Calculator",
+      "description": "Calculate your daily water intake recommendation based on body weight, activity level, and climate conditions",
+      "category": "health"
+    },
+    "weight-loss-calculator": {
+      "title": "Weight Loss Calculator",
+      "description": "Calculate daily calorie targets and create a safe weight loss plan based on your TDEE and goals",
+      "category": "health"
+    },
+    "area-calculator": {
+      "title": "Area Calculator",
+      "description": "Calculate area and perimeter of common 2D shapes",
+      "category": "math"
+    },
+    "average-calculator": {
+      "title": "Average Calculator",
+      "description": "Calculate mean, median, mode, range, and sum of any list of numbers",
+      "category": "math"
+    },
+    "binary-calculator": {
+      "title": "Binary Calculator",
+      "description": "Convert between binary, decimal, octal, and hex; perform binary operations",
+      "category": "math"
+    },
+    "circle-calculator": {
+      "title": "Circle Calculator",
+      "description": "Calculate circumference, area, radius, diameter, arc length, and sector area",
+      "category": "math"
+    },
+    "confidence-interval-calculator": {
+      "title": "Confidence Interval Calculator",
+      "description": "Calculate confidence intervals for population means with margin of error calculations",
+      "category": "math"
+    },
+    "distance-calculator": {
+      "title": "Distance Calculator",
+      "description": "Calculate distance between two points and find the midpoint in 2D and 3D",
+      "category": "math"
+    },
+    "exponent-calculator": {
+      "title": "Exponent Calculator",
+      "description": "Calculate powers, roots, and view exponential curves",
+      "category": "math"
+    },
+    "factor-calculator": {
+      "title": "Factor Calculator",
+      "description": "Find all factors and divisors of any number",
+      "category": "math"
+    },
+    "fraction-calculator": {
+      "title": "Fraction Calculator",
+      "description": "Add, subtract, multiply, and divide fractions with simplification",
+      "category": "math"
+    },
+    "gcf-calculator": {
+      "title": "GCF Calculator",
+      "description": "Calculate greatest common factor and least common multiple",
+      "category": "math"
+    },
+    "gpa-calculator": {
+      "title": "GPA Calculator",
+      "description": "Calculate semester GPA with weighted grades and credit hours",
+      "category": "math"
+    },
+    "grade-calculator": {
+      "title": "Grade Calculator",
+      "description": "Determine what final exam score you need to reach your desired grade",
+      "category": "math"
+    },
+    "hex-calculator": {
+      "title": "Hexadecimal Calculator",
+      "description": "Convert hexadecimal to decimal, binary, octal, and view color codes",
+      "category": "math"
+    },
+    "lcm-calculator": {
+      "title": "LCM Calculator",
+      "description": "Calculate the least common multiple of numbers",
+      "category": "math"
+    },
+    "log-calculator": {
+      "title": "Logarithm Calculator",
+      "description": "Calculate logarithms in any base: log10, natural log, log2, and custom bases",
+      "category": "math"
+    },
+    "long-division-calculator": {
+      "title": "Long Division Calculator",
+      "description": "Calculate quotient, remainder, and decimal results for division",
+      "category": "math"
+    },
+    "matrix-calculator": {
+      "title": "Matrix Calculator",
+      "description": "Perform 2x2 and 3x3 matrix operations including addition, subtraction, multiplication, determinant, inverse, and transpose",
+      "category": "math"
+    },
+    "mean-median-mode-calculator": {
+      "title": "Mean, Median, Mode Calculator",
+      "description": "Calculate mean, median, mode, range, and standard deviation from a dataset",
+      "category": "math"
+    },
+    "mixed-numbers-calculator": {
+      "title": "Mixed Numbers Calculator",
+      "description": "Perform arithmetic operations on mixed numbers with simplified results",
+      "category": "math"
+    },
+    "number-sequence-calculator": {
+      "title": "Number Sequence Calculator",
+      "description": "Identify patterns in number sequences and predict next terms",
+      "category": "math"
+    },
+    "numbers-to-words-calculator": {
+      "title": "Numbers to Words Calculator",
+      "description": "Convert numbers into their English word equivalents",
+      "category": "math"
+    },
+    "p-value-calculator": {
+      "title": "P-Value Calculator",
+      "description": "Calculate p-values from test statistics for hypothesis testing",
+      "category": "math"
+    },
+    "percent-error-calculator": {
+      "title": "Percent Error Calculator",
+      "description": "Calculate percent error between experimental and theoretical values",
+      "category": "math"
+    },
+    "percentage-calculator": {
+      "title": "Percentage Calculator",
+      "description": "Calculate percentages, percentage of values, and percentage changes",
+      "category": "math"
+    },
+    "permutation-combination-calculator": {
+      "title": "Permutation and Combination Calculator",
+      "description": "Calculate permutations (nPr) and combinations (nCr) with detailed factorial breakdown",
+      "category": "math"
+    },
+    "prime-factorization-calculator": {
+      "title": "Prime Factorization Calculator",
+      "description": "Find prime factors and divisors of any number",
+      "category": "math"
+    },
+    "probability-calculator": {
+      "title": "Probability Calculator",
+      "description": "Calculate probability, odds, expected value, and complementary probability",
+      "category": "math"
+    },
+    "pythagorean-theorem-calculator": {
+      "title": "Pythagorean Theorem Calculator",
+      "description": "Find missing sides of right triangles using a² + b² = c²",
+      "category": "math"
+    },
+    "quadratic-formula-calculator": {
+      "title": "Quadratic Formula Calculator",
+      "description": "Solve quadratic equations and find roots, discriminant, and vertex",
+      "category": "math"
+    },
+    "ratio-calculator": {
+      "title": "Ratio Calculator",
+      "description": "Simplify ratios, solve proportions using cross multiplication, and find GCD",
+      "category": "math"
+    },
+    "rounding-calculator": {
+      "title": "Rounding Calculator",
+      "description": "Round numbers with various methods including ceiling, floor, and banker",
+      "category": "math"
+    },
+    "sample-size-calculator": {
+      "title": "Sample Size Calculator",
+      "description": "Calculate required sample size for research studies and surveys",
+      "category": "math"
+    },
+    "scientific-calculator": {
+      "title": "Scientific Calculator",
+      "description": "Calculate roots, powers, logarithms, trigonometric functions, and more",
+      "category": "math"
+    },
+    "scientific-notation-calculator": {
+      "title": "Scientific Notation Calculator",
+      "description": "Convert numbers to scientific, standard, and engineering notation",
+      "category": "math"
+    },
+    "simplify-fractions-calculator": {
+      "title": "Simplify Fractions Calculator",
+      "description": "Reduce fractions to simplest form with GCD and mixed number conversion",
+      "category": "math"
+    },
+    "slope-calculator": {
+      "title": "Slope Calculator",
+      "description": "Calculate slope, line equation, and distance from two points",
+      "category": "math"
+    },
+    "square-root-calculator": {
+      "title": "Square Root Calculator",
+      "description": "Calculate square roots, cube roots, and simplify radicals",
+      "category": "math"
+    },
+    "standard-deviation-calculator": {
+      "title": "Standard Deviation Calculator",
+      "description": "Calculate standard deviation, variance, mean, median, and mode for any dataset",
+      "category": "math"
+    },
+    "surface-area-calculator": {
+      "title": "Surface Area Calculator",
+      "description": "Calculate surface area and volume of spheres, cubes, cylinders, cones, and rectangular prisms",
+      "category": "math"
+    },
+    "triangle-calculator": {
+      "title": "Triangle Calculator",
+      "description": "Calculate area, perimeter, angles, and classify triangles by type",
+      "category": "math"
+    },
+    "volume-calculator": {
+      "title": "Volume Calculator",
+      "description": "Calculate volume and surface area of 3D shapes",
+      "category": "math"
+    },
+    "z-score-calculator": {
+      "title": "Z-Score Calculator",
+      "description": "Calculate Z-scores, percentiles, and probabilities in a normal distribution",
+      "category": "math"
+    },
+    "acres-to-hectares": {
+      "title": "Acres to Hectares Calculator",
+      "description": "Convert acres to hectares for farmland and land transactions",
+      "category": "other"
+    },
+    "age-calculator": {
+      "title": "Age Calculator",
+      "description": "Calculate your exact age in years, months, and days with zodiac sign",
+      "category": "other"
+    },
+    "bandwidth-calculator": {
+      "title": "Bandwidth Calculator",
+      "description": "Calculate download time and data transfer rates based on bandwidth",
+      "category": "other"
+    },
+    "celsius-to-fahrenheit": {
+      "title": "Celsius to Fahrenheit Calculator",
+      "description": "Convert temperature from Celsius to Fahrenheit instantly",
+      "category": "other"
+    },
+    "cm-to-inches": {
+      "title": "Centimeters to Inches Converter",
+      "description": "Convert centimeters to inches with formula and reference table",
+      "category": "other"
+    },
+    "concrete-calculator": {
+      "title": "Concrete Calculator",
+      "description": "Calculate concrete volume and bags needed for projects",
+      "category": "other"
+    },
+    "cups-to-ml": {
+      "title": "Cups to Milliliters Calculator",
+      "description": "Convert cups to milliliters for recipes and cooking",
+      "category": "other"
+    },
+    "date-calculator": {
+      "title": "Date Calculator",
+      "description": "Calculate days between dates, weeks, months, and business days",
+      "category": "other"
+    },
+    "day-counter-calculator": {
+      "title": "Day Counter Calculator",
+      "description": "Count days, business days, and weeks between dates",
+      "category": "other"
+    },
+    "dew-point-calculator": {
+      "title": "Dew Point Calculator",
+      "description": "Calculate dew point from temperature and relative humidity",
+      "category": "other"
+    },
+    "dice-roller-calculator": {
+      "title": "Dice Roller Calculator",
+      "description": "Roll virtual dice and see probability distribution",
+      "category": "other"
+    },
+    "discount-calculator": {
+      "title": "Discount Calculator",
+      "description": "Calculate savings and final price with discount and tax",
+      "category": "other"
+    },
+    "dog-age-calculator": {
+      "title": "Dog Age Calculator",
+      "description": "Calculate your dog",
+      "category": "other"
+    },
+    "electricity-cost-calculator": {
+      "title": "Electricity Cost Calculator",
+      "description": "Calculate electricity costs and energy consumption for appliances",
+      "category": "other"
+    },
+    "fahrenheit-to-celsius": {
+      "title": "Fahrenheit to Celsius Calculator",
+      "description": "Convert temperature from Fahrenheit to Celsius instantly",
+      "category": "other"
+    },
+    "feet-to-meters": {
+      "title": "Feet to Meters Converter",
+      "description": "Convert feet to meters with formula and reference table",
+      "category": "other"
+    },
+    "fuel-cost-calculator": {
+      "title": "Fuel Cost Calculator",
+      "description": "Calculate fuel costs and MPG for road trips",
+      "category": "other"
+    },
+    "gallons-to-liters": {
+      "title": "Gallons to Liters Calculator",
+      "description": "Convert gallons to liters instantly",
+      "category": "other"
+    },
+    "gas-mileage-calculator": {
+      "title": "Gas Mileage Calculator",
+      "description": "Calculate fuel economy and annual fuel costs",
+      "category": "other"
+    },
+    "golf-handicap-calculator": {
+      "title": "Golf Handicap Calculator",
+      "description": "Calculate your golf handicap index and course handicap",
+      "category": "other"
+    },
+    "heat-index-calculator": {
+      "title": "Heat Index Calculator",
+      "description": "Calculate heat index and assess risk of heat-related illness",
+      "category": "other"
+    },
+    "horsepower-calculator": {
+      "title": "Horsepower Calculator",
+      "description": "Calculate horsepower from torque, weight, or electrical power",
+      "category": "other"
+    },
+    "hours-calculator": {
+      "title": "Hours Calculator",
+      "description": "Calculate total hours worked with breaks and optional wage calculation",
+      "category": "other"
+    },
+    "inches-to-cm": {
+      "title": "Inches to Centimeters Converter",
+      "description": "Convert inches to centimeters with formula and reference table",
+      "category": "other"
+    },
+    "inflation-adjuster-calculator": {
+      "title": "Inflation Adjuster Calculator",
+      "description": "Calculate inflation-adjusted values to compare purchasing power across time",
+      "category": "other"
+    },
+    "kg-to-lbs": {
+      "title": "Kilograms to Pounds Converter",
+      "description": "Convert kilograms to pounds with formula and reference table",
+      "category": "other"
+    },
+    "km-to-miles": {
+      "title": "Kilometers to Miles Converter",
+      "description": "Convert kilometers to miles with formula and reference table",
+      "category": "other"
+    },
+    "lbs-to-kg": {
+      "title": "Pounds to Kilograms Converter",
+      "description": "Convert pounds to kilograms with formula and reference table",
+      "category": "other"
+    },
+    "liters-to-gallons": {
+      "title": "Liters to Gallons Calculator",
+      "description": "Convert liters to gallons instantly",
+      "category": "other"
+    },
+    "meters-to-feet": {
+      "title": "Meters to Feet Converter",
+      "description": "Convert meters to feet with formula and reference table",
+      "category": "other"
+    },
+    "mileage-calculator": {
+      "title": "Mileage Calculator",
+      "description": "Calculate mileage reimbursement using IRS standard rates",
+      "category": "other"
+    },
+    "miles-to-km": {
+      "title": "Miles to Kilometers Converter",
+      "description": "Convert miles to kilometers with formula and reference table",
+      "category": "other"
+    },
+    "mm-to-inches": {
+      "title": "Millimeters to Inches Calculator",
+      "description": "Convert millimeters to inches for engineering and 3D printing",
+      "category": "other"
+    },
+    "oz-to-grams": {
+      "title": "Ounces to Grams Converter",
+      "description": "Convert ounces to grams with formula and reference table",
+      "category": "other"
+    },
+    "password-generator": {
+      "title": "Password Generator",
+      "description": "Generate strong random passwords with customizable character options",
+      "category": "other"
+    },
+    "random-number-generator": {
+      "title": "Random Number Generator",
+      "description": "Generate random numbers with customizable range and distribution",
+      "category": "other"
+    },
+    "roman-numeral-calculator": {
+      "title": "Roman Numeral Converter",
+      "description": "Convert between decimal numbers and Roman numerals",
+      "category": "other"
+    },
+    "screen-size-calculator": {
+      "title": "Screen Size Calculator",
+      "description": "Calculate monitor width, height, and pixel density",
+      "category": "other"
+    },
+    "shoe-size-calculator": {
+      "title": "Shoe Size Calculator",
+      "description": "Convert shoe sizes between US, UK, and European systems",
+      "category": "other"
+    },
+    "speed-calculator": {
+      "title": "Speed Calculator",
+      "description": "Calculate speed, distance, or time with multiple unit support",
+      "category": "other"
+    },
+    "sqft-to-sqm": {
+      "title": "Square Feet to Square Meters Calculator",
+      "description": "Convert square feet to square meters for real estate",
+      "category": "other"
+    },
+    "sqm-to-sqft": {
+      "title": "Square Meters to Square Feet Calculator",
+      "description": "Convert square meters to square feet for real estate",
+      "category": "other"
+    },
+    "subnet-calculator": {
+      "title": "Subnet Calculator",
+      "description": "Calculate subnet masks, network ranges, and host addresses for IPv4 networks",
+      "category": "other"
+    },
+    "time-calculator": {
+      "title": "Time Calculator",
+      "description": "Add or subtract time values and convert between units",
+      "category": "other"
+    },
+    "time-card-calculator": {
+      "title": "Time Card Calculator",
+      "description": "Calculate hours worked and pay with overtime compensation",
+      "category": "other"
+    },
+    "time-duration-calculator": {
+      "title": "Time Duration Calculator",
+      "description": "Calculate duration between times or add/subtract time intervals",
+      "category": "other"
+    },
+    "time-zone-calculator": {
+      "title": "Time Zone Calculator",
+      "description": "Convert times between world time zones",
+      "category": "other"
+    },
+    "tip-calculator-advanced": {
+      "title": "Tip Calculator Advanced",
+      "description": "Calculate tips and split bills among multiple people",
+      "category": "other"
+    },
+    "tire-size-calculator": {
+      "title": "Tire Size Calculator",
+      "description": "Calculate tire dimensions and compare tire sizes",
+      "category": "other"
+    },
+    "unit-converter": {
+      "title": "Unit Converter",
+      "description": "Convert between units of length, weight, volume, temperature, area, speed, and energy",
+      "category": "other"
+    },
+    "voltage-drop-calculator": {
+      "title": "Voltage Drop Calculator",
+      "description": "Calculate voltage drop in electrical wiring by distance and gauge",
+      "category": "other"
+    },
+    "wind-chill-calculator": {
+      "title": "Wind Chill Calculator",
+      "description": "Calculate wind chill factor and frostbite risk from temperature and wind speed",
+      "category": "other"
+    },
+    "capacitor-calculator": {
+      "title": "Capacitor Calculator",
+      "description": "Calculate charge and energy in a capacitor",
+      "category": "physics"
+    },
+    "centripetal-force-calculator": {
+      "title": "Centripetal Force Calculator",
+      "description": "Calculate centripetal force and acceleration for circular motion",
+      "category": "physics"
+    },
+    "coulombs-law-calculator": {
+      "title": "Coulomb",
+      "description": "Calculate electrostatic force between two charges",
+      "category": "physics"
+    },
+    "density-calculator": {
+      "title": "Density Calculator",
+      "description": "Calculate density from mass and volume",
+      "category": "physics"
+    },
+    "doppler-effect-calculator": {
+      "title": "Doppler Effect Calculator",
+      "description": "Calculate frequency shift due to Doppler effect",
+      "category": "physics"
+    },
+    "electric-field-calculator": {
+      "title": "Electric Field Calculator",
+      "description": "Calculate electric field from charge and distance",
+      "category": "physics"
+    },
+    "electric-power-calculator": {
+      "title": "Electric Power Calculator",
+      "description": "Calculate power from voltage and current",
+      "category": "physics"
+    },
+    "escape-velocity-calculator": {
+      "title": "Escape Velocity Calculator",
+      "description": "Calculate escape velocity from planetary mass and radius",
+      "category": "physics"
+    },
+    "force-calculator": {
+      "title": "Force Calculator",
+      "description": "Calculate force from mass and acceleration",
+      "category": "physics"
+    },
+    "free-fall-calculator": {
+      "title": "Free Fall Calculator",
+      "description": "Calculate free fall time, velocity, and distance",
+      "category": "physics"
+    },
+    "frequency-calculator": {
+      "title": "Frequency Calculator",
+      "description": "Calculate frequency from wavelength and wave speed",
+      "category": "physics"
+    },
+    "gravitational-force-calculator": {
+      "title": "Gravitational Force Calculator",
+      "description": "Calculate gravitational force between two masses",
+      "category": "physics"
+    },
+    "half-life-calculator": {
+      "title": "Half-Life Calculator",
+      "description": "Calculate radioactive decay using half-life formula",
+      "category": "physics"
+    },
+    "heat-capacity-calculator": {
+      "title": "Heat Capacity Calculator",
+      "description": "Calculate heat energy from mass, specific heat, and temperature change",
+      "category": "physics"
+    },
+    "ideal-gas-law-calculator": {
+      "title": "Ideal Gas Law Calculator",
+      "description": "Calculate gas properties using the ideal gas law (PV = nRT)",
+      "category": "physics"
+    },
+    "kinetic-energy-calculator": {
+      "title": "Kinetic Energy Calculator",
+      "description": "Calculate kinetic energy of moving objects",
+      "category": "physics"
+    },
+    "momentum-calculator": {
+      "title": "Momentum Calculator",
+      "description": "Calculate momentum and impulse from mass and velocity",
+      "category": "physics"
+    },
+    "ohms-law-calculator": {
+      "title": "Ohm",
+      "description": "Calculate voltage, current, resistance, and power",
+      "category": "physics"
+    },
+    "photon-energy-calculator": {
+      "title": "Photon Energy Calculator",
+      "description": "Calculate photon energy from wavelength or frequency",
+      "category": "physics"
+    },
+    "potential-energy-calculator": {
+      "title": "Potential Energy Calculator",
+      "description": "Calculate gravitational potential energy at a given height",
+      "category": "physics"
+    },
+    "pressure-calculator": {
+      "title": "Pressure Calculator",
+      "description": "Calculate pressure and convert between pressure units",
+      "category": "physics"
+    },
+    "projectile-motion-calculator": {
+      "title": "Projectile Motion Calculator",
+      "description": "Calculate projectile motion trajectory, range, and velocity",
+      "category": "physics"
+    },
+    "relativistic-kinetic-energy-calculator": {
+      "title": "Relativistic Kinetic Energy Calculator",
+      "description": "Calculate kinetic energy at relativistic speeds using E = (γ-1)mc²",
+      "category": "physics"
+    },
+    "resistor-calculator": {
+      "title": "Resistor Calculator",
+      "description": "Calculate total resistance in series and parallel circuits",
+      "category": "physics"
+    },
+    "sound-intensity-calculator": {
+      "title": "Sound Intensity Calculator",
+      "description": "Calculate decibel level from sound intensity",
+      "category": "physics"
+    },
+    "temperature-converter-calculator": {
+      "title": "Temperature Converter Calculator",
+      "description": "Convert between Celsius, Fahrenheit, Kelvin, and Rankine",
+      "category": "physics"
+    },
+    "thermal-expansion-calculator": {
+      "title": "Thermal Expansion Calculator",
+      "description": "Calculate thermal expansion of materials with temperature change",
+      "category": "physics"
+    },
+    "torque-calculator": {
+      "title": "Torque Calculator",
+      "description": "Calculate torque from force, lever arm, and angle",
+      "category": "physics"
+    },
+    "wave-speed-calculator": {
+      "title": "Wave Speed Calculator",
+      "description": "Calculate wave speed from frequency and wavelength",
+      "category": "physics"
+    },
+    "wavelength-calculator": {
+      "title": "Wavelength Calculator",
+      "description": "Calculate wavelength from frequency and wave speed",
+      "category": "physics"
+    },
+    "undefined": {
+      "title": "Zinc Value Calculator",
+      "category": "metals"
+    },
+    "btu-calculator": {
+      "title": "HVAC BTU Calculator",
+      "description": "Calculate required BTU for heating and cooling HVAC systems",
+      "category": "construction"
+    },
+    "deck-calculator": {
+      "title": "Deck Calculator",
+      "description": "Calculate deck materials and costs for different wood types",
+      "category": "construction"
+    },
+    "drywall-calculator": {
+      "title": "Drywall Calculator",
+      "description": "Calculate drywall sheets, compound, tape, and hardware for interior walls",
+      "category": "construction"
+    },
+    "fence-calculator": {
+      "title": "Fence Calculator",
+      "description": "Calculate fence materials and costs for wood, chain-link, and vinyl fencing",
+      "category": "construction"
+    },
+    "gravel-calculator": {
+      "title": "Gravel Calculator",
+      "description": "Calculate gravel, sand, and aggregate volume and weight needed for projects",
+      "category": "construction"
+    },
+    "insulation-calculator": {
+      "title": "Insulation Calculator",
+      "description": "Calculate insulation needed by type and desired R-value",
+      "category": "construction"
+    },
+    "mulch-calculator": {
+      "title": "Mulch Calculator",
+      "description": "Calculate mulch needed for landscaping and compare bulk vs. bagged options",
+      "category": "construction"
+    },
+    "paint-calculator": {
+      "title": "Paint Calculator",
+      "description": "Calculate interior paint needed for rooms with doors and windows",
+      "category": "construction"
+    },
+    "roofing-calculator": {
+      "title": "Roofing Calculator",
+      "description": "Calculate roofing materials and costs based on roof pitch and dimensions",
+      "category": "construction"
+    },
+    "square-footage-calculator": {
+      "title": "Square Footage Calculator",
+      "description": "Calculate area of rooms and spaces in multiple shapes and units",
+      "category": "construction"
+    },
+    "stairs-calculator": {
+      "title": "Stairs Calculator",
+      "description": "Calculate stair dimensions and verify building code compliance",
+      "category": "construction"
+    },
+    "tile-calculator": {
+      "title": "Tile Calculator",
+      "description": "Calculate tiles, grout, and adhesive for floors and walls",
+      "category": "construction"
+    }
+  },
+  "categories": {
+    "finance": {
+      "title": "Financial Calculators",
+      "description": "Free online financial calculators for mortgage, loans, investments, retirement planning, budgeting, and more."
+    },
+    "math": {
+      "title": "Math Calculators",
+      "description": "Free online math calculators for algebra, geometry, statistics, scientific notation, fractions, and more."
+    },
+    "health": {
+      "title": "Health & Fitness Calculators",
+      "description": "Free online health calculators for BMI, calories, body fat, macros, pregnancy, and more."
+    },
+    "physics": {
+      "title": "Physics Calculators",
+      "description": "Free online physics calculators for mechanics, waves, electricity, thermodynamics, and quantum physics."
+    },
+    "other": {
+      "title": "Everyday Calculators",
+      "description": "Free online everyday calculators for age, tip, unit conversion, date, time, fuel cost, and more."
+    },
+    "metals": {
+      "title": "Metal Value Calculators",
+      "description": "Free online precious metal calculators for gold, silver, platinum, copper, and other metals."
+    },
+    "construction": {
+      "title": "Construction Calculators",
+      "description": "Free online construction calculators for roofing, flooring, concrete, HVAC, and home improvement."
+    }
+  }
+}

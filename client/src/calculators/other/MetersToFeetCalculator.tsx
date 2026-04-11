@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function MetersToFeetCalculator() {
   const [meters, setMeters] = useState(1.8288);
@@ -90,43 +89,3 @@ export default function MetersToFeetCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MetersToFeetCalculator,
-  slug: "meters-to-feet",
-  title: "Meters to Feet Converter",
-  shortTitle: "Meters to Feet",
-  description: "Convert meters to feet with formula and reference table",
-  category: "other",
-  icon: "📐",
-  keywords: ["meters to feet", "m to ft", "convert meters", "metric to imperial length"],
-  popular: false,
-  faqs: [
-    {
-      question: "How many feet are in a meter?",
-      answer:
-        "One meter equals 3.28084 feet. This is the precise conversion factor. To convert meters to feet, multiply by 3.28084. For example, 2 meters = 2 × 3.28084 = 6.56168 feet. A quick mental approximation is that 1 meter ≈ 3.3 feet, useful for rough estimates. The inverse conversion is 1 foot = 0.3048 meters. This exact relationship ensures consistency in international engineering, construction, and scientific measurements across the globe.",
-    },
-    {
-      question: "What's the easiest way to convert meters to feet?",
-      answer:
-        "The most straightforward method is to multiply meters by 3.28084. For a quick mental approximation, multiply by 3.3. For example, 10 meters × 3.3 ≈ 33 feet (actual is 32.8 feet). Another approach: remember that 1 meter ≈ 3 feet, so 5 meters ≈ 15 feet, and 10 meters ≈ 30 feet. These approximations work well for casual estimates but aren't precise. For exact conversions in professional contexts, always use 3.28084 or this calculator.",
-    },
-    {
-      question: "How do I convert meters to feet and inches?",
-      answer:
-        "Multiply meters by 3.28084 to get total feet, then extract the decimal part and multiply by 12 to get remaining inches. Example: 1.8 meters × 3.28084 = 5.905 feet. The 0.905 feet × 12 = 10.86 inches. So 1.8 meters = 5 feet 10.86 inches. Alternatively, use a calculator that displays the result in feet and inches format directly. This format is more intuitive for height, ceiling, and architectural measurements commonly expressed in feet and inches.",
-    },
-    {
-      question: "Why is the conversion factor 3.28084 and not a simpler number?",
-      answer:
-        "The conversion factor 3.28084 is the reciprocal of 0.3048 (the feet-to-meters conversion). These precise values were established by international agreement based on the relationship between imperial and metric systems. While the number isn't simple, it's exact and internationally recognized, ensuring consistency in science, engineering, and global trade. Using a simpler approximation like 3.3 or 3.28 introduces errors that accumulate in precision work. For professional applications, the full 3.28084 factor is essential.",
-    },
-    {
-      question: "What are some common meter-to-feet conversions?",
-      answer:
-        "Common conversions include: 1 m = 3.28 ft, 1.5 m = 4.92 ft, 1.8 m = 5.91 ft (average male height), 2 m = 6.56 ft, 3 m = 9.84 ft (typical ceiling height), 5 m = 16.4 ft, 10 m = 32.8 ft, 100 m = 328 ft. A 25-meter swimming pool = 82 feet. An Olympic-size pool (50 meters) = 164 feet. Mount Everest (8,849 m) = 29,032 feet. Knowing these benchmarks helps with quick comparisons without calculation.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

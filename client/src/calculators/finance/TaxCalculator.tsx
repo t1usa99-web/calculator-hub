@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { TAX_FAQS } from "@/lib/faq-finance-invest";
 
 export default function TaxCalculator() {
   const [filingStatus, setFilingStatus] = useState("single");
@@ -226,16 +224,3 @@ export default function TaxCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TaxCalculator,
-  faqs: TAX_FAQS,
-  slug: "tax-calculator",
-  title: "Tax Calculator",
-  shortTitle: "Taxes",
-  description: "Calculate federal income tax using 2024 tax brackets and deductions",
-  category: "finance",
-  icon: "🧾",
-  keywords: ["tax", "federal income tax", "brackets", "deductions", "credits", "filing status"],
-  popular: true,
-});

@@ -1,7 +1,5 @@
 import MetalValueCalculator from "@/components/MetalValueCalculator";
-import { registerCalculator } from "@/lib/calculator-registry";
 import { METALS } from "@/lib/metals-config";
-import { SILVER_VALUE_FAQS } from "@/lib/faq-metals";
 
 const metal = METALS.find((m) => m.apiKey === "silver")!;
 
@@ -29,14 +27,3 @@ const educational = (
 export default function SilverValueCalculator() {
   return <MetalValueCalculator metal={metal} educational={educational} />;
 }
-
-registerCalculator({
-  ...metal,
-  title: "Silver Value Calculator",
-  shortTitle: "Silver Value",
-  category: "metals",
-  popular: true,
-  faqs: SILVER_VALUE_FAQS,
-  dateModified: "2026-04-10",
-  component: SilverValueCalculator,
-});

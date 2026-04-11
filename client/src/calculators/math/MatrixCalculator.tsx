@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function MatrixCalculator() {
   const [mode, setMode] = useState("2x2");
@@ -284,16 +283,3 @@ export default function MatrixCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MatrixCalculator,
-  slug: "matrix-calculator",
-  title: "Matrix Calculator",
-  shortTitle: "Matrix",
-  description: "Perform 2x2 and 3x3 matrix operations including addition, subtraction, multiplication, determinant, inverse, and transpose",
-  category: "math",
-  icon: "📐",
-  keywords: ["matrix", "linear algebra", "determinant", "inverse", "transpose", "multiplication"],
-  popular: false,
-  dateModified: "2026-04-10"
-});

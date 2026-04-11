@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { MOMENTUM_FAQS } from "@/lib/faq-physics-mechanics";
 
 export default function MomentumCalculator() {
   const [mass, setMass] = useState(5);
@@ -88,16 +86,3 @@ export default function MomentumCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "momentum-calculator",
-  title: "Momentum Calculator",
-  shortTitle: "Momentum",
-  description: "Calculate momentum and impulse from mass and velocity",
-  category: "physics",
-  icon: "🎱",
-  keywords: ["momentum", "impulse", "physics", "collision"],
-  component: MomentumCalculator,
-  faqs: MOMENTUM_FAQS,
-  dateModified: "2026-04-09",
-});

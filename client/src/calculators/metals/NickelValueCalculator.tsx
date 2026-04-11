@@ -1,7 +1,5 @@
 import MetalValueCalculator from "@/components/MetalValueCalculator";
-import { registerCalculator } from "@/lib/calculator-registry";
 import { METALS } from "@/lib/metals-config";
-import { NICKEL_VALUE_FAQS } from "@/lib/faq-metals";
 
 const metal = METALS.find((m) => m.apiKey === "nickel")!;
 
@@ -29,14 +27,3 @@ const educational = (
 export default function NickelValueCalculator() {
   return <MetalValueCalculator metal={metal} educational={educational} />;
 }
-
-registerCalculator({
-  ...metal,
-  title: "Nickel Value Calculator",
-  shortTitle: "Nickel Value",
-  category: "metals",
-  popular: false,
-  faqs: NICKEL_VALUE_FAQS,
-  dateModified: "2026-04-10",
-  component: NickelValueCalculator,
-});

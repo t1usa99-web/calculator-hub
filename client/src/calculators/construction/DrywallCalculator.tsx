@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function DrywallCalculator() {
   const [wallLength, setWallLength] = useState(20);
@@ -233,38 +232,3 @@ export default function DrywallCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DrywallCalculator,
-  slug: "drywall-calculator",
-  title: "Drywall Calculator",
-  shortTitle: "Drywall",
-  description: "Calculate drywall sheets, compound, tape, and hardware for interior walls",
-  category: "construction",
-  icon: "🪜",
-  keywords: ["drywall", "sheetrock", "joint compound", "tape", "wall"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "How many sheets of drywall do I need?",
-      answer: "Calculate total wall area (perimeter {'×'} height), subtract door and window areas (approx 21 sqft per door, 15 sqft per window), then divide by sheet area. For example, 320 sqft drywall area divided by 32 sqft (4x8 sheet) = 10 sheets. Always add 5-10% for waste and mistakes.",
-    },
-    {
-      question: "What size drywall sheet should I use?",
-      answer: "4x8 foot sheets (32 sqft) are most common and affordable. 4x10 sheets (40 sqft) reduce seams but are heavier. 4x12 sheets (48 sqft) minimize seams further but are the heaviest. Use 1/2-inch thickness for standard walls, 5/8-inch for fire-rated walls. Moisture-resistant drywall is essential for bathrooms and kitchens.",
-    },
-    {
-      question: "How much joint compound do I need for three coats?",
-      answer: "Plan on approximately 30 sqft per gallon for one coat. For three complete coats (typical for professional finish), you need roughly 3 gallons per 100 sqft, or 1 gallon per 30-35 sqft. Always add extra for practice and mistakes. One 5-gallon bucket covers about 150-200 sqft of seams.",
-    },
-    {
-      question: "What is the difference between paper and mesh drywall tape?",
-      answer: "Paper tape is cheaper ($5-8 per roll) but requires skill to apply properly without air bubbles. Mesh tape is easier for beginners ($8-12 per roll), self-adhesive, and resists air bubbles better. Both work well; choice depends on experience and preference. Tape width is typically 2 inches.",
-    },
-    {
-      question: "How many coats of joint compound are needed?",
-      answer: "Standard finishing requires three coats: first coat (setting coat) fills seams and covers fasteners, second coat (topping coat) smooths and extends beyond first coat, third coat (finish coat) smooths further and is lightly sanded. Some light areas may need a fourth thin coat. Each coat must dry completely before the next application.",
-    },
-  ],
-});

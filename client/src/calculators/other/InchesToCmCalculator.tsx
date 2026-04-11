@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function InchesToCmCalculator() {
   const [inches, setInches] = useState(12);
@@ -90,43 +89,3 @@ export default function InchesToCmCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: InchesToCmCalculator,
-  slug: "inches-to-cm",
-  title: "Inches to Centimeters Converter",
-  shortTitle: "Inches to CM",
-  description: "Convert inches to centimeters with formula and reference table",
-  category: "other",
-  icon: "📏",
-  keywords: ["inches to cm", "inches to centimeters", "in to cm", "imperial to metric", "convert inches"],
-  popular: false,
-  faqs: [
-    {
-      question: "How many centimeters are in an inch?",
-      answer:
-        "One inch equals exactly 2.54 centimeters. This is the internationally standardized conversion factor established in 1959. The relationship is fixed and unchanging: simply multiply inches by 2.54 to convert to centimeters. For example, 6 inches equals 15.24 centimeters, 12 inches equals 30.48 centimeters. This precise conversion allows seamless translation between imperial and metric measurements across fields like manufacturing, fashion, and engineering.",
-    },
-    {
-      question: "Why use inches when centimeters are more decimal?",
-      answer:
-        "The inch is part of the imperial measurement system still widely used in the United States, and some other countries. Inches are convenient for many applications because they divide easily into fractions (1/2, 1/4, 1/8 inch), which is useful in woodworking, construction, and tool sizing. However, the metric system (centimeters) is decimal-based, making mathematical calculations simpler. Many industries use both systems depending on tradition, regulation, or customer preference. Global trade requires fluency in both measurements.",
-    },
-    {
-      question: "How do I convert fractional inches to centimeters?",
-      answer:
-        "Convert fractional inches the same way as whole numbers: multiply by 2.54. For example, 2.5 inches × 2.54 = 6.35 centimeters. If working with fractions like 1/4 inch, convert to decimal first: 1/4 inch = 0.25 inches, then 0.25 × 2.54 = 0.635 centimeters. This calculator handles decimal inputs, so you can enter 2.5, 3.75, or 10.5 inches directly. For more precision, most converters display results to 2 or more decimal places.",
-    },
-    {
-      question: "What are common inch-to-centimeter conversions I should memorize?",
-      answer:
-        "Useful benchmarks include: 1 inch = 2.54 cm, 3 inches = 7.62 cm (roughly a thumb width), 6 inches = 15.24 cm (credit card width), 12 inches = 30.48 cm (one foot), and 36 inches = 91.44 cm (one yard). Knowing these helps with quick mental math without a calculator. For body measurements, a typical adult thumb width is about 1 inch (2.54 cm), and a foot length is about 12 inches (30.48 cm). These mental shortcuts are invaluable in DIY projects and everyday life.",
-    },
-    {
-      question: "Is 2.54 an exact conversion or an approximation?",
-      answer:
-        "The 2.54 conversion factor is exact and internationally standardized, not an approximation. It was defined by the 1959 International Yard and Pound Agreement to provide a precise relationship between imperial and metric measurements. All scientific and engineering conversions use this exact factor. In everyday use, you might round results (e.g., 1 inch ≈ 2.5 cm for quick mental math), but the true conversion is always 2.54 centimeters per inch. This precision is critical in manufacturing, aerospace, and precision engineering.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

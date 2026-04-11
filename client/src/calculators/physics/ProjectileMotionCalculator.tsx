@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { PROJECTILE_MOTION_FAQS } from "@/lib/faq-physics-mechanics";
 
 export default function ProjectileMotionCalculator() {
   const [velocity, setVelocity] = useState(50);
@@ -105,16 +103,3 @@ export default function ProjectileMotionCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "projectile-motion-calculator",
-  title: "Projectile Motion Calculator",
-  shortTitle: "Projectile Motion",
-  description: "Calculate projectile motion trajectory, range, and velocity",
-  category: "physics",
-  icon: "🎯",
-  keywords: ["projectile motion", "physics calculator", "trajectory", "kinematics"],
-  component: ProjectileMotionCalculator,
-  faqs: PROJECTILE_MOTION_FAQS,
-  dateModified: "2026-04-09",
-});

@@ -7,13 +7,9 @@ import CategoryPage from "@/pages/CategoryPage";
 import CalculatorPage from "@/pages/CalculatorPage";
 import EmbedPage from "@/pages/EmbedPage";
 import SearchPage from "@/pages/SearchPage";
-import "@/calculators/finance";
-import "@/calculators/health";
-import "@/calculators/math";
-import "@/calculators/other";
-import "@/calculators/physics";
-import "@/calculators/metals";
-import "@/calculators/construction";
+
+// Single manifest registers all 240 calculators with lazy-loaded components
+import "@/lib/calculator-manifest";
 
 /** Scroll to top on every client-side navigation */
 function ScrollToTop() {

@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function CelsiusToFahrenheitCalculator() {
   const [celsius, setCelsius] = useState(22);
@@ -129,38 +128,3 @@ export default function CelsiusToFahrenheitCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CelsiusToFahrenheitCalculator,
-  slug: "celsius-to-fahrenheit",
-  title: "Celsius to Fahrenheit Calculator",
-  shortTitle: "°C to °F",
-  description: "Convert temperature from Celsius to Fahrenheit instantly",
-  category: "other",
-  icon: "🌡️",
-  keywords: ["celsius to fahrenheit", "temperature conversion", "c to f", "weather", "international"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the formula to convert Celsius to Fahrenheit?",
-      answer: "The formula is: °F = (°C × 9/5) + 32. Multiply the Celsius temperature by 9/5 (or 1.8), then add 32. Example: 22°C becomes (22 × 9/5) + 32 = 39.6 + 32 = 71.6°F. This conversion accounts for both the different zero points and the different scale intervals between the two systems.",
-    },
-    {
-      question: "Which countries use Celsius versus Fahrenheit?",
-      answer: "Celsius is used almost worldwide, including all of Europe, Asia, Africa, South America, and Oceania. Only a handful of countries use Fahrenheit primarily: the United States, Bahamas, Belize, Cayman Islands, Palau, and some US territories. A few countries like Canada use Celsius officially but have older populations familiar with Fahrenheit. For international communication, always clarify which scale you're using, or convert to Celsius as the global standard.",
-    },
-    {
-      question: "How do I convert weather temperatures quickly?",
-      answer: "For rough mental estimates: multiply Celsius by 2 and add 30 (works reasonably well for 0-30°C). Example: 20°C becomes 20×2 + 30 = 70°F. For more accuracy, use 1.8 instead of 2. Memorize key temperatures: 0°C = 32°F, 10°C = 50°F, 20°C = 68°F, 30°C = 86°F. With practice, you'll develop intuition for common temperatures without calculating. Weather apps with automatic conversion are also helpful.",
-    },
-    {
-      question: "What is comfortable room temperature in both scales?",
-      answer: "Most people find 20-22°C (68-72°F) comfortable for indoor spaces. Sleeping is best at slightly cooler temperatures: 15-19°C (59-66°F). Office workers often prefer 21-23°C (70-73°F). These ranges vary by personal preference, clothing, and activity level. HVAC systems worldwide use similar comfort targets but display them in local scales. During summer, comfortable outdoor temperatures are 25-28°C (77-82°F). In winter, 18-21°C (64-70°F) is typical for heated spaces.",
-    },
-    {
-      question: "How do I calculate Celsius from Fahrenheit in my head?",
-      answer: "For quick mental math: subtract 32 from the Fahrenheit value, then multiply by 5/9 (or divide by 1.8). Example: 70°F becomes (70 - 32) / 1.8 = 38 / 1.8 ≈ 21°C. A simpler approximation: subtract 30 from Fahrenheit and divide by 2. Example: 70°F becomes (70 - 30) / 2 = 20°C. This approximation is quick but less precise. Memorizing common temperatures (32, 50, 68, 86, 100°F) takes the guesswork out.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

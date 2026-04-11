@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TimeCardCalculator() {
   const [startTime, setStartTime] = useState("09:00");
@@ -181,38 +180,3 @@ export default function TimeCardCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TimeCardCalculator,
-  slug: "time-card-calculator",
-  title: "Time Card Calculator",
-  shortTitle: "Time Card",
-  description: "Calculate hours worked and pay with overtime compensation",
-  category: "other",
-  icon: "⏱️",
-  keywords: ["time card", "hours worked", "overtime pay", "wage calculation", "payroll"],
-  popular: true,
-  faqs: [
-    {
-      question: "How do I calculate pay with overtime?",
-      answer: "Regular pay is hours (up to 8) multiplied by hourly rate. Overtime pay is excess hours (over 8) multiplied by 1.5 times the hourly rate. Example: 10 hours at $15/hour = (8 × $15) + (2 × $22.50) = $120 + $45 = $165. Some employers use weekly overtime (over 40 hours) instead of daily. Check your employer's policy. Double-check your paycheck for accuracy. Report discrepancies to payroll immediately. Keep personal time records as backup documentation.",
-    },
-    {
-      question: "What is overtime pay and when am I eligible?",
-      answer: "Overtime pay is compensation at 1.5 times the regular hourly rate for hours beyond the standard (typically 8 per day or 40 per week). Non-exempt hourly employees are eligible. Exempt employees (salaried) typically don't receive overtime pay. Eligibility depends on job classification and your employer's policies. The Fair Labor Standards Act (FLSA) is the federal minimum; some states require more favorable rates. Military, police, and some healthcare workers have different rules. Always verify your employment status and local regulations. If denied overtime pay when eligible, file a wage claim with your labor department.",
-    },
-    {
-      question: "Do breaks and meals count as work time?",
-      answer: "Paid breaks (very short, 5-20 minutes) count as work time. Unpaid meal breaks (30 minutes to 1 hour) do not count as work time. The distinction depends on whether you can be called to work during the break. Many states require breaks; check your local labor laws. Breaks should be deducted from your total time when calculating pay. If your employer requires you to remain on premises during a break, it may be considered paid time. Your time card should clearly show break times deducted from total work time.",
-    },
-    {
-      question: "How do I track hours accurately?",
-      answer: "Use a time clock, app, or digital system for consistency. Record start and end times to the nearest minute. Document all breaks and their duration. Note any unusual circumstances (worked through lunch, early departure, etc.). Review your time card before submitting for accuracy. Keep personal records in case of disputes. Use a phone app if your employer doesn't provide a time system. Digital tracking is more reliable than memory. Many payroll systems integrate with time clocks to prevent errors. Check your paycheck against your time records to catch errors early.",
-    },
-    {
-      question: "What if my employer refuses to pay overtime?",
-      answer: "This is wage theft and is illegal under the Fair Labor Standards Act (FLSA). Contact your employer's HR or payroll department first; it may be a mistake. If the issue isn't resolved, file a wage claim with your state's labor board or the U.S. Department of Labor. Keep documentation: paystubs, time cards, emails, witness statements. Many states have wage recovery laws allowing you to recover unpaid wages plus penalties. Labor attorneys often handle wage cases on contingency (no upfront cost). Don't worry about retaliation; it's illegal for employers to punish employees for wage claims. Your rights are protected by law.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

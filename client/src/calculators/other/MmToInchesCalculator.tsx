@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function MmToInchesCalculator() {
   const [millimeters, setMillimeters] = useState(100);
@@ -129,38 +128,3 @@ export default function MmToInchesCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MmToInchesCalculator,
-  slug: "mm-to-inches",
-  title: "Millimeters to Inches Calculator",
-  shortTitle: "mm to in",
-  description: "Convert millimeters to inches for engineering and 3D printing",
-  category: "other",
-  icon: "📏",
-  keywords: ["millimeters to inches", "mm to inches", "measurement conversion", "3d printing", "engineering"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is the exact conversion factor from millimeters to inches?",
-      answer: "One millimeter equals 0.0393701 inches. One inch equals exactly 25.4 millimeters (this is the defined conversion). For practical purposes, multiply millimeters by 0.0394 or divide by 25.4. Example: 100 mm ÷ 25.4 = 3.937 inches. These conversions are critical for precision work where even small errors cause problems.",
-    },
-    {
-      question: "How many millimeters are in an inch?",
-      answer: "One inch equals exactly 25.4 millimeters. This is the defined international standard. A half inch equals 12.7 mm. A quarter inch equals 6.35 mm. An eighth inch equals 3.175 mm. A sixteenth inch equals 1.5875 mm. These fractional inch conversions are important for machinists and precision engineers working with imperial measurements.",
-    },
-    {
-      question: "Why do 3D printing models use millimeters?",
-      answer: "Millimeters provide a natural scale for 3D printing: most hobby 3D printers have build plates around 200-300 mm. Precision tolerances are specified in millimeters (e.g., 0.5 mm wall thickness). Using millimeters avoids decimal places compared to inches: 5 mm is easier to read than 0.197 inches. Internationally, designs use millimeters for consistency. 3D printing slicing software accepts millimeters as the standard unit. Converting inch-based designs to millimeters ensures proper scaling of prints.",
-    },
-    {
-      question: "What are common metric and imperial drill sizes?",
-      answer: "Metric drill sizes are specified in millimeters: 1 mm, 1.5 mm, 2 mm, 2.5 mm, 3 mm, 4 mm, 5 mm, 6 mm, 8 mm, 10 mm, etc. Imperial drill sizes use fractional inches: 1/16\", 1/8\", 3/16\", 1/4\", 5/16\", 3/8\", etc. A 5 mm drill is close to 3/16\" (0.1875\" or 4.76 mm). Understanding approximate equivalents helps when metric drills aren't available or vice versa. Precision work requires exact matching.",
-    },
-    {
-      question: "How can I estimate millimeters to inches quickly?",
-      answer: "The simplest approximation: divide millimeters by 25. Example: 100 mm ÷ 25 = 4 inches (actual is 3.937). For better accuracy, divide by 25.4 or multiply by 0.04. Another approach: remember that 25 mm ≈ 1 inch, so 50 mm ≈ 2 inches, 100 mm ≈ 4 inches. These approximations help when converting specifications or comparing tool sizes across measurement systems.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { PERCENTAGE_FAQS } from "@/lib/faq-content";
 
 export default function PercentageCalculator() {
   const [mode, setMode] = useState("of");
@@ -177,17 +175,3 @@ export default function PercentageCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PercentageCalculator,
-  slug: "percentage-calculator",
-  title: "Percentage Calculator",
-  shortTitle: "Percentage",
-  description: "Calculate percentages, percentage of values, and percentage changes",
-  category: "math",
-  icon: "📊",
-  keywords: ["percentage", "percent", "calculate percentage", "percentage change", "discount"],
-  popular: true,
-  faqs: PERCENTAGE_FAQS,
-  dateModified: "2026-04-09",
-});

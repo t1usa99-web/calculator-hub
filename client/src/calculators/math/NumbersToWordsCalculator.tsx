@@ -2,8 +2,6 @@ import { useState } from "react";
 import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
-import { NUMBERS_TO_WORDS_FAQS } from "@/lib/faq-math";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 const ONES = [
   "",
@@ -178,22 +176,3 @@ export default function NumbersToWordsCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: NumbersToWordsCalculator,
-  slug: "numbers-to-words-calculator",
-  title: "Numbers to Words Calculator",
-  shortTitle: "Numbers to Words",
-  description: "Convert numbers into their English word equivalents",
-  category: "math",
-  icon: "🔤",
-  keywords: [
-    "numbers to words",
-    "number conversion",
-    "spell numbers",
-    "english words",
-    "numerals",
-  ],
-  faqs: NUMBERS_TO_WORDS_FAQS,
-  dateModified: "2026-04-09",
-});

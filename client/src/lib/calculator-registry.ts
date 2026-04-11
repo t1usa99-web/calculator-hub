@@ -1,4 +1,4 @@
-import { ComponentType } from "react";
+import { ComponentType, LazyExoticComponent } from "react";
 
 export interface FAQ {
   question: string;
@@ -21,7 +21,7 @@ export interface CalculatorMeta {
 }
 
 export interface CalculatorEntry extends CalculatorMeta {
-  component: ComponentType;
+  component: ComponentType | LazyExoticComponent<ComponentType>;
 }
 
 const registry: CalculatorEntry[] = [];

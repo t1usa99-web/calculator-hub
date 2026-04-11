@@ -4,7 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PythagoreanTheoremCalculator() {
   const [side1, setSide1] = useState(3);
@@ -147,38 +146,3 @@ export default function PythagoreanTheoremCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PythagoreanTheoremCalculator,
-  slug: "pythagorean-theorem-calculator",
-  title: "Pythagorean Theorem Calculator",
-  shortTitle: "Pythagorean Theorem",
-  description: "Find missing sides of right triangles using a² + b² = c²",
-  category: "math",
-  icon: "📏",
-  keywords: ["pythagorean", "theorem", "right triangle", "hypotenuse", "geometry"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the Pythagorean theorem?",
-      answer: "The Pythagorean theorem states that in a right triangle, a² + b² = c², where c is the hypotenuse (longest side) and a and b are the other two sides."
-    },
-    {
-      question: "Which side is the hypotenuse?",
-      answer: "The hypotenuse is the longest side of a right triangle, always opposite the 90-degree angle."
-    },
-    {
-      question: "Can I use this for non-right triangles?",
-      answer: "No, the Pythagorean theorem only applies to right triangles (triangles with one 90-degree angle)."
-    },
-    {
-      question: "What is a Pythagorean triple?",
-      answer: "A Pythagorean triple is a set of three integers that satisfy the theorem, like 3-4-5, 5-12-13, or 8-15-17."
-    },
-    {
-      question: "How is the area of a right triangle calculated?",
-      answer: "For a right triangle, the area is (leg1 × leg2) / 2, where the legs are the two sides that form the right angle."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

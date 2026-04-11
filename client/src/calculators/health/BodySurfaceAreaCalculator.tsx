@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function BodySurfaceAreaCalculator() {
   const [weight, setWeight] = useState(70);
@@ -155,38 +154,3 @@ export default function BodySurfaceAreaCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BodySurfaceAreaCalculator,
-  slug: "body-surface-area-calculator",
-  title: "Body Surface Area Calculator",
-  shortTitle: "Body Surface Area",
-  description: "Calculate BSA using Mosteller, DuBois, and Haycock formulas for medical dosing",
-  category: "health",
-  icon: "📐",
-  keywords: ["body surface area", "BSA", "medical dosing", "chemotherapy", "healthcare"],
-  popular: false,
-  faqs: [
-    {
-      question: "What's the normal BSA range?",
-      answer: "Adults typically have BSA between 1.7 and 2.0 m². Children range from 0.5 m² (newborns) to 1.8 m² (teenagers). BSA increases with height and weight, reaching maximum in adulthood."
-    },
-    {
-      question: "Why is BSA used instead of weight for dosing?",
-      answer: "BSA better reflects metabolic capacity and organ function than weight alone. A 100-lb child and 200-lb adult have vastly different surface areas and metabolic needs. BSA standardizes dosing across different body sizes."
-    },
-    {
-      question: "Which formula is most accurate?",
-      answer: "Mosteller is preferred for adults and is most commonly used clinically. Haycock is preferred for children. All three agree within ~5-10%. Your healthcare provider will specify which formula to use."
-    },
-    {
-      question: "How does obesity affect BSA?",
-      answer: "BSA formulas slightly underestimate surface area in very obese patients because they don't fully account for fat distribution. Some institutions adjust dosing for obese patients; consult your healthcare provider."
-    },
-    {
-      question: "Can I use BSA to estimate daily calorie needs?",
-      answer: "Roughly, yes. BSA correlates with metabolic rate. An average adult burns about 40-50 calories per m² per day at rest. So a 1.8 m² person might burn 72-90 calories/hour at rest, helping estimate daily needs."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

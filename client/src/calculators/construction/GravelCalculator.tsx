@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function GravelCalculator() {
   const [length, setLength] = useState(30);
@@ -160,38 +159,3 @@ export default function GravelCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: GravelCalculator,
-  slug: "gravel-calculator",
-  title: "Gravel Calculator",
-  shortTitle: "Gravel",
-  description: "Calculate gravel, sand, and aggregate volume and weight needed for projects",
-  category: "construction",
-  icon: "⛰️",
-  keywords: ["gravel", "stone", "aggregate", "sand", "landscape"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is a cubic yard and how do I calculate it?",
-      answer: "A cubic yard is 27 cubic feet (3 feet {'×'} 3 feet {'×'} 3 feet). To calculate: multiply length {'×'} width {'×'} depth (all in feet), then divide by 27. For example, a 30 ft {'×'} 20 ft area with 4 inches (0.33 feet) depth = (30 {'×'} 20 {'×'} 0.33) / 27 = 7.4 cubic yards.",
-    },
-    {
-      question: "How much gravel do I need for a driveway?",
-      answer: "A typical driveway needs 4-6 inches of gravel base. Calculate cubic yards using length {'×'} width {'×'} depth (in feet) / 27. For a 12 ft {'×'} 30 ft driveway with 4 inches depth: (12 {'×'} 30 {'×'} 0.33) / 27 = 4.4 cubic yards. Order 5 cubic yards to account for settling and spreading loss.",
-    },
-    {
-      question: "What is the difference between gravel, crushed stone, and sand?",
-      answer: "Gravel is rounded pebbles, good for drainage. Crushed stone is angular and compacts better for stable bases. Sand is fine and used for foundations and drainage. All have different densities (gravel 1.4 t/cy, stone 1.5 t/cy, sand 1.3 t/cy). Choose based on purpose: drainage needs gravel, structural bases need crushed stone, fine work needs sand.",
-    },
-    {
-      question: "How much does gravel weigh per cubic yard?",
-      answer: "Gravel weighs approximately 1.4 tons per cubic yard. Crushed stone weighs 1.5 tons/cy. Sand weighs 1.3 tons/cy. Topsoil weighs 1.1 tons/cy. Weight varies by material moisture and density. Knowing weight is important for delivery truck capacity and labor requirements. Heavier materials require more delivery trips.",
-    },
-    {
-      question: "Should I order extra gravel for settling and waste?",
-      answer: "Yes, always order 10-15% extra. Materials settle and compact after spreading, reducing volume. Spreading and application cause some waste. Extra material covers settling and allows for future maintenance. For a 10 cubic yard project, order 11-12 cubic yards to ensure adequate coverage.",
-    },
-  ],
-});

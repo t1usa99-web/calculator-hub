@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function CommissionCalculator() {
   const [salesAmount, setSalesAmount] = useState(50000);
@@ -318,50 +317,3 @@ export default function CommissionCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CommissionCalculator,
-  slug: "commission-calculator",
-  title: "Commission Calculator",
-  shortTitle: "Sales Commission",
-  description:
-    "Calculate sales commission with flat, tiered, and draw structures",
-  category: "finance",
-  icon: "📊",
-  keywords: [
-    "sales commission",
-    "commission calculator",
-    "sales compensation",
-    "tiered commission",
-    "commission structure",
-  ],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What are the main types of commission structures?",
-      answer:
-        "There are three main types: Flat-rate (fixed percentage on all sales), Tiered (different percentages at different sales levels to incentivize higher performance), and Draw against commission (guaranteed minimum deducted from future earnings). Each has pros and cons regarding income stability vs. upside potential.",
-    },
-    {
-      question: "What is a tiered commission structure?",
-      answer:
-        "Tiered commission pays different percentages at different sales levels. Example: 3% on first $25k, 6% on next $25k, 9% beyond. This incentivizes exceeding targets. $50k in sales yields $3,000 vs. $2,500 under flat 5% rate. Tiered structures motivate top performers but can create cliff effects at tier boundaries.",
-    },
-    {
-      question: "What is a draw against commission?",
-      answer:
-        "A draw is a guaranteed minimum salary advanced against future commission earnings. If you earn a $2,000 draw with 5% commission and generate $3,000 in commission, you keep the extra $1,000. If commission is $1,500, you may owe back $500. Draws provide income stability but cap upside for high earners.",
-    },
-    {
-      question: "How do I evaluate a commission job offer?",
-      answer:
-        "Calculate expected total pay under realistic sales scenarios. Research typical sales volumes in the role and industry. Ask for historical earnings data (what top, average, and bottom performers actually made). Compare across offers using the same estimated sales level. Don't be swayed by high commission percentages if sales are unpredictable or you're inexperienced.",
-    },
-    {
-      question: "How are commissions taxed?",
-      answer:
-        "Commission is taxed as income and subject to self-employment tax if you're a 1099 contractor. Unlike salary, taxes aren't withheld, so set aside 25-40% for taxes. Keep detailed sales records for tax purposes. Consider quarterly estimated tax payments to avoid large year-end bills. In high-earning years, contribute to SEP-IRAs or Solo 401(k)s to reduce taxable income.",
-    },
-  ],
-});

@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { FUEL_COST_FAQS } from "@/lib/faq-other";
 
 export default function FuelCostCalculator() {
   const [distance, setDistance] = useState(500);
@@ -151,17 +149,3 @@ export default function FuelCostCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: FuelCostCalculator,
-  slug: "fuel-cost-calculator",
-  title: "Fuel Cost Calculator",
-  shortTitle: "Fuel Cost",
-  description: "Calculate fuel costs and MPG for road trips",
-  category: "other",
-  icon: "⛽",
-  keywords: ["fuel cost", "gas calculator", "MPG calculator", "trip cost"],
-  popular: false,
-  faqs: FUEL_COST_FAQS,
-  dateModified: "2026-04-09",
-});

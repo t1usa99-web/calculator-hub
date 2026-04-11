@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function HeatIndexCalculator() {
   const [temperature, setTemperature] = useState(90);
@@ -162,38 +161,3 @@ export default function HeatIndexCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: HeatIndexCalculator,
-  slug: "heat-index-calculator",
-  title: "Heat Index Calculator",
-  shortTitle: "Heat Index",
-  description: "Calculate heat index and assess risk of heat-related illness",
-  category: "other",
-  icon: "🌡️",
-  keywords: ["heat index", "humidity temperature", "heat illness", "apparent temperature", "weather safety"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is heat index and why is it different from temperature?",
-      answer: "Heat index is the apparent temperature felt by the human body when humidity is factored in. Temperature is just air temperature. When humidity is high, sweat cannot evaporate from skin, so the body cannot cool efficiently and feels hotter than the actual temperature. Example: 95°F with 60% humidity has a heat index of around 110°F. Weather forecasts often report heat index during hot spells because it better represents the danger to human health. Air conditioning units measure actual temperature, but human comfort and safety depend on heat index.",
-    },
-    {
-      question: "At what heat index is it dangerous to be outside?",
-      answer: "Heat index above 91°F is caution level (fatigue possible). Above 104°F is danger level (heat exhaustion likely). Above 125°F is extreme danger (heat stroke likely). However, vulnerability varies by person. Elderly people, young children, those with medical conditions, outdoor workers, and athletes face danger at lower heat indices. Never leave children or pets in vehicles during high heat index days; interior temperatures can exceed 130°F in minutes. Limit strenuous outdoor activity when heat index exceeds 91°F, especially during peak sun hours (10am-4pm).",
-    },
-    {
-      question: "How is heat index calculated?",
-      answer: "The National Weather Service uses the Rothfusz regression equation, which includes temperature and relative humidity values in a complex formula. Heat index is only calculated when temperature exceeds 80°F. Below 80°F, the heat index equals the actual temperature. The equation accounts for the physical process of evaporative cooling and how humidity inhibits that process. Different equations exist for metric units (Celsius and percent), but the concept is identical: higher humidity increases the apparent temperature.",
-    },
-    {
-      question: "What should I do if I experience heat exhaustion symptoms?",
-      answer: "Heat exhaustion signs include heavy sweating, weakness, dizziness, nausea, fast heartbeat, and cool clammy skin. Move to a cool place immediately (indoor air conditioning or shade). Drink cool water, not ice water. Apply cool water to skin or take a cool shower. Lie down and elevate legs. If symptoms don't improve within 30 minutes, or if you develop high body temperature, confusion, or loss of consciousness, call emergency services. Heat stroke is a medical emergency requiring immediate professional help. Prevention is key: drink water before you're thirsty, wear light clothing, take breaks, and avoid peak sun hours.",
-    },
-    {
-      question: "How much water should I drink during hot weather?",
-      answer: "Drink water continuously throughout the day, not just when thirsty. Thirst is a late indicator of dehydration. Most people need at least 8-10 glasses (64-80 ounces) daily, more if active or in heat. During outdoor activity in heat, drink 4-8 ounces every 15-20 minutes. Don't rely on caffeinated or alcoholic beverages; they increase dehydration. Check urine color: pale yellow indicates adequate hydration, dark yellow indicates dehydration. Athletes and outdoor workers need more. In extreme heat (heat index above 105°F), even sedentary people should increase water intake significantly. Electrolyte replacement drinks can help during prolonged activity.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

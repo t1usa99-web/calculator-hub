@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { DOWN_PAYMENT_FAQS } from "@/lib/faq-finance-loans";
 
 export default function DownPaymentCalculator() {
   const [homePrice, setHomePrice] = useState(400000);
@@ -211,15 +209,3 @@ export default function DownPaymentCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DownPaymentCalculator,
-  slug: "down-payment-calculator",
-  title: "Down Payment Calculator",
-  shortTitle: "Down Payment",
-  description: "Calculate savings needed for your down payment and understand PMI impact",
-  category: "finance",
-  icon: "🏦",
-  keywords: ["down payment", "home savings", "PMI", "first-time buyer", "mortgage"],
-  faqs: DOWN_PAYMENT_FAQS,
-});

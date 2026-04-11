@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 function parseScientific(str: string): number | null {
   const trimmed = str.trim();
@@ -195,38 +194,3 @@ export default function ScientificNotationCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ScientificNotationCalculator,
-  slug: "scientific-notation-calculator",
-  title: "Scientific Notation Calculator",
-  shortTitle: "Scientific Notation",
-  description: "Convert numbers to scientific, standard, and engineering notation",
-  category: "math",
-  icon: "🔬",
-  keywords: ["scientific notation", "engineering notation", "exponent", "mantissa", "significant figures"],
-  popular: false,
-  faqs: [
-    {
-      question: "Why use scientific notation?",
-      answer: "Scientific notation handles very large numbers (like the distance to stars: 9.46 × 10^15 meters) and very small numbers (like atomic size: 1 × 10^-10 meters) compactly. It{'\''}s easier to read, compare magnitudes, and use in calculations. It also clarifies significant figures."
-    },
-    {
-      question: "What does the exponent tell you?",
-      answer: "The exponent is the power of 10. Positive exponents mean the number is large (move decimal right). Negative exponents mean the number is small (move decimal left). For example, 10^6 = 1,000,000 (six zeros), and 10^-6 = 0.000001 (five zeros after decimal before the digit)."
-    },
-    {
-      question: "What is the mantissa and why is it important?",
-      answer: "The mantissa is the decimal number multiplied by the power of 10. In standard scientific notation, 1 ≤ mantissa {'<'} 10. The mantissa contains all significant figures, so it's important for precision and accuracy. For 3.5 × 10^5, the mantissa is 3.5."
-    },
-    {
-      question: "How is engineering notation different?",
-      answer: "Engineering notation restricts exponents to multiples of 3 (±3, ±6, ±9, ±12...) to align with metric prefixes. This makes it practical for engineers: 1 × 10^6 (mega), 1 × 10^3 (kilo), 1 × 10^-3 (milli), etc. Scientific notation doesn{'\''}t have this restriction."
-    },
-    {
-      question: "What are significant figures?",
-      answer: "Significant figures are digits that carry meaning about precision. In 2.50 × 10^3, all three digits (2, 5, 0) are significant. In 2500, it's ambiguous—could be 2, 3, or 4 significant figures. Scientific notation removes ambiguity. This matters in science: a measurement of 25 ± 5 is very different from 25 ± 0.1."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

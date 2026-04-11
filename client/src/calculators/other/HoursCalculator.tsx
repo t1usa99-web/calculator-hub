@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { HOURS_FAQS } from "@/lib/faq-other";
 
 export default function HoursCalculator() {
   const [startTime, setStartTime] = useState("09:00");
@@ -117,23 +115,3 @@ export default function HoursCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: HoursCalculator,
-  slug: "hours-calculator",
-  title: "Hours Calculator",
-  shortTitle: "Hours",
-  description:
-    "Calculate total hours worked with breaks and optional wage calculation",
-  category: "other",
-  icon: "⏰",
-  keywords: [
-    "hours worked",
-    "time tracking",
-    "wage calculation",
-    "break time",
-    "payroll",
-  ],
-  faqs: HOURS_FAQS,
-  dateModified: "2026-04-09",
-});

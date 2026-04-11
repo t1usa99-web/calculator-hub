@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { BUDGET_FAQS } from "@/lib/faq-finance-invest";
 
 export default function BudgetCalculator() {
   const [monthlyIncome, setMonthlyIncome] = useState(5000);
@@ -245,16 +243,3 @@ export default function BudgetCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BudgetCalculator,
-  faqs: BUDGET_FAQS,
-  slug: "budget-calculator",
-  title: "Budget Calculator",
-  shortTitle: "Budget",
-  description: "Allocate your income and compare to the 50/30/20 budgeting rule",
-  category: "finance",
-  icon: "📊",
-  keywords: ["budget", "income allocation", "50/30/20", "spending", "financial planning"],
-  popular: true,
-});

@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function RealEstateCommissionCalculator() {
   const [salePrice, setSalePrice] = useState(400000);
@@ -194,38 +193,3 @@ export default function RealEstateCommissionCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: RealEstateCommissionCalculator,
-  slug: "real-estate-commission-calculator",
-  title: "Real Estate Commission Calculator",
-  shortTitle: "Real Estate Commission",
-  description: "Calculate real estate commissions and compare different commission rates",
-  category: "finance",
-  icon: "🏠",
-  keywords: ["real estate commission", "realtor commission", "home sale commission", "listing agent", "buyer agent"],
-  popular: false,
-  faqs: [
-    {
-      question: "Are real estate commissions negotiable?",
-      answer: "Yes, absolutely. Commission rates aren't set by law or regulation; they're negotiable for each transaction. Interview multiple agents and request reduced rates. In competitive markets, sellers have more negotiating power. Even 0.5% difference saves thousands on a $400,000 sale."
-    },
-    {
-      question: "Who pays the real estate commission?",
-      answer: "The seller pays the total commission to their listing agent, who splits it with the buyer's agent. Traditionally, the seller's proceeds are reduced by the full commission amount. However, buyers can negotiate seller credits toward closing costs, which affects net proceeds."
-    },
-    {
-      question: "Why is the split between listing and buyer agents?",
-      answer: "This structure incentivizes buyer agents to show properties and bring qualified buyers. If all commission went to the listing agent, buyer agents wouldn't be motivated. The buyer agent split is part of the offer made to attract them. Splits are typically 50/50 but negotiable."
-    },
-    {
-      question: "Should I use a discount broker to save commission?",
-      answer: "Maybe. Discount brokers (2-4% commission) offer fewer services—sometimes no buyer agent commission offered, reduced marketing, or self-showing. Full-service brokers (5-6%) provide extensive marketing, showing coordination, and transaction management. Compare services against commission savings."
-    },
-    {
-      question: "How much do different commission rates save?",
-      answer: "On a $300,000 sale: 5.5% = $16,500, 4.5% = $13,500 (saves $3,000), 3.5% = $10,500 (saves $6,000). On a $500,000 sale: 5.5% = $27,500, 4% = $20,000 (saves $7,500). Higher-priced homes should negotiate lower percentages."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

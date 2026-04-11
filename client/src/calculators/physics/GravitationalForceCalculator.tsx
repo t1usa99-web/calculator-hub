@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { GRAVITATIONAL_FORCE_FAQS } from "@/lib/faq-physics-mechanics";
 
 export default function GravitationalForceCalculator() {
   const [mass1, setMass1] = useState(5.972e24);
@@ -86,16 +84,3 @@ export default function GravitationalForceCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "gravitational-force-calculator",
-  title: "Gravitational Force Calculator",
-  shortTitle: "Gravitational Force",
-  description: "Calculate gravitational force between two masses",
-  category: "physics",
-  icon: "🌍",
-  keywords: ["gravity", "gravitational force", "Newton", "physics"],
-  component: GravitationalForceCalculator,
-  faqs: GRAVITATIONAL_FORCE_FAQS,
-  dateModified: "2026-04-09",
-});

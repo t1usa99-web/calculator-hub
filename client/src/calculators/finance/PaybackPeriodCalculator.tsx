@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PaybackPeriodCalculator() {
   const [initialInvestment, setInitialInvestment] = useState(100000);
@@ -206,38 +205,3 @@ export default function PaybackPeriodCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PaybackPeriodCalculator,
-  slug: "payback-period-calculator",
-  title: "Payback Period Calculator",
-  shortTitle: "Payback Period",
-  description: "Calculate simple and discounted payback periods and NPV for investment decisions",
-  category: "finance",
-  icon: "⏱️",
-  keywords: ["payback period", "investment", "NPV", "capital budgeting", "cash flow", "ROI"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is payback period and why does it matter?",
-      answer: "Payback period is the time required for cumulative cash flows to equal your initial investment. A {formatCurrency(100000)} investment generating {formatCurrency(20000)}/year has a 5-year payback. It matters because shorter payback means faster capital recovery and lower risk (fewer assumptions needed). However, payback alone is incomplete: it ignores cash flows after payback and doesn't account for time value of money. Use payback with NPV and IRR for comprehensive evaluation.",
-    },
-    {
-      question: "What is discounted payback period and how does it differ from simple payback?",
-      answer: "Simple payback ignores when money is received ({{formatCurrency(1)} in Year 1 = {formatCurrency(1)} in Year 5). Discounted payback applies a discount rate (your required return) to future cash flows. At 10% discount, {{formatCurrency(20000)} in Year 5 is worth only {{formatCurrency(12418)} today. Discounted payback is longer and more realistic. If simple payback is 5 years but discounted is 7 years, it actually takes 2 extra years to recover your investment accounting for time value of money.",
-    },
-    {
-      question: "What discount rate should I use?",
-      answer: "The discount rate is your <strong>cost of capital</strong> or <strong>required return</strong>. Options: (1) Your cost of borrowed money (bank loan rate, corporate bond yield). (2) Your opportunity cost (return you could earn elsewhere). (3) A hurdle rate set by your company (minimum acceptable return). (4) Market average return (S&P 500 ~10%). Most companies use 8-12%. Higher discount rate means you're more demanding (you require higher returns), making projects less attractive.",
-    },
-    {
-      question: "Should I accept a project based on payback period?",
-      answer: "Use payback as <strong>one of multiple criteria</strong>. General rules: (1) Shorter payback is better (faster capital recovery). (2) Accept projects where discounted payback {less than} your acceptable payback (e.g., {less than} 3 years). (3) Accept projects where NPV {greater than} 0 and IRR {greater than} discount rate. (4) For high-risk/early-stage projects, shorter payback is more important (reduce uncertainty). For mature businesses, NPV and IRR matter more. Don't rely on payback alone.",
-    },
-    {
-      question: "What does a negative NPV or NPV {greater than} payback cutoff mean?",
-      answer: "Negative NPV means the project destroys value: cumulative discounted cash flows never recover the initial investment. <strong>Reject this project</strong>. Positive NPV means the project creates value and should be accepted. If your payback cutoff is 3 years but discounted payback is 5 years, the project may still add value (positive NPV) but takes longer to break even. You decide based on risk tolerance: short payback = lower risk, long payback = higher risk but potentially higher NPV.",
-    },
-  ],
-});

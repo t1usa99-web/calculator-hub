@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { AGE_FAQS } from "@/lib/faq-other";
 
 export default function AgeCalculator() {
   const [birthYear, setBirthYear] = useState(1990);
@@ -177,17 +175,3 @@ export default function AgeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: AgeCalculator,
-  slug: "age-calculator",
-  title: "Age Calculator",
-  shortTitle: "Age",
-  description: "Calculate your exact age in years, months, and days with zodiac sign",
-  category: "other",
-  icon: "🎂",
-  keywords: ["age calculator", "how old am I", "calculate age", "zodiac sign"],
-  popular: true,
-  faqs: AGE_FAQS,
-  dateModified: "2026-04-09",
-});

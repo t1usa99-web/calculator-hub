@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { MACRO_FAQS } from "@/lib/faq-health";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function MacroCalculator() {
   const [weight, setWeight] = useState(170);
@@ -224,17 +222,3 @@ export default function MacroCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MacroCalculator,
-  slug: "macro-calculator",
-  title: "Macro Calculator",
-  shortTitle: "Macros",
-  description: "Calculate your personalized macronutrient targets based on your goals and preferred diet type",
-  category: "health",
-  icon: "🥗",
-  keywords: ["macro calculator", "macronutrients", "protein", "carbs", "fat", "nutrition", "diet"],
-  popular: false,
-  faqs: MACRO_FAQS,
-  dateModified: "2026-04-09",
-});

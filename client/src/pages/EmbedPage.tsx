@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getCalculator } from "@/lib/calculator-registry";
 
 interface EmbedPageProps {
@@ -29,7 +30,9 @@ export default function EmbedPage({ slug }: EmbedPageProps) {
       <div className="max-w-4xl mx-auto">
         {/* Calculator */}
         <div className="bg-white">
-          <CalculatorComponent />
+          <Suspense fallback={<div className="flex items-center justify-center py-12"><p className="text-gray-500">Loading...</p></div>}>
+            <CalculatorComponent />
+          </Suspense>
         </div>
 
         {/* Powered by CalcHub Link */}

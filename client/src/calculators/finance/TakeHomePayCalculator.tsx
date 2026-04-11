@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TakeHomePayCalculator() {
   const [grossSalary, setGrossSalary] = useState(60000);
@@ -261,38 +260,3 @@ export default function TakeHomePayCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TakeHomePayCalculator,
-  slug: "take-home-pay-calculator",
-  title: "Take-Home Pay Calculator",
-  shortTitle: "Take-Home Pay",
-  description: "Calculate net pay after federal, FICA, and state income taxes",
-  category: "finance",
-  icon: "💵",
-  keywords: ["take-home pay", "net pay", "taxes", "income tax", "FICA", "paycheck"],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "Why is my take-home pay so much less than my gross salary?",
-      answer: "Taxes. A {formatCurrency(60000)} salary might have {formatCurrency(9000)} federal income tax, {formatCurrency(3720)} Social Security, {formatCurrency(870)} Medicare, and {formatCurrency(5000)} state tax = {formatCurrency(18590)} total (31% tax rate), leaving {formatCurrency(41410)} take-home. Federal tax is progressive (higher earners pay higher rates). FICA is fixed (6.2% SS + 1.45% Medicare). State tax varies from 0-13%. Combined, these typically consume 25-35% of gross. Higher earners pay 35-45% or more in total taxes.",
-    },
-    {
-      question: "What is the difference between federal income tax and FICA taxes?",
-      answer: "<strong>Federal income tax:</strong> Progressive tax on all income, funds government operations. Uses tax brackets (10%-37% rates). You pay more as income increases. <strong>FICA taxes:</strong> Fixed-rate payroll taxes (6.2% Social Security + 1.45% Medicare), funds Social Security and Medicare. Social Security tax caps at {formatCurrency(168600)} wage base; Medicare has no cap. Both are mandatory. Federal tax is progressive; FICA is regressive (flatter percentage). On {formatCurrency(100000)}: federal might be {formatCurrency(12000)} (12%), FICA is {formatCurrency(7650)} (7.65%).",
-    },
-    {
-      question: "How do tax brackets work and what is my marginal tax rate?",
-      answer: "Tax brackets are progressive: you pay different rates on different income portions, not a single rate on all income. Single filers pay 10% on income {less than} {formatCurrency(11600)}, 12% on {formatCurrency(11600)}-{formatCurrency(47150)}, 22% on {formatCurrency(47150)}-{formatCurrency(100525)}, etc. Your <strong>marginal rate</strong> is the rate on your last dollar earned. At {formatCurrency(75000)} income, marginal rate is 22%. Your <strong>effective rate</strong> is total tax ÷ income (~18% at {formatCurrency(75000)}). Marginal rate matters for decisions (raises, deductions); effective rate shows your actual tax burden.",
-    },
-    {
-      question: "Which states have no income tax and how much can I save?",
-      answer: "Nine states have no income tax: Texas, Florida, Washington, Nevada, South Dakota, Tennessee, Wyoming, Alaska, New Hampshire. Savings are substantial. A {formatCurrency(100000)} salary takes home {{formatCurrency(75000)}-{formatCurrency(78000)} in no-tax states but {formatCurrency(66000)}-{formatCurrency(70000)} in high-tax states like California, New York. Over a career, moving to a no-tax state can save {greater than}{formatCurrency(1000000)}. However, some no-tax states have high sales taxes (Texas 8.25%) or property taxes (Florida), offsetting income tax savings. Evaluate total tax burden.",
-    },
-    {
-      question: "Can I reduce my take-home pay taxes through deductions or credits?",
-      answer: "Yes, but this calculator uses standard estimates. To reduce taxes: (1) Contribute to Traditional 401(k) or IRA—these reduce taxable income (pre-tax). (2) Claim deductions: standard deduction ({formatCurrency(14600)} single, {formatCurrency(29200)} married 2024) or itemized deductions if {greater than} standard. (3) Claim tax credits: Child Tax Credit ({formatCurrency(2000)}/child), Earned Income Tax Credit (if low income), etc. (4) Use HSA if eligible (triple-tax advantage). Reducing taxable income from {formatCurrency(75000)} to {formatCurrency(60000)} via 401(k) saves {greater than}{formatCurrency(3300)} federal tax at 22% rate.",
-    },
-  ],
-});

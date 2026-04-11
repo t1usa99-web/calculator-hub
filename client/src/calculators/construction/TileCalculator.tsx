@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TileCalculator() {
   const [areaLength, setAreaLength] = useState(20);
@@ -218,38 +217,3 @@ export default function TileCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TileCalculator,
-  slug: "tile-calculator",
-  title: "Tile Calculator",
-  shortTitle: "Tile",
-  description: "Calculate tiles, grout, and adhesive for floors and walls",
-  category: "construction",
-  icon: "🧱",
-  keywords: ["tile", "flooring", "grout", "adhesive", "installation"],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "How many tiles do I need for my project?",
-      answer: "Convert your floor area to square inches, then divide by the area of a single tile in square inches. For example, a 300 sqft floor (43,200 sq in) with 12x12 tiles (144 sq in each) needs 300 tiles. Always add 10-15% for waste, cuts, and future repairs.",
-    },
-    {
-      question: "What should the grout joint width be?",
-      answer: "Standard grout joint width is 1/8 inch (0.125 inches), which is a good compromise between strength and appearance. Tighter joints (1/16 inch) create a modern look but are harder to maintain. Wider joints (1/4 inch) hide imperfections and provide a rustic appearance. Choose based on your tile type and aesthetic preference.",
-    },
-    {
-      question: "How much grout do I need?",
-      answer: "You need roughly 5-15 lbs of grout per 100 sqft depending on tile size and joint width. Smaller tiles and wider joints require more grout. The calculator estimates based on standard joint widths. Always add extra for waste. Grout comes in 5-25 lb bags.",
-    },
-    {
-      question: "What is the difference between tile adhesive and mortar?",
-      answer: "Tile adhesive (thin-set or mastic) bonds tiles to the substrate (wall, floor, or backerboard). Modern installations use thin-set mortar, which is stronger and more water-resistant than mastic. Use thin-set for wet areas and exterior applications. Plan on 50-75 lbs per 100 sqft. Apply with a notched trowel at 45 degrees.",
-    },
-    {
-      question: "Do I need to seal tiles and grout after installation?",
-      answer: "Yes, sealing extends the life of your installation. Grout should always be sealed after curing (7-10 days) to prevent staining and moisture infiltration. Porous tiles (natural stone, some ceramics) should also be sealed. Use penetrating sealers for tiles and membrane sealers for grout. Resealing every 1-3 years maintains protection.",
-    },
-  ],
-});

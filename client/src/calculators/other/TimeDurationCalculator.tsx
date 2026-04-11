@@ -4,7 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TimeDurationCalculator() {
   const [mode, setMode] = useState<"between" | "addsubtract">("between");
@@ -221,43 +220,3 @@ export default function TimeDurationCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TimeDurationCalculator,
-  slug: "time-duration-calculator",
-  title: "Time Duration Calculator",
-  shortTitle: "Time Duration",
-  description: "Calculate duration between times or add/subtract time intervals",
-  category: "other",
-  icon: "⏱️",
-  keywords: ["time duration", "time calculator", "time between", "hours minutes"],
-  popular: false,
-  faqs: [
-    {
-      question: "How do I calculate the time between two times across midnight?",
-      answer:
-        "When the end time is earlier than the start time (crossing midnight), add 24 hours to the end time before subtracting. For example, from 11:00 PM to 2:00 AM: treat 2:00 AM as 26:00 (next day 2 AM), then 26:00 - 23:00 = 3 hours. This calculator handles this automatically—just enter 11:00 PM as start and 2:00 AM as end, and it correctly returns 3 hours. This is crucial for night shift calculations, 24-hour operations, and any timing that spans midnight.",
-    },
-    {
-      question: "How do I convert time duration to decimal hours for payroll?",
-      answer:
-        "Divide minutes by 60 and add to hours. 8 hours 30 minutes = 8 + (30 ÷ 60) = 8 + 0.5 = 8.5 hours. For any minutes: 15 min = 0.25, 30 min = 0.5, 45 min = 0.75. For seconds: 30 seconds = 0.5 minutes, then convert minutes to decimal. This calculator shows decimal hours in the results. Example: 7 hours 22 minutes 30 seconds = 7.375 hours (22.5 ÷ 60). Payroll software often requires decimal hours, making this conversion essential for hourly employees and billing.",
-    },
-    {
-      question: "What is the correct way to handle daylight saving time in time calculations?",
-      answer:
-        "Daylight saving time causes one hour to be skipped (spring forward) or repeated (fall back). When calculating across these transitions, the actual duration is shorter in spring (one fewer hour) or longer in fall (one additional hour). This calculator works with wall-clock time and doesn't automatically adjust for DST. For DST-aware calculations, consult dedicated scheduling software that understands time zones and DST rules. Most modern systems handle DST automatically, but it's worth verifying if you're working with critical timing near DST transitions.",
-    },
-    {
-      question: "How do I calculate total work hours for a shift with breaks?",
-      answer:
-        "Calculate the total time between start and end, then subtract break times. For example, 9:00 AM to 5:00 PM is 8 hours. Subtract a 1-hour lunch and two 15-minute breaks (1.5 hours total), resulting in 6.5 hours of work. Some time trackers require manually entering work periods (before break, after break) rather than the full span. Others accept start/end times and require break deductions. Always verify with your employer or timekeeping system how breaks are handled—policies vary on whether breaks are paid or unpaid.",
-    },
-    {
-      question: "Can I use this for calculating event duration or elapsed time?",
-      answer:
-        "Yes, this is ideal for any event duration. If an event starts at 2:30 PM and ends at 6:45 PM, calculate the duration (4 hours 15 minutes). This works for sports events, movies, conferences, or any timed activity. For activities longer than 24 hours, this calculator gives daily duration, but you'd need to manually extend for multi-day events. For project timelines spanning days or weeks, a day counter is more appropriate. This calculator focuses on durations within a single day, making it perfect for shift work, meetings, classes, and other daily activities.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

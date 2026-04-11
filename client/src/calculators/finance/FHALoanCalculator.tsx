@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function FHALoanCalculator() {
   const [homePrice, setHomePrice] = useState(300000);
@@ -199,38 +198,3 @@ export default function FHALoanCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: FHALoanCalculator,
-  slug: "fha-loan-calculator",
-  title: "FHA Loan Calculator",
-  shortTitle: "FHA Loan",
-  description: "Calculate FHA mortgage payments with upfront and annual mortgage insurance premiums",
-  category: "finance",
-  icon: "🏠",
-  keywords: ["FHA loan", "mortgage", "first-time homebuyer", "MIP", "mortgage insurance", "down payment"],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is an FHA loan and who qualifies?",
-      answer: "An FHA loan is a government-backed mortgage insured by the Federal Housing Administration, designed for homebuyers with lower credit scores or down payments. You typically need a credit score of 580+, though 620+ gets better rates. Income must be stable and verified. Debt-to-income ratio must be {'<'} 43-50% depending on compensating factors. FHA loans allow down payments as low as 3.5% (vs. 10-20% for conventional), making homeownership accessible to more buyers, especially first-time homebuyers.",
-    },
-    {
-      question: "What is the upfront mortgage insurance premium (UFMIP)?",
-      answer: "The upfront MIP is a one-time insurance premium of 1.75% of the base loan amount, added to your total loan. On a {formatCurrency(250000)} loan, UFMIP is {formatCurrency(4375)}. Most borrowers roll this into the loan and pay it over 30 years rather than paying upfront at closing. This premium insures the lender against default. Unlike annual MIP, you cannot remove UFMIP once added.",
-    },
-    {
-      question: "What is annual mortgage insurance premium (Annual MIP) and can it be removed?",
-      answer: "<strong>Annual MIP</strong> is 0.55% of the loan for down payments below 10%, or 0.3% above 10%, paid monthly. On a {formatCurrency(300000)} loan with 5% down, annual MIP is {formatCurrency(1650)}, or {formatCurrency(137.50)}/month. You <strong>can remove annual MIP</strong> once you reach 20% equity by paying down the loan or home appreciation. You must request cancellation from your lender. However, if you put down {'<'} 10%, MIP typically continues for the loan's full term unless you refinance to remove it.",
-    },
-    {
-      question: "How does FHA compare to conventional loans?",
-      answer: "FHA allows 3.5% down vs. 10-20% for conventional, making it accessible for those without large down payments. FHA requires mortgage insurance (MIP), while conventional loans above 20% down have no insurance. FHA has more lenient credit requirements (580+ vs. 620+). However, FHA total costs (with MIP) can exceed conventional by {'>='} 1% annually. After saving 20% down, conventional loans often cost less over time. FHA is best for first-time buyers; conventional works for those with savings and strong credit.",
-    },
-    {
-      question: "Can I remove FHA mortgage insurance and refinance to conventional?",
-      answer: "Yes. Once you reach 20% equity, you can refinance to a conventional loan (without FHA insurance) to save on MIP costs. For example, if your {formatCurrency(300000)} FHA loan is now {formatCurrency(240000)} (20% equity), refinancing to conventional eliminates MIP. However, refinancing has closing costs ({formatCurrency(3000)}-{formatCurrency(9000)}), so calculate breakeven. If you'll stay {greater than} 5 years, refinancing usually saves money; if {'<'} 2 years, closing costs may not justify it.",
-    },
-  ],
-});

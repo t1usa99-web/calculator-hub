@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function OneRepMaxCalculator() {
   const [weight, setWeight] = useState(225);
@@ -145,38 +144,3 @@ export default function OneRepMaxCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: OneRepMaxCalculator,
-  slug: "one-rep-max-calculator",
-  title: "One Rep Max Calculator",
-  shortTitle: "1RM Estimator",
-  description: "Estimate your one-rep max from submaximal lifts using Brzycki, Epley, Lander, and O'Connor formulas",
-  category: "health",
-  icon: "💪",
-  keywords: ["one rep max", "1RM calculator", "strength training", "lifting calculator", "powerlifting"],
-  popular: true,
-  faqs: [
-    {
-      question: "Why are there different 1RM formulas?",
-      answer: "Different formulas were developed from different research populations with different rep ranges and exercise types. Brzycki and Epley, the most popular, work well for 2{'\u2013'}10 rep ranges but can diverge at extreme rep ranges. Lander was developed specifically for power athletes and tends to work well below 10 reps. No single formula is universally perfect {'\u2014'} individual leverages, training age, and genetics cause variation. Averaging multiple formulas (as this calculator does) provides a better estimate than any single formula.",
-    },
-    {
-      question: "How accurate are 1RM estimates?",
-      answer: "Estimates are typically accurate within {'\u00b1'}10{'\u2013'}15% of actual 1RM. Trained lifters with good technique may be closer {'\u00b1'}5{'\u2013'}10%. The further you are from 1 rep, the larger potential error {'\u2014'} estimating from 10 reps is more reliable than from 1 rep. These estimates are useful for programming training intensity, but don{'\u2019'}t treat them as exact. Use them as starting points; adjust based on how weights feel during training.",
-    },
-    {
-      question: "When should I test my actual 1RM?",
-      answer: "Test actual 1RM at most every 4{'\u2013'}8 weeks during a dedicated strength block, with full recovery, proper warm-up, and spotters. Only test if your technique is solid; bad form during a max lift causes injury. For most people, estimated 1RM is sufficient for training purposes. If you{'\u2019'}re a competitive powerlifter, test more frequently during competition seasons. Always prioritize technique over weight.",
-    },
-    {
-      question: "What rep range should I use for the most accurate estimate?",
-      answer: "Estimates are most accurate when using 3{'\u2013'}8 reps. Estimating from 1{'\u2013'}2 reps is unreliable because you{'\u2019'}re already near your max. Estimating from 15{'\u2013'}20 reps is also unreliable because you{'\u2019'}re far from 1RM and muscular endurance factors in heavily. The sweet spot is 5{'\u2013'}8 reps {'\u2014'} heavy enough to be close to 1RM, but multiple reps reduce variation and nerves.",
-    },
-    {
-      question: "How do I use 1RM estimates for programming?",
-      answer: "Once you have an estimated 1RM, use percentages to set working weights. Strength work (1{'\u2013'}5 reps): 85{'\u2013'}95% 1RM. Hypertrophy (6{'\u2013'}12 reps): 65{'\u2013'}85% 1RM. Power (3{'\u2013'}5 reps): 75{'\u2013'}90% 1RM, explosive. Endurance (12+ reps): 50{'\u2013'}70% 1RM. Most effective programs cycle through these intensities. Start conservative {'\u2014'} if an estimated weight feels easy, increase; if it feels heavy, decrease. Progressive overload (gradually increasing weight or reps) over weeks/months builds strength.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

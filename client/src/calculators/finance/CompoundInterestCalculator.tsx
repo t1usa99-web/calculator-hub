@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { COMPOUND_INTEREST_FAQS } from "@/lib/faq-content";
 
 export default function CompoundInterestCalculator() {
   const [principal, setPrincipal] = useState(10000);
@@ -175,17 +173,3 @@ export default function CompoundInterestCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CompoundInterestCalculator,
-  slug: "compound-interest-calculator",
-  title: "Compound Interest Calculator",
-  shortTitle: "Compound Interest",
-  description: "Calculate investment growth with compound interest and regular contributions",
-  category: "finance",
-  icon: "📈",
-  keywords: ["compound interest", "investment growth", "savings", "interest"],
-  popular: true,
-  faqs: COMPOUND_INTEREST_FAQS,
-  dateModified: "2026-04-09",
-});

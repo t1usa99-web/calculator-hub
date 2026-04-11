@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function FIRECalculator() {
   const [annualExpenses, setAnnualExpenses] = useState(40000);
@@ -179,16 +178,3 @@ export default function FIRECalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: FIRECalculator,
-  slug: "fire-calculator",
-  title: "FIRE Calculator",
-  shortTitle: "FIRE",
-  description: "Calculate years to financial independence using the 4% rule and compound growth projections",
-  category: "finance",
-  icon: "🔥",
-  keywords: ["FIRE", "financial independence", "retire early", "4% rule", "compound interest", "savings rate"],
-  popular: false,
-  dateModified: "2026-04-10"
-});

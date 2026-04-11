@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { DOPPLER_EFFECT_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function DopplerEffectCalculator() {
   const [sourceFrequency, setSourceFrequency] = useState(440);
@@ -100,16 +98,3 @@ export default function DopplerEffectCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "doppler-effect-calculator",
-  title: "Doppler Effect Calculator",
-  shortTitle: "Doppler Effect",
-  description: "Calculate frequency shift due to Doppler effect",
-  category: "physics",
-  icon: "🚑",
-  keywords: ["Doppler", "frequency shift", "sound", "wave"],
-  component: DopplerEffectCalculator,
-  faqs: DOPPLER_EFFECT_FAQS,
-  dateModified: "2026-04-09",
-});

@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function WindChillCalculator() {
   const [temperature, setTemperature] = useState(0);
@@ -145,38 +144,3 @@ export default function WindChillCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: WindChillCalculator,
-  slug: "wind-chill-calculator",
-  title: "Wind Chill Calculator",
-  shortTitle: "Wind Chill",
-  description: "Calculate wind chill factor and frostbite risk from temperature and wind speed",
-  category: "other",
-  icon: "❄️",
-  keywords: ["wind chill", "frostbite risk", "cold weather", "temperature wind", "weather safety"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is wind chill and why does it matter?",
-      answer: "Wind chill is the apparent temperature felt by exposed skin due to the combined effect of temperature and wind speed. Wind accelerates heat loss from skin, making it feel colder than the actual air temperature. For example, 0°F with 20 mph wind creates a wind chill of about -20°F. Wind chill doesn't affect indoor temperatures or objects, only exposed skin. It matters for outdoor safety because it determines how quickly frostbite can develop. People planning outdoor activities need to account for wind chill to dress appropriately and limit exposure time.",
-    },
-    {
-      question: "At what wind chill is frostbite risk highest?",
-      answer: "Frostbite risk increases dramatically below -20°F wind chill. At -20°F, frostbite can develop within 30 minutes on exposed skin. At -35°F, frostbite occurs within 10 minutes. Below -50°F, frostbite can occur within 5 minutes. At wind chills above 0°F, frostbite risk is very low even with prolonged exposure. Windproof, insulated clothing significantly reduces risk. Watch for warning signs: numbness, white or grayish-yellow skin, or tingling as skin rewarms. Severe frostbite can cause permanent tissue damage, so prevention through proper clothing and limiting exposure is critical.",
-    },
-    {
-      question: "How is wind chill calculated?",
-      answer: "The National Weather Service uses the Rothfusz regression formula: Wind Chill = 35.74 + 0.6215T - 35.75V^0.16 + 0.4275T×V^0.16, where T is temperature in Fahrenheit and V is wind speed in mph. The formula applies only when wind speed exceeds 3 mph and temperature is below 50°F. The exponent 0.16 (16th root of wind speed) reflects how wind chill increases rapidly with light winds but levels off at higher speeds. Wind chill can only be calculated in Fahrenheit; conversion between Fahrenheit and Celsius first.",
-    },
-    {
-      question: "Why doesn't wind chill apply above 50°F?",
-      answer: "Wind chill calculations only apply when temperature is below 50°F and wind speed exceeds 3 mph because wind's cooling effect becomes insignificant above 50°F. Above 50°F, the human body regulates temperature effectively, and factors like humidity and sun exposure matter more than wind. Additionally, above 50°F, wind can actually feel refreshing rather than dangerous. The wind chill concept is specifically designed for cold-weather safety warnings, making it irrelevant in warmer conditions.",
-    },
-    {
-      question: "How can I protect myself from wind chill and frostbite?",
-      answer: "Wear multiple layers of windproof, insulated clothing. Cover all exposed skin with a hat, scarf, gloves, and warm socks. Keep inner layers dry because moisture accelerates heat loss. Limit time outdoors in extreme wind chill conditions, especially below -20°F. Take breaks indoors to warm up and check for frostbite signs. Avoid touching cold metal or wet surfaces with bare skin. Keep moving to maintain body heat. Be aware of your risk: young children, elderly people, and those with circulation problems face higher frostbite risk. Watch weather forecasts and adjust outdoor plans accordingly.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

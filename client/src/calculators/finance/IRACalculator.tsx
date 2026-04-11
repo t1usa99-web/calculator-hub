@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function IRACalculator() {
   const [currentAge, setCurrentAge] = useState(35);
@@ -212,38 +211,3 @@ export default function IRACalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: IRACalculator,
-  slug: "ira-calculator",
-  title: "Traditional IRA Calculator",
-  shortTitle: "IRA",
-  description: "Plan Traditional IRA savings and compare tax benefits with Roth IRA",
-  category: "finance",
-  icon: "📋",
-  keywords: ["Traditional IRA", "retirement savings", "tax deduction", "IRA", "retirement planning", "RMD"],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "Can I deduct my Traditional IRA contributions?",
-      answer: "It depends on your income and whether you have a workplace retirement plan. If you don't have access to a 401(k) or similar plan, you can deduct all {formatCurrency(7000)} (2026 limit). If you do have a workplace plan, the deduction phases out: single filers earning {formatCurrency(77000)}-{formatCurrency(87000)} get a partial deduction, and full deduction only if income is below {formatCurrency(77000)}. Married couples have higher limits: {formatCurrency(123000)}-{formatCurrency(143000)} for partial, full below {formatCurrency(123000)}.",
-    },
-    {
-      question: "What is the difference between a Traditional IRA and a Roth IRA?",
-      answer: "Traditional IRA: tax-deductible contributions now, pay taxes on withdrawals in retirement. Roth IRA: contributions are after-tax, but all growth and withdrawals are tax-free. Traditional is best if you want immediate tax savings; Roth is best for tax-free growth and flexibility. Choose Traditional if you expect lower income in retirement; choose Roth if you expect higher income or want to leave tax-free money to heirs.",
-    },
-    {
-      question: "When do I have to start taking withdrawals from a Traditional IRA?",
-      answer: "You must begin Required Minimum Distributions (RMDs) at age 73 (as of 2023). Your first RMD is calculated by dividing your December 31 balance by the IRS life expectancy divisor for your age. Failing to take your full RMD results in a 25% penalty on the amount not withdrawn (10% for certain good-faith violations). Roth IRAs have no RMD requirement during your lifetime, giving you more control over your money.",
-    },
-    {
-      question: "Can I withdraw from a Traditional IRA early without penalties?",
-      answer: "Withdrawals before age 59½ are subject to income tax plus a 10% early withdrawal penalty, unless you qualify for an exception. Exceptions include: disability, unreimbursed medical expenses exceeding 7.5% of AGI, first-time home purchase (up to {formatCurrency(10000)}), education expenses, substantially equal periodic payments (SEPP), and military service members. These exceptions have specific rules, so consult a tax professional before early withdrawal.",
-    },
-    {
-      question: "Can I convert a Traditional IRA to a Roth IRA?",
-      answer: "Yes, you can convert (rollover) funds from a Traditional IRA to a Roth IRA at any time. The entire converted amount becomes taxable in the year of conversion. For example, converting {formatCurrency(100000)} of pre-tax Traditional IRA to Roth means paying taxes on {formatCurrency(100000)} of ordinary income that year. Conversions are useful during low-income years or when you expect high retirement income. After conversion, the funds grow tax-free in the Roth.",
-    },
-  ],
-});

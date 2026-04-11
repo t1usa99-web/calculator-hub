@@ -4,7 +4,6 @@ import SelectField from "@/components/SelectField";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function RomanNumeralCalculator() {
   const [mode, setMode] = useState<"toRoman" | "toDecimal">("toRoman");
@@ -224,43 +223,3 @@ export default function RomanNumeralCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: RomanNumeralCalculator,
-  slug: "roman-numeral-calculator",
-  title: "Roman Numeral Converter",
-  shortTitle: "Roman Numerals",
-  description: "Convert between decimal numbers and Roman numerals",
-  category: "other",
-  icon: "🏛️",
-  keywords: ["roman numerals", "roman numeral converter", "convert roman", "decimal to roman"],
-  popular: true,
-  faqs: [
-    {
-      question: "What are the basic Roman numeral symbols and their values?",
-      answer:
-        "There are seven base symbols: I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000. These are the only symbols in the standard system. All other numbers are created by combining these symbols. For example, VI = 6 (5 + 1), XV = 15 (10 + 5), XXX = 30 (10 + 10 + 10). Symbols are generally written in descending order from left to right, with larger values first. This additive principle creates most numbers, though subtractive notation (like IV for 4) is also used for brevity and convention.",
-    },
-    {
-      question: "When should I use subtractive notation in Roman numerals?",
-      answer:
-        "Subtractive notation places a smaller numeral before a larger one to subtract. For example, IV means 5 - 1 = 4, IX means 10 - 1 = 9. Historically, both IIII and IV were used for 4, but IV became standard. Only specific subtractions are valid: I can precede V (5) and X (10), X can precede L (50) and C (100), C can precede D (500) and M (1000). Invalid combinations like IL (49) should be written as XLIX (40 + 9). Subtractive notation is used for brevity—without it, larger numbers would be excessively long.",
-    },
-    {
-      question: "How do I read Roman numerals on clock faces?",
-      answer:
-        "Clock Roman numerals typically run from I (1) to XII (12) for the hours. Some clocks display IIII instead of IV for 4, which was an older convention. The minute markers might also use Roman numerals: V (5), X (10), XV (15), etc. Reading the clock works the same as with Arabic numerals—find where the hour hand points for hours and the minute hand for minutes. Understanding Roman numerals helps interpret antique clocks and formal timepieces. Modern digital and Arabic numeral clocks are more common, but Roman numeral clocks remain popular for aesthetic reasons.",
-    },
-    {
-      question: "What is the highest number you can write in standard Roman numerals?",
-      answer:
-        "The standard system works up to 3999 (MMMCMXCIX). There's no single symbol for 5000 or higher in basic Roman notation. For larger numbers, special notation systems exist, such as placing a vinculum (overline) above a numeral to multiply by 1000. For example, a bar over V would represent 5000. Some historical texts used apostrophes or other marks. Ancient Romans rarely needed numbers above 3999 for practical purposes. Modern usage of Roman numerals is generally limited to small numbers like book chapters, dates, and clock faces, all well within the 1-3999 range.",
-    },
-    {
-      question: "Why do some historical documents use Roman numerals differently?",
-      answer:
-        "Roman numeral notation evolved over centuries. Earlier inscriptions sometimes used different conventions than modern standard. For example, IIII was sometimes used instead of IV for 4. Additive notation without subtraction was more common in older inscriptions (e.g., LXXVIII instead of LXXVIII). Roman numerals were never standardized as strictly as modern numbering systems. When reading historical documents, some flexibility is needed. Modern conventions have settled on specific subtractive rules (like IV, IX, XL, XC, CD, CM) as standard. This calculator uses modern standard notation, which differs from some ancient usage.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

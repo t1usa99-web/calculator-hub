@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { SQUARE_ROOT_FAQS } from "@/lib/faq-math";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function SquareRootCalculator() {
   const [number, setNumber] = useState(64);
@@ -136,17 +134,3 @@ export default function SquareRootCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SquareRootCalculator,
-  slug: "square-root-calculator",
-  title: "Square Root Calculator",
-  shortTitle: "Square Root",
-  description: "Calculate square roots, cube roots, and simplify radicals",
-  category: "math",
-  icon: "√",
-  keywords: ["square root", "cube root", "radical", "nth root", "simplify radical"],
-  popular: false,
-  faqs: SQUARE_ROOT_FAQS,
-  dateModified: "2026-04-09"
-});

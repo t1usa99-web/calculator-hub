@@ -3,7 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function HexCalculator() {
   const [hexInput, setHexInput] = useState("FF5733");
@@ -133,38 +132,3 @@ export default function HexCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: HexCalculator,
-  slug: "hex-calculator",
-  title: "Hexadecimal Calculator",
-  shortTitle: "Hex",
-  description: "Convert hexadecimal to decimal, binary, octal, and view color codes",
-  category: "math",
-  icon: "🎨",
-  keywords: ["hexadecimal", "hex", "color", "RGB", "web color", "conversion", "web design"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is hexadecimal?",
-      answer: "Hexadecimal (base 16) uses digits 0-9 and letters A-F. It{'\''}s widely used in computing for colors, memory, and data representation."
-    },
-    {
-      question: "How do hex color codes work?",
-      answer: "A 6-digit hex code like #FF5733 specifies RGB: first two digits are red intensity (00-FF), next two green, last two blue. #FF0000 is pure red, #00FF00 is pure green."
-    },
-    {
-      question: "Why use hexadecimal instead of decimal?",
-      answer: "Hex is more compact than binary yet converts easily to/from binary (each hex digit = 4 binary digits). It{'\''}s practical for programmers and designers."
-    },
-    {
-      question: "How do I convert hex to decimal?",
-      answer: "Multiply each digit by 16 raised to its position. Example: 1A = 1×16 + 10×1 = 26. Use our calculator for larger numbers."
-    },
-    {
-      question: "What is RGB and how does it relate to hex?",
-      answer: "RGB specifies color using Red, Green, Blue values (0-255). Hex encodes RGB: pairs of hex digits map to RGB values. #FF0000 is RGB(255,0,0) = pure red."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

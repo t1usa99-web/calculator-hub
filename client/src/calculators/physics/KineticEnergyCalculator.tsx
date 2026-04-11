@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { KINETIC_ENERGY_FAQS } from "@/lib/faq-physics-mechanics";
 
 export default function KineticEnergyCalculator() {
   const [mass, setMass] = useState(60);
@@ -75,16 +73,3 @@ export default function KineticEnergyCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "kinetic-energy-calculator",
-  title: "Kinetic Energy Calculator",
-  shortTitle: "Kinetic Energy",
-  description: "Calculate kinetic energy of moving objects",
-  category: "physics",
-  icon: "⚡",
-  keywords: ["kinetic energy", "energy", "physics", "motion"],
-  component: KineticEnergyCalculator,
-  faqs: KINETIC_ENERGY_FAQS,
-  dateModified: "2026-04-09",
-});

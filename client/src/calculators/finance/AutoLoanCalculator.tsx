@@ -16,8 +16,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { AUTO_LOAN_FAQS } from "@/lib/faq-finance-loans";
 
 export default function AutoLoanCalculator() {
   const [vehiclePrice, setVehiclePrice] = useState(25000);
@@ -204,16 +202,3 @@ export default function AutoLoanCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "auto-loan",
-  title: "Auto Loan Calculator",
-  shortTitle: "Auto Loan",
-  description: "Calculate monthly payments, total interest, and loan costs",
-  category: "finance",
-  icon: "🚗",
-  keywords: ["auto", "car", "loan", "payment", "vehicle"],
-  popular: true,
-  component: AutoLoanCalculator,
-  faqs: AUTO_LOAN_FAQS,
-});

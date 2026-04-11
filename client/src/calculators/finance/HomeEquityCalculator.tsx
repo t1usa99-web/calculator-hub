@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function HomeEquityCalculator() {
   const [homeValue, setHomeValue] = useState(500000);
@@ -225,38 +224,3 @@ export default function HomeEquityCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: HomeEquityCalculator,
-  slug: "home-equity-calculator",
-  title: "Home Equity Calculator",
-  shortTitle: "Home Equity",
-  description: "Calculate available home equity and compare home equity loan vs. HELOC options",
-  category: "finance",
-  icon: "🔑",
-  keywords: ["home equity", "HELOC", "home equity loan", "second mortgage", "borrow against home"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is home equity and how much can I borrow?",
-      answer: "Home equity is the difference between your home's current value and your mortgage balance. If your home is worth {formatCurrency(500000)} and you owe {formatCurrency(350000)}, you have {formatCurrency(150000)} in equity. Most lenders allow you to borrow up to 80% of home value minus your mortgage: ({formatCurrency(500000)} × 80%) - {formatCurrency(350000)} = {formatCurrency(50000)} available. Some aggressive lenders go to 90%, but 80% is standard to protect themselves (and you) from negative equity if home values decline.",
-    },
-    {
-      question: "What is the difference between a home equity loan and a HELOC?",
-      answer: "<strong>Home Equity Loan:</strong> Lump-sum fixed borrowing. Borrow {formatCurrency(50000)}, receive it upfront, repay over 5-15 years with fixed monthly payments. Simple and predictable. <strong>HELOC:</strong> Line of credit. Draw funds as needed during draw period (5-10 years), pay interest-only on drawn amounts, then repay principal + interest during repayment period (10-20 years). Flexible—you only pay for what you borrow. Choose home equity loan for simplicity; HELOC if you need flexible access or plan to draw over time.",
-    },
-    {
-      question: "Are home equity loan interest payments tax-deductible?",
-      answer: "Home equity interest is tax-deductible <strong>if</strong> the funds are used for home improvements (qualified residence interest). Funds used for education, investments, or general purposes may not be deductible. The SALT cap limits home interest deduction combined with state/local taxes to {formatCurrency(750000)} in debt. Consult a tax professional—rules are complex and changed with 2017 tax reform. Even if not deductible, home equity rates are still typically lower than unsecured personal loans or credit cards.",
-    },
-    {
-      question: "What are the risks of using a HELOC or home equity loan?",
-      answer: "Your home secures the loan. If you default, the lender can foreclose and take your home. HELOCs often have variable interest rates; if rates rise, monthly payments spike. A {formatCurrency(50000)} HELOC at 8% costs {formatCurrency(333)}/month; if rates rise to 12%, it costs {formatCurrency(500)}/month (+50% higher). Additionally, a second lien (home equity) is riskier than a first mortgage; rates are 1-2% higher. Only borrow against home equity if you're confident you can repay, especially with variable-rate HELOCs.",
-    },
-    {
-      question: "Can I use home equity to consolidate credit card debt?",
-      answer: "Yes, home equity loans are excellent for debt consolidation. If you have {formatCurrency(50000)} in credit card debt at 20% APR, refinancing into a home equity loan at 9% saves enormous amounts. Credit card monthly payment: {formatCurrency(1000)} (minimum 2%). Home equity: {formatCurrency(550)}/month (10-year fixed). Over 5 years, consolidation saves {greater than}{formatCurrency(25000)}. However, beware: consolidation only works if you discipline yourself not to re-borrow on credit cards. Many people consolidate then run up credit card balances again, ending up with more total debt.",
-    },
-  ],
-});

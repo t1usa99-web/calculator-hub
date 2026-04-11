@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PensionCalculator() {
   const [yearsOfService, setYearsOfService] = useState(25);
@@ -193,38 +192,3 @@ export default function PensionCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PensionCalculator,
-  slug: "pension-calculator",
-  title: "Pension Calculator",
-  shortTitle: "Pension",
-  description: "Calculate pension benefits and lifetime retirement income projections",
-  category: "finance",
-  icon: "👴",
-  keywords: ["pension", "retirement", "pension benefit", "defined benefit", "retirement income"],
-  popular: false,
-  faqs: [
-    {
-      question: "How is the benefit multiplier determined?",
-      answer: "The benefit multiplier is set by the pension plan and varies by employer. Government pensions typically use 1.5-2%; union pensions 2-2.5%; some 457/403b plans use 1%. Check your plan documents for the exact multiplier. Even a 0.5% difference significantly impacts lifetime benefits."
-    },
-    {
-      question: "What's final average salary and how does it affect my pension?",
-      answer: "Final average salary is typically your highest-earning years (3-5 years average). A $10,000 increase in FAS increases pension by $10,000 × years × multiplier / 1200. On a 25-year career at 2%, $10k more FAS = $416/month more pension. Maximize earnings in final years."
-    },
-    {
-      question: "Why is COLA important?",
-      answer: "Without COLA, your pension loses 50% purchasing power in 28 years at 2.5% inflation. With COLA, the nominal amount grows to maintain real value. This is crucial for retirees who live 30+ years. COLA is one major advantage pensions have over fixed investments."
-    },
-    {
-      question: "Should I take a lump sum or monthly pension?",
-      answer: "Monthly pension is safer—guaranteed income for life. Lump sum is flexible but requires investing discipline and carries longevity risk. If you live past your life expectancy, monthly pension wins. If you die early, lump sum heirs get the remainder. Consider your health and investment comfort."
-    },
-    {
-      question: "What happens to my pension if I change jobs?",
-      answer: "Vesting rules determine if you keep your pension after leaving. Many plans require 5-10 years of service to be vested. Once vested, your pension is usually locked based on service and salary at departure—not final salary if you leave early. Job changes can significantly reduce pension benefits."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

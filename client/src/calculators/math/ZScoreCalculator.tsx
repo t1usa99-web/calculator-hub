@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function ZScoreCalculator() {
   const [value, setValue] = useState(75);
@@ -162,16 +161,3 @@ export default function ZScoreCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ZScoreCalculator,
-  slug: "z-score-calculator",
-  title: "Z-Score Calculator",
-  shortTitle: "Z-Score",
-  description: "Calculate Z-scores, percentiles, and probabilities in a normal distribution",
-  category: "math",
-  icon: "📊",
-  keywords: ["z-score", "standard score", "normal distribution", "percentile", "statistics", "standardization"],
-  popular: false,
-  dateModified: "2026-04-10"
-});

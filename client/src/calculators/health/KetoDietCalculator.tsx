@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function KetoDietCalculator() {
   const [weight, setWeight] = useState(175);
@@ -240,38 +239,3 @@ export default function KetoDietCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: KetoDietCalculator,
-  slug: "keto-calculator",
-  title: "Keto Diet Calculator",
-  shortTitle: "Keto Macros",
-  description: "Calculate your ketogenic diet macros based on your body metrics and fitness goals",
-  category: "health",
-  icon: "🥑",
-  keywords: ["keto calculator", "ketogenic diet", "macros", "fat loss", "low carb", "keto macros"],
-  popular: true,
-  faqs: [
-    {
-      question: "What exactly is ketosis and how do I know I'm in it?",
-      answer: "Ketosis is a metabolic state where the body burns fat for fuel, producing ketones in the liver. You know you're in ketosis through: reduced appetite, steady energy without crashes, mental clarity, or testing (blood ketone meter, urine strips, or breath analyzer). Initial signs include bad breath, dry mouth, or \"keto flu\" symptoms during adaptation. After 1{'\u2013'}2 weeks, most people adapt and feel normal or energized. Urine strips are affordable but blood testing is more accurate.",
-    },
-    {
-      question: "How do I know if I'm eating the right amount of protein?",
-      answer: "Adequate protein typically ranges 0.7{'\u2013'}1g per pound of body weight (higher with intense training). The calculator suggests 25% of calories as a balanced target. Sufficient protein prevents muscle loss during calorie deficit, improves satiety, and supports recovery. Signs of too little: muscle loss, weakness, slow recovery, hunger. Signs of too much (over 30% calories): potential difficulty maintaining ketosis, nausea, or kidney strain in sensitive individuals. Adjust within 20{'\u2013'}30% of calories based on how you feel.",
-    },
-    {
-      question: "Can I exceed 50g carbs daily and still be in ketosis?",
-      answer: "Possibly, but it{'\u2019'}s individual and unreliable. Most people need under 20{'\u2013'}50g carbs to maintain ketosis; exceeding that risks exiting it. Some very active individuals tolerate 50{'\u2013'}100g and stay ketogenic. The safest approach: stay under 20{'\u2013'}30g carbs until fat loss plateaus, then cautiously increase if desired. Pay attention to appetite and energy; if they worsen at higher carbs, you{'\u2019'}ve likely exited ketosis and should reduce carbs.",
-    },
-    {
-      question: "Is it okay to not hit my fat target exactly?",
-      answer: "Yes. The 70% fat guideline is a target, not a strict requirement. Aim to stay in the 65{'\u2013'}75% range. If you{'\u2019'}re satisfied earlier, you don{'\u2019'}t need to force more fat {'\u2013'} keto{'\u2019'}s satiety is one advantage. However, eating too little fat ({'{'}less than 60%) risks exiting ketosis. Prioritize hitting protein and carb targets, then fill remaining calories with fat. Quality fats (olive oil, avocados, fatty fish) provide satiety and nutrients.",
-    },
-    {
-      question: "What if my weight doesn't change even though I'm in ketosis?",
-      answer: "Weight loss requires calorie deficit; ketosis without calorie deficit rarely causes loss. Recheck your intake {'\u2013'} oils, nuts, cheese, and \"keto-friendly\" products add calories quickly. Calorie deficit might be smaller than intended. After 4{'\u2013'}6 weeks without progress, reduce calories by 10{'\u2013'}20% (200{'\u2013'}400 cal) or increase activity. Women may see slower initial loss. Track average weekly weight, not daily fluctuations. Patience and consistency beat perfection.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

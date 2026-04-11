@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { FREE_FALL_FAQS } from "@/lib/faq-physics-mechanics";
 
 export default function FreeFallCalculator() {
   const [height, setHeight] = useState(100);
@@ -93,16 +91,3 @@ export default function FreeFallCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "free-fall-calculator",
-  title: "Free Fall Calculator",
-  shortTitle: "Free Fall",
-  description: "Calculate free fall time, velocity, and distance",
-  category: "physics",
-  icon: "🪂",
-  keywords: ["free fall", "gravity", "kinematics", "velocity"],
-  component: FreeFallCalculator,
-  faqs: FREE_FALL_FAQS,
-  dateModified: "2026-04-09",
-});

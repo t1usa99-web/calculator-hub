@@ -2,8 +2,6 @@ import { useState } from "react";
 import CalculatorLayout from "@/components/CalculatorLayout";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { MEAN_MEDIAN_MODE_FAQS } from "@/lib/faq-math";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function MeanMedianModeCalculator() {
   const [input, setInput] = useState("1, 2, 3, 4, 5, 5, 6, 7, 8, 9");
@@ -142,24 +140,3 @@ export default function MeanMedianModeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MeanMedianModeCalculator,
-  slug: "mean-median-mode-calculator",
-  title: "Mean, Median, Mode Calculator",
-  shortTitle: "Mean, Median, Mode",
-  description:
-    "Calculate mean, median, mode, range, and standard deviation from a dataset",
-  category: "math",
-  icon: "📈",
-  keywords: [
-    "statistics",
-    "mean",
-    "median",
-    "mode",
-    "standard deviation",
-    "data analysis",
-  ],
-  faqs: MEAN_MEDIAN_MODE_FAQS,
-  dateModified: "2026-04-09",
-});

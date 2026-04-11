@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function WACCCalculator() {
   const [equityValue, setEquityValue] = useState(500000);
@@ -198,16 +197,3 @@ export default function WACCCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: WACCCalculator,
-  slug: "wacc-calculator",
-  title: "WACC Calculator",
-  shortTitle: "WACC",
-  description: "Calculate weighted average cost of capital and analyze capital structure",
-  category: "finance",
-  icon: "📊",
-  keywords: ["WACC", "cost of capital", "capital structure", "debt", "equity", "finance", "valuation"],
-  popular: false,
-  dateModified: "2026-04-10"
-});

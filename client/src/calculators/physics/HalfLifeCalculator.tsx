@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { HALF_LIFE_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function HalfLifeCalculator() {
   const [initialAmount, setInitialAmount] = useState(100);
@@ -88,16 +86,3 @@ export default function HalfLifeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "half-life-calculator",
-  title: "Half-Life Calculator",
-  shortTitle: "Half-Life",
-  description: "Calculate radioactive decay using half-life formula",
-  category: "physics",
-  icon: "☢️",
-  keywords: ["half-life", "radioactive decay", "nuclear", "dating"],
-  component: HalfLifeCalculator,
-  faqs: HALF_LIFE_FAQS,
-  dateModified: "2026-04-09",
-});

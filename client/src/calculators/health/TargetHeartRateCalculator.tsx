@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TargetHeartRateCalculator() {
   const [age, setAge] = useState(30);
@@ -216,38 +215,3 @@ export default function TargetHeartRateCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TargetHeartRateCalculator,
-  slug: "target-heart-rate-calculator",
-  title: "Target Heart Rate Calculator",
-  shortTitle: "Heart Rate Zones",
-  description: "Calculate your target heart rate zones for different exercise intensities using age or Karvonen formula",
-  category: "health",
-  icon: "❤️",
-  keywords: ["heart rate calculator", "target heart rate", "training zones", "cardio intensity", "aerobic zone"],
-  popular: true,
-  faqs: [
-    {
-      question: "What{'\u2019'}s the difference between max HR method and Karvonen formula?",
-      answer: "Max HR method estimates max HR as 220 minus age, then applies percentages. It{'\u2019'}s simple but less accurate for trained individuals. Karvonen formula uses heart rate reserve (max HR minus resting HR) to account for fitness level. It{'\u2019'}s more accurate for endurance athletes with low resting HR. For untrained people, both methods give similar zones. For trained athletes, Karvonen is preferred because it better reflects training intensity based on fitness adaptation.",
-    },
-    {
-      question: "How do I measure my resting heart rate?",
-      answer: "Measure resting heart rate first thing in the morning, before getting out of bed, or after sitting quietly for 5{'\u2013'}10 minutes. Count your pulse for 15 seconds and multiply by 4, or count for 60 seconds. Normal resting HR is 60{'\u2013'}100 BPM for adults; trained athletes may be 40{'\u2013'}60 BPM. Take the average of several measurements for accuracy. Resting HR decreases with cardiovascular training, so retest every few months if following an exercise program.",
-    },
-    {
-      question: "Is the 220 minus age formula accurate for everyone?",
-      answer: "No. The formula estimates max HR but has individual variation of {'\u00b1'}10{'\u2013'}20 BPM. It{'\u2019'}s less accurate for very fit or very unfit individuals. Some athletes may have max HR 10{'\u2013'}15 BPM lower than predicted; others 10{'\u2013'}15 BPM higher. True max HR can only be determined through max HR testing (gradual sprint to exhaustion). For most people, the formula provides a reasonable starting point. If you know your actual max HR, use it instead of the estimate.",
-    },
-    {
-      question: "Should I stay in one zone or switch zones during workouts?",
-      answer: "A balanced approach works best. Start warm-up in recovery zone, progress to your target zone, then cool down in recovery zone. For endurance cardio, stay in fat burn or lower cardio zone (60{'\u2013'}80% max HR) for most of the workout. For high-intensity interval training (HIIT), alternate between hard/max zones and recovery zones. Most training (70%) should be easy{'\u2013'}moderate; hard sessions should be 20{'\u2013'}30% of weekly volume. Constant hard training leads to overtraining and injury.",
-    },
-    {
-      question: "Why do smartwatches sometimes show different heart rates than I expect?",
-      answer: "Heart rate monitors (smartwatches, chest straps, wearables) measure HR using optical sensors or electrodes. Accuracy varies by device, fit, and individual factors (skin tone, tattoos, movement). Wrist-based optical sensors are less accurate during intense exercise or with poor fit. Chest strap monitors are typically most accurate. Individual variation is normal {'\u2014'} your actual zones may differ from calculated ones. Use the calculator as a guide; monitor how you feel. If your watch shows HR significantly different from manual pulse check, trust manual count.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

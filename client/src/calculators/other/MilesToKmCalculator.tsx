@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function MilesToKmCalculator() {
   const [miles, setMiles] = useState(10);
@@ -90,43 +89,3 @@ export default function MilesToKmCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MilesToKmCalculator,
-  slug: "miles-to-km",
-  title: "Miles to Kilometers Converter",
-  shortTitle: "Miles to KM",
-  description: "Convert miles to kilometers with formula and reference table",
-  category: "other",
-  icon: "🛣️",
-  keywords: ["miles to km", "miles to kilometers", "mi to km", "convert miles", "driving distance"],
-  popular: false,
-  faqs: [
-    {
-      question: "How many kilometers are in a mile?",
-      answer:
-        "One mile equals 1.60934 kilometers. To convert miles to kilometers, multiply by 1.60934. For example, 10 miles = 10 × 1.60934 = 16.0934 kilometers. A quick approximation is that 1 mile ≈ 1.6 km, useful for mental math. So 5 miles ≈ 8 km, and 100 miles ≈ 160 km. For casual estimates, you can use 1.6, but for precise conversions especially in transportation or sports, use the full 1.60934 factor.",
-    },
-    {
-      question: "What are common miles-to-kilometers conversions?",
-      answer:
-        "Useful benchmarks: 1 mile = 1.609 km, 5 miles = 8.05 km, 10 miles = 16.09 km, 26.2 miles (marathon) = 42.195 km, 50 miles = 80.47 km, 100 miles = 160.93 km. For speed limits, 30 mph ≈ 48 kmh, 60 mph ≈ 97 kmh, 100 mph ≈ 161 kmh. Memorizing these benchmarks helps with quick mental conversions without a calculator, useful for driving, running, and international travel.",
-    },
-    {
-      question: "How do I convert speed in mph to kmh?",
-      answer:
-        "Use the same 1.60934 conversion factor. A speed in mph multiplied by 1.60934 gives kmh. Example: 60 mph × 1.60934 = 96.56 kmh. Common conversions: 30 mph = 48.3 kmh, 55 mph = 88.5 kmh, 65 mph = 104.6 kmh. For quick mental math, multiply by 1.6 or by 8/5 (since 1.6 = 8/5). So 50 mph × 1.6 = 80 kmh. Knowing these conversions is essential for international driving and understanding speed limits on road signs.",
-    },
-    {
-      question: "Is the conversion factor always 1.60934?",
-      answer:
-        "Yes, 1.60934 is the exact, internationally standardized conversion factor. It's defined precisely: 1 mile = 1.60934 kilometers exactly. This factor is never rounded in official measurements. However, for casual mental math, using 1.6 or even 8/5 is acceptable. For scientific work, engineering, navigation, and official records, always use 1.60934 to avoid cumulative rounding errors. This precision is critical in aviation, maritime navigation, and international regulations.",
-    },
-    {
-      question: "Why do the US and UK use miles when the rest of the world uses kilometers?",
-      answer:
-        "The United States and several other countries (including the UK historically, now metric) standardized the mile long before the metric system was developed. The mile has ancient Roman origins and became deeply embedded in American culture, infrastructure, and commerce. Changing nationwide would require massive expense and coordination. Roads, speed limits, vehicle odometers, and all transportation infrastructure are built around miles. While the US signed the Metre Convention (metric), it never legally adopted the metric system for all measurements. Cost and cultural inertia maintain the mile system despite most of the world using kilometers.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { ELECTRIC_FIELD_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function ElectricFieldCalculator() {
   const [charge, setCharge] = useState(1e-6);
@@ -78,16 +76,3 @@ export default function ElectricFieldCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "electric-field-calculator",
-  title: "Electric Field Calculator",
-  shortTitle: "Electric Field",
-  description: "Calculate electric field from charge and distance",
-  category: "physics",
-  icon: "🌩️",
-  keywords: ["electric field", "charge", "distance", "voltage"],
-  component: ElectricFieldCalculator,
-  faqs: ELECTRIC_FIELD_FAQS,
-  dateModified: "2026-04-09",
-});

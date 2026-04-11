@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { ESCAPE_VELOCITY_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function EscapeVelocityCalculator() {
   const [mass, setMass] = useState(5.972e24);
@@ -79,16 +77,3 @@ export default function EscapeVelocityCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "escape-velocity-calculator",
-  title: "Escape Velocity Calculator",
-  shortTitle: "Escape Velocity",
-  description: "Calculate escape velocity from planetary mass and radius",
-  category: "physics",
-  icon: "🛸",
-  keywords: ["escape velocity", "gravitational", "planet", "space"],
-  component: EscapeVelocityCalculator,
-  faqs: ESCAPE_VELOCITY_FAQS,
-  dateModified: "2026-04-09",
-});

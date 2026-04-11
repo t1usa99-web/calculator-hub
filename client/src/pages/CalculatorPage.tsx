@@ -1,5 +1,6 @@
+import { Suspense } from "react";
 import { Link } from "wouter";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Loader2 } from "lucide-react";
 import { getCalculator, CATEGORIES } from "@/lib/calculator-registry";
 import SEOHead from "@/components/SEOHead";
 import FAQSection from "@/components/FAQSection";
@@ -132,7 +133,14 @@ export default function CalculatorPage({ slug }: CalculatorPageProps) {
       {/* Calculator */}
       <section className="max-w-7xl mx-auto px-4 py-12">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <CalculatorComponent />
+          <Suspense fallback={
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="w-8 h-8 animate-spin text-primary-600" />
+              <span className="ml-3 text-gray-600 text-lg">Loading calculator...</span>
+            </div>
+          }>
+            <CalculatorComponent />
+          </Suspense>
         </div>
       </section>
 

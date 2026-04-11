@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function KgToLbsCalculator() {
   const [kilograms, setKilograms] = useState(70);
@@ -90,43 +89,3 @@ export default function KgToLbsCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: KgToLbsCalculator,
-  slug: "kg-to-lbs",
-  title: "Kilograms to Pounds Converter",
-  shortTitle: "KG to LBS",
-  description: "Convert kilograms to pounds with formula and reference table",
-  category: "other",
-  icon: "⚖️",
-  keywords: ["kg to lbs", "kilograms to pounds", "convert kg", "weight conversion"],
-  popular: false,
-  faqs: [
-    {
-      question: "How many pounds are in a kilogram?",
-      answer:
-        "One kilogram equals 2.20462 pounds. To convert kilograms to pounds, multiply by 2.20462. For example, 10 kilograms = 10 × 2.20462 = 22.0462 pounds. A quick approximation is that 1 kg ≈ 2.2 lbs, useful for mental math. So 5 kg ≈ 11 lbs, and 100 kg ≈ 220 lbs. For casual estimates, using 2.2 or even 2 works well, but for medical or official purposes, use the full 2.20462 factor.",
-    },
-    {
-      question: "What's my weight in kilograms if I weigh 150 pounds?",
-      answer:
-        "Divide pounds by 2.20462 to convert to kilograms. 150 lbs ÷ 2.20462 = 68 kg. Common conversions: 100 lbs = 45.4 kg, 150 lbs = 68 kg, 180 lbs = 81.6 kg, 200 lbs = 90.7 kg. For quick mental math, divide by 2.2 or multiply by 0.45. Using 0.45 as a multiplier gives 150 × 0.45 = 67.5 kg, a very close approximation. Understanding your weight in both units helps when comparing health metrics internationally.",
-    },
-    {
-      question: "What are common weight conversions I should know?",
-      answer:
-        "Useful benchmarks: 1 kg = 2.2 lbs, 10 kg = 22 lbs, 25 kg = 55 lbs, 50 kg = 110 lbs, 70 kg = 154 lbs (average adult male), 80 kg = 176 lbs, 100 kg = 220 lbs. Newborn babies typically weigh 3-4 kg (7-9 lbs). Dogs often weigh 10-30 kg (22-66 lbs). Large athletes might weigh 100+ kg (220+ lbs). Knowing these benchmarks helps with quick estimates without calculation.",
-    },
-    {
-      question: "Is 2.20462 an exact or approximate conversion?",
-      answer:
-        "The 2.20462 factor is the precise, internationally standardized conversion factor. It's based on the definition that 1 kilogram = the mass of 1 liter of water at 4°C in the metric system, and 1 pound is 0.453592 kg exactly. These definitions make the conversion exact: 1 kg = 1 ÷ 0.453592 = 2.20462 lbs exactly. For casual mental math, using 2.2 or even 2 is acceptable, but official measurements require the full precision.",
-    },
-    {
-      question: "Why do different countries use different weight units?",
-      answer:
-        "The pound is part of the imperial system that developed in England and was adopted by the United States and some other countries. The kilogram is the SI (International System) metric unit. Most of the world adopted metric, but the US and a few others retained imperial. Changing would be economically disruptive: all scales, labels, and regulations would need updating. International standards now require dual labeling in many cases. Historical divergence and practical inertia maintain two parallel weight systems, making conversion knowledge essential for global communication.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

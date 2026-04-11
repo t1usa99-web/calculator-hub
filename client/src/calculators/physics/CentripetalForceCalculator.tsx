@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { CENTRIPETAL_FORCE_FAQS } from "@/lib/faq-physics-mechanics";
 
 export default function CentripetalForceCalculator() {
   const [mass, setMass] = useState(5);
@@ -87,16 +85,3 @@ export default function CentripetalForceCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "centripetal-force-calculator",
-  title: "Centripetal Force Calculator",
-  shortTitle: "Centripetal Force",
-  description: "Calculate centripetal force and acceleration for circular motion",
-  category: "physics",
-  icon: "🌀",
-  keywords: ["centripetal", "circular motion", "force", "acceleration"],
-  component: CentripetalForceCalculator,
-  faqs: CENTRIPETAL_FORCE_FAQS,
-  dateModified: "2026-04-09",
-});

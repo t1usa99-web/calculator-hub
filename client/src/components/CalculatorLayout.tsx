@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { Code, Share2, BookOpen, ChevronDown, ChevronUp } from "lucide-react";
+import { Code, Share2, BookOpen, ChevronDown, ChevronUp, Printer, Check } from "lucide-react";
 
 interface Props {
   title: string;
@@ -15,6 +15,7 @@ export default function CalculatorLayout({ title, description, children, results
   const [showEmbed, setShowEmbed] = useState(false);
   const [showEducational, setShowEducational] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [shareCopied, setShareCopied] = useState(false);
 
   const siteUrl = typeof window !== "undefined" ? window.location.origin : "";
   const embedCode = `<iframe src="${siteUrl}/embed/${slug}" width="100%" height="500" frameborder="0" style="border:1px solid #e5e7eb;border-radius:8px;max-width:600px;"></iframe>\n<p style="font-size:12px;color:#6b7280;margin-top:4px;">Powered by <a href="${siteUrl}/${slug}" target="_blank" rel="noopener" style="color:#2563eb;">CalcHub</a></p>`;
@@ -23,6 +24,25 @@ export default function CalculatorLayout({ title, description, children, results
     navigator.clipboard.writeText(embedCode);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleShare = async () => {
+    const url = `${siteUrl}/${slug}`;
+    // Try native Web Share API first (mobile)
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, url });
+        return;
+      } catch {}
+    }
+    // Fallback: copy to clipboard
+    await navigator.clipboard.writeText(url);
+    setShareCopied(true);
+    setTimeout(() => setShareCopied(false), 2000);
+  };
+
+  const handlePrint = () => {
+    window.print();
   };
 
   return (
@@ -38,7 +58,7 @@ export default function CalculatorLayout({ title, description, children, results
             {children}
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap no-print">
             <button
               onClick={() => setShowEmbed(!showEmbed)}
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
@@ -47,18 +67,23 @@ export default function CalculatorLayout({ title, description, children, results
               Embed
             </button>
             <button
-              onClick={() => {
-                navigator.clipboard.writeText(`${siteUrl}/${slug}`);
-              }}
+              onClick={handleShare}
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
             >
-              <Share2 size={16} />
-              Share
+              {shareCopied ? <Check size={16} className="text-green-600" /> : <Share2 size={16} />}
+              {shareCopied ? "Copied!" : "Share"}
+            </button>
+            <button
+              onClick={handlePrint}
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <Printer size={16} />
+              Print
             </button>
           </div>
 
           {showEmbed && (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 no-print">
               <h3 className="text-sm font-semibold text-gray-900 mb-2">Embed this calculator on your website</h3>
               <pre className="bg-gray-900 text-green-400 text-xs p-3 rounded-lg overflow-x-auto mb-3 whitespace-pre-wrap">
                 {embedCode}
@@ -92,7 +117,7 @@ export default function CalculatorLayout({ title, description, children, results
         <div className="mt-8 bg-white rounded-xl shadow-sm border border-gray-200">
           <button
             onClick={() => setShowEducational(!showEducational)}
-            className="w-full flex items-center justify-between p-6 text-left"
+            className="w-full flex items-center justify-between p-6 text-left no-print"
           >
             <div className="flex items-center gap-2">
               <BookOpen size={20} className="text-primary-600" />

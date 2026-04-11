@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function SquareFootageCalculator() {
   const [shape, setShape] = useState("rectangle");
@@ -209,38 +208,3 @@ export default function SquareFootageCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SquareFootageCalculator,
-  slug: "square-footage-calculator",
-  title: "Square Footage Calculator",
-  shortTitle: "Square Footage",
-  description: "Calculate area of rooms and spaces in multiple shapes and units",
-  category: "construction",
-  icon: "📐",
-  keywords: ["square footage", "area", "room size", "flooring", "paint calculator"],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "How do I calculate square footage for a rectangular room?",
-      answer: "For a rectangular room, multiply length by width. For example, a room that is 20 feet long and 15 feet wide is 300 square feet (20 {'×'} 15 = 300 sqft). Always measure in feet for accurate results.",
-    },
-    {
-      question: "How is square footage used for cost estimation?",
-      answer: "Once you know the square footage, multiply by the cost per square foot to get the total project cost. For example, if flooring costs $8 per square foot and your room is 300 sqft, the total cost would be $2,400 (300 {'×'} $8). Always add 10-15% for waste.",
-    },
-    {
-      question: "How do I convert square feet to square meters?",
-      answer: "Divide square feet by 10.764 to get square meters. For example, 300 sqft divided by 10.764 equals approximately 27.9 sqm. This conversion is useful for international comparisons or construction specifications.",
-    },
-    {
-      question: "What is the difference between an acre and square feet?",
-      answer: "One acre equals 43,560 square feet. Acres are used to measure land area, while square feet measure smaller spaces like rooms or buildings. For example, a property of 0.5 acres contains 21,780 square feet.",
-    },
-    {
-      question: "How do I calculate square footage for irregular or L-shaped rooms?",
-      answer: "For L-shaped or complex rooms, divide the space into simple rectangles, calculate the area of each rectangle separately, then add them together. Alternatively, subtract the cutout area from the full area. This method works for any irregular shape.",
-    },
-  ],
-});

@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function SqftToSqmCalculator() {
   const [squareFeet, setSquareFeet] = useState(1000);
@@ -129,38 +128,3 @@ export default function SqftToSqmCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SqftToSqmCalculator,
-  slug: "sqft-to-sqm",
-  title: "Square Feet to Square Meters Calculator",
-  shortTitle: "ft² to m²",
-  description: "Convert square feet to square meters for real estate",
-  category: "other",
-  icon: "📐",
-  keywords: ["square feet to square meters", "area conversion", "real estate", "property size"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is the exact conversion factor from square feet to square meters?",
-      answer: "One square foot equals 0.092903 square meters. For practical purposes, multiply square feet by 0.0929 or round to 0.093. A quick approximation: divide square feet by 10.76 to get square meters. Example: 1000 square feet ÷ 10.76 = 92.9 square meters. These approximations are accurate enough for real estate and construction purposes.",
-    },
-    {
-      question: "How many square meters in a typical US home?",
-      answer: "A typical US single-family home is 2000-2500 square feet, which equals 186-232 square meters. Smaller homes might be 1200 square feet (111 square meters); larger homes 4000 square feet (371 square meters). Apartments typically range from 600-1200 square feet (56-111 square meters). These ranges help when comparing housing internationally, understanding that US homes are often larger than typical European homes of similar price points.",
-    },
-    {
-      question: "Why do real estate listings use different units?",
-      answer: "Square feet is the standard in the US due to historical tradition; metric systems are used globally. When comparing housing prices between countries, converting to a common unit (usually square meters) allows fair comparison. US price per square foot converts to international price per square meter. Knowing both allows you to understand whether a property in one market is more expensive than comparable property in another. Real estate apps increasingly show both units for international users.",
-    },
-    {
-      question: "How can I estimate square feet to square meters quickly?",
-      answer: "The easiest approximation: multiply square feet by 0.1 (ignore the last digit) for a rough estimate. Example: 1200 ft² ≈ 120 m² (actual is 111). For better accuracy, multiply by 0.093 instead. Another method: remember that 1 square meter is about 10.76 square feet, so roughly 1 square meter for every 11 square feet. With practice, you'll develop intuition for common home sizes without calculating.",
-    },
-    {
-      question: "How do I convert square meters back to square feet?",
-      answer: "Multiply square meters by 10.7639 to get square feet. For quick approximation, multiply by 10.76 or even round to 11. Example: 100 square meters × 10.76 = 1076 square feet. A 50 square meter apartment is about 538 square feet. This reverse conversion helps when reading international property listings or comparing housing markets across countries.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

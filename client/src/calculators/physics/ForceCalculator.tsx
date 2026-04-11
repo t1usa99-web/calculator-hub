@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { FORCE_FAQS } from "@/lib/faq-physics-mechanics";
 
 export default function ForceCalculator() {
   const [mass, setMass] = useState(50);
@@ -74,16 +72,3 @@ export default function ForceCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "force-calculator",
-  title: "Force Calculator",
-  shortTitle: "Force",
-  description: "Calculate force from mass and acceleration",
-  category: "physics",
-  icon: "💪",
-  keywords: ["force", "Newton's laws", "acceleration", "physics"],
-  component: ForceCalculator,
-  faqs: FORCE_FAQS,
-  dateModified: "2026-04-09",
-});

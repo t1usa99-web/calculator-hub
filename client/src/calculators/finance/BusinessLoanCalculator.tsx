@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { BUSINESS_LOAN_FAQS } from "@/lib/faq-finance-loans";
 
 export default function BusinessLoanCalculator() {
   const [loanAmount, setLoanAmount] = useState(100000);
@@ -200,16 +198,3 @@ export default function BusinessLoanCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BusinessLoanCalculator,
-  slug: "business-loan-calculator",
-  title: "Business Loan Calculator",
-  shortTitle: "Business Loan",
-  description: "Calculate monthly payments and costs for business loans with origination fees",
-  category: "finance",
-  icon: "💼",
-  keywords: ["business loan", "SBA loan", "small business", "loan payment"],
-  popular: false,
-  faqs: BUSINESS_LOAN_FAQS,
-});

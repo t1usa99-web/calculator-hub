@@ -1,7 +1,5 @@
 import MetalValueCalculator from "@/components/MetalValueCalculator";
-import { registerCalculator } from "@/lib/calculator-registry";
 import { METALS } from "@/lib/metals-config";
-import { PLATINUM_VALUE_FAQS } from "@/lib/faq-metals";
 
 const metal = METALS.find((m) => m.apiKey === "platinum")!;
 
@@ -29,14 +27,3 @@ const educational = (
 export default function PlatinumValueCalculator() {
   return <MetalValueCalculator metal={metal} educational={educational} />;
 }
-
-registerCalculator({
-  ...metal,
-  title: "Platinum Value Calculator",
-  shortTitle: "Platinum Value",
-  category: "metals",
-  popular: false,
-  faqs: PLATINUM_VALUE_FAQS,
-  dateModified: "2026-04-10",
-  component: PlatinumValueCalculator,
-});

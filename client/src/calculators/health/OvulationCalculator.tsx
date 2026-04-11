@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function OvulationCalculator() {
   const [lastPeriodDate, setLastPeriodDate] = useState("2026-03-15");
@@ -188,38 +187,3 @@ export default function OvulationCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: OvulationCalculator,
-  slug: "ovulation-calculator",
-  title: "Ovulation Calculator",
-  shortTitle: "Ovulation",
-  description: "Estimate your ovulation date and fertile window based on your menstrual cycle length",
-  category: "health",
-  icon: "🔬",
-  keywords: ["ovulation calculator", "fertile window", "menstrual cycle", "pregnancy planning", "conception"],
-  popular: true,
-  faqs: [
-    {
-      question: "How accurate is this calculator?",
-      answer: "This calculator estimates ovulation for a typical cycle but individual timing varies. On average, it's accurate within a few days for people with regular cycles. Accuracy decreases significantly with irregular cycles. Combining this calendar method with basal body temperature tracking or cervical mucus observation increases reliability. For most accurate results, track actual ovulation signs over multiple cycles.",
-    },
-    {
-      question: "Can I get pregnant outside the fertile window?",
-      answer: "Pregnancy requires intercourse during the fertile window when an egg is present or when sperm can survive until ovulation. However, calculating the exact fertile window is difficult because ovulation timing varies. Some people ovulate earlier or later than predicted. Having regular intercourse throughout your cycle (every 2{'\u2013'}3 days) removes timing stress and improves conception odds without needing precise ovulation prediction.",
-    },
-    {
-      question: "What if my cycle length varies?",
-      answer: "Cycle variation is common and normal. If your cycles range from 21{'\u2013'}35 days, use your average length or calculate separately for shortest and longest cycles to identify your range of possible fertile windows. More significant variation (28 to 40 days or longer) makes calendar predictions unreliable. Track additional ovulation signs (temperature, cervical mucus, ovulation tests) for better prediction, or consult a fertility specialist.",
-    },
-    {
-      question: "How long can sperm survive?",
-      answer: "Sperm can survive in the female reproductive tract for 3{'\u2013'}5 days in optimal cervical mucus conditions, which occurs around ovulation. This is why the fertile window extends 5 days before ovulation {'\u2013'} sperm deposited then can fertilize an egg released later. Sperm survival is shorter in less-receptive cervical environments. The egg itself survives about 12{'\u2013'}24 hours after ovulation.",
-    },
-    {
-      question: "What is basal body temperature and how does it help?",
-      answer: "Basal body temperature (BBT) is your resting temperature measured immediately upon waking, before any activity. It rises slightly (0.5{'\u2013'}1 degree) after ovulation due to progesterone. Tracking daily BBT reveals ovulation retrospectively (confirming it happened) rather than predicting it in advance. BBT combined with cervical mucus observation and cycle calendar provides the most reliable natural fertility tracking method for both conception planning and avoiding pregnancy.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

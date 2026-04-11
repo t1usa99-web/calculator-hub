@@ -3,7 +3,6 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import CalculatorLayout from "@/components/CalculatorLayout";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function NumberSequenceCalculator() {
   const [inputText, setInputText] = useState("2, 4, 6, 8, 10");
@@ -205,38 +204,3 @@ export default function NumberSequenceCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: NumberSequenceCalculator,
-  slug: "number-sequence-calculator",
-  title: "Number Sequence Calculator",
-  shortTitle: "Number Sequence",
-  description: "Identify patterns in number sequences and predict next terms",
-  category: "math",
-  icon: "📈",
-  keywords: ["sequence", "pattern", "arithmetic", "geometric", "fibonacci", "series"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is the difference between a sequence and a series?",
-      answer: "A sequence is an ordered list of numbers. A series is the sum of the terms in a sequence. For example, the sequence 1, 2, 3, 4 has a series sum of 1+2+3+4=10."
-    },
-    {
-      question: "How do I find the common difference in an arithmetic sequence?",
-      answer: "Subtract any term from the next term: d = a(n+1) - a(n). For example, in 5, 8, 11, 14, the common difference is 8-5=3. This should be the same for all consecutive pairs."
-    },
-    {
-      question: "What if my sequence doesn{'\''}t match any pattern?",
-      answer: "Not all sequences follow simple arithmetic, geometric, or Fibonacci patterns. Your sequence might follow a quadratic, cubic, or more complex rule. Try calculating differences of differences or analyzing the underlying context."
-    },
-    {
-      question: "Can a sequence be both arithmetic and geometric?",
-      answer: "Yes, if all terms are identical. For example, 5, 5, 5, 5 has both common difference 0 and common ratio 1. A non-constant sequence cannot be both types."
-    },
-    {
-      question: "Where do sequences appear in real life?",
-      answer: "Arithmetic sequences: loan payments, hourly wage increases. Geometric: bacteria growth, radioactive decay, population growth. Fibonacci: spiral patterns in nature, stock market analysis, algorithm analysis."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { BMI_FAQS } from "@/lib/faq-content";
 
 export default function BMICalculator() {
   const [weight, setWeight] = useState(170);
@@ -140,17 +138,3 @@ export default function BMICalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BMICalculator,
-  slug: "bmi-calculator",
-  title: "BMI Calculator",
-  shortTitle: "BMI",
-  description: "Calculate your Body Mass Index (BMI) and determine if you're at a healthy weight based on your height and weight",
-  category: "health",
-  icon: "⚖️",
-  keywords: ["BMI", "body mass index", "healthy weight", "obesity", "weight calculator"],
-  popular: true,
-  faqs: BMI_FAQS,
-  dateModified: "2026-04-09",
-});

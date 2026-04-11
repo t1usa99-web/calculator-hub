@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function ConfidenceIntervalCalculator() {
   const [mean, setMean] = useState(100);
@@ -167,16 +166,3 @@ export default function ConfidenceIntervalCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ConfidenceIntervalCalculator,
-  slug: "confidence-interval-calculator",
-  title: "Confidence Interval Calculator",
-  shortTitle: "Confidence Interval",
-  description: "Calculate confidence intervals for population means with margin of error calculations",
-  category: "math",
-  icon: "📈",
-  keywords: ["confidence interval", "margin of error", "statistics", "standard error", "hypothesis testing", "confidence level"],
-  popular: false,
-  dateModified: "2026-04-10"
-});

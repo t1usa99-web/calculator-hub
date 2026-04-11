@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { WAVE_SPEED_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function WaveSpeedCalculator() {
   const [frequency, setFrequency] = useState(440);
@@ -76,16 +74,3 @@ export default function WaveSpeedCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "wave-speed-calculator",
-  title: "Wave Speed Calculator",
-  shortTitle: "Wave Speed",
-  description: "Calculate wave speed from frequency and wavelength",
-  category: "physics",
-  icon: "〰️",
-  keywords: ["wave speed", "velocity", "frequency", "wavelength"],
-  component: WaveSpeedCalculator,
-  faqs: WAVE_SPEED_FAQS,
-  dateModified: "2026-04-09",
-});

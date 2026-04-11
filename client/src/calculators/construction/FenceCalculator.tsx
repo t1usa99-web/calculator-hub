@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function FenceCalculator() {
   const [perimeterLength, setPerimeterLength] = useState(200);
@@ -202,38 +201,3 @@ export default function FenceCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: FenceCalculator,
-  slug: "fence-calculator",
-  title: "Fence Calculator",
-  shortTitle: "Fence",
-  description: "Calculate fence materials and costs for wood, chain-link, and vinyl fencing",
-  category: "construction",
-  icon: "🪵",
-  keywords: ["fence", "post", "picket", "perimeter", "property boundary"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "How many posts do I need for my fence?",
-      answer: "The number of posts equals (perimeter divided by post spacing) plus 1. For example, a 200 ft perimeter with 6 ft spacing needs (200 {'/'} 6) + 1 = 34 posts. Spacing of 6-8 ft is standard; narrower spacing provides better support for taller fences.",
-    },
-    {
-      question: "What is the proper post spacing for a fence?",
-      answer: "Standard post spacing is 6-8 feet. Use 6 ft spacing for tall fences (6-8 ft) to ensure structural integrity. Use 8 ft spacing for shorter fences (4 ft) to save on materials. Post spacing affects how much fence sags over time and how resistant it is to wind and lateral forces.",
-    },
-    {
-      question: "How deep should fence posts be buried?",
-      answer: "Fence posts should be set 2-3 feet deep in concrete. The depth should be approximately 1/3 of the total post length. For a 6 ft tall fence, use an 8-9 ft post (2-3 ft underground, 6 ft above ground). Posts must be set in concrete below the frost line to prevent heaving in freezing climates.",
-    },
-    {
-      question: "How do I choose between wood, chain-link, and vinyl fencing?",
-      answer: "Wood is affordable and customizable but requires maintenance (staining, repairs). Chain-link is durable and low-maintenance but less attractive. Vinyl is maintenance-free and long-lasting but costs more upfront. Consider budget, climate, aesthetics, and willingness to maintain when choosing fence type.",
-    },
-    {
-      question: "Do I need a permit to build a fence?",
-      answer: "Most jurisdictions require permits for fences over 4-6 feet tall. Always verify property lines before building. Many areas have setback requirements (minimum distance from property line). HOA communities may have additional restrictions. Check local regulations before starting. Call 811 to locate underground utilities before digging.",
-    },
-  ],
-});

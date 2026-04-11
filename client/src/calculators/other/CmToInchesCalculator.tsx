@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function CmToInchesCalculator() {
   const [centimeters, setCentimeters] = useState(30.48);
@@ -90,43 +89,3 @@ export default function CmToInchesCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CmToInchesCalculator,
-  slug: "cm-to-inches",
-  title: "Centimeters to Inches Converter",
-  shortTitle: "CM to Inches",
-  description: "Convert centimeters to inches with formula and reference table",
-  category: "other",
-  icon: "📏",
-  keywords: ["cm to inches", "centimeters to inches", "metric to imperial", "convert centimeters"],
-  popular: false,
-  faqs: [
-    {
-      question: "How many inches are in a centimeter?",
-      answer:
-        "One centimeter equals 0.3937 inches (approximately). This derives from the exact conversion that 1 inch = 2.54 centimeters, so 1 cm = 1 ÷ 2.54 = 0.3937 inches. For practical purposes, you can round to 0.39 inches per centimeter. For example, 10 centimeters = 3.937 inches, and 100 centimeters (1 meter) = 39.37 inches. The more precise you need to be, the more decimal places you should use, especially in engineering or scientific applications.",
-    },
-    {
-      question: "What's a quick way to estimate centimeters to inches?",
-      answer:
-        "A simple rule of thumb is to divide by 2.5 (close to 2.54) for a rough estimate. For example, 50 cm ÷ 2.5 = 20 inches (actual is 19.69). Another approach: remember that 1 cm ≈ 0.4 inches, so 10 cm ≈ 4 inches, and 100 cm ≈ 40 inches. These approximations work well for casual measurements but aren't precise enough for manufacturing or medical purposes. For accuracy, always use the exact 2.54 conversion factor or this calculator.",
-    },
-    {
-      question: "How do I convert centimeters to feet and inches?",
-      answer:
-        "First, convert centimeters to total inches by dividing by 2.54. Then divide by 12 to get feet, with the remainder as inches. Example: 180 cm ÷ 2.54 = 70.87 inches. Then 70.87 ÷ 12 = 5 feet with 10.87 inches remaining. So 180 cm = 5 feet 10.87 inches. Alternatively, some converters display the result directly in feet and inches format. For height comparisons, this format is more intuitive than total inches.",
-    },
-    {
-      question: "Why is the conversion factor 2.54 and not a rounder number?",
-      answer:
-        "The conversion factor 2.54 was established by international agreement in 1959, based on the relationship between imperial and metric systems. The imperial system predates the metric system and wasn't designed to convert neatly. The 2.54 factor is the official, exact definition — 1 inch = 2.54 centimeters precisely. This makes all conversions reproducible and standardized globally. While it's not a round number, it's internationally recognized and legally binding for commerce, science, and engineering.",
-    },
-    {
-      question: "What's the difference between centimeters and millimeters?",
-      answer:
-        "Centimeters and millimeters are both metric units. 1 centimeter = 10 millimeters. The prefix 'centi-' means 1/100 of a meter, while 'milli-' means 1/1000 of a meter. Millimeters are used for precise measurements like thickness, bullet caliber, or small objects. Centimeters are used for larger measurements like height, width, or length in everyday contexts. When converting to inches, use centimeters (divide by 2.54). If you have millimeters, first convert to centimeters (divide by 10), then to inches.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

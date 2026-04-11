@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { HEAT_CAPACITY_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function HeatCapacityCalculator() {
   const [mass, setMass] = useState(1);
@@ -88,16 +86,3 @@ export default function HeatCapacityCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "heat-capacity-calculator",
-  title: "Heat Capacity Calculator",
-  shortTitle: "Heat Capacity",
-  description: "Calculate heat energy from mass, specific heat, and temperature change",
-  category: "physics",
-  icon: "🔥",
-  keywords: ["heat", "specific heat capacity", "temperature", "thermodynamics"],
-  component: HeatCapacityCalculator,
-  faqs: HEAT_CAPACITY_FAQS,
-  dateModified: "2026-04-09",
-});

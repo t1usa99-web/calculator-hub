@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function FeetToMetersCalculator() {
   const [feet, setFeet] = useState(6);
@@ -90,43 +89,3 @@ export default function FeetToMetersCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: FeetToMetersCalculator,
-  slug: "feet-to-meters",
-  title: "Feet to Meters Converter",
-  shortTitle: "Feet to Meters",
-  description: "Convert feet to meters with formula and reference table",
-  category: "other",
-  icon: "📐",
-  keywords: ["feet to meters", "ft to m", "convert feet", "imperial to metric length"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is the exact conversion factor from feet to meters?",
-      answer:
-        "The exact conversion is 1 foot = 0.3048 meters. This was established by international agreement as a precise, unchanging constant. To convert feet to meters, multiply by 0.3048. For example, 10 feet = 10 × 0.3048 = 3.048 meters. The inverse conversion is 1 meter = 3.28084 feet. This precise relationship allows exact conversions in all fields, from construction to aviation to international trade, ensuring consistency and preventing measurement errors.",
-    },
-    {
-      question: "How do I convert feet and inches to meters?",
-      answer:
-        "First, convert feet and inches to total feet, then multiply by 0.3048. Example: 5 feet 10 inches = 5 + (10/12) feet = 5.833 feet. Then 5.833 × 0.3048 = 1.778 meters. Alternatively, convert feet to meters (5 × 0.3048 = 1.524 m) and inches to centimeters (10 × 2.54 = 25.4 cm = 0.254 m), then add them: 1.524 + 0.254 = 1.778 meters. The first method is simpler for calculator use.",
-    },
-    {
-      question: "What are common feet-to-meters conversions I should know?",
-      answer:
-        "Useful benchmarks: 1 foot = 0.3048 m, 3 feet = 0.9144 m (1 yard), 5 feet = 1.524 m, 6 feet = 1.8288 m, 10 feet = 3.048 m. For height, 5 feet tall = 1.524 m, 6 feet tall = 1.8288 m. For building dimensions, a standard 8-foot ceiling = 2.4384 m, a 10-foot ceiling = 3.048 m. A basketball hoop at 10 feet = 3.048 m. Knowing these mental benchmarks helps with quick estimates without a calculator.",
-    },
-    {
-      question: "Is feet-to-meters conversion used in sports?",
-      answer:
-        "Yes, extensively. Soccer (football) goals are 8 feet tall and 24 feet wide, or 2.44 m × 7.32 m. American football fields are 100 yards (300 feet) or 91.44 meters long. Basketball hoops are 10 feet (3.048 m) high. Tennis courts are measured in meters internationally but feet in the US. Boxing rings are typically 16-20 feet (4.9-6.1 m) per side. High jump and pole vault records are often listed in meters internationally. Athletes, coaches, and broadcasters frequently convert between systems to communicate with global audiences.",
-    },
-    {
-      question: "How do I quickly estimate feet to meters?",
-      answer:
-        "A simple rule: divide by 3 to get an approximation. 12 feet ÷ 3 ≈ 4 meters (actual is 3.66 m). A more accurate mental math trick: remember that 1 foot ≈ 0.3 m, so 10 feet ≈ 3 m. For heights, 5 feet ≈ 1.5 m, 6 feet ≈ 1.8 m. These approximations work for casual estimates but aren't precise enough for construction, engineering, or scientific work. Always use 0.3048 for accuracy, or use this calculator for instant conversions.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

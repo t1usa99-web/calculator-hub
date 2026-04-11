@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function DewPointCalculator() {
   const [temperature, setTemperature] = useState(70);
@@ -141,38 +140,3 @@ export default function DewPointCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DewPointCalculator,
-  slug: "dew-point-calculator",
-  title: "Dew Point Calculator",
-  shortTitle: "Dew Point",
-  description: "Calculate dew point from temperature and relative humidity",
-  category: "other",
-  icon: "💧",
-  keywords: ["dew point", "relative humidity", "temperature", "condensation", "weather", "comfort"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is dew point and why should I care?",
-      answer: "Dew point is the temperature at which air becomes saturated and water condenses into liquid droplets. It tells you when moisture will condense. If air temperature drops to the dew point, you get fog, dew on grass, or condensation on windows. Dew point is more reliable than relative humidity for predicting condensation because it's an absolute measurement. A dew point of 50°F means condensation occurs when temperature reaches 50°F, regardless of the current temperature. Understanding dew point helps forecast frost, prevent equipment damage from moisture, and choose appropriate clothing.",
-    },
-    {
-      question: "How is dew point different from relative humidity?",
-      answer: "Relative humidity (RH) is the percentage of moisture in air compared to its maximum capacity at the current temperature. RH changes as temperature changes. Dew point is the specific temperature at which air becomes saturated. Example: 70°F with 50% RH has a dew point of about 50°F. If cooled to 50°F, RH becomes 100%. If cooled to 40°F, condensation occurs. Dew point doesn't change unless moisture is added or removed. Same dew point at different temperatures means different RH values. Meteorologists prefer dew point for forecasting because it's more stable and absolute.",
-    },
-    {
-      question: "How do I calculate dew point?",
-      answer: "The Magnus formula approximates dew point: Td = 243.04 × [ln(RH/100) + (17.625×T)/(243.04+T)] / [17.625 - ln(RH/100) - (17.625×T)/(243.04+T)], where T is temperature in Celsius and RH is relative humidity. More complex formulas (Magnus, Bolton, Magnus-Tetens) give slightly different results but are close for most practical purposes. Dew point calculators use these formulas to convert temperature and RH to dew point in seconds. For rough estimates without a calculator, dew point is typically 5-10°F below the current temperature at 50% RH, and closer to temperature at higher humidity levels.",
-    },
-    {
-      question: "What dew point values indicate comfortable conditions?",
-      answer: "Below 40°F dew point: Very dry; can cause dry skin and static electricity. 40-50°F: Dry but comfortable for most people. 50-60°F: Comfortable for the majority. 60-70°F: Humid but tolerable. 70-80°F: Uncomfortably humid; feels sticky and oppressive. Above 80°F: Very uncomfortable and potentially dangerous (especially if temperature is also high). Most people prefer indoor dew points in the 35-55°F range, corresponding to 30-50% RH at typical indoor temperatures. Different activities, ages, and personal preferences affect the ideal range.",
-    },
-    {
-      question: "When will frost form?",
-      answer: "Frost forms when the dew point is below freezing (32°F or 0°C) and the air temperature drops to or below the dew point. Example: if dew point is 25°F and overnight temperature drops to 25°F, frost will form. Meteorologists forecast frost by comparing the dew point to the expected overnight low temperature. Clear nights with low dew points are most likely to produce frost because clouds don't trap heat. Growing season frost damages crops; gardeners monitor dew point and overnight forecasts to know when to cover sensitive plants or use frost protection measures.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

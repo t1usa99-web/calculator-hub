@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function MutualFundCalculator() {
   const [initialInvestment, setInitialInvestment] = useState(10000);
@@ -191,38 +190,3 @@ export default function MutualFundCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MutualFundCalculator,
-  slug: "mutual-fund-calculator",
-  title: "Mutual Fund Calculator",
-  shortTitle: "Mutual Fund",
-  description: "Calculate mutual fund growth and compare the impact of expense ratios on returns",
-  category: "finance",
-  icon: "📈",
-  keywords: ["mutual fund", "expense ratio", "fund fees", "investment fees", "mutual fund returns"],
-  popular: true,
-  faqs: [
-    {
-      question: "What's a typical expense ratio?",
-      answer: "Index funds typically charge 0.05-0.20% annually. Active managed funds charge 0.5-2%. Specialized or small funds may charge 2%+. Lower is better; every 0.1% difference compounds significantly over decades. Favor funds under 0.5%."
-    },
-    {
-      question: "Can I avoid fees by buying and holding?",
-      answer: "Partially. You avoid trading fees (commissions) by holding long-term, but expense ratios are charged annually regardless of holding period. Over 30 years, annual fees dwarf one-time trading fees. Choose low-fee funds and hold them."
-    },
-    {
-      question: "Are mutual funds better than index funds?",
-      answer: "Most mutual funds underperform index funds after fees. Studies consistently show 80-90% of active managers fail to beat their benchmark over 10+ years. Index funds offer diversification, lower fees, and tax efficiency. For most investors, index funds are the better choice."
-    },
-    {
-      question: "How do 12b-1 fees work?",
-      answer: "12b-1 fees are distribution and marketing fees (up to 1% annually) baked into expense ratios. They benefit the fund company, not investors. Avoid funds with 12b-1 fees if alternatives exist; they reduce your returns with no additional value to you."
-    },
-    {
-      question: "Should I prioritize higher returns or lower fees?",
-      answer: "Low fees. You can't control returns—markets are unpredictable—but you can control fees. Minimizing fees ensures more of your money compounds in your account. A 0.1% fee fund may outperform a 1% fund even with identical gross returns."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

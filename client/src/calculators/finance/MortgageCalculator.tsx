@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { MORTGAGE_FAQS } from "@/lib/faq-content";
 
 export default function MortgageCalculator() {
   const [homePrice, setHomePrice] = useState(300000);
@@ -179,17 +177,3 @@ export default function MortgageCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MortgageCalculator,
-  slug: "mortgage-calculator",
-  title: "Mortgage Calculator",
-  shortTitle: "Mortgage",
-  description: "Calculate monthly mortgage payments, total interest, and amortization schedule",
-  category: "finance",
-  icon: "🏠",
-  keywords: ["mortgage", "home loan", "monthly payment", "amortization"],
-  popular: true,
-  faqs: MORTGAGE_FAQS,
-  dateModified: "2026-04-09",
-});

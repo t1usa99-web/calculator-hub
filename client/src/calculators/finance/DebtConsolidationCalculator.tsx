@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function DebtConsolidationCalculator() {
   const [debt1Balance, setDebt1Balance] = useState(5000);
@@ -265,38 +264,3 @@ export default function DebtConsolidationCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DebtConsolidationCalculator,
-  slug: "debt-consolidation-calculator",
-  title: "Debt Consolidation Calculator",
-  shortTitle: "Debt Consolidation",
-  description: "Calculate consolidation savings and compare multiple debts with single loan option",
-  category: "finance",
-  icon: "💰",
-  keywords: ["debt consolidation", "credit card debt", "loan", "interest savings", "payoff"],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "Is debt consolidation a good idea?",
-      answer: "Consolidation is excellent <strong>if</strong> the new loan rate is significantly lower than your current average rate. Consolidating {formatCurrency(16000)} of 20% credit card debt into 9% personal loan saves thousands in interest. However, consolidation only works if you commit to not re-borrowing. Many people consolidate, run up credit cards again, and end up with {'>='} {formatCurrency(30000)} total debt. Consolidation is a tool to escape debt, not to free up spending capacity.",
-    },
-    {
-      question: "What types of consolidation loans are available?",
-      answer: "Options: (1) Personal loan: unsecured, 6-15% rates, no collateral risk, {formatCurrency(5000)}-{formatCurrency(50000)} limits. (2) Home equity loan/HELOC: secured by home, 5-10% rates, but puts home at risk if you default. (3) Balance transfer card: 0% for 6-21 months, then 18-25%, includes 3-5% transfer fee. (4) Debt management plan: work with nonprofit, negotiate lower rates, avoid new debt. (5) 401(k) loan: borrow from retirement savings, repay to yourself, but risks retirement if you leave job. Evaluate all options.",
-    },
-    {
-      question: "How much can I save with consolidation?",
-      answer: "Savings depend on the rate difference and payoff speed. Example: {formatCurrency(16000)} at 20% APR takes {'>='} 6 years to pay off paying {formatCurrency(300)}/month and costs {formatCurrency(5200)} in interest. Same debt at 9% for 5 years costs {formatCurrency(1900)} in interest—a savings of {formatCurrency(3300)}. The larger your debt, the longer the payoff timeline, and the greater the rate reduction, the larger your savings. Use this calculator to estimate your specific savings.",
-    },
-    {
-      question: "What happens to my credit score after consolidation?",
-      answer: "Consolidation temporarily lowers your credit score (hard inquiry, new account, credit mix change), but rebuilds quickly as you make on-time payments. If consolidation reduces your overall debt and you don't re-borrow, your score improves over 6-12 months. The longer-term benefit is discipline: a single on-time payment is easier than juggling multiple accounts. Within 1-2 years of consolidation, your score is typically higher than before due to lower utilization and payment history.",
-    },
-    {
-      question: "What should I do with credit cards after consolidation?",
-      answer: "<strong>Don't close them immediately</strong>, as closing accounts lowers your credit score. Instead, <strong>freeze or lock them</strong> so you can't use them. After 6-12 months of consolidation discipline, you can close old accounts safely. Many people close cards after consolidation and immediately open new ones, replicating the original debt. Commit to a spending freeze: pay off the consolidation loan aggressively, build an emergency fund, then rebuild credit responsibly. Consolidation is only successful if you change habits.",
-    },
-  ],
-});

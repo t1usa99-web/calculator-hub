@@ -4,7 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function BinaryCalculator() {
   const [decimal, setDecimal] = useState(42);
@@ -143,38 +142,3 @@ export default function BinaryCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BinaryCalculator,
-  slug: "binary-calculator",
-  title: "Binary Calculator",
-  shortTitle: "Binary",
-  description: "Convert between binary, decimal, octal, and hex; perform binary operations",
-  category: "math",
-  icon: "💻",
-  keywords: ["binary", "decimal", "hexadecimal", "octal", "base conversion", "computer science"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is binary?",
-      answer: "Binary (base 2) uses only digits 0 and 1. It{'\''}s the language of computers. Every number, letter, and image is ultimately represented in binary."
-    },
-    {
-      question: "How do I convert decimal to binary?",
-      answer: "Repeatedly divide by 2 and collect remainders in reverse order. For example, 10 ÷ 2 = 5 r0, 5 ÷ 2 = 2 r1, 2 ÷ 2 = 1 r0, 1 ÷ 2 = 0 r1. Reading upward: 1010."
-    },
-    {
-      question: "What is hexadecimal and why use it?",
-      answer: "Hexadecimal (base 16) uses 0-9 and A-F. It{'\''}s used in programming for color codes, memory addresses, and data representation because it{'\''}s compact and easier to read than binary."
-    },
-    {
-      question: "How do binary operations work?",
-      answer: "Binary addition and subtraction work like decimal: 1 + 1 = 10 (2 in decimal), 10 - 1 = 1, carry rules apply. Each digit position is powers of 2."
-    },
-    {
-      question: "Why do computers use binary?",
-      answer: "Binary is perfect for electronic circuits with two states: on/off, high/low voltage. It{'\''}s reliable, simple to implement, and fundamental to digital electronics."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

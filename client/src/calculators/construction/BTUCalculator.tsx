@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function BTUCalculator() {
   const [roomSquareFeet, setRoomSquareFeet] = useState(300);
@@ -222,38 +221,3 @@ export default function BTUCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BTUCalculator,
-  slug: "btu-calculator",
-  title: "HVAC BTU Calculator",
-  shortTitle: "HVAC BTU",
-  description: "Calculate required BTU for heating and cooling HVAC systems",
-  category: "construction",
-  icon: "❄️",
-  keywords: ["HVAC", "BTU", "air conditioning", "heating", "cooling"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "How is BTU calculated for a room?",
-      answer: "Start with 20 BTU per square foot as a baseline. For a 300 sqft room, that's 6,000 BTU. Adjust for insulation quality (poor +25%, good -15%), sun exposure (high +15%), and climate zone. Each window adds about 500 BTU. Example: 6,000 base + (6,000 {'×'} 0.25 poor insulation) + 1,500 (3 windows) = 8,500 BTU needed.",
-    },
-    {
-      question: "What is a refrigeration ton and how does it relate to BTU?",
-      answer: "A refrigeration ton equals 12,000 BTU per hour of cooling capacity. AC units are sized in tons: 0.5 ton (6,000 BTU), 1 ton (12,000 BTU), 1.5 tons (18,000 BTU), 2 tons (24,000 BTU), etc. A room needing 18,000 BTU requires a 1.5-ton AC unit. Tonnage represents the unit's capacity to cool or heat.",
-    },
-    {
-      question: "What happens if my AC unit is oversized or undersized?",
-      answer: "Oversized units cool too quickly and short-cycle (turn on/off frequently), reducing efficiency and humidity control. Undersized units run constantly and can't maintain temperature. Proper sizing achieves efficiency and comfort. A unit should be selected to meet or slightly exceed calculated BTU needs, not drastically oversized.",
-    },
-    {
-      question: "How does insulation quality affect HVAC sizing?",
-      answer: "Poor insulation increases heating/cooling load by 25%. Average insulation is the baseline (no adjustment). Good insulation reduces load by 15%. Excellent insulation reduces by 30%. Upgrading insulation from poor to good effectively reduces HVAC capacity needed by 40%, saving significant money on equipment and energy costs.",
-    },
-    {
-      question: "What is SEER and why does it matter?",
-      answer: "SEER (Seasonal Energy Efficiency Ratio) measures cooling efficiency on a scale of 13-25+. Higher SEER means lower operating costs. A SEER 16 unit uses about 20% less energy than SEER 13. Most modern codes require minimum SEER 13-14. Investing in higher SEER saves money over time through reduced energy bills.",
-    },
-  ],
-});

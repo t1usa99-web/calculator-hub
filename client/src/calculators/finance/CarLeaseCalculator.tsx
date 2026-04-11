@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function CarLeaseCalculator() {
   const [msrp, setMsrp] = useState(35000);
@@ -233,38 +232,3 @@ export default function CarLeaseCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CarLeaseCalculator,
-  slug: "car-lease-calculator",
-  title: "Car Lease Calculator",
-  shortTitle: "Car Lease",
-  description: "Calculate car lease payments, residual value, and total lease costs",
-  category: "finance",
-  icon: "🚗",
-  keywords: ["car lease", "lease payment", "auto lease", "lease cost", "vehicle lease"],
-  popular: false,
-  faqs: [
-    {
-      question: "What's a money factor and how does it compare to APR?",
-      answer: "Money factor is the financing charge on a lease, similar to interest rate on a loan. Multiply by 2400 to approximate APR. A money factor of 0.0015 equals about 3.6% APR. Better credit gets lower money factors. Always negotiate the money factor—even 0.0001 difference saves hundreds over 3 years."
-    },
-    {
-      question: "What happens if I exceed mileage allowance?",
-      answer: "You pay excess mileage charges, typically $0.15-0.30 per mile, depending on the lease agreement. On a 36-month lease with 12,000 miles/year allowance, you can drive 36,000 miles total. If you drive 40,000 miles, you owe 4,000 × $0.25 = $1,000. Estimate conservatively."
-    },
-    {
-      question: "Does lease payment include insurance?",
-      answer: "No. The monthly payment is depreciation + finance charges. Insurance, registration, maintenance, and taxes are separate costs. Leases typically require comprehensive and collision insurance with low deductibles, which costs more than typical auto insurance."
-    },
-    {
-      question: "What's the residual value and why does it matter?",
-      answer: "Residual value is the estimated car worth at lease end. Higher residual value = lower depreciation = lower lease payment. Toyota and Honda typically have high residuals; luxury cars have lower residuals. A 1% difference in residual value changes the monthly payment by about $10-20."
-    },
-    {
-      question: "Is leasing or buying cheaper long-term?",
-      answer: "Buying and keeping a car 7-10 years is typically cheaper. However, leasing wins if you drive under 12,000 miles/year, want predictable costs, value warranty coverage, and like new cars frequently. Calculate your total cost including maintenance, insurance, and taxes to compare."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

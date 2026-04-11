@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function DepreciationCalculator() {
   const [assetCost, setAssetCost] = useState(100000);
@@ -172,38 +171,3 @@ export default function DepreciationCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DepreciationCalculator,
-  slug: "depreciation-calculator",
-  title: "Asset Depreciation Calculator",
-  shortTitle: "Depreciation",
-  description: "Calculate depreciation using straight-line, declining balance, or sum-of-years methods",
-  category: "finance",
-  icon: "📉",
-  keywords: ["depreciation", "asset", "accounting", "book value", "useful life", "GAAP"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is depreciation and why is it important?",
-      answer: "Depreciation is an accounting method that allocates an asset's cost over its useful life. When a business buys a {formatCurrency(100000)} delivery truck expected to last 10 years, it expenses {formatCurrency(10000)} per year instead of {formatCurrency(100000)} immediately. This matches expenses to revenue, accurately reflects the asset's declining value, and reduces taxable income over time. For financial reporting, depreciation is a non-cash expense that helps companies show true profitability.",
-    },
-    {
-      question: "What's the difference between straight-line and accelerated depreciation?",
-      answer: "Straight-line depreciation spreads the cost equally across all years: a {formatCurrency(100000)} asset over 10 years depreciates {formatCurrency(10000)}/year. Accelerated methods (DDB, SYD) front-load depreciation: Year 1 might be {formatCurrency(20000)}, Year 2 is {formatCurrency(16000)}, then declining. Straight-line is simpler and matches assets that wear evenly; accelerated methods reduce taxes sooner, useful for technology and vehicles that lose value fast. Businesses can use straight-line for financial statements and accelerated (MACRS) for taxes.",
-    },
-    {
-      question: "Can I choose my own useful life for depreciation?",
-      answer: "For financial reporting under GAAP, useful life is based on actual expected use. A building typically 40+ years, vehicles 5-7 years, machinery 5-10 years, software 3-5 years. For <strong>tax purposes</strong>, the IRS sets specific depreciation periods (MACRS): cars 5 years, real property 27.5-39 years, etc. You cannot arbitrarily choose a 50-year useful life for a delivery truck if industry standard is 5 years. Useful life must be reasonable and defensible if audited.",
-    },
-    {
-      question: "What is salvage value and how does it affect depreciation?",
-      answer: "Salvage value (residual value) is the estimated value of an asset at the end of its useful life. A {formatCurrency(100000)} vehicle with {formatCurrency(10000)} salvage value over 5 years depreciates {formatCurrency(90000)} total, or {formatCurrency(18000)}/year (straight-line). Salvage value reduces the depreciable amount. However, under MACRS tax depreciation, salvage value is ignored—you depreciate the full cost. This is one reason tax depreciation differs from book depreciation.",
-    },
-    {
-      question: "What happens when an asset is fully depreciated?",
-      answer: "<strong>Fully depreciated</strong> means book value has reached salvage value and annual depreciation is zero. The asset may still be usable and generating revenue, but no more deductions are taken. On the balance sheet, the asset remains at salvage value. If you later sell it for more than salvage value, you recognize a gain; if less, a loss. Fully depreciated assets don't provide tax shields, so businesses often sell or trade them to start depreciation cycles on new assets.",
-    },
-  ],
-});

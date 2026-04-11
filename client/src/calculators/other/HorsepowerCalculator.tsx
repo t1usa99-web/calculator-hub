@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function HorsepowerCalculator() {
   const [mode, setMode] = useState<"torque" | "weight" | "electrical">("torque");
@@ -185,43 +184,3 @@ export default function HorsepowerCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: HorsepowerCalculator,
-  slug: "horsepower-calculator",
-  title: "Horsepower Calculator",
-  shortTitle: "Horsepower",
-  description: "Calculate horsepower from torque, weight, or electrical power",
-  category: "other",
-  icon: "🏎️",
-  keywords: ["horsepower calculator", "hp to kw", "torque to hp", "power conversion"],
-  popular: false,
-  faqs: [
-    {
-      question: "How is horsepower defined and why is 745.7 watts equal to 1 HP?",
-      answer:
-        "Horsepower (HP) was defined by James Watt as a way to compare steam engines to horses. 1 HP = 550 foot-pounds of work per second. Converting: 1 foot-pound is 1.3558 joules, so 550 ft-lbs = 745.7 joules per second = 745.7 watts. This historical definition remains standard. Electrical power uses watts, making the conversion essential for comparing mechanical and electrical systems. A 10 HP motor produces 7.457 kW of power. Understanding this conversion helps evaluate equipment across different industries and eras.",
-    },
-    {
-      question: "What is the difference between metric horsepower (PS) and mechanical HP?",
-      answer:
-        "Metric horsepower (PS, Pferdestärke from German/French) was defined as 75 kilograms-force meter per second, slightly different from mechanical HP. 1 PS = 735.5 watts, while 1 mechanical HP = 745.7 watts. The difference is about 1.4%: 1 HP = 1.0139 PS. European cars are rated in PS; American cars in HP. A 200 HP engine is 203 PS. When comparing vehicles internationally, convert carefully—don't confuse HP with PS. Most conversion calculators handle this, but manual calculations require the specific conversion factors.",
-    },
-    {
-      question: "How does the torque-to-horsepower formula work?",
-      answer:
-        "The formula HP = (torque × RPM) / 5252 comes from the definition of power. Torque is rotational force; RPM is rotational speed. Combining them gives power. The 5252 is a conversion constant derived from 33,000 foot-pounds per minute (1 HP) divided by 2π radians. At 5252 RPM, torque in foot-pounds equals horsepower numerically (e.g., 100 ft-lbs at 5252 RPM = 100 HP). This magic number is crucial for engine calculations. Below 5252 RPM, engines are torque-dominant; above, horsepower is dominant.",
-    },
-    {
-      question: "Why do diesel engines have high torque but lower horsepower than gas engines?",
-      answer:
-        "Diesel engines produce peak torque at much lower RPM (1500-2500) due to their combustion design and heavy construction. They're designed for sustained work, not high-speed performance. A diesel might have 600 ft-lbs torque at 1500 RPM (about 171 HP), while a gas engine with 300 ft-lbs at 6000 RPM also makes 342 HP. Diesels excel at towing and hauling due to high torque. Gas engines achieve horsepower through higher RPM but lower torque. For trucks, high torque matters for pulling; for sports cars, high horsepower at high RPM enables speed. The application determines which is more useful.",
-    },
-    {
-      question: "How does power-to-weight ratio affect vehicle performance?",
-      answer:
-        "Power-to-weight ratio (HP per lb or kW per kg) determines acceleration and performance. A 200 HP car weighing 2500 lbs has a better ratio than 200 HP at 4000 lbs. The first car accelerates faster because the same power moves less weight. Supercars often have 1+ HP per pound; economy cars might be 0.05 HP per pound. For reference, a 300 HP car at 3000 lbs has 0.1 HP/lb (reasonable sport sedan). A 500 HP supercar at 3500 lbs has 0.143 HP/lb (high performance). Lightweight sports cars with moderate horsepower can out-accelerate heavy luxury cars with high horsepower due to superior power-to-weight ratios.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

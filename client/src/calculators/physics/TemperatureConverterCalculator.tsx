@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { TEMPERATURE_CONVERTER_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function TemperatureConverterCalculator() {
   const [value, setValue] = useState(20);
@@ -103,16 +101,3 @@ export default function TemperatureConverterCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "temperature-converter-calculator",
-  title: "Temperature Converter Calculator",
-  shortTitle: "Temperature Converter",
-  description: "Convert between Celsius, Fahrenheit, Kelvin, and Rankine",
-  category: "physics",
-  icon: "🌡️",
-  keywords: ["temperature", "converter", "Celsius", "Fahrenheit", "Kelvin"],
-  component: TemperatureConverterCalculator,
-  faqs: TEMPERATURE_CONVERTER_FAQS,
-  dateModified: "2026-04-09",
-});

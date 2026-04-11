@@ -1,8 +1,6 @@
 import { useState } from "react";
 import CalculatorLayout from "@/components/CalculatorLayout";
 import ResultCard from "@/components/ResultCard";
-import { PREGNANCY_CONCEPTION_FAQS } from "@/lib/faq-health";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PregnancyConceptionCalculator() {
   const [dueDate, setDueDate] = useState("2026-12-25");
@@ -127,24 +125,3 @@ export default function PregnancyConceptionCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PregnancyConceptionCalculator,
-  slug: "pregnancy-conception-calculator",
-  title: "Pregnancy Conception Calculator",
-  shortTitle: "Pregnancy Conception",
-  description:
-    "Calculate estimated conception date, last menstrual period, and current gestational age",
-  category: "health",
-  icon: "👶",
-  keywords: [
-    "pregnancy",
-    "conception",
-    "LMP",
-    "gestational age",
-    "due date",
-    "prenatal",
-  ],
-  faqs: PREGNANCY_CONCEPTION_FAQS,
-  dateModified: "2026-04-09",
-});

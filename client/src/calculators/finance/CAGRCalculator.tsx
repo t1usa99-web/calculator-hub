@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function CAGRCalculator() {
   const [beginningValue, setBeginningValue] = useState(10000);
@@ -154,50 +153,3 @@ export default function CAGRCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CAGRCalculator,
-  slug: "cagr-calculator",
-  title: "CAGR Calculator",
-  shortTitle: "CAGR",
-  description:
-    "Calculate compound annual growth rate and visualize investment growth over time",
-  category: "finance",
-  icon: "📈",
-  keywords: [
-    "CAGR",
-    "compound annual growth rate",
-    "investment return",
-    "growth rate",
-    "investment performance",
-  ],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is CAGR?",
-      answer:
-        "CAGR (Compound Annual Growth Rate) is the average annual growth rate of an investment over a specified period, smoothing out volatility. The formula is: CAGR = (Ending Value / Beginning Value)^(1/Years) - 1.",
-    },
-    {
-      question: "How is CAGR different from average annual return?",
-      answer:
-        "CAGR focuses on actual beginning and ending values using compounding logic, while average annual return adds yearly percentages and divides. CAGR is preferred because it accurately reflects consistent yearly growth regardless of volatility.",
-    },
-    {
-      question: "Can CAGR be negative?",
-      answer:
-        "Yes, CAGR can be negative if your ending value is less than your beginning value. A negative CAGR indicates the investment declined on average each year over the period.",
-    },
-    {
-      question: "What is a good CAGR?",
-      answer:
-        "A good CAGR depends on the asset type and time period. Stocks historically average 10% CAGR over long periods, bonds average 4-5%, and real estate averages 5-8%. Compare CAGR to benchmarks like the S&P 500 for context.",
-    },
-    {
-      question: "Does CAGR account for risk?",
-      answer:
-        "No, CAGR does not measure volatility or risk. Two investments with identical CAGR can have very different risk profiles. Always evaluate CAGR alongside risk metrics like standard deviation and compare investments with similar risk levels.",
-    },
-  ],
-});

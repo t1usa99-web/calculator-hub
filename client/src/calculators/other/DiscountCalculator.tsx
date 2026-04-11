@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { DISCOUNT_FAQS } from "@/lib/faq-other";
 
 export default function DiscountCalculator() {
   const [originalPrice, setOriginalPrice] = useState(100);
@@ -151,17 +149,3 @@ export default function DiscountCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DiscountCalculator,
-  slug: "discount-calculator",
-  title: "Discount Calculator",
-  shortTitle: "Discount",
-  description: "Calculate savings and final price with discount and tax",
-  category: "other",
-  icon: "🏷️",
-  keywords: ["discount calculator", "sales tax", "price after discount", "calculate savings"],
-  popular: true,
-  faqs: DISCOUNT_FAQS,
-  dateModified: "2026-04-09",
-});

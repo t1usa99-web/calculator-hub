@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function AcresToHectaresCalculator() {
   const [acres, setAcres] = useState(10);
@@ -129,38 +128,3 @@ export default function AcresToHectaresCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: AcresToHectaresCalculator,
-  slug: "acres-to-hectares",
-  title: "Acres to Hectares Calculator",
-  shortTitle: "Acres to ha",
-  description: "Convert acres to hectares for farmland and land transactions",
-  category: "other",
-  icon: "🏞️",
-  keywords: ["acres to hectares", "land conversion", "farm size", "real estate", "agriculture"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is the exact conversion factor from acres to hectares?",
-      answer: "One acre equals 0.404686 hectares. For practical purposes, multiply acres by 0.405 or round to 0.4. A quick approximation: divide acres by 2.5 to estimate hectares. Example: 10 acres ÷ 2.5 = 4 hectares (actual is 4.047). These approximations are useful for farmland and real estate conversions without a calculator.",
-    },
-    {
-      question: "How many hectares in a typical farm?",
-      answer: "A small family farm might be 40-50 acres (16-20 hectares). A medium farm is 100-200 acres (40-81 hectares). A large commercial farm is 500+ acres (200+ hectares). In Europe, a 10-hectare (25-acre) farm is considered small but viable. The definition varies by country and what's grown. US farms average around 400 acres (162 hectares), though this varies significantly by region and crop type.",
-    },
-    {
-      question: "Why do different countries use different land measurements?",
-      answer: "The acre comes from British imperial tradition and is used in English-speaking countries. The hectare is part of the metric system and adopted globally. Historically, the acre was defined as the area of land a team of oxen could plow in one day. The hectare (100 meters × 100 meters) fits neatly into the metric system. Most countries switched to hectares when adopting the metric system; the US and UK retained acres. For international farming and land trading, understanding both is essential.",
-    },
-    {
-      question: "How can I estimate acres to hectares quickly?",
-      answer: "The simplest approximation: multiply acres by 0.4 or divide by 2.5. Example: 100 acres ÷ 2.5 = 40 hectares (actual is 40.47). Another method: remember that 1 hectare ≈ 2.5 acres, so 10 acres ≈ 4 hectares, 50 acres ≈ 20 hectares. With practice, you'll develop intuition for common farm and property sizes. For precise calculations, use 0.404686.",
-    },
-    {
-      question: "What is the reverse conversion from hectares to acres?",
-      answer: "One hectare equals 2.47105 acres. Multiply hectares by 2.47 to get acres, or for approximation, multiply by 2.5. Example: 20 hectares × 2.47 = 49.4 acres. This reverse conversion helps when reading international agricultural data or comparing land prices across countries. A 100-hectare estate (247 acres) is substantial in most places.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

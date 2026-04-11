@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function SpeedCalculator() {
   const [mode, setMode] = useState("speed");
@@ -250,38 +249,3 @@ export default function SpeedCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SpeedCalculator,
-  slug: "speed-calculator",
-  title: "Speed Calculator",
-  shortTitle: "Speed",
-  description: "Calculate speed, distance, or time with multiple unit support",
-  category: "other",
-  icon: "🚀",
-  keywords: ["speed calculator", "distance time", "velocity", "mph", "km/h", "knots"],
-  popular: true,
-  faqs: [
-    {
-      question: "What's the formula for calculating speed?",
-      answer: "Speed equals distance divided by time. The formula is: Speed = Distance / Time. Example: if you travel 100 miles in 2 hours, your speed is 100 / 2 = 50 mph. This works for any distance and time units, as long as you keep them consistent. Speed calculators help convert between different units (mph, km/h, m/s, knots) so you can express the result in whatever unit you need.",
-    },
-    {
-      question: "How do I convert between mph and km/h?",
-      answer: "One mile equals approximately 1.60934 kilometers. To convert mph to km/h, multiply by 1.609. Example: 50 mph × 1.609 = 80.45 km/h. To convert km/h to mph, divide by 1.609. Example: 100 km/h / 1.609 = 62.14 mph. A quick approximation: multiply mph by 1.6 or divide km/h by 1.6. Speed calculators do this conversion automatically for you across all common units.",
-    },
-    {
-      question: "What are knots and when are they used?",
-      answer: "A knot is a nautical mile per hour, used in aviation, maritime, and military contexts. One knot equals 1.15078 mph or 1.852 km/h. Aircraft cruising speed is typically 450-500 knots. Ships measure speed in knots. Weather reports may also express wind speed in knots. Understanding knots is important when traveling by plane or boat, reading aviation charts, or interpreting meteorological data. Knots are preferred in these fields because they relate to latitude and longitude on nautical charts.",
-    },
-    {
-      question: "How do I calculate travel time from speed and distance?",
-      answer: "Rearrange the speed formula to: Time = Distance / Speed. Example: if you drive 200 miles at 50 mph, the time is 200 / 50 = 4 hours. Account for rest stops, traffic, and speed variations in real-world driving. Average speed calculators assume constant speed, but actual trips vary. For better estimates, use lower average speeds during rush hours or unfamiliar terrain. Modern navigation apps estimate travel time by accounting for real-time traffic and typical speeds on each road segment.",
-    },
-    {
-      question: "What's the difference between average speed and instantaneous speed?",
-      answer: "Average speed is the total distance divided by total time, which is what this calculator computes. Instantaneous speed is your speed at any exact moment, which changes constantly during travel. If you drive 100 miles in 2 hours with varying speeds (70 mph on the highway, 30 mph in towns), your average speed is 50 mph, but your instantaneous speed varies. Speedometers show instantaneous speed. Trip computers calculate average speed. For planning trips or comparing performance, average speed is usually what matters.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 interface FactorCount {
   factor: number;
@@ -178,38 +177,3 @@ export default function PrimeFactorizationCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PrimeFactorizationCalculator,
-  slug: "prime-factorization-calculator",
-  title: "Prime Factorization Calculator",
-  shortTitle: "Prime Factorization",
-  description: "Find prime factors and divisors of any number",
-  category: "math",
-  icon: "🔢",
-  keywords: ["prime factorization", "prime factors", "divisors", "number theory", "factors"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is a prime number?",
-      answer: "A prime number is a natural number greater than 1 that has exactly two divisors: 1 and itself. Examples: 2, 3, 5, 7, 11, 13. The number 1 is not prime. The number 2 is the only even prime. Prime numbers are the building blocks of all other numbers."
-    },
-    {
-      question: "Why is factorization important?",
-      answer: "Prime factorization reveals the structure of numbers. It{'\''}s essential for simplifying fractions, finding GCD and LCM, understanding divisibility, and in cryptography where large number factorization is computationally hard. It also helps in algebra and solving equations."
-    },
-    {
-      question: "What does 2^3 mean in factorization?",
-      answer: "2^3 means 2 is multiplied by itself 3 times: 2 × 2 × 2 = 8. In factorization, exponents show how many times each prime appears. For 60 = 2² × 3 × 5, the prime 2 appears twice, while 3 and 5 each appear once."
-    },
-    {
-      question: "How many divisors does a number have?",
-      answer: "If n = p1^a × p2^b × p3^c, the number of divisors is (a+1)(b+1)(c+1). For example, 60 = 2² × 3¹ × 5¹ has (2+1)(1+1)(1+1) = 12 divisors: 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60."
-    },
-    {
-      question: "Is 1 considered a prime number?",
-      answer: "No, 1 is not prime by modern definition. A prime must have exactly two distinct divisors. The number 1 has only one divisor (itself). Excluding 1 from primes simplifies theorems like the Fundamental Theorem of Arithmetic, which states every integer has a unique prime factorization."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

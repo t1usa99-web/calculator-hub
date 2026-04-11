@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { IDEAL_GAS_LAW_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function IdealGasLawCalculator() {
   const [pressure, setPressure] = useState(101325);
@@ -126,16 +124,3 @@ export default function IdealGasLawCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "ideal-gas-law-calculator",
-  title: "Ideal Gas Law Calculator",
-  shortTitle: "Ideal Gas Law",
-  description: "Calculate gas properties using the ideal gas law (PV = nRT)",
-  category: "physics",
-  icon: "💨",
-  keywords: ["ideal gas law", "pressure", "volume", "temperature"],
-  component: IdealGasLawCalculator,
-  faqs: IDEAL_GAS_LAW_FAQS,
-  dateModified: "2026-04-09",
-});

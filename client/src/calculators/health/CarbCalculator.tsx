@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function CarbCalculator() {
   const [weight, setWeight] = useState(175);
@@ -179,38 +178,3 @@ export default function CarbCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CarbCalculator,
-  slug: "carb-calculator",
-  title: "Carb Calculator",
-  shortTitle: "Carbs",
-  description: "Calculate your daily carbohydrate needs based on activity level and fitness goals",
-  category: "health",
-  icon: "🍞",
-  keywords: ["carbohydrate calculator", "carbs daily intake", "sports nutrition", "athletic performance", "carb cycling"],
-  popular: true,
-  faqs: [
-    {
-      question: "Why do carb needs depend on activity level?",
-      answer: "Carbohydrates fuel high-intensity exercise and replenish muscle glycogen depleted during training. Athletes performing intense workouts need more carbs to support performance, recovery, and adaptation. Sedentary individuals need fewer carbs since they{'\u2019'}re not depleting muscle glycogen. Matching carb intake to training prevents fatigue during workouts and poor recovery afterward. Excess carbs without training are stored as fat or glycogen, potentially contributing to weight gain.",
-    },
-    {
-      question: "Can I lose weight eating high carbs?",
-      answer: "Yes, if total calories are in deficit. Weight loss depends on calorie balance, not macronutrient split. High-carb diets work for many people because carbs are satiating and lower in calories per gram than fat (4 cal/g for carbs vs. 9 for fat). However, if carbs spike blood sugar without fiber and trigger hunger, a moderate-carb approach might feel easier to sustain. Experiment to find what works; some prefer higher carbs, others prefer lower carbs with higher fat.",
-    },
-    {
-      question: "What are good sources of carbohydrates?",
-      answer: "Choose whole grain carbs: oats, brown rice, quinoa, whole wheat bread/pasta. Include vegetables (broccoli, sweet potatoes, spinach) for carbs, fiber, and nutrients. Fruits (berries, bananas, apples) provide carbs, fiber, and antioxidants. Legumes (lentils, beans) offer carbs and plant protein. Limit refined carbs (white bread, sugary cereals, candy) that spike blood sugar and lack fiber. Timing carbs around workouts {'\u2013'} more carbs before/after intense training {'\u2013'} optimizes energy and recovery.",
-    },
-    {
-      question: "Is there such a thing as too many carbs?",
-      answer: "Yes. Excess carbs {'\u2013'} beyond what you burn plus a modest surplus {'\u2013'} are stored as muscle glycogen (limited by muscle size) or converted to fat. Very high carbs (10+ g/kg) without intense training typically leads to excess body fat gain. Additionally, chronically very high carbs without adequate fiber can elevate triglycerides and impair insulin sensitivity in some people. However, for athletes in heavy training, 8{'\u2013'}10 g/kg is appropriate and necessary.",
-    },
-    {
-      question: "What's the difference between total carbs and net carbs?",
-      answer: "Total carbs = all carbohydrates in a food. Net carbs = total carbs minus fiber. Fiber is a carb but isn{'\u2019'}t digested for energy; it passes through largely intact. If you{'\u2019'}re counting net carbs (common in low-carb diets), you subtract fiber. For example, 30g total carbs with 10g fiber = 20g net carbs. For general health and sports nutrition, total carbs matter most. Net carbs are useful if tracking a low-carb diet or managing diabetes.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

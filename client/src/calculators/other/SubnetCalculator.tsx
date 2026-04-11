@@ -2,8 +2,6 @@ import { useState } from "react";
 import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { SUBNET_FAQS } from "@/lib/faq-other";
 
 function ipStringToNumber(ip: string): number {
   const parts = ip.split(".").map(Number);
@@ -152,24 +150,3 @@ export default function SubnetCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SubnetCalculator,
-  slug: "subnet-calculator",
-  title: "Subnet Calculator",
-  shortTitle: "Subnet",
-  description:
-    "Calculate subnet masks, network ranges, and host addresses for IPv4 networks",
-  category: "other",
-  icon: "🌐",
-  keywords: [
-    "subnet",
-    "CIDR",
-    "IP address",
-    "network mask",
-    "IPv4",
-    "networking",
-  ],
-  faqs: SUBNET_FAQS,
-  dateModified: "2026-04-09",
-});

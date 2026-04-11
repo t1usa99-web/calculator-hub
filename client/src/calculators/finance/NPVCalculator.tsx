@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function NPVCalculator() {
   const [discountRate, setDiscountRate] = useState(10);
@@ -201,16 +200,3 @@ export default function NPVCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: NPVCalculator,
-  slug: "npv-calculator",
-  title: "NPV Calculator",
-  shortTitle: "NPV",
-  description: "Calculate net present value, internal rate of return, and profitability index",
-  category: "finance",
-  icon: "💰",
-  keywords: ["NPV", "net present value", "IRR", "internal rate of return", "profitability", "capital budgeting", "investment"],
-  popular: false,
-  dateModified: "2026-04-10"
-});

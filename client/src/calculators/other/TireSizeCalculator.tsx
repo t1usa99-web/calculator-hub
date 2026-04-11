@@ -3,7 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TireSizeCalculator() {
   const [tireSize, setTireSize] = useState("225/45R17");
@@ -165,43 +164,3 @@ export default function TireSizeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TireSizeCalculator,
-  slug: "tire-size-calculator",
-  title: "Tire Size Calculator",
-  shortTitle: "Tire Size",
-  description: "Calculate tire dimensions and compare tire sizes",
-  category: "other",
-  icon: "🛞",
-  keywords: ["tire size calculator", "tire dimensions", "tire comparison", "sidewall height"],
-  popular: false,
-  faqs: [
-    {
-      question: "What does each number in a tire size like 225/45R17 mean?",
-      answer:
-        "225 is the tire width in millimeters (measured sidewall to sidewall when properly inflated). 45 is the aspect ratio—the sidewall height as a percentage of width (45% of 225mm = 101.25mm). R means radial construction (standard since the 1970s). 17 is the wheel rim diameter in inches where the tire mounts. So a 225/45R17 is a 225mm-wide tire with 101.25mm sidewall height on a 17-inch rim. Understanding this helps identify compatible replacements and assess how tire changes affect overall diameter and handling.",
-    },
-    {
-      question: "How do tire size changes affect my speedometer accuracy?",
-      answer:
-        "Speedometer accuracy depends on tire diameter (revolutions per mile). Larger diameter tires rotate fewer times per mile, potentially causing speedometers to read slower than actual speed. Conversely, smaller diameter tires cause faster readings. A change from 225/45R17 to 225/50R17 (increased sidewall) increases overall diameter by about 1.1%, reducing revolutions per mile, making the speedometer read approximately 1.1% slow. Large changes (5%+) noticeably affect speedometer, fuel economy calculations, and gear ratios. Most vehicle manufacturers recommend staying within 3% of original overall tire diameter to maintain accuracy.",
-    },
-    {
-      question: "Can I use a different tire size than what the manufacturer recommends?",
-      answer:
-        "Tire size changes must fit your vehicle's wheels and suspension without rubbing. Wider tires may contact fenders, especially on lowered vehicles. Taller tires increase overall height and may rub on fenders or suspension at full compression (bumps). Smaller tires can foul suspension components. The manufacturer specifies an approved size range. Tire shops have fitment tools to check compatibility. Staying within 3% of original overall diameter minimizes speedometer, handling, and drivability issues. Larger or wider than factory is possible if everything fits properly, but always verify before purchasing to avoid returns and installation issues.",
-    },
-    {
-      question: "Why would I choose a higher or lower aspect ratio?",
-      answer:
-        "Aspect ratio affects ride comfort, handling, and appearance. Lower aspect ratios (35-40%) provide sportier handling and better response—preferred for performance and sports cars. Higher aspect ratios (50-60%) offer more cushion and a smoother ride over rough roads—preferred for comfort-focused vehicles and off-road use. Lower aspect ratios have stiffer sidewalls, which improve steering feel but transmit more road noise. Higher aspect ratios have softer sidewalls, absorbing bumps better but providing less precise steering. Winter driving often uses higher aspect ratios for better flex in cold conditions. Performance driving uses lower aspect ratios.",
-    },
-    {
-      question: "What is the load and speed rating on tire sidewalls?",
-      answer:
-        "Load rating (numbers like 101, 104, 110) indicates the maximum weight the tire can safely support. Each tire must support a portion of the vehicle's weight plus cargo. Speed rating (letters like H, V, W, Y) indicates the maximum speed the tire is rated for: H = 130 mph, V = 149 mph, W = 168 mph, Y = 186+ mph. A 225/45R17 101W means it can carry 1819 lbs maximum and reach 168 mph safely. Never use a tire with lower load or speed ratings than the original specification—it can fail under normal driving conditions or at highway speeds. Always verify these ratings match or exceed original equipment specifications when replacing tires.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

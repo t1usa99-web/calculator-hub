@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function LbsToKgCalculator() {
   const [pounds, setPounds] = useState(154.32);
@@ -90,43 +89,3 @@ export default function LbsToKgCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: LbsToKgCalculator,
-  slug: "lbs-to-kg",
-  title: "Pounds to Kilograms Converter",
-  shortTitle: "LBS to KG",
-  description: "Convert pounds to kilograms with formula and reference table",
-  category: "other",
-  icon: "⚖️",
-  keywords: ["lbs to kg", "pounds to kilograms", "convert pounds", "weight conversion"],
-  popular: false,
-  faqs: [
-    {
-      question: "How many kilograms are in a pound?",
-      answer:
-        "One pound equals 0.453592 kilograms. To convert pounds to kilograms, multiply by 0.453592. For example, 100 pounds = 100 × 0.453592 = 45.3592 kilograms. A quick approximation is that 1 lb ≈ 0.45 kg or 1 lb ≈ 0.5 kg for very rough estimates. So 100 lbs ≈ 45 kg, and 200 lbs ≈ 90 kg. For casual estimates, using 0.45 works well, but for medical or official purposes, use the full 0.453592 factor.",
-    },
-    {
-      question: "What's my weight in kilograms if I weigh 180 pounds?",
-      answer:
-        "Multiply pounds by 0.453592 to convert to kilograms. 180 lbs × 0.453592 = 81.6 kg. Common conversions: 100 lbs = 45.4 kg, 150 lbs = 68 kg, 180 lbs = 81.6 kg, 200 lbs = 90.7 kg. For mental math, multiply by 0.45 for a quick approximation: 180 × 0.45 = 81 kg. Understanding your weight in kilograms is important for international health contexts, fitness tracking, and comparing weight statistics globally.",
-    },
-    {
-      question: "What's a good rule of thumb for pounds to kilograms?",
-      answer:
-        "Remember that 2.2 pounds ≈ 1 kilogram, so 1 pound ≈ 0.45 kg. Another way: 1 kg ≈ 2.2 lbs, so divide pounds by 2.2 for a quick estimate. For example, 110 pounds ÷ 2.2 = 50 kg. Or multiply by 0.45: 110 × 0.45 = 49.5 kg. Both methods give approximately 50 kg (actual is 49.9 kg). These mental math tricks work well for casual estimates, but precision work requires the exact 0.453592 factor.",
-    },
-    {
-      question: "How do I convert body weight in pounds to kilograms for medical use?",
-      answer:
-        "For medical purposes requiring precision, multiply your weight in pounds by 0.453592. Example: 175 lbs × 0.453592 = 79.4 kg. Medication dosages, clinical guidelines, and health assessments often require weight in kilograms. Never use approximations for medical calculations — use the exact factor. If your weight is 175 pounds, your medical weight is 79.4 kilograms. Always double-check conversions in medical contexts to ensure accuracy and patient safety.",
-    },
-    {
-      question: "Is 0.453592 the exact conversion factor?",
-      answer:
-        "Yes, 0.453592 is the exact, internationally standardized conversion factor. It's the reciprocal of 2.20462 (the kg-to-lbs factor). These are based on the SI definition of the kilogram and the avoirdupois pound. The relationship is exact: 1 pound = 453.592 grams exactly. This precision is maintained in all official measurements, medical applications, and international regulations. While casual mental math might use 0.45 or 0.5, professional and medical contexts require the full precision.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

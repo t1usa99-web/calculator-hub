@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { ELECTRIC_POWER_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function ElectricPowerCalculator() {
   const [voltage, setVoltage] = useState(120);
@@ -78,16 +76,3 @@ export default function ElectricPowerCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "electric-power-calculator",
-  title: "Electric Power Calculator",
-  shortTitle: "Electric Power",
-  description: "Calculate power from voltage and current",
-  category: "physics",
-  icon: "⚡",
-  keywords: ["power", "voltage", "current", "watt"],
-  component: ElectricPowerCalculator,
-  faqs: ELECTRIC_POWER_FAQS,
-  dateModified: "2026-04-09",
-});

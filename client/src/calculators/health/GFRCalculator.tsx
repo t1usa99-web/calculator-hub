@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function GFRCalculator() {
   const [age, setAge] = useState(45);
@@ -179,38 +178,3 @@ export default function GFRCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: GFRCalculator,
-  slug: "gfr-calculator",
-  title: "GFR Calculator (CKD-EPI 2021)",
-  shortTitle: "GFR Calculator",
-  description: "Estimate glomerular filtration rate to assess chronic kidney disease stage",
-  category: "health",
-  icon: "🫘",
-  keywords: ["GFR", "eGFR", "kidney function", "CKD", "creatinine", "kidney disease"],
-  popular: false,
-  faqs: [
-    {
-      question: "What's a normal eGFR value?",
-      answer: "Normal eGFR is 90 or higher, meaning normal kidney function. Values of 60-89 show mild decrease. Below 60 is abnormal and may indicate chronic kidney disease. Consult your doctor if your eGFR is consistently below 60."
-    },
-    {
-      question: "Why did my eGFR drop but creatinine stayed the same?",
-      answer: "eGFR also depends on age—eGFR naturally declines with age even if creatinine stays stable. Kidney function typically declines about 1 mL/min/year after age 30. This is normal aging unless eGFR drops rapidly."
-    },
-    {
-      question: "Can I improve my eGFR?",
-      answer: "You can slow kidney disease progression by managing blood pressure (target less than 130/80), controlling diabetes, avoiding NSAIDs, eating a kidney-healthy diet, and quitting smoking. Once significant damage occurs, it's usually not reversible."
-    },
-    {
-      question: "What does the race-free formula mean?",
-      answer: "The 2021 CKD-EPI formula removed racial adjustments that were discriminatory. All patients now use the same formula regardless of race. This gives more accurate estimates and fairer kidney disease diagnosis across all populations."
-    },
-    {
-      question: "Should I worry if my eGFR is 55?",
-      answer: "An eGFR of 55 indicates Stage 3a CKD (mild to moderate decrease). One test alone isn't diagnostic; kidney disease is confirmed when eGFR stays below 60 for 3+ months. See your doctor for monitoring and treatment planning."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

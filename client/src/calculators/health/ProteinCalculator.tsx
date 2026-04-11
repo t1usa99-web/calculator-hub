@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function ProteinCalculator() {
   const [weight, setWeight] = useState(170);
@@ -154,38 +153,3 @@ export default function ProteinCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ProteinCalculator,
-  slug: "protein-calculator",
-  title: "Protein Calculator",
-  shortTitle: "Protein Needs",
-  description: "Calculate your daily protein requirement based on body weight, fitness goals, and meal frequency",
-  category: "health",
-  icon: "🥚",
-  keywords: ["protein calculator", "protein intake", "daily protein", "muscle building", "protein requirement"],
-  popular: true,
-  faqs: [
-    {
-      question: "How much protein do I really need?",
-      answer: "The RDA (Recommended Dietary Allowance) is 0.8 g/kg for average adults, sufficient to prevent deficiency but not optimized for performance. Active individuals and those building muscle need more: 1.2{'\u2013'}2.2 g/kg. Studies show muscle protein synthesis plateaus around 1.6{'\u2013'}2.2 g/kg; eating 3{'\u2013'}4 g/kg provides no additional benefit. Your goal, activity level, age, and health status determine your ideal intake.",
-    },
-    {
-      question: "What{'\u2019'}s the difference between complete and incomplete proteins?",
-      answer: "Complete proteins contain all 9 essential amino acids (which your body can{'\u2019'}t make): meat, fish, eggs, dairy, soy, quinoa, buckwheat. Incomplete proteins lack one or more amino acids: most plant-based (beans, nuts, grains). Vegetarians can get complete protein by combining foods (beans + rice) or eating soy/quinoa. Variety is key {'\u2014'} different sources provide different micronutrients.",
-    },
-    {
-      question: "Is it better to eat protein all at once or spread throughout the day?",
-      answer: "Spreading protein across meals (3{'\u2013'}6 times daily) optimizes muscle protein synthesis better than eating all protein in one meal. Studies show ~20{'\u2013'}40g per meal stimulates protein synthesis in adults; beyond that, excess is oxidized for energy. Distribute protein evenly across meals for best results. Timing relative to workouts matters for athletes, but total daily intake matters most for muscle building.",
-    },
-    {
-      question: "Can too much protein damage your kidneys?",
-      answer: "High protein intake (up to 3{'\u2013'}4 g/kg) does <strong>not</strong> damage healthy kidneys. Studies of athletes consuming 2{'\u2013'}3 g/kg show no kidney damage markers. However, people with existing kidney disease must restrict protein per doctor orders. High protein increases urine urea, making kidneys work harder {'\u2014'} for healthy kidneys, this is fine. Stay hydrated; adequate water intake prevents any kidney stress from protein metabolism.",
-    },
-    {
-      question: "What are the best protein sources for vegetarians/vegans?",
-      answer: "Top vegetarian sources: Greek yogurt (10g/100g), cottage cheese (11g), eggs (6g each), tofu (15g/100g), lentils (9g/100g), chickpeas (15g/cooked cup), nuts (5{'\u2013'}6g/oz), seeds (3{'\u2013'}5g/tbsp). Top vegan sources: soy products (tofu, tempeh 19g/100g, edamame), legumes (beans, lentils, peas), quinoa (8g/cooked cup), nuts, seeds. Combine incomplete proteins (beans {'\u0002'}rice) throughout the day to ensure all amino acids. Variety and quantity matter most.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

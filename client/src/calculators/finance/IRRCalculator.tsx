@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function IRRCalculator() {
   const [initialInvestment, setInitialInvestment] = useState(100000);
@@ -231,38 +230,3 @@ export default function IRRCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: IRRCalculator,
-  slug: "irr-calculator",
-  title: "Internal Rate of Return (IRR) Calculator",
-  shortTitle: "IRR",
-  description: "Calculate IRR and NPV for investment and capital budgeting analysis",
-  category: "finance",
-  icon: "📊",
-  keywords: ["IRR", "internal rate of return", "NPV", "investment", "return", "capital budgeting"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is IRR and how is it calculated?",
-      answer: "IRR (Internal Rate of Return) is the discount rate at which Net Present Value = 0. It represents the annualized percentage return of an investment. To calculate: solve for the rate (r) in the equation: 0 = {{Initial Investment}} + {{Year 1 CF}} / (1+r) + {{Year 2 CF}} / (1+r)² + ... . This calculator uses Newton's method (iterative approximation). An IRR of 18% means the investment returns 18% annually. Higher IRR is better, as long as it exceeds your cost of capital.",
-    },
-    {
-      question: "What is the difference between IRR and NPV?",
-      answer: "<strong>NPV (Net Present Value):</strong> Dollar amount of value created at a given discount rate. Shows absolute profit. <strong>IRR:</strong> Percentage return earned on the investment. Shows relative profitability. Example: {{formatCurrency(100000)}} investment returning {{formatCurrency(30000)}} annually for 5 years has IRR ~18%. At 10% discount rate, NPV = {{formatCurrency(13794)}} (adds value). Use both: NPV shows dollars added, IRR shows percentage return. Accept projects where NPV {greater than} 0 and IRR {greater than} hurdle rate.",
-    },
-    {
-      question: "Should I accept a project based on IRR alone?",
-      answer: "No, IRR should be one of multiple criteria. Accept projects where: (1) IRR {greater than} your hurdle rate (required return), AND (2) NPV {greater than} 0. IRR has limitations: it assumes reinvestment at the IRR (unrealistic), can give multiple solutions for unconventional cash flows, and ignores project scale. A {{formatCurrency(1000)}} investment with 50% IRR creates {{formatCurrency(500)}} profit; a {{formatCurrency(1000000)}} investment with 15% IRR creates {{formatCurrency(150000)}} profit (better overall). Use IRR with NPV and payback period.",
-    },
-    {
-      question: "What is a good IRR and what hurdle rate should I use?",
-      answer: "<strong>Good IRR depends on industry and risk.</strong> S&P 500 averages 10% annually; Corporate bonds ~5%; Risk-free rate (Treasury) ~5%. Use your hurdle rate as the cutoff: (1) If cost of capital is 10%, require IRR {greater than} 10%. (2) If risk is high (startup), require IRR {greater than} 25-30%. (3) If risk is low (utility), require IRR {greater than} 8-12%. A real estate investment with 12% IRR is good; a venture capital investment with 12% IRR is poor. Set hurdle rate based on risk and opportunity cost.",
-    },
-    {
-      question: "What are the limitations of using IRR for investment decisions?",
-      answer: "IRR limitations: (1) Assumes reinvestment at IRR rate (unrealistic—you likely reinvest at lower rates). (2) Can produce multiple IRRs for unconventional cash flows (negative, positive, negative). (3) Ignores project scale: high IRR on small investment may create less value than lower IRR on large investment. (4) Ignores reinvestment risk and timing. (5) Sensitive to terminal cash flows. Use IRR alongside NPV (absolute value), payback period (risk), and qualitative factors. For comprehensive analysis, NPV is theoretically superior.",
-    },
-  ],
-});

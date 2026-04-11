@@ -4,7 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function CircleCalculator() {
   const [radius, setRadius] = useState(5);
@@ -124,38 +123,3 @@ export default function CircleCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CircleCalculator,
-  slug: "circle-calculator",
-  title: "Circle Calculator",
-  shortTitle: "Circle",
-  description: "Calculate circumference, area, radius, diameter, arc length, and sector area",
-  category: "math",
-  icon: "⭕",
-  keywords: ["circle", "circumference", "area", "radius", "diameter", "pi", "geometry"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the circumference of a circle?",
-      answer: "Circumference is the perimeter of a circle. The formula is C = 2πr or C = πd, where r is radius and d is diameter."
-    },
-    {
-      question: "What is the area of a circle?",
-      answer: "Area is the space inside the circle. The formula is A = πr², where r is the radius. A 5-unit radius circle has area 25π {String.fromCharCode(8776)} 78.54 square units."
-    },
-    {
-      question: "What is the relationship between radius and diameter?",
-      answer: "The diameter is exactly twice the radius: d = 2r. The radius is the distance from center to edge; the diameter goes all the way across through the center."
-    },
-    {
-      question: "What is arc length and how is it calculated?",
-      answer: "Arc length is a portion of the circumference. For an angle θ in radians: arc length = rθ. For degrees: arc length = (θ/360°) × 2πr."
-    },
-    {
-      question: "Why is π important for circles?",
-      answer: "π (pi) is the ratio of any circle{'\''}s circumference to its diameter. It{'\''}s a universal constant {String.fromCharCode(8776)} 3.14159 that appears in all circle and sphere formulas."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function VoltageDropCalculator() {
   const [voltage, setVoltage] = useState(120);
@@ -162,43 +161,3 @@ export default function VoltageDropCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: VoltageDropCalculator,
-  slug: "voltage-drop-calculator",
-  title: "Voltage Drop Calculator",
-  shortTitle: "Voltage Drop",
-  description: "Calculate voltage drop in electrical wiring by distance and gauge",
-  category: "other",
-  icon: "⚡",
-  keywords: ["voltage drop calculator", "wire gauge", "electrical voltage", "NEC"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is voltage drop and why should I care about it?",
-      answer:
-        "Voltage drop is the loss of electrical voltage as current travels through a wire due to the wire's resistance. A 120V circuit over a long distance might deliver only 115V at the end, losing 5V to resistance. This matters because devices need sufficient voltage to operate correctly. Lights dim, motors run slower and hotter, and electronics may malfunction or be damaged. The National Electrical Code limits voltage drop to 3% on branch circuits and 5% combined, ensuring equipment receives adequate voltage for proper operation and safety.",
-    },
-    {
-      question: "How do I choose the correct wire gauge to prevent excessive voltage drop?",
-      answer:
-        "Use this calculator to determine voltage drop for your specific current, distance, and wire gauge. If drop exceeds 3%, try the next larger gauge (smaller AWG number). For example, if 12 AWG exceeds 3%, try 10 AWG. Larger gauges have lower resistance and less voltage drop. For a 20-amp, 120V circuit over 100 feet, 12 AWG is usually adequate. For 30 amps over 50 feet, 8 AWG might be needed. Always verify with local electrical code and consult a licensed electrician for critical applications. Oversizing wire is safer than undersizing.",
-    },
-    {
-      question: "What does AWG mean and why are larger gauges smaller numbers?",
-      answer:
-        "AWG stands for American Wire Gauge. Confusingly, larger wires have smaller numbers: 14 AWG is thin, 0000 AWG is very thick. The scale is logarithmic. Each reduction of 3 in gauge approximately doubles the cross-sectional area and halves the resistance. So 12 AWG is roughly twice the cross-section and half the resistance of 14 AWG. This backward convention originated from manufacturing but causes confusion. Remember: higher numbers = thinner wire = higher resistance. Always check the gauge number when selecting wire; don't confuse it with wire diameter.",
-    },
-    {
-      question: "How does temperature affect voltage drop?",
-      answer:
-        "Wire resistance increases with temperature. Copper wire increases resistance by about 0.4% per degree Fahrenheit above the standard 68°F reference. In hot summer conditions (95°F), wire resistance is noticeably higher, increasing voltage drop. This means circuits in attics, conduits in direct sun, or enclosed spaces have higher actual drop than calculations suggest. Proper ventilation and spacing of wires in conduits helps manage heat. Underground runs and conduit routing should consider thermal effects. For precise calculations in extreme conditions, consult electrical engineering tables for temperature-adjusted resistance values.",
-    },
-    {
-      question: "What is the difference between copper and aluminum wire for voltage drop?",
-      answer:
-        "Copper has lower resistivity (about 10.37 microohms per cm) than aluminum (about 16.78 microohms per cm). Copper wire has 35-40% lower resistance than aluminum wire of the same gauge. This means aluminum requires larger gauges to achieve the same voltage drop as copper. Aluminum wire is cheaper but less common in residential use due to corrosion and connection issues. In commercial and industrial applications, aluminum is sometimes used for large runs (2 AWG and larger). If using aluminum, consult resistance tables and increase gauge compared to copper. Mixed copper-aluminum connections require special precautions to prevent corrosion.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

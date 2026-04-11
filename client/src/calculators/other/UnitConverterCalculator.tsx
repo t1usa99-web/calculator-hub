@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { UNIT_CONVERTER_FAQS } from "@/lib/faq-other";
 
 export default function UnitConverterCalculator() {
   const [category, setCategory] = useState("length");
@@ -293,17 +291,3 @@ export default function UnitConverterCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: UnitConverterCalculator,
-  slug: "unit-converter",
-  title: "Unit Converter",
-  shortTitle: "Unit Converter",
-  description: "Convert between units of length, weight, volume, temperature, area, speed, and energy",
-  category: "other",
-  icon: "📏",
-  keywords: ["unit converter", "metric conversion", "length converter", "weight converter", "temperature converter", "area converter", "speed converter", "energy converter"],
-  popular: true,
-  faqs: UNIT_CONVERTER_FAQS,
-  dateModified: "2026-04-09",
-});

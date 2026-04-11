@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { BODY_FAT_FAQS } from "@/lib/faq-health";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function BodyFatCalculator() {
   const [gender, setGender] = useState("male");
@@ -201,17 +199,3 @@ export default function BodyFatCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BodyFatCalculator,
-  slug: "body-fat-calculator",
-  title: "Body Fat Calculator",
-  shortTitle: "Body Fat %",
-  description: "Calculate your body fat percentage using the US Navy circumference formula",
-  category: "health",
-  icon: "💪",
-  keywords: ["body fat", "body fat percentage", "body composition", "us navy formula"],
-  popular: false,
-  faqs: BODY_FAT_FAQS,
-  dateModified: "2026-04-09",
-});

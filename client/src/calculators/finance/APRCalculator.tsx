@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function APRCalculator() {
   const [loanAmount, setLoanAmount] = useState(200000);
@@ -221,50 +220,3 @@ export default function APRCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: APRCalculator,
-  slug: "apr-calculator",
-  title: "APR Calculator",
-  shortTitle: "APR",
-  description:
-    "Calculate annual percentage rate including all fees and costs",
-  category: "finance",
-  icon: "📊",
-  keywords: [
-    "APR",
-    "annual percentage rate",
-    "interest rate",
-    "loan cost",
-    "mortgage",
-  ],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is the difference between APR and interest rate?",
-      answer:
-        "The interest rate is the percentage of interest charged on the loan balance. APR includes the interest rate plus other costs of borrowing (fees, points, closing costs) expressed as an annualized percentage. APR is always equal to or higher than the stated interest rate, and is the better metric for comparing loans.",
-    },
-    {
-      question: "What fees are included in APR?",
-      answer:
-        "APR includes origination fees, underwriting fees, appraisal fees, title insurance, recording fees, and discount points. Property taxes, homeowner insurance, and HOA fees are typically NOT included in APR. Check your loan estimate to see which fees are included in the APR calculation.",
-    },
-    {
-      question: "How do I compare loans using APR?",
-      answer:
-        "Always use APR to compare loans, not the stated interest rate. Calculate the total cost (principal + interest + fees) for each loan option over the full term. For mortgages, even a 0.5% APR difference can cost $50,000-80,000 more over 30 years. Request written loan estimates with full APR disclosure from multiple lenders.",
-    },
-    {
-      question: "What is a discount point?",
-      answer:
-        "A discount point is a fee equal to 1% of the loan amount, paid upfront to reduce (buy down) the stated interest rate, typically by 0.25%. For example, on a $200,000 mortgage, one point costs $2,000 and reduces the rate by 0.25%. Points should only make sense if you plan to keep the loan long enough to break even on the upfront cost.",
-    },
-    {
-      question: "Why does APR matter more than interest rate?",
-      answer:
-        "APR reflects the true annual cost of borrowing including all fees. Lenders might offer the same stated rate with different fees; the one with lower fees has lower APR and is genuinely cheaper. APR helps you make informed decisions and compare loan offers fairly. The Truth in Lending Act requires lenders to disclose APR to protect consumers.",
-    },
-  ],
-});

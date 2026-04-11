@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { COULOMBS_LAW_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function CoulombsLawCalculator() {
   const [charge1, setCharge1] = useState(1e-6);
@@ -87,16 +85,3 @@ export default function CoulombsLawCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "coulombs-law-calculator",
-  title: "Coulomb's Law Calculator",
-  shortTitle: "Coulomb's Law",
-  description: "Calculate electrostatic force between two charges",
-  category: "physics",
-  icon: "⚛️",
-  keywords: ["Coulomb's law", "electrostatic", "charge", "force"],
-  component: CoulombsLawCalculator,
-  faqs: COULOMBS_LAW_FAQS,
-  dateModified: "2026-04-09",
-});

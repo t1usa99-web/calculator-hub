@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { RENT_VS_BUY_FAQS } from "@/lib/faq-finance-loans";
 
 export default function RentVsBuyCalculator() {
   const [homePrice, setHomePrice] = useState(400000);
@@ -247,16 +245,3 @@ export default function RentVsBuyCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: RentVsBuyCalculator,
-  slug: "rent-vs-buy-calculator",
-  title: "Rent vs Buy Calculator",
-  shortTitle: "Rent vs Buy",
-  description: "Compare the financial impact of renting versus buying a home over time",
-  category: "finance",
-  icon: "🏠",
-  keywords: ["rent", "buy", "home", "mortgage", "property", "housing"],
-  popular: true,
-  faqs: RENT_VS_BUY_FAQS,
-});

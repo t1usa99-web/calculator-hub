@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { SALARY_FAQS } from "@/lib/faq-finance-invest";
 
 export default function SalaryCalculator() {
   const [amount, setAmount] = useState(75000);
@@ -191,16 +189,3 @@ export default function SalaryCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SalaryCalculator,
-  faqs: SALARY_FAQS,
-  slug: "salary-calculator",
-  title: "Salary Calculator",
-  shortTitle: "Salary",
-  description: "Convert salary between hourly, weekly, monthly, and annual rates",
-  category: "finance",
-  icon: "💵",
-  keywords: ["salary", "hourly rate", "conversion", "pay frequency", "income"],
-  popular: true,
-});

@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function VAMortgageCalculator() {
   const [homePrice, setHomePrice] = useState(400000);
@@ -216,38 +215,3 @@ export default function VAMortgageCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: VAMortgageCalculator,
-  slug: "va-mortgage-calculator",
-  title: "VA Mortgage Calculator",
-  shortTitle: "VA Loan",
-  description: "Calculate VA loan payments and compare funding fees across service levels",
-  category: "finance",
-  icon: "🇺🇸",
-  keywords: ["VA loan", "mortgage", "veteran", "military", "funding fee", "no down payment"],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "Who is eligible for a VA loan?",
-      answer: "VA loans are available to veterans with honorable discharge, active-duty service members (with 90+ days service), National Guard/Reserve with 6+ years service, and surviving spouses of veterans who died in service or from service-connected disability. You must obtain a Certificate of Eligibility (CoE) from the VA. Service members can apply before discharge. Surviving spouses of service-connected deaths can use the benefit once for a home purchase.",
-    },
-    {
-      question: "What is a VA funding fee and can it be waived?",
-      answer: "The VA funding fee replaces mortgage insurance and funds the VA loan program. First-time users pay 2.15%, subsequent users pay 3.3%. Disabled veterans with service-connected disabilities (any percentage) are <strong>exempt from funding fees entirely</strong>, making VA loans essentially free. Down payments of 5%+ reduce the fee: 5-10% down is 1.9%, 10%+ is 1.6%. The funding fee is typically rolled into the loan and paid over 30 years.",
-    },
-    {
-      question: "Can I use my VA benefit more than once?",
-      answer: "<strong>Yes, VA benefits can be used multiple times.</strong> Each time you buy a home with a VA loan, you use a portion of your {formatCurrency(625000)} entitlement. If you sell and pay off a prior VA loan, your full entitlement is restored for another purchase. This allows veterans to buy multiple properties. Some veterans use VA loans to buy investment properties, building real estate wealth. However, you cannot have two active VA loans simultaneously (except in limited circumstances).",
-    },
-    {
-      question: "What is VA entitlement and how much can I borrow?",
-      answer: "VA entitlement is your maximum borrowing power under the VA program, currently {formatCurrency(625000)} (2026, adjusts annually). Your lender may lend up to 100% of the home value without down payment, as long as the VA appraisal supports the price. No down payment is required. If the home appraises lower than the purchase price, you must make up the difference (or negotiate). You are responsible for the full loan amount; the VA guarantee only protects the lender if you default.",
-    },
-    {
-      question: "Why are VA loans better than FHA or conventional loans?",
-      answer: "<strong>VA advantages:</strong> 0% down (vs. 3.5% FHA, 10-20% conventional), no mortgage insurance (vs. 0.55% FHA MIP or 0.3-1.2% conventional PMI), often lower rates (lenders take less risk with VA guarantee), can use multiple times. Disabled veterans pay no funding fee at all. Over 30 years, a VA loan can save {greater than}{formatCurrency(100000)} vs. conventional due to eliminating down payment, PMI, and often having lower rates. VA loans are generally the best option for eligible veterans.",
-    },
-  ],
-});

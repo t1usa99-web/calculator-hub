@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { OHMS_LAW_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function OhmsLawCalculator() {
   const [voltage, setVoltage] = useState(12);
@@ -115,16 +113,3 @@ export default function OhmsLawCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "ohms-law-calculator",
-  title: "Ohm's Law Calculator",
-  shortTitle: "Ohm's Law",
-  description: "Calculate voltage, current, resistance, and power",
-  category: "physics",
-  icon: "💡",
-  keywords: ["Ohm's law", "voltage", "current", "resistance"],
-  component: OhmsLawCalculator,
-  faqs: OHMS_LAW_FAQS,
-  dateModified: "2026-04-09",
-});

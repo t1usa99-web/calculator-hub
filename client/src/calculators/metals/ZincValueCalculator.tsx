@@ -1,7 +1,5 @@
 import MetalValueCalculator from "@/components/MetalValueCalculator";
-import { registerCalculator } from "@/lib/calculator-registry";
 import { METALS } from "@/lib/metals-config";
-import { ZINC_VALUE_FAQS } from "@/lib/faq-metals";
 
 const metal = METALS.find((m) => m.apiKey === "zinc")!;
 
@@ -32,14 +30,3 @@ const educational = (
 export default function ZincValueCalculator() {
   return <MetalValueCalculator metal={metal} educational={educational} />;
 }
-
-registerCalculator({
-  ...metal,
-  title: "Zinc Value Calculator",
-  shortTitle: "Zinc Value",
-  category: "metals",
-  popular: false,
-  faqs: ZINC_VALUE_FAQS,
-  dateModified: "2026-04-10",
-  component: ZincValueCalculator,
-});

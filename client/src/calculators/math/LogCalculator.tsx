@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function LogCalculator() {
   const [number, setNumber] = useState(100);
@@ -160,38 +159,3 @@ export default function LogCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: LogCalculator,
-  slug: "log-calculator",
-  title: "Logarithm Calculator",
-  shortTitle: "Logarithm",
-  description: "Calculate logarithms in any base: log10, natural log, log2, and custom bases",
-  category: "math",
-  icon: "🔢",
-  keywords: ["logarithm", "log", "natural log", "log base", "exponent", "inverse"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is a logarithm?",
-      answer: "A logarithm answers: to what power must I raise the base to get this number? If b^x = n, then log_b(n) = x."
-    },
-    {
-      question: "What are common logarithm types?",
-      answer: "Log10 (common log, base 10) is used in science. ln (natural log, base e) appears in calculus. Log2 (binary) is used in computer science."
-    },
-    {
-      question: "What is the change of base formula?",
-      answer: "log_b(n) = log(n) / log(b). This lets you calculate any logarithm using log10 or ln."
-    },
-    {
-      question: "Why can{'\''}t I take the log of zero or negative numbers?",
-      answer: "Logarithms are only defined for positive numbers. No power of a positive base equals zero or a negative number."
-    },
-    {
-      question: "What are logarithm properties?",
-      answer: "Key properties: log(a×b) = log(a) + log(b), log(a/b) = log(a) - log(b), and log(a^n) = n × log(a)."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

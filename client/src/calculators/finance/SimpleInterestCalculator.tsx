@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { SIMPLE_INTEREST_FAQS } from "@/lib/faq-finance-loans";
 
 export default function SimpleInterestCalculator() {
   const [principal, setPrincipal] = useState(10000);
@@ -103,23 +101,3 @@ export default function SimpleInterestCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SimpleInterestCalculator,
-  slug: "simple-interest-calculator",
-  title: "Simple Interest Calculator",
-  shortTitle: "Simple Interest",
-  description:
-    "Calculate simple interest without compounding effects",
-  category: "finance",
-  icon: "📊",
-  keywords: [
-    "simple interest",
-    "interest calculation",
-    "savings",
-    "loan interest",
-    "financial",
-  ],
-  dateModified: "2026-04-09",
-  faqs: SIMPLE_INTEREST_FAQS,
-});

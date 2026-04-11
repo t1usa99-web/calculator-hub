@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { INTEREST_FAQS } from "@/lib/faq-finance-loans";
 
 export default function InterestCalculator() {
   const [principal, setPrincipal] = useState(10000);
@@ -123,23 +121,3 @@ export default function InterestCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: InterestCalculator,
-  slug: "interest-calculator",
-  title: "Compound Interest Calculator",
-  shortTitle: "Compound Interest",
-  description:
-    "Calculate compound interest with multiple compounding frequencies",
-  category: "finance",
-  icon: "💹",
-  keywords: [
-    "compound interest",
-    "savings",
-    "investment",
-    "interest earned",
-    "financial",
-  ],
-  dateModified: "2026-04-09",
-  faqs: INTEREST_FAQS,
-});

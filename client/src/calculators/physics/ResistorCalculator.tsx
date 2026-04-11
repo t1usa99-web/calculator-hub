@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { RESISTOR_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function ResistorCalculator() {
   const [resistor1, setResistor1] = useState(100);
@@ -91,16 +89,3 @@ export default function ResistorCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "resistor-calculator",
-  title: "Resistor Calculator",
-  shortTitle: "Resistor",
-  description: "Calculate total resistance in series and parallel circuits",
-  category: "physics",
-  icon: "🔌",
-  keywords: ["resistor", "resistance", "series", "parallel", "circuit"],
-  component: ResistorCalculator,
-  faqs: RESISTOR_FAQS,
-  dateModified: "2026-04-09",
-});

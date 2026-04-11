@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function MileageCalculator() {
   const [milesDriven, setMilesDriven] = useState(500);
@@ -146,38 +145,3 @@ export default function MileageCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MileageCalculator,
-  slug: "mileage-calculator",
-  title: "Mileage Calculator",
-  shortTitle: "Mileage",
-  description: "Calculate mileage reimbursement using IRS standard rates",
-  category: "other",
-  icon: "🚗",
-  keywords: ["mileage calculator", "IRS mileage", "reimbursement", "tax deduction", "vehicle expense"],
-  popular: true,
-  faqs: [
-    {
-      question: "What are the IRS standard mileage rates?",
-      answer: "The IRS publishes standard mileage rates annually. For 2026 (verify with current IRS guidance), business mileage is typically $0.67/mile, medical mileage is $0.21/mile, and charity work is $0.14/mile. These rates change yearly and are updated for inflation and vehicle costs. The business rate is highest because it includes depreciation, fuel, insurance, and maintenance. Employers often use the IRS rate as a baseline but may pay higher rates. Self-employed individuals can deduct either actual vehicle expenses or the standard mileage rate, whichever is higher.",
-    },
-    {
-      question: "How do I document mileage for tax deductions?",
-      answer: "The IRS requires contemporaneous written records. Keep a mileage log with dates, starting location, destination, purpose, and miles driven. Mileage apps automatically track via GPS. Spreadsheets work if you maintain consistent records. Supporting documents include receipts for tolls, parking, and fuel. Records created after the fact may not be accepted. Maintain these records for at least 3 years for IRS compliance. Personal tax audits often examine mileage deductions, so detailed documentation is crucial. Apps like Stride Health, MileIQ, and simple spreadsheets all satisfy IRS requirements.",
-    },
-    {
-      question: "Can I deduct my commute to work?",
-      answer: "No. Commuting from home to your regular workplace is not deductible, even if it's a long distance. The IRS classifies commuting as personal, not business. However, driving to a temporary work location or between job sites is deductible. Contractors who work at multiple job sites can deduct mileage between sites. If you have a home office and drive to client meetings from home, those miles may be deductible. Meals, lodging, and expenses incurred once you arrive are separate deductions. Always consult a tax professional about your specific situation.",
-    },
-    {
-      question: "What's the difference between actual expenses and standard mileage deduction?",
-      answer: "Actual expenses method: you deduct depreciation, fuel, insurance, maintenance, registration, tolls, and parking. Requires detailed record-keeping and often yields higher deductions for new vehicles. Standard mileage method: you multiply miles driven by the IRS rate ($0.67 for business in 2026). Simpler and sufficient for most people. You must choose one method in your first year of business; switching later is restricted. If business use is less than 50% of annual miles, you must use actual expenses. For new vehicles with high depreciation, actual expenses often win. For older vehicles with low depreciation, standard mileage usually wins. Calculate both and choose the higher deduction.",
-    },
-    {
-      question: "How do I track mileage with multiple vehicles?",
-      answer: "Maintain separate logs for each vehicle. Record vehicle identification (VIN or license plate) with every entry. Use a spreadsheet with columns for date, vehicle, starting mileage, ending mileage, miles driven, purpose, and notes. Mileage apps typically allow multiple vehicles; set up each one separately. At year-end, sum business miles by vehicle. This is especially important if you use personal and business vehicles differently. Keep odometer readings or photos as supporting evidence. If audited, the IRS may request evidence of mileage (photos of odometer, toll receipts, etc.). Consistency and detail matter for credibility.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

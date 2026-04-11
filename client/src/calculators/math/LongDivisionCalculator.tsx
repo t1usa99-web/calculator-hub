@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function LongDivisionCalculator() {
   const [dividend, setDividend] = useState(125);
@@ -135,38 +134,3 @@ export default function LongDivisionCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: LongDivisionCalculator,
-  slug: "long-division-calculator",
-  title: "Long Division Calculator",
-  shortTitle: "Long Division",
-  description: "Calculate quotient, remainder, and decimal results for division",
-  category: "math",
-  icon: "➗",
-  keywords: ["long division", "division", "quotient", "remainder", "decimal division"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the difference between a quotient and a remainder?",
-      answer: "The quotient is how many times the divisor goes into the dividend evenly. The remainder is what{'\''}s left over. For 125 ÷ 7, the quotient is 17 and the remainder is 6. Together: 7 × 17 + 6 = 125."
-    },
-    {
-      question: "How do I express a division result with a remainder?",
-      answer: "You can write it three ways: as a mixed number (17 6/7), with R notation (17 R6), or as a decimal (17.857...). The mixed number is useful when dealing with whole units plus fractions, like 'I have 17 full bags and 6/7 of another bag.'"
-    },
-    {
-      question: "What happens if the remainder is zero?",
-      answer: "If the remainder is zero, the division is exact. The dividend is perfectly divisible by the divisor with no leftover. For example, 140 ÷ 7 = 20 with remainder 0, meaning 140 is completely divisible by 7."
-    },
-    {
-      question: "Can a remainder be larger than the divisor?",
-      answer: "No, the remainder is always smaller than the divisor. If the remainder were equal to or larger than the divisor, you could divide one more time. For example, if you got 'remainder 8' when dividing by 7, you should include one more in the quotient and the true remainder is 1."
-    },
-    {
-      question: "Why is long division taught if we have calculators?",
-      answer: "Long division teaches the concept of division, helps you estimate and check answers, and builds mathematical reasoning. Understanding the algorithm also helps with algebraic fractions, polynomial division, and mental math estimation. It{'\''}s a foundation for deeper mathematics."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

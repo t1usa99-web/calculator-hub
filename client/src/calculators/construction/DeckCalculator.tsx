@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function DeckCalculator() {
   const [deckLength, setDeckLength] = useState(16);
@@ -221,38 +220,3 @@ export default function DeckCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DeckCalculator,
-  slug: "deck-calculator",
-  title: "Deck Calculator",
-  shortTitle: "Deck",
-  description: "Calculate deck materials and costs for different wood types",
-  category: "construction",
-  icon: "🏗️",
-  keywords: ["deck", "boards", "joists", "pressure-treated", "composite"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is the difference between pressure-treated, cedar, and composite decking?",
-      answer: "Pressure-treated is affordable ($0.80-1.00/bf) and rot-resistant but requires periodic sealing. Cedar is attractive and natural ($1.50-2.00/bf) but needs annual staining and is expensive. Composite is maintenance-free and long-lasting ($2.00-3.00/bf) but costs more upfront. Choose based on budget and maintenance willingness.",
-    },
-    {
-      question: "What joist spacing should I use for my deck?",
-      answer: "Use 12 inches on center (OC) for maximum strength and minimal bounce. 16 inches OC is standard and adequate for most residential decks. 24 inches OC saves money but results in more bounce and supports lighter loads. Spacing affects deflection and load capacity; always follow local building codes.",
-    },
-    {
-      question: "How deep should posts be buried?",
-      answer: "Posts should be on concrete piers set 2-3 feet deep (below frost line). The frost line depth varies by region; check local building codes. Proper depth prevents heaving in winter and ensures stability. Posts should rest on gravel for drainage. Never set posts directly on soil without concrete.",
-    },
-    {
-      question: "What does board feet mean and how do I calculate it?",
-      answer: "Board feet (bf) is lumber measurement: 1 bf = 1 ft long x 1 ft wide x 1 inch thick. To calculate: (length in ft {'×'} width in inches {'×'} thickness in inches) / 12 = board feet. For a 10 ft long, 6 inch wide, 1 inch thick board: (10 {'×'} 6 {'×'} 1) / 12 = 5 bf.",
-    },
-    {
-      question: "Do I need a deck permit and building inspection?",
-      answer: "Most jurisdictions require permits for decks over 12-24 inches high or larger than 200 sqft. Permits ensure proper construction, load capacity, and safety. Inspections verify joist spacing, post depth, handrails, and code compliance. Unpermitted decks may need to be removed or rebuilt. Always check local regulations before building.",
-    },
-  ],
-});

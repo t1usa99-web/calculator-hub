@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function InflationAdjusterCalculator() {
   const [originalAmount, setOriginalAmount] = useState(100);
@@ -151,38 +150,3 @@ export default function InflationAdjusterCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: InflationAdjusterCalculator,
-  slug: "inflation-adjuster-calculator",
-  title: "Inflation Adjuster Calculator",
-  shortTitle: "Inflation",
-  description: "Calculate inflation-adjusted values to compare purchasing power across time",
-  category: "other",
-  icon: "📈",
-  keywords: ["inflation calculator", "purchasing power", "inflation adjustment", "real value", "nominal value"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is inflation and why does it matter?",
-      answer: "Inflation is the rate at which the general price level of goods and services increases over time. It matters because it reduces purchasing power; money is worth less as prices rise. Example: if inflation is 3%, something costing $100 today will cost $103 next year. Your salary, savings, and investments are all affected by inflation. Moderate inflation (2-3%) is considered healthy for an economy. High inflation (5%+) damages savings and retirement accounts. Understanding inflation helps you plan financially and compare values from different time periods.",
-    },
-    {
-      question: "How do I calculate the effect of inflation?",
-      answer: "Use the formula: Future Value = Present Value × (1 + inflation rate)^years. Example: $100 with 3% inflation for 5 years = $100 × (1.03)^5 = $115.93. This means $100 today will have the purchasing power of about $116 in 5 years if inflation continues at 3%. Conversely, $100 five years ago would have the purchasing power of about $86 today. Higher inflation rates or longer time periods increase the effect. Savings accounts earning less than the inflation rate actually lose purchasing power over time. This is why savers look for investments exceeding inflation rates.",
-    },
-    {
-      question: "What is the difference between nominal and real value?",
-      answer: "Nominal value is the face value at a specific time (what you see on price tags and paychecks). Real value is adjusted for inflation (purchasing power). Example: a $50,000 salary is nominal. If inflation is 3% and your salary doesn't increase, your real value decreases because you can buy less with the same money. A 2% salary raise in a 3% inflation year is actually a real decrease of 1%. Real returns on investments are the return minus inflation. A 5% investment return in a 3% inflation year has a real return of about 2%. Always consider real value when making long-term financial plans.",
-    },
-    {
-      question: "How does inflation affect savings and retirement accounts?",
-      answer: "Inflation erodes the purchasing power of savings. A savings account earning 1% interest in a year with 3% inflation has a real loss of 2%. Over 30-year retirement, significant inflation reduces your savings' purchasing power substantially. Example: $500,000 in retirement savings with an average 2.5% inflation over 30 years has the purchasing power of about $197,000 in today's dollars. To maintain purchasing power, investments should earn at least the inflation rate. Conservative savers should seek returns of 4-5% to exceed typical inflation and build real wealth. This is why savers shift to stocks or bonds for better returns during low interest rate environments.",
-    },
-    {
-      question: "What are typical inflation rates?",
-      answer: "U.S. inflation averages about 2-3% annually over long periods. Recent history: 2000-2019 averaged 2.2% annually, 2020 was 1.2%, 2021 was 7%, 2022 was 8%, 2023 was 4%. The 1970s saw double-digit inflation (10%+). The 2008 financial crisis saw near-zero inflation and deflation. For planning purposes, assuming 3% annual inflation is reasonable. Other countries have different rates: some developed nations average 2-3%, while emerging markets may see higher inflation. Central banks target specific inflation rates (U.S. Fed targets 2%). Actual results vary, especially during economic crises or supply shocks.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

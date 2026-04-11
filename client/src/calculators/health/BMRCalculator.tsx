@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { BMR_FAQS } from "@/lib/faq-health";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function BMRCalculator() {
   const [age, setAge] = useState(30);
@@ -151,17 +149,3 @@ export default function BMRCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BMRCalculator,
-  slug: "bmr-calculator",
-  title: "BMR Calculator",
-  shortTitle: "BMR",
-  description: "Calculate your Basal Metabolic Rate using the accurate Mifflin-St Jeor equation",
-  category: "health",
-  icon: "🔋",
-  keywords: ["BMR", "basal metabolic rate", "resting metabolic rate", "metabolism"],
-  popular: false,
-  faqs: BMR_FAQS,
-  dateModified: "2026-04-09",
-});

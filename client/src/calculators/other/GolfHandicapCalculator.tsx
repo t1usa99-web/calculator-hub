@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function GolfHandicapCalculator() {
   const [scoresInput, setScoresInput] = useState("85,84,86,83,87,85,88,84,85,86");
@@ -134,43 +133,3 @@ export default function GolfHandicapCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: GolfHandicapCalculator,
-  slug: "golf-handicap-calculator",
-  title: "Golf Handicap Calculator",
-  shortTitle: "Golf Handicap",
-  description: "Calculate your golf handicap index and course handicap",
-  category: "other",
-  icon: "⛳",
-  keywords: ["golf handicap", "handicap index", "course handicap", "golf scoring"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the difference between handicap index and course handicap?",
-      answer:
-        "Handicap index is a standardized number that represents your potential ability across all courses. Course handicap is your handicap adjusted for the specific difficulty of a particular course. The same player has one handicap index but different course handicaps at different courses. For example, a golfer with a 10.0 handicap index might have a course handicap of 11 at an easy course (slope 113) and 12 at a harder course (slope 125). Your course handicap determines how many strokes you get to subtract from your score in competition.",
-    },
-    {
-      question: "How many scores do I need to establish a handicap?",
-      answer:
-        "The USGA allows handicap calculations with as few as 5 scores, though more scores provide a more accurate picture. Most golfers submit their best 8 scores from their last 20 rounds. New golfers often submit 5-10 scores to establish an initial handicap. After that, new scores are added, and older scores drop off, keeping a rolling 20-score database. The system uses the best 8 differentials from those 20 to calculate the index, which prevents a single bad round from drastically affecting your handicap.",
-    },
-    {
-      question: "What do course rating and slope rating mean?",
-      answer:
-        "Course rating represents the expected score for a scratch golfer (par plus handicap adjustment) on that course from a specific set of tees. An average course has a 72.0 rating. Slope rating measures the relative difficulty compared to the standard (113). A slope of 140 is much harder than 113. Slope accounts for factors like length, hazards, rough, and green difficulty. Two courses with the same par can have vastly different ratings. Always use the rating and slope for the exact tees you played from, as different tee boxes have different ratings.",
-    },
-    {
-      question: "Can my handicap go negative?",
-      answer:
-        "Yes, though it's rare among amateur golfers. Negative handicaps indicate exceptional skill beyond scratch level. Tour professionals often have negative handicaps because they consistently shoot well below par. A golfer with a -2.0 handicap is expected to shoot 70 on a par-72 course (2 under par). Negative handicaps still function the same way in the calculation formula—they simply indicate the player is expected to beat par rather than play at par. Only elite golfers achieve negative handicaps in amateur play.",
-    },
-    {
-      question: "How often should I update my handicap?",
-      answer:
-        "Your handicap updates automatically as you submit new scores through your golf club or official handicap service. Most systems update handicaps daily or weekly. It's recommended to submit scores consistently after each round to maintain an accurate, current handicap. If you take a break from golf and return months later, your old scores eventually age out, and new scores establish a fresh calculation. Regular play and score submission ensure your handicap reflects your current ability for fair tournament competition and friendly matches.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

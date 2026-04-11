@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { PRESENT_VALUE_FAQS } from "@/lib/faq-finance-invest";
 
 export default function PresentValueCalculator() {
   const [futureValue, setFutureValue] = useState(100000);
@@ -104,23 +102,3 @@ export default function PresentValueCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PresentValueCalculator,
-  faqs: PRESENT_VALUE_FAQS,
-  slug: "present-value-calculator",
-  title: "Present Value Calculator",
-  shortTitle: "Present Value",
-  description:
-    "Determine the current worth of a future sum of money",
-  category: "finance",
-  icon: "⏱️",
-  keywords: [
-    "present value",
-    "NPV",
-    "discounting",
-    "investment analysis",
-    "finance",
-  ],
-  dateModified: "2026-04-09",
-});

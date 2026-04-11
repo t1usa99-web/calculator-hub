@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function TipCalculatorAdvanced() {
   const [billAmount, setBillAmount] = useState(50);
@@ -177,38 +176,3 @@ export default function TipCalculatorAdvanced() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TipCalculatorAdvanced,
-  slug: "tip-calculator-advanced",
-  title: "Tip Calculator Advanced",
-  shortTitle: "Tip Calc",
-  description: "Calculate tips and split bills among multiple people",
-  category: "other",
-  icon: "💵",
-  keywords: ["tip calculator", "gratuity", "split bill", "service charge", "restaurant tip"],
-  popular: true,
-  faqs: [
-    {
-      question: "How much should I tip?",
-      answer: "Standard tipping guidelines: 15% for acceptable service, 18-20% for good service, 20-25% for excellent service. Poor service may justify 10% or less. These percentages apply to restaurant servers. Different service types have different expectations: bartenders get $1-2 per drink, delivery drivers get 10-15% or $2-3 minimum, hairstylists get 15-20%, housekeeping gets $2-5 per night. Always tip on the pre-tax bill amount. For large groups (usually 8+ people), many restaurants automatically add 18-20% gratuity; check your bill to avoid double-tipping.",
-    },
-    {
-      question: "How do I calculate tip mentally?",
-      answer: "Quick mental math: 10% is moving the decimal one place left ($50 bill = 10% is $5). 20% is double 10% ($50 bill = 20% is $10). 15% is between 10% and 20% ($50 bill = 15% is $7-8). For a $50 bill: 10% is $5, 15% is $7.50, 20% is $10. For a $35 bill: 10% is $3.50, 15% is $5.25, 20% is $7. Most people round to the nearest dollar or round the total to a nice number. Apps and calculators make precise calculations instant. Tipping apps show multiple percentage options and calculate split bills automatically.",
-    },
-    {
-      question: "How do I split a bill with multiple people?",
-      answer: "For equal split: (Bill + Tip) / Number of People = Per Person Amount. Example: $60 bill, $12 tip (20%), 3 people = $72 / 3 = $24 per person. For proportional split: each person pays their portion of the bill plus their share of the tip. Example: one person spent $40, another $20 on a $60 bill. At 20% tip: person 1 pays $40 + $8 = $48, person 2 pays $20 + $4 = $24. Apps can split by item ordered. For fairness, agree on the tip percentage beforehand. Some people don't want to subsidize expensive items ordered by others; discuss expectations before ordering.",
-    },
-    {
-      question: "What if the bill already includes a service charge?",
-      answer: "Check your bill carefully. Service charge (automatic gratuity) is already included and equals the tip. You don't need to add another tip. However, you may choose to add a small amount (5-10%) if service was exceptional. This is common for large groups (usually 8+ people). Credit card processing may show a line for additional tip after a service charge has been added; leave it blank or add a nominal amount. In some countries, service is always included in the bill, and tipping is not customary. When traveling internationally, ask about local tipping customs to avoid embarrassment.",
-    },
-    {
-      question: "What if I receive bad service?",
-      answer: "Tipping less (10% instead of 18%) is appropriate for poor service, but communicate with management. Common issues: slow service, incorrect orders, inattentive staff. Try to distinguish between service failures and kitchen delays. Give servers a chance to correct mistakes. If issues persist, speak to a manager before paying. Leaving no tip or a very low tip should be reserved for genuinely terrible service (rude behavior, extreme neglect). Remember that servers often deal with difficult customers and may be affected by kitchen delays beyond their control. A tip of 10-15% acknowledges their effort while expressing dissatisfaction. Always be respectful; servers work hard and rely on tips.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

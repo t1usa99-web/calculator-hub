@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { NET_WORTH_FAQS } from "@/lib/faq-finance-invest";
 
 export default function NetWorthCalculator() {
   const [cash, setCash] = useState(5000);
@@ -231,16 +229,3 @@ export default function NetWorthCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: NetWorthCalculator,
-  faqs: NET_WORTH_FAQS,
-  slug: "net-worth-calculator",
-  title: "Net Worth Calculator",
-  shortTitle: "Net Worth",
-  description: "Calculate your total net worth by tracking all assets and liabilities",
-  category: "finance",
-  icon: "💎",
-  keywords: ["net worth", "assets", "liabilities", "wealth", "financial tracking"],
-  popular: true,
-});

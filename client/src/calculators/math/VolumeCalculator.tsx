@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { VOLUME_FAQS } from "@/lib/faq-math";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function VolumeCalculator() {
   const [shape, setShape] = useState("sphere");
@@ -215,17 +213,3 @@ export default function VolumeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: VolumeCalculator,
-  slug: "volume-calculator",
-  title: "Volume Calculator",
-  shortTitle: "Volume",
-  description: "Calculate volume and surface area of 3D shapes",
-  category: "math",
-  icon: "📦",
-  keywords: ["volume", "surface area", "sphere", "cylinder", "cone", "cube"],
-  popular: false,
-  faqs: VOLUME_FAQS,
-  dateModified: "2026-04-09"
-});

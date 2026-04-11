@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function LeanBodyMassCalculator() {
   const [weight, setWeight] = useState(170);
@@ -233,38 +232,3 @@ export default function LeanBodyMassCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: LeanBodyMassCalculator,
-  slug: "lean-body-mass-calculator",
-  title: "Lean Body Mass Calculator",
-  shortTitle: "Lean Body Mass",
-  description: "Calculate your lean body mass, fat mass, and muscle-to-fat ratio",
-  category: "health",
-  icon: "💪",
-  keywords: ["lean body mass", "LBM", "fat mass", "body composition", "muscle", "fitness"],
-  popular: false,
-  faqs: [
-    {
-      question: "What's the difference between LBM and muscle mass?",
-      answer: "LBM includes all non-fat tissue: muscle, bone, organs, water, and connective tissue. Muscle mass is just the skeletal muscle portion. LBM is typically 75-85% muscle, 15-25% other tissues."
-    },
-    {
-      question: "How accurate is the waist-based body fat estimate?",
-      answer: "The Navy-style estimate has a margin of error of about ±3-5% for body fat percentage. Direct measurements like DEXA scans are more accurate (±1-2%). Use estimates for tracking trends; use direct measures for precision."
-    },
-    {
-      question: "Why does my LBM matter for weight loss?",
-      answer: "LBM is metabolically active—muscle burns ~6 calories per pound per day at rest, while fat burns only ~2 calories. Preserving LBM during weight loss keeps your metabolism high and improves body composition."
-    },
-    {
-      question: "What's a healthy muscle-to-fat ratio?",
-      answer: "For men: ratios above 3:1 are excellent. For women: ratios above 2:1 are excellent. These vary by age and fitness level. Competitive athletes may reach 5:1 or higher."
-    },
-    {
-      question: "How do I increase my LBM?",
-      answer: "Combine resistance training (lift weights 3-5x weekly) with adequate protein intake (0.7-1g per pound of LBM). Progressive overload and consistent effort build muscle over months."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function InsulationCalculator() {
   const [areaSquareFeet, setAreaSquareFeet] = useState(1000);
@@ -213,38 +212,3 @@ export default function InsulationCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: InsulationCalculator,
-  slug: "insulation-calculator",
-  title: "Insulation Calculator",
-  shortTitle: "Insulation",
-  description: "Calculate insulation needed by type and desired R-value",
-  category: "construction",
-  icon: "📐",
-  keywords: ["insulation", "R-value", "thermal", "energy efficiency"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is an R-value and why does it matter?",
-      answer: "R-value measures how well insulation resists heat transfer. Higher R-values provide better insulation. Walls typically need R-13 to R-21, attics R-38 to R-60, depending on climate. Building codes specify minimum R-values by location. R-values are additive; two layers of R-13 create R-26. Better insulation reduces heating/cooling costs and improves comfort.",
-    },
-    {
-      question: "What is the difference between fiberglass, blown-in, and spray foam insulation?",
-      answer: "Fiberglass batts are affordable ($0.50-1.00/sqft) and easy to install but leave air gaps. Blown-in cellulose ($1.00-1.50/sqft) fills irregular spaces and seals better. Spray foam ($1.50-2.50/sqft) provides excellent air-sealing and moisture resistance but is expensive. Choose based on location, budget, and air-sealing needs.",
-    },
-    {
-      question: "How do I know what R-value I need for my area?",
-      answer: "R-value requirements vary by climate zone and building location. The U.S. Department of Energy provides maps showing recommended R-values. Cold climates need higher R-values (R-38 to R-60 in attics). Moderate climates need R-19 to R-30. Check local building codes for minimum requirements in your area.",
-    },
-    {
-      question: "Can I stack insulation layers to achieve higher R-values?",
-      answer: "Yes, R-values are additive. Two layers of R-13 batt insulation create R-26 total. However, ensure proper ventilation; some combinations trap moisture and cause mold. Consult building codes before stacking different insulation types. Spray foam and rigid board typically don't need additional insulation.",
-    },
-    {
-      question: "Is professional installation necessary for insulation?",
-      answer: "Fiberglass batts can be DIY-installed if done carefully (wear protection, cut accurately). Blown-in and spray foam require professional equipment and expertise for optimal results. Professional installation ensures proper coverage, density, and air-sealing. The cost difference is often worth it for performance and warranty. Improper installation reduces effectiveness significantly.",
-    },
-  ],
-});

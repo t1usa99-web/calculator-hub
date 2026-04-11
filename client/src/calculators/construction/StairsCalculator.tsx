@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function StairsCalculator() {
   const [totalRise, setTotalRise] = useState(9.5); // feet (9.5 feet typical between floors)
@@ -154,38 +153,3 @@ export default function StairsCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: StairsCalculator,
-  slug: "stairs-calculator",
-  title: "Stairs Calculator",
-  shortTitle: "Stairs",
-  description: "Calculate stair dimensions and verify building code compliance",
-  category: "construction",
-  icon: "📐",
-  keywords: ["stairs", "steps", "riser", "tread", "stringer"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "How do I calculate the number of stairs needed?",
-      answer: "Divide the total rise (in inches) by your desired riser height. For example, 9.5 feet (114 inches) divided by 7.5 inches per riser = 15.2, round up to 16 risers. Then divide total rise by 16 to get actual riser height: 114 {'/'} 16 = 7.13 inches. Uniform riser heights are essential for safety.",
-    },
-    {
-      question: "What is the building code for riser and tread heights?",
-      answer: "Building codes require risers between 7.0 and 7.75 inches (varies by jurisdiction). Treads must be at least 10 inches deep. All risers must be uniform; variation greater than 3/8 inch is a trip hazard. The formula riser + tread = 17-18 inches creates comfortable, safe stairs. Always check local codes before building.",
-    },
-    {
-      question: "How do I calculate tread depth?",
-      answer: "Use the formula: tread = 25 minus riser height. For a 7.5 inch riser, tread = 25 - 7.5 = 17.5 inches. Alternatively, use riser + tread = 17-18 inches: a 7.5 inch riser needs a 10-10.5 inch tread. Treads must be at least 10 inches to meet code. Deeper treads (11-12 inches) are more comfortable.",
-    },
-    {
-      question: "What is a stringer and how do I calculate its length?",
-      answer: "A stringer is the diagonal support beam (usually 2x10 or 2x12 lumber) that holds stairs. Calculate length using the Pythagorean theorem: √(total rise² + total run²). For stairs with 9.5 ft rise and 13.5 ft run: √(114² + 162²) = √(12,996 + 26,244) = 197.5 inches. Stringers typically support the stairs on walls or posts.",
-    },
-    {
-      question: "Do I need a permit to build stairs?",
-      answer: "Yes, stairs typically require permits and inspection in most jurisdictions. Building codes specify riser/tread heights, handrails (required for 4+ risers), and handrail strength (200 lbs force). Always check local codes and get approval before building. Inspectors verify safety and code compliance. Unpermitted work may need to be corrected or removed.",
-    },
-  ],
-});

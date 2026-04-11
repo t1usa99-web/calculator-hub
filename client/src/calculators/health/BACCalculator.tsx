@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { BAC_FAQS } from "@/lib/faq-health";
 
 export default function BACCalculator() {
   const [gender, setGender] = useState("male");
@@ -184,17 +182,3 @@ export default function BACCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BACCalculator,
-  slug: "bac-calculator",
-  title: "BAC Calculator",
-  shortTitle: "BAC",
-  description: "Calculate your estimated blood alcohol concentration and impairment level",
-  category: "health",
-  icon: "🍺",
-  keywords: ["BAC", "blood alcohol concentration", "alcohol calculator", "drunk driving"],
-  popular: false,
-  faqs: BAC_FAQS,
-  dateModified: "2026-04-09",
-});

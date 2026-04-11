@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PercentErrorCalculator() {
   const [experimentalValue, setExperimentalValue] = useState(9.8);
@@ -112,38 +111,3 @@ export default function PercentErrorCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PercentErrorCalculator,
-  slug: "percent-error-calculator",
-  title: "Percent Error Calculator",
-  shortTitle: "Percent Error",
-  description: "Calculate percent error between experimental and theoretical values",
-  category: "math",
-  icon: "🎯",
-  keywords: ["percent error", "error calculation", "experimental error", "accuracy", "precision"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the difference between percent error and percent difference?",
-      answer: "Percent error compares an experimental value to a known theoretical value. Percent difference compares two measurements when neither is definitely correct. Percent error assumes one value is the standard."
-    },
-    {
-      question: "Why do we use absolute value in the percent error formula?",
-      answer: "The absolute value ensures percent error is always positive. Whether you over- or under-measured, the magnitude of error is what matters. This makes it easy to compare accuracy across different measurements."
-    },
-    {
-      question: "What is a good percent error?",
-      answer: "In most lab settings, percent error under 5% is excellent, 5-10% is good, and 10-20% is acceptable. The threshold depends on the field: pharmaceutical manufacturing requires less than 1%, while some physical measurements accept 10-15%."
-    },
-    {
-      question: "Can percent error be zero?",
-      answer: "Yes, percent error is zero only when the experimental value exactly equals the theoretical value, which is rare in practice. Even precise instruments have some measurement error."
-    },
-    {
-      question: "How do I reduce percent error?",
-      answer: "Improve your measuring technique, use more precise instruments, minimize environmental interference, and take multiple measurements to average out random errors. Identifying and correcting systematic errors is also crucial."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

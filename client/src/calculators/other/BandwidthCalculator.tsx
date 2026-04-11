@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function BandwidthCalculator() {
   const [fileSize, setFileSize] = useState(500);
@@ -173,43 +172,3 @@ export default function BandwidthCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BandwidthCalculator,
-  slug: "bandwidth-calculator",
-  title: "Bandwidth Calculator",
-  shortTitle: "Bandwidth",
-  description: "Calculate download time and data transfer rates based on bandwidth",
-  category: "other",
-  icon: "📡",
-  keywords: ["bandwidth calculator", "download time", "upload speed", "internet speed"],
-  popular: false,
-  faqs: [
-    {
-      question: "Why is my download speed slower than my ISP's advertised bandwidth?",
-      answer:
-        "Advertised speeds are theoretical maximums under ideal conditions. Real factors reduce actual speed: network congestion (peak hours have slower speeds), Wi-Fi signal strength and distance from router (wireless is slower than wired), protocol overhead (about 5-10% of bandwidth goes to network management), server limitations (some servers don't deliver at full speed), and hardware limits (older routers/NICs cap speeds). A 100 Mbps plan rarely delivers exactly 100 Mbps. Test with Speedtest.net to see your actual speed. If consistently 50% slower, contact your ISP—it may indicate a problem worth investigating.",
-    },
-    {
-      question: "What's the difference between Mbps and MBps, and why does it matter?",
-      answer:
-        "Mbps = megabits per second (bandwidth, used by ISPs), MBps = megabytes per second (file transfer speed). 1 byte = 8 bits, so 100 Mbps = 12.5 MBps. This distinction matters because ISPs advertise Mbps while operating systems show file transfer in MBps. A 100 Mbps connection downloads at 12.5 MBps, not 100 MBps. This is partly why ISP speeds seem disappointing—users expect 100 MB/s transfers from 100 Mbps connections. Always remember: bandwidth in bits/second, file sizes in bytes. Divide Mbps by 8 to get MBps.",
-    },
-    {
-      question: "How much bandwidth do I need for common activities?",
-      answer:
-        "Browsing and email: 1-5 Mbps. Video calls (Zoom): 2.5-4 Mbps. Streaming HD video: 5-10 Mbps. Streaming 4K video: 15-25 Mbps. Online gaming: 1-5 Mbps (latency matters more). Downloading large files: depends on file size and desired time. Family of 4 with mixed activities: 25-100 Mbps recommended. Multiple 4K streams simultaneously: 50+ Mbps. Work-from-home with video: 10-25 Mbps. Most homes benefit from 50-100 Mbps plans. Gigabit fiber (1000 Mbps) is overkill for residential users unless you run a business or stream professionally.",
-    },
-    {
-      question: "What does a data cap mean for my bandwidth and usage?",
-      answer:
-        "A data cap limits total monthly data transfer (e.g., 250 GB/month). Some ISPs throttle speeds after reaching the cap; others charge overage fees. Data caps don't limit instantaneous bandwidth (speed) but total cumulative usage. A 250 GB cap with 100 Mbps bandwidth means you could theoretically use the cap in about 2.4 days of continuous use at max speed. In practice, monthly usage includes streaming, browsing, updates, and backups. Streaming 4K video uses 15-20 GB per day of heavy use. Large file transfers (system updates, game installs) consume significant data. If on a capped plan, monitor usage with router or ISP tools to avoid overage fees.",
-    },
-    {
-      question: "How can I improve my actual download speeds?",
-      answer:
-        "Use a wired Ethernet connection instead of Wi-Fi for maximum speed. Position your router centrally and elevate it (not on the floor). Reduce Wi-Fi interference by changing channels in router settings. Restart your router regularly to clear memory. Close bandwidth-heavy applications while downloading (streaming, video calls). Avoid peak usage times (evenings, weekends) when congestion is high. Update your router firmware and check if your hardware is outdated. Contact your ISP to verify you're getting advertised speeds—if not, report the issue. Upgrade your plan if consistently slow. Switch ISPs if better options are available in your area. For business, consider dedicated lines or bonded connections for guaranteed bandwidth.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

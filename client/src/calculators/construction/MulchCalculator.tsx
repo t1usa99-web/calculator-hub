@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function MulchCalculator() {
   const [areaLength, setAreaLength] = useState(30);
@@ -171,38 +170,3 @@ export default function MulchCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MulchCalculator,
-  slug: "mulch-calculator",
-  title: "Mulch Calculator",
-  shortTitle: "Mulch",
-  description: "Calculate mulch needed for landscaping and compare bulk vs. bagged options",
-  category: "construction",
-  icon: "🍂",
-  keywords: ["mulch", "landscape", "ground cover", "gardening", "yard"],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "How much mulch should I apply to my garden beds?",
-      answer: "Standard mulch depth is 2-3 inches. Three inches provides the best weed suppression and moisture retention. Shallower applications (1-2 inches) provide basic coverage but may allow weeds through. Deeper mulch (4+ inches) can suffocate shallow-rooted plants. Keep mulch 6 inches away from tree trunks to prevent rot and pest issues.",
-    },
-    {
-      question: "Is bulk or bagged mulch cheaper?",
-      answer: "For large areas (over 5-10 cubic yards), bulk is usually cheaper per cubic yard. Bulk mulch costs less per unit but requires delivery. Bagged mulch is convenient for small areas and doesn't require storage. For a 10 cubic yard project, bulk is often $30-50 cheaper than bagged. Compare both options for your specific quantity.",
-    },
-    {
-      question: "How do I calculate the amount of mulch needed?",
-      answer: "Multiply length {'×'} width {'×'} depth (all in feet), then divide by 27 to get cubic yards. For example, a 30 ft {'×'} 20 ft area with 3 inches depth: (30 {'×'} 20 {'×'} 0.25) / 27 = 5.6 cubic yards. Always add 10% extra for settling and coverage gaps.",
-    },
-    {
-      question: "What types of mulch are available and which should I choose?",
-      answer: "Hardwood mulch (shredded wood) lasts 3-5 years and is most common. Cedar/pine smells great but breaks down faster (2-3 years). Colored mulch is dyed and long-lasting (3-5 years). Bark mulch is natural and attractive. Rubber mulch is durable but expensive. Choose based on longevity, appearance, and budget.",
-    },
-    {
-      question: "How often should I replace or refresh mulch?",
-      answer: "Mulch breaks down over time as it decomposes and adds organic matter to soil. Top-dress with 1-2 inches of fresh mulch annually to maintain depth. Complete mulch replacement is needed every 2-4 years depending on type and climate. Hardwood and colored mulch lasts longer than cedar. Regular refreshing maintains appearance and weed suppression.",
-    },
-  ],
-});

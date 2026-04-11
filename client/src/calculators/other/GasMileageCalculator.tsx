@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function GasMileageCalculator() {
   const [distanceDriven, setDistanceDriven] = useState(300);
@@ -147,38 +146,3 @@ export default function GasMileageCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: GasMileageCalculator,
-  slug: "gas-mileage-calculator",
-  title: "Gas Mileage Calculator",
-  shortTitle: "Gas Mileage",
-  description: "Calculate fuel economy and annual fuel costs",
-  category: "other",
-  icon: "⛽",
-  keywords: ["MPG calculator", "fuel economy", "gas cost", "miles per gallon", "fuel efficiency"],
-  popular: true,
-  faqs: [
-    {
-      question: "How do I calculate miles per gallon (MPG)?",
-      answer: "MPG equals miles driven divided by gallons used. Formula: MPG = Miles Driven / Gallons Consumed. Example: if you drive 300 miles and use 15 gallons, your MPG is 300 / 15 = 20 MPG. To track your actual fuel economy accurately, fill your tank completely, note the odometer, drive normally, then fill again and record miles driven and gallons added. Repeat this process several times to get an average. One fill-up can give skewed results due to variations in filling technique and driving conditions.",
-    },
-    {
-      question: "What factors affect fuel economy the most?",
-      answer: "Driving habits have the largest impact. Aggressive acceleration, speeding, and harsh braking reduce MPG by 10-20%. Traffic conditions matter significantly; stop-and-go city driving uses more fuel than steady highway driving. Vehicle type is also critical; SUVs and trucks consume more fuel than sedans and hybrids. Weather affects MPG (cold temperatures reduce efficiency by 10-15%). Tire pressure is important; underinflated tires by 10 PSI can reduce MPG by 3%. Load weight affects efficiency; every 100 pounds carried reduces MPG by 1-2%. Regular maintenance (clean air filters, proper spark plugs) maintains efficiency.",
-    },
-    {
-      question: "How can I improve my vehicle's fuel economy?",
-      answer: "Drive smoothly: avoid rapid acceleration, aggressive braking, and speeding. Use cruise control on highways to maintain steady speed. Keep tires properly inflated (check monthly). Perform regular maintenance (oil changes every 5,000 miles, air filter replacements). Remove excess cargo from your vehicle. Reduce idling; turn off the engine if stopped for more than 10 seconds. Plan routes efficiently to minimize distance. Combine trips into one journey. Consider vehicles with hybrid or electric options for better efficiency. These measures can improve MPG by 5-20%, saving hundreds annually.",
-    },
-    {
-      question: "What's the difference between city and highway MPG?",
-      answer: "Highway MPG is typically 20-30% higher than city MPG because highway driving is more steady and efficient. City driving involves frequent stops, starts, and low speeds, all of which consume more fuel. Example: a vehicle might get 22 city MPG and 30 highway MPG. The EPA publishes both numbers for all vehicles. Your actual MPG depends on how much city vs. highway driving you do. To calculate blended average: (city MPG × city miles + highway MPG × highway miles) / total miles. If you drive mostly city, your average will be closer to city MPG.",
-    },
-    {
-      question: "How much money can I save by improving MPG?",
-      answer: "Savings depend on annual miles driven and gas prices. Formula: Annual Savings = (Annual Miles / Current MPG - Annual Miles / New MPG) × Gas Price. Example: 12,000 miles/year, current 20 MPG, improve to 25 MPG, gas $3.50/gal = (600 - 480) × $3.50 = $420/year. Small improvements (5 MPG) save $200-300 yearly. Larger improvements (10 MPG) save $400-800 yearly. Over a vehicle's 10-year lifespan, modest MPG improvements save thousands. This doesn't include environmental benefits: better MPG means less CO2 emissions and reduced environmental impact.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

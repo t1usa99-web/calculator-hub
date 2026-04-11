@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function SlopeCalculator() {
   const [x1, setX1] = useState(1);
@@ -169,38 +168,3 @@ export default function SlopeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SlopeCalculator,
-  slug: "slope-calculator",
-  title: "Slope Calculator",
-  shortTitle: "Slope",
-  description: "Calculate slope, line equation, and distance from two points",
-  category: "math",
-  icon: "📈",
-  keywords: ["slope", "line", "coordinate geometry", "rise over run", "linear equation"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is slope?",
-      answer: "Slope measures the steepness of a line. It{'\''}s calculated as rise over run: slope = (y2 - y1) / (x2 - x1)."
-    },
-    {
-      question: "What does a positive or negative slope mean?",
-      answer: "A positive slope means the line goes upward from left to right. A negative slope means the line goes downward from left to right."
-    },
-    {
-      question: "What is the y-intercept?",
-      answer: "The y-intercept (b) is the point where a line crosses the y-axis. In the equation y = mx + b, it{'\''}s the value of y when x = 0."
-    },
-    {
-      question: "How do I find the line equation from two points?",
-      answer: "Calculate the slope m = (y2 - y1) / (x2 - x1), then find b using b = y - mx. The equation is y = mx + b."
-    },
-    {
-      question: "What is undefined slope?",
-      answer: "Undefined slope occurs with a vertical line, where x1 = x2. You cannot divide by zero, so the slope is undefined."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

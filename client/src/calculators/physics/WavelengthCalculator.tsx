@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { WAVELENGTH_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function WavelengthCalculator() {
   const [frequency, setFrequency] = useState(500e12);
@@ -77,16 +75,3 @@ export default function WavelengthCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "wavelength-calculator",
-  title: "Wavelength Calculator",
-  shortTitle: "Wavelength",
-  description: "Calculate wavelength from frequency and wave speed",
-  category: "physics",
-  icon: "🌊",
-  keywords: ["wavelength", "frequency", "wave", "light"],
-  component: WavelengthCalculator,
-  faqs: WAVELENGTH_FAQS,
-  dateModified: "2026-04-09",
-});

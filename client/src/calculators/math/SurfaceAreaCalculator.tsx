@@ -4,7 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function SurfaceAreaCalculator() {
   const [shape, setShape] = useState("sphere");
@@ -165,38 +164,3 @@ export default function SurfaceAreaCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SurfaceAreaCalculator,
-  slug: "surface-area-calculator",
-  title: "Surface Area Calculator",
-  shortTitle: "Surface Area",
-  description: "Calculate surface area and volume of spheres, cubes, cylinders, cones, and rectangular prisms",
-  category: "math",
-  icon: "📦",
-  keywords: ["surface area", "volume", "3D", "sphere", "cube", "cylinder", "cone", "geometry"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the difference between surface area and volume?",
-      answer: "Surface area is the total area of all outer surfaces (measured in square units). Volume is the space enclosed inside (measured in cubic units)."
-    },
-    {
-      question: "What is surface area used for?",
-      answer: "Surface area tells you how much material is needed to cover or paint an object. For example, wallpaper needed or paint required."
-    },
-    {
-      question: "What is volume used for?",
-      answer: "Volume tells you how much space is inside. For example, how much water a tank holds, or how much concrete is needed to fill a mold."
-    },
-    {
-      question: "Why is a sphere special?",
-      answer: "A sphere encloses the maximum volume for a given surface area. This is why bubbles, planets, and cells tend to be spherical—it{'\''}s the most efficient shape."
-    },
-    {
-      question: "How do I calculate surface area of a rectangular prism?",
-      answer: "For a box with length l, width w, and height h: Surface Area = 2(lw + lh + wh). This covers all six faces."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

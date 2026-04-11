@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { ROUNDING_FAQS } from "@/lib/faq-math";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function RoundingCalculator() {
   const [value, setValue] = useState(3.14159);
@@ -132,24 +130,3 @@ export default function RoundingCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: RoundingCalculator,
-  slug: "rounding-calculator",
-  title: "Rounding Calculator",
-  shortTitle: "Rounding",
-  description:
-    "Round numbers with various methods including ceiling, floor, and banker's rounding",
-  category: "math",
-  icon: "🎯",
-  keywords: [
-    "rounding",
-    "round up",
-    "round down",
-    "ceiling",
-    "floor",
-    "precision",
-  ],
-  faqs: ROUNDING_FAQS,
-  dateModified: "2026-04-09",
-});

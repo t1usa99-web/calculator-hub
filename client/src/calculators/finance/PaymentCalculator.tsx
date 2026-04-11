@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { PAYMENT_FAQS } from "@/lib/faq-finance-loans";
 
 export default function PaymentCalculator() {
   const [loanAmount, setLoanAmount] = useState(250000);
@@ -115,23 +113,3 @@ export default function PaymentCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PaymentCalculator,
-  slug: "payment-calculator",
-  title: "Payment Calculator",
-  shortTitle: "Payment",
-  description:
-    "Calculate monthly loan payments for mortgages, auto loans, and other debts",
-  category: "finance",
-  icon: "💵",
-  keywords: [
-    "monthly payment",
-    "loan payment",
-    "mortgage payment",
-    "APR",
-    "amortization",
-  ],
-  dateModified: "2026-04-09",
-  faqs: PAYMENT_FAQS,
-});

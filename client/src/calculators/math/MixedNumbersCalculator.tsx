@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { MIXED_NUMBERS_FAQS } from "@/lib/faq-math";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 function gcd(a: number, b: number): number {
   a = Math.abs(a);
@@ -208,23 +206,3 @@ export default function MixedNumbersCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MixedNumbersCalculator,
-  slug: "mixed-numbers-calculator",
-  title: "Mixed Numbers Calculator",
-  shortTitle: "Mixed Numbers",
-  description:
-    "Perform arithmetic operations on mixed numbers with simplified results",
-  category: "math",
-  icon: "➗",
-  keywords: [
-    "mixed numbers",
-    "fractions",
-    "arithmetic",
-    "simplify",
-    "improper fractions",
-  ],
-  faqs: MIXED_NUMBERS_FAQS,
-  dateModified: "2026-04-09",
-});

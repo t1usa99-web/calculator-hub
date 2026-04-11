@@ -13,8 +13,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { CURRENCY_CONVERTER_FAQS } from "@/lib/faq-finance-invest";
 import { useExchangeRates } from "@/lib/use-exchange-rates";
 
 // Full currency metadata — codes must match the server's FX_PAIRS + USD
@@ -351,23 +349,3 @@ export default function CurrencyConverterCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CurrencyConverterCalculator,
-  faqs: CURRENCY_CONVERTER_FAQS,
-  slug: "currency-converter-calculator",
-  title: "Currency Converter Calculator",
-  shortTitle: "Currency Converter",
-  description:
-    "Convert between 30+ world currencies with live exchange rates updated hourly",
-  category: "finance",
-  icon: "💱",
-  keywords: [
-    "currency converter",
-    "exchange rate",
-    "forex",
-    "international",
-    "live rates",
-  ],
-  popular: true,
-});

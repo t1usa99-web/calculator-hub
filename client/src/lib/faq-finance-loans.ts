@@ -451,3 +451,165 @@ export const MORTGAGE_PAYOFF_FAQS: FAQ[] = [
       "Biweekly payments result in 26 payments/year instead of 24 monthly payments, equivalent to one extra payment annually. On a $300,000 mortgage at 6.5% for 30 years, biweekly payments shorten the loan to about 27 years and save roughly $35,000 in interest. This is one of the easiest ways to accelerate payoff without increasing your total monthly outlay — instead of paying $1,896/month × 12, you pay $948 biweekly × 26. Set up automatic biweekly payments through your bank.",
   },
 ];
+
+export const DEBT_CONSOLIDATION_FAQS: FAQ[] = [
+  {
+    question: "What is debt consolidation and how does it work?",
+    answer:
+      "Debt consolidation combines multiple debts (credit cards, personal loans) into a single new loan, ideally with a lower interest rate and simpler payments. You use new loan proceeds to pay off existing debts, then owe only the consolidation loan. Example: three credit cards totaling $15,000 at 18-22% APR (minimum payments $400/month) consolidated into a $15,000 personal loan at 10% APR ($286/month). Benefits: lower rate, simpler tracking, lower monthly payments. Drawback: if extended loan term increases total interest paid, you lose savings.",
+  },
+  {
+    question: "Is debt consolidation a good strategy?",
+    answer:
+      "Consolidation works if the new rate is significantly lower (2-3%+) and you don't extend the term excessively. Example: consolidating $15,000 credit card debt (18% APR) into a personal loan at 10% APR saves interest even over a 5-year term versus minimum payments on the card (which takes 5+ years anyway). Critical: stop accumulating new debt or you'll have both debts. Consolidation doesn't fix overspending — it's temporary relief. Use consolidation as a tool to reduce payments and rate while aggressively paying down principal.",
+  },
+  {
+    question: "What are options for consolidation: personal loan vs. balance transfer?",
+    answer:
+      "Personal loan consolidation: pay flat interest rate (8-36% depending on credit), usually fixed 3-5 year terms. Balance transfer: move credit card debt to a 0% APR card (usually 6-21 months intro period), then standard rate (18-25%). Personal loans provide certainty and longer terms; balance transfers offer temporary 0% but require disciplined payoff before rate jumps. For large debt, personal loans are often better (lower ongoing rate). For manageable amounts and discipline, balance transfers save money during 0% period.",
+  },
+  {
+    question: "What should I watch out for in consolidation?",
+    answer:
+      "Avoid extending the term just to lower monthly payments — a 7-year consolidation loan might cost more total interest than a 3-year loan despite lower monthly payments. Watch for fees: origination fees (1-5% of loan) reduce net proceeds. Don't consolidate high-interest debt into a mortgage (secured by home — risky). Most critically, close paid-off accounts or resist temptation to re-use them, or you'll accumulate new debt while paying consolidation loan.",
+  },
+];
+
+export const FHA_LOAN_FAQS: FAQ[] = [
+  {
+    question: "What is an FHA loan and who qualifies?",
+    answer:
+      "FHA (Federal Housing Administration) loans are mortgages insured by the federal government, requiring lower down payments (3.5%-10%) and more lenient credit requirements (580+ credit score) than conventional loans. FHA loans are ideal for first-time homebuyers or those with limited savings/credit. Borrowers pay mortgage insurance (MIP), adding 0.5-1.5% to annual mortgage cost. Example: $300,000 home with 3.5% down ($10,500), standard 6% mortgage + 1% annual MIP. FHA loans typically take 2-3 days to close; approval rates are higher than conventional.",
+  },
+  {
+    question: "What is mortgage insurance on an FHA loan and can I remove it?",
+    answer:
+      "Mortgage insurance protects lenders if you default. FHA requires upfront MIP (~1.75% of loan amount, paid at closing or rolled into loan) plus annual MIP (0.5-1.5% of loan balance). If you put down less than 10%, annual MIP lasts the entire 30-year loan. If you put down 10%+, MIP drops after 11 years. Example: $290,000 FHA loan, 1% annual MIP = $2,900/year ($242/month). As you pay down principal, MIP amount decreases. Unlike conventional PMI (removed at 20% equity), FHA MIP may never fully disappear, making paying down principal slowly costly.",
+  },
+  {
+    question: "How does FHA loan debt-to-income ratio compare to conventional?",
+    answer:
+      "FHA allows front-end DTI (mortgage payment only) up to 31.5-40% and back-end DTI (all debts) up to 43-50%, versus conventional 28-36% front-end and 36-43% back-end. On $6,000 monthly gross income, FHA allows mortgage payment up to $1,890-$2,400 and total debt $2,580-$3,000, versus conventional $1,680-$2,160 and $2,160-$2,580. FHA's flexibility is great for marginal borrowers. However, high DTI increases default risk — lenders still scrutinize carefully.",
+  },
+  {
+    question: "What are FHA loan limits and do they apply everywhere?",
+    answer:
+      "FHA loan limits vary by county, typically $440,000-$680,000 for single-family homes (higher in expensive areas like California). Check your local limits on HUD.gov. These limits restrict how much you can borrow; if you need more, you must go conventional or combine FHA with second mortgage. Limits increase annually based on home prices. High-cost areas (San Francisco, NYC) have higher limits (~$1.2M). If considering FHA, verify your target home price doesn't exceed local limits.",
+  },
+];
+
+export const HOME_EQUITY_FAQS: FAQ[] = [
+  {
+    question: "What is home equity and how do I calculate it?",
+    answer:
+      "Home equity is your ownership stake: <strong>Equity = Home Value − Mortgage Balance</strong>. Example: home worth $300,000, mortgage balance $180,000, equity = $120,000 (40%). Equity grows as you pay down the mortgage or home appreciates. A $300,000 home appreciating 3% annually to $309,000 adds $9,000 equity without extra payments. Equity is dead money until accessed through refinancing or HELOC. Most advisors recommend building 20%+ equity before refinancing to avoid high costs.",
+  },
+  {
+    question: "What is a HELOC and how do I use it?",
+    answer:
+      "HELOC (Home Equity Line of Credit) lets you borrow against home equity at variable rates (usually prime + margin, currently 7-10%). You draw only what you need (like a credit card), paying interest only on borrowed amounts. Example: $120,000 equity, $100,000 HELOC available. Borrow $30,000 at 8.5% = $213/month interest-only, or $525/month fully amortized. HELOCs are useful for home renovations, major expenses, or debt consolidation (lower rate than credit cards). Drawback: variable rates rise with Fed hikes; home serves as collateral (foreclosure risk if defaulting).",
+  },
+  {
+    question: "Should I use a home equity loan or HELOC?",
+    answer:
+      "Home equity loan: fixed rate, fixed term (10-15 years), fixed payments. HELOC: variable rate, variable payments, flexibility to draw as needed. Equity loans suit known expenses (renovations, debt payoff) with fixed amounts. HELOCs suit uncertain needs or ongoing access (home improvements over time). In rising-rate environments, fixed-rate equity loans are safer than HELOCs (which rate increases). For most, fixed-rate equity loans are simpler; for flexible spenders, HELOCs provide control. Compare rates; HELOCs often start 0.5-1% below equity loans.",
+  },
+  {
+    question: "Can I access home equity without a HELOC or loan?",
+    answer:
+      "Yes: (1) Cash-out refinance: refinance mortgage for more than owed, pocket the difference (costs closing fees); (2) Home equity sharing: sell portion of future home appreciation to investors for cash now (complex, expensive). (3) Downsizing: sell home, buy cheaper, pocket difference. For most, HELOC or home equity loan provides the simplest access. Refinancing works if rates fell significantly from original mortgage. Sharing equity is expensive and rarely worthwhile.",
+  },
+];
+
+export const IRA_FAQS: FAQ[] = [
+  {
+    question: "What is an IRA and how does it work?",
+    answer:
+      "IRA (Individual Retirement Account) is a tax-advantaged retirement savings account. Two main types: Traditional IRA contributes pre-tax (reducing current income taxes), pay taxes on withdrawals in retirement. Roth IRA contributes after-tax, withdrawals in retirement are tax-free. Both allow $7,000 annual contributions (2024). IRAs invest in stocks, bonds, mutual funds, self-directed investments. Growth compounds tax-free until withdrawal. At age 59½, you can withdraw without penalty. Before age 59½, early withdrawal incurs 10% penalty plus income taxes.",
+  },
+  {
+    question: "What are IRA income limits and contribution limits?",
+    answer:
+      "2024 limits: contribute $7,000/year ($8,000 if age 50+). Traditional IRA contributions are deductible only if income below limits ($73,000 single, $116,000 married) and no workplace 401(k); otherwise contributions are non-deductible. Roth contributions phased out at $146,000-$161,000 single, $230,000-$240,000 married. Once income exceeds limits, you can't contribute directly. Backdoor Roth strategy lets high earners contribute to traditional IRA (non-deductible) then immediately convert to Roth, bypassing limits. Always verify current year limits with IRS.",
+  },
+  {
+    question: "Should I choose traditional or Roth IRA?",
+    answer:
+      "Traditional: choose if in high tax bracket now, expect lower taxes in retirement, need current tax deduction. Roth: choose if in lower tax bracket now, expect higher taxes in retirement, want tax-free withdrawals. Young workers typically benefit from Roth (decades of tax-free growth). Higher earners benefit from traditional (immediate tax savings). Many split contributions (50% each) for tax diversification. Roth offers more flexibility (withdraw contributions penalty-free); traditional offers immediate tax breaks.",
+  },
+  {
+    question: "What happens to IRAs if I change jobs?",
+    answer:
+      "You own the IRA; the employer doesn't. Leave it in place, roll over to new employer's 401(k), or convert to a new IRA at a different custodian. Rollovers preserve tax-deferred status and avoid penalties. IRAs typically offer more investment flexibility than 401(k)s (more fund choices, lower fees). If you have multiple IRAs from different employers, consolidate into one for simpler management and lower fees. Cashing out incurs taxes and 10% early withdrawal penalty (before age 59½). Don't leave old IRAs scattered; consolidate.",
+  },
+];
+
+export const PERSONAL_LOAN_FAQS: FAQ[] = [
+  {
+    question: "What is a personal loan and how much does it cost?",
+    answer:
+      "A personal loan is unsecured borrowing (not backed by collateral) for various purposes. Rates range 8-36% APR depending on credit score. A $10,000 personal loan at 15% APR for 3 years costs roughly $1,600 in interest; 5 years costs $2,700. Personal loans are simpler than secured loans (no collateral required) and faster to obtain (1-3 days). Compare rates across multiple lenders (banks, credit unions, online lenders). Same APR between lenders; shop around — rates vary by 2-5% based on credit and terms.",
+  },
+  {
+    question: "What can I use a personal loan for?",
+    answer:
+      "Personal loans suit various purposes: debt consolidation (paying off credit cards), home improvements (if no home equity access), medical/emergency expenses, car purchase (if can't get auto loan), family loans, or wedding expenses. Avoid using personal loans for risky ventures (investment, speculation). High-cost personal loans should be reserved for consolidating higher-rate debt (credit cards 18-25%) into lower rates (12-15%). Purpose doesn't restrict approval, but lenders may scrutinize risky uses.",
+  },
+  {
+    question: "How do credit score and debt-to-income affect personal loan approval?",
+    answer:
+      "Credit score directly determines approval and rate. 740+: strong approval, rates 8-12%. 670-739: moderate approval, rates 12-18%. 580-669: weak approval, rates 18-28%. Below 580: likely denial or 30%+ rates. DTI ratio also matters: lenders prefer DTI below 40-50%. On $5,000 monthly income, maximum debt is $2,000-$2,500. Low credit scores and high DTI reduce loan amounts available and increase rates. Improving credit (paying down debt, fixing errors) before applying gets better terms.",
+  },
+  {
+    question: "Should I get a personal loan or use credit card?",
+    answer:
+      "Personal loan: lower fixed APR (8-15% typical), fixed term, predictable payments. Credit card: higher APR (15-25% typical), flexible payments but high if carrying balance. For large amounts or long payoff timelines, personal loans win (lower total interest). For small amounts paid off quickly, credit cards (0% intro offers available). Example: $5,000 debt paid over 3 years costs $750 interest in personal loan (5.5% rate) vs. $1,500+ on credit card (18% APR). Personal loans are disciplined; credit cards tempt further borrowing.",
+  },
+];
+
+export const RMD_FAQS: FAQ[] = [
+  {
+    question: "What is an RMD and when must I take it?",
+    answer:
+      "RMD (Required Minimum Distribution) is the amount you must withdraw annually from retirement accounts (traditional IRA, 401(k), SEP-IRA) starting age 73 (changed from 72 in 2023). Formula: account balance / life expectancy factor. IRS tables vary by age. Example: $500,000 IRA balance at age 75, life expectancy factor 22.9, RMD = $500,000 / 22.9 = $21,834/year. Failure to take RMD incurs 25% penalty on shortfall (down from 50% in 2023). Roth IRAs have no RMDs during owner's lifetime (after-tax). You can take more than RMD; only minimum is required.",
+  },
+  {
+    question: "How are RMDs calculated and do I have options?",
+    answer:
+      "RMDs use IRS life expectancy tables based on age. Uniform Table applies to most people (spouse beneficiary can use different tables). Calculate: prior year-end balance / life expectancy factor = RMD. Example: $500,000 balance, age 73, life expectancy factor 26.5, RMD = $18,868. You can take lump sum annually or monthly installments. Taking RMD doesn't require selling investments; you can take it from cash balances. Multiple IRAs must satisfy RMD separately, but you can aggregate (take from one account). Roth conversions don't count toward RMD (Roth IRAs exempt from RMD rules during owner's life).",
+  },
+  {
+    question: "What tax implications do RMDs have?",
+    answer:
+      "RMD withdrawals are ordinary income, fully taxable at your marginal rate. A $25,000 RMD in 24% bracket = $6,000 tax. This can bump you into higher brackets. Planning tip: recognize RMDs in your tax planning; consider Roth conversions (while working) to reduce future RMD amounts. RMDs can trigger Medicare premium increases (IRMAA) and higher Social Security taxes. Consider bunching charitable giving into RMD years (donate RMD to charity, avoid income tax). RMDs are unavoidable taxes on retirement savings — proper planning minimizes their impact.",
+  },
+  {
+    question: "What happens if I miss or miscalculate my RMD?",
+    answer:
+      "Missing RMD incurs 25% penalty on the difference between RMD owed and amount taken. Missing $25,000 RMD, taking only $15,000 = $10,000 shortfall, $2,500 penalty. You can request penalty waiver from IRS if reasonable cause (simple error, corrected quickly). The penalty is reported on Form 5329 (tax return). Avoid penalties: (1) Set annual calendar reminders; (2) Plan ahead with custodian; (3) Take monthly distributions to spread withdrawals. Missing RMDs is expensive — track carefully.",
+  },
+];
+
+export const VA_MORTGAGE_FAQS: FAQ[] = [
+  {
+    question: "What is a VA mortgage and who qualifies?",
+    answer:
+      "VA mortgage is a home loan guaranteed by the VA (Department of Veterans Affairs) for eligible military members, veterans, and surviving spouses. VA loans require no down payment, no mortgage insurance (huge savings), and offer competitive rates. Eligibility: served 90+ consecutive days (24 months if post-2018), dishonorable discharge excludes you. VA loans are limited to $0 down with favorable terms due to government guarantee. Married veterans and surviving spouses of deceased veterans may also qualify. Check your Certificate of Eligibility (COE) at VA.gov.",
+  },
+  {
+    question: "What are the benefits of a VA mortgage vs. conventional?",
+    answer:
+      "VA benefits: (1) Zero down payment (save 10-20% upfront); (2) No mortgage insurance (~0.5-1% annual savings); (3) Lower interest rates (VA loans lower rates due to lower default risk); (4) No prepayment penalties; (5) Assumable loans (buyer assumes your rate, valuable if rates rise). Example: $300,000 home, conventional 10% down ($30,000) + 1% annual mortgage insurance ($2,700/year) vs. VA zero down, no insurance. Over 30 years, VA saves $30,000+ upfront plus $81,000+ in insurance. VA loans are excellent for qualified borrowers.",
+  },
+  {
+    question: "What is the VA funding fee and can I avoid it?",
+    answer:
+      "VA funding fee (0.5-3.3% of loan amount) compensates the VA for guaranteeing the loan. Veterans with service-connected disabilities are exempt. Example: $300,000 loan, 2.3% funding fee = $6,900 (typically rolled into loan). First-time VA loan users without disability pay full fee; subsequent loans may have reduced fees if selling previous VA home with no profit. Funding fee is one-time; avoided or exempted for disabled veterans. Even with funding fee, VA loans often cost less than conventional due to no mortgage insurance.",
+  },
+  {
+    question: "Can I use my VA loan benefit more than once?",
+    answer:
+      "Yes, you have unlimited VA loan benefits (as of 2008 law change), but only one at a time. Once you sell your VA-mortgaged home and pay off the loan, your entitlement restores, allowing another VA loan. You can use this multiple times throughout life. You can also have multiple VA loans simultaneously if you: (1) Still own the previous VA home (keep entitlement tied up), or (2) Have restored entitlement from prior sale. Most people use VA loan once for primary residence, but multiple uses are possible. Check your remaining entitlement at VA.gov.",
+  },
+];
+

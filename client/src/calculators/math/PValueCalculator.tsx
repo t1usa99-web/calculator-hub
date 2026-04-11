@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 // Normal distribution approximation (CDF)
 function normalCDF(z: number): number {
@@ -158,38 +157,3 @@ export default function PValueCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PValueCalculator,
-  slug: "p-value-calculator",
-  title: "P-Value Calculator",
-  shortTitle: "P-Value",
-  description: "Calculate p-values from test statistics for hypothesis testing",
-  category: "math",
-  icon: "📉",
-  keywords: ["p-value", "hypothesis test", "statistics", "significance", "t-test", "z-test"],
-  popular: false,
-  faqs: [
-    {
-      question: "What does it mean if the p-value is 0.05?",
-      answer: "A p-value of 0.05 means there{'\''}s a 5% probability of observing your results if the null hypothesis is true. It doesn{'\''}t mean the null hypothesis has a 5% chance of being true. It{'\''}s the threshold for statistical significance in many fields."
-    },
-    {
-      question: "Is p-value the same as the probability of making an error?",
-      answer: "No. The p-value is the probability of observing the data given the null hypothesis. Type I error (rejecting a true null) is the significance level α. These are related but different concepts. A p-value of 0.03 with α=0.05 means you reject the null, not that you have a 3% error rate."
-    },
-    {
-      question: "When should I use a one-tailed test?",
-      answer: "Use one-tailed tests when you have a directional hypothesis (e.g., 'A is greater than B'). Use two-tailed when testing if things differ without predicting direction. One-tailed tests have more power but are less flexible. Most conservative approach: use two-tailed unless you have strong prior evidence for direction."
-    },
-    {
-      question: "What{'\''}s the difference between p-value and α (alpha)?",
-      answer: "α is your predetermined significance threshold (usually 0.05). The p-value is what you calculate from your data. You compare them: if p-value {'<'} α, results are significant. Don{'\''}t choose α after seeing your p-value, as this inflates Type I error."
-    },
-    {
-      question: "Can I trust a significant result?",
-      answer: "Significant p-value provides evidence against the null but doesn{'\''}t prove the alternative. Consider effect size, sample size, and practical significance. Larger studies have more power to detect small effects. A statistically significant result from a small study may not replicate. Always consider the bigger picture beyond the p-value."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

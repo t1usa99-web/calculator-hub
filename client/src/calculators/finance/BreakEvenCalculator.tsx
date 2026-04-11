@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { BREAK_EVEN_FAQS } from "@/lib/faq-finance-invest";
 
 export default function BreakEvenCalculator() {
   const [fixedCosts, setFixedCosts] = useState(50000);
@@ -194,16 +192,3 @@ export default function BreakEvenCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: BreakEvenCalculator,
-  faqs: BREAK_EVEN_FAQS,
-  slug: "breakeven-calculator",
-  title: "Breakeven Calculator",
-  shortTitle: "Breakeven",
-  description: "Calculate breakeven point and analyze profit/loss at different sales volumes",
-  category: "finance",
-  icon: "📊",
-  keywords: ["breakeven", "business analysis", "cost analysis", "profit"],
-  popular: false,
-});

@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { PHOTON_ENERGY_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function PhotonEnergyCalculator() {
   const [wavelength, setWavelength] = useState(5e-7);
@@ -102,16 +100,3 @@ export default function PhotonEnergyCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "photon-energy-calculator",
-  title: "Photon Energy Calculator",
-  shortTitle: "Photon Energy",
-  description: "Calculate photon energy from wavelength or frequency",
-  category: "physics",
-  icon: "💫",
-  keywords: ["photon", "energy", "light", "wavelength", "frequency"],
-  component: PhotonEnergyCalculator,
-  faqs: PHOTON_ENERGY_FAQS,
-  dateModified: "2026-04-09",
-});

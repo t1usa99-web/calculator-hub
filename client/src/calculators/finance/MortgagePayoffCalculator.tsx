@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { MORTGAGE_PAYOFF_FAQS } from "@/lib/faq-finance-loans";
 
 export default function MortgagePayoffCalculator() {
   const [loanBalance, setLoanBalance] = useState(250000);
@@ -173,23 +171,3 @@ export default function MortgagePayoffCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: MortgagePayoffCalculator,
-  slug: "mortgage-payoff-calculator",
-  title: "Mortgage Payoff Calculator",
-  shortTitle: "Mortgage Payoff",
-  description:
-    "Calculate payoff time and interest savings with extra mortgage payments",
-  category: "finance",
-  icon: "🏡",
-  keywords: [
-    "mortgage payoff",
-    "extra payment",
-    "interest savings",
-    "acceleration",
-    "home loan",
-  ],
-  dateModified: "2026-04-09",
-  faqs: MORTGAGE_PAYOFF_FAQS,
-});

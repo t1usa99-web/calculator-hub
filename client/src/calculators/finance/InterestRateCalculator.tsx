@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { INTEREST_RATE_FAQS } from "@/lib/faq-finance-loans";
 
 export default function InterestRateCalculator() {
   const [loanAmount, setLoanAmount] = useState(300000);
@@ -153,23 +151,3 @@ export default function InterestRateCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: InterestRateCalculator,
-  slug: "interest-rate-calculator",
-  title: "Interest Rate Calculator",
-  shortTitle: "Interest Rate",
-  description:
-    "Determine the implied interest rate from loan payment and term",
-  category: "finance",
-  icon: "📉",
-  keywords: [
-    "interest rate",
-    "APR",
-    "loan analysis",
-    "effective rate",
-    "mortgage rate",
-  ],
-  dateModified: "2026-04-09",
-  faqs: INTEREST_RATE_FAQS,
-});

@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { FUTURE_VALUE_FAQS } from "@/lib/faq-finance-invest";
 
 export default function FutureValueCalculator() {
   const [presentValue, setPresentValue] = useState(50000);
@@ -129,23 +127,3 @@ export default function FutureValueCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: FutureValueCalculator,
-  faqs: FUTURE_VALUE_FAQS,
-  slug: "future-value-calculator",
-  title: "Future Value Calculator",
-  shortTitle: "Future Value",
-  description:
-    "Calculate future value with compound interest and regular contributions",
-  category: "finance",
-  icon: "🔮",
-  keywords: [
-    "future value",
-    "investment",
-    "compound interest",
-    "savings growth",
-    "retirement planning",
-  ],
-  dateModified: "2026-04-09",
-});

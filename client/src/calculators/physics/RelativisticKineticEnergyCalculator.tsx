@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { RELATIVISTIC_KE_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function RelativisticKineticEnergyCalculator() {
   const [mass, setMass] = useState(1);
@@ -86,16 +84,3 @@ export default function RelativisticKineticEnergyCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "relativistic-kinetic-energy-calculator",
-  title: "Relativistic Kinetic Energy Calculator",
-  shortTitle: "Relativistic KE",
-  description: "Calculate kinetic energy at relativistic speeds using E = (γ-1)mc²",
-  category: "physics",
-  icon: "🚀",
-  keywords: ["relativistic", "kinetic energy", "special relativity", "Einstein"],
-  component: RelativisticKineticEnergyCalculator,
-  faqs: RELATIVISTIC_KE_FAQS,
-  dateModified: "2026-04-09",
-});

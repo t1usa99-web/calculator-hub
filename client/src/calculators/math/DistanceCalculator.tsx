@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function DistanceCalculator() {
   const [x1, setX1] = useState(1);
@@ -193,38 +192,3 @@ export default function DistanceCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DistanceCalculator,
-  slug: "distance-calculator",
-  title: "Distance Calculator",
-  shortTitle: "Distance",
-  description: "Calculate distance between two points and find the midpoint in 2D and 3D",
-  category: "math",
-  icon: "📍",
-  keywords: ["distance", "midpoint", "coordinate geometry", "2D", "3D", "points", "Pythagorean"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the distance formula?",
-      answer: "In 2D: d = √((x₂-x₁)² + (y₂-y₁)²). In 3D: d = √((x₂-x₁)² + (y₂-y₁)² + (z₂-z₁)²). It comes from the Pythagorean theorem."
-    },
-    {
-      question: "How is distance formula derived?",
-      answer: "It comes from the Pythagorean theorem. The distance is the hypotenuse of a right triangle with legs Δx and Δy."
-    },
-    {
-      question: "What is a midpoint?",
-      answer: "The midpoint is the point exactly halfway between two points. In 2D: ((x₁+x₂)/2, (y₁+y₂)/2). Add z for 3D."
-    },
-    {
-      question: "Why use midpoints in real applications?",
-      answer: "Midpoints find central locations: average position between two places, center of a line segment, or meeting points in planning."
-    },
-    {
-      question: "Can I use this for GPS coordinates?",
-      answer: "Yes! Input latitude/longitude as x/y coordinates. The distance gives the approximate straight-line distance (ignoring Earth{'\''}s curvature for short distances)."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

@@ -4,7 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function RatioCalculator() {
   const [a, setA] = useState(12);
@@ -149,38 +148,3 @@ export default function RatioCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: RatioCalculator,
-  slug: "ratio-calculator",
-  title: "Ratio Calculator",
-  shortTitle: "Ratio",
-  description: "Simplify ratios, solve proportions using cross multiplication, and find GCD",
-  category: "math",
-  icon: "⚖️",
-  keywords: ["ratio", "proportion", "GCD", "simplify", "cross multiplication", "equivalent ratio"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is a ratio?",
-      answer: "A ratio compares two quantities. A:B means A divided by B. For example, 3:5 means 3 parts to 5 parts."
-    },
-    {
-      question: "How do I simplify a ratio?",
-      answer: "Divide both parts by their greatest common divisor (GCD). For example, 12:8 divided by GCD(12,8)=4 gives 3:2."
-    },
-    {
-      question: "What is a proportion?",
-      answer: "A proportion is an equation of two ratios: A:B = C:D. It says that one ratio equals another. Cross multiply to solve: A×D = B×C."
-    },
-    {
-      question: "What is cross multiplication?",
-      answer: "For proportion A:B = C:D, multiply across: A×D = B×C. This creates an equation you can solve for an unknown value."
-    },
-    {
-      question: "How are ratios used in real life?",
-      answer: "Ratios are used in cooking (ingredient ratios), maps (scale ratios), finance (debt-to-income), and engineering (gear ratios). Understanding ratios helps scale recipes, read maps, and compare quantities fairly."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

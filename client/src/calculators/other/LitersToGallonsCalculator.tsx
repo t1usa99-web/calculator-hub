@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function LitersToGallonsCalculator() {
   const [liters, setLiters] = useState(20);
@@ -129,38 +128,3 @@ export default function LitersToGallonsCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: LitersToGallonsCalculator,
-  slug: "liters-to-gallons",
-  title: "Liters to Gallons Calculator",
-  shortTitle: "L to Gal",
-  description: "Convert liters to gallons instantly",
-  category: "other",
-  icon: "🫗",
-  keywords: ["liters to gallons", "volume conversion", "l to gal", "liquid measurement"],
-  popular: false,
-  faqs: [
-    {
-      question: "What is the conversion factor from liters to gallons?",
-      answer: "One liter equals 0.264172 US gallons. For quick mental math, you can use 0.26 or even round to 0.25 (1/4) for rough estimates. The conversion factor is consistent: 10 liters = 2.64 gallons, 20 liters = 5.28 gallons. Remember this is for US gallons; imperial gallons (UK) have a different conversion of 0.220 gallons per liter.",
-    },
-    {
-      question: "How many gallons are in a 2-liter soda bottle?",
-      answer: "A 2-liter bottle contains approximately 0.528 US gallons. This is why 2-liter bottles are common international sizes: they represent a familiar volume that's slightly smaller than a US gallon (which is 3.78 liters). Other common international sizes include 1-liter bottles (0.26 gallons) and 3-liter bottles (0.79 gallons). Understanding these conversions helps when comparing beverage prices and sizes across different countries.",
-    },
-    {
-      question: "How do I quickly estimate liters to gallons in my head?",
-      answer: "The simplest method: divide liters by 4 (since 1 gallon ≈ 4 liters). Example: 20 liters ÷ 4 = 5 gallons (actual is 5.28). For better accuracy, multiply by 0.26 instead. Another approach: remember that 1 liter ≈ 1/4 gallon, so 4 liters ≈ 1 gallon, 8 liters ≈ 2 gallons, etc. This approximation method is fast and good enough for most practical purposes like cooking or fuel estimation.",
-    },
-    {
-      question: "Why is liter the global standard instead of gallon?",
-      answer: "The liter is part of the metric system, which was adopted internationally as the scientific and commercial standard. The metric system is based on units of 10, making conversions simple: 1 liter = 1000 milliliters. The imperial gallon system has awkward conversions and isn't part of a unified standard. In the 1970s and 1980s, most countries officially adopted the metric system. The US never made this transition, keeping gallons for consumer products. For global trade and scientific work, liters are standard.",
-    },
-    {
-      question: "What is the difference between US gallons and imperial gallons?",
-      answer: "The US gallon (3.78541 liters) is smaller than the imperial gallon (4.546 liters) used in the UK and some Commonwealth countries. When converting: 1 imperial gallon = 4.546 liters = 1.201 US gallons. A liter equals 0.264 US gallons but only 0.220 imperial gallons. Always verify which gallon is being used, especially when working with historical documents, UK measurements, or Canadian sources. Most liquid volume discussions in the US refer to US gallons unless otherwise specified.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

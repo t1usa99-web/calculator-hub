@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function KmToMilesCalculator() {
   const [kilometers, setKilometers] = useState(16.09344);
@@ -90,43 +89,3 @@ export default function KmToMilesCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: KmToMilesCalculator,
-  slug: "km-to-miles",
-  title: "Kilometers to Miles Converter",
-  shortTitle: "KM to Miles",
-  description: "Convert kilometers to miles with formula and reference table",
-  category: "other",
-  icon: "🛣️",
-  keywords: ["km to miles", "kilometers to miles", "convert kilometers", "metric to imperial distance"],
-  popular: false,
-  faqs: [
-    {
-      question: "How many miles are in a kilometer?",
-      answer:
-        "One kilometer equals 0.621371 miles. To convert kilometers to miles, multiply by 0.621371. For example, 10 kilometers = 10 × 0.621371 = 6.21371 miles. A quick approximation is that 1 km ≈ 0.6 miles, useful for mental math. So 10 km ≈ 6 miles, and 100 km ≈ 60 miles. For casual estimates, using 0.6 is sufficient, but for precision in navigation or sports timing, use the full 0.621371 factor.",
-    },
-    {
-      question: "What are common kilometers-to-miles conversions?",
-      answer:
-        "Useful benchmarks: 1 km = 0.621 miles, 5 km = 3.11 miles, 10 km = 6.21 miles, 21.1 km (half marathon) = 13.1 miles, 42.195 km (marathon) = 26.2 miles, 100 km = 62.1 miles. For speed limits, 100 kmh = 62.1 mph, 120 kmh = 74.6 mph. Memorizing that 1 km ≈ 0.6 miles or 8 km ≈ 5 miles helps with quick mental estimates without a calculator.",
-    },
-    {
-      question: "How do I convert speed in kmh to mph?",
-      answer:
-        "Use the same 0.621371 conversion factor. Speed in kmh multiplied by 0.621371 gives mph. Example: 100 kmh × 0.621371 = 62.1 mph. Common conversions: 50 kmh = 31.1 mph, 80 kmh = 49.7 mph, 100 kmh = 62.1 mph, 130 kmh = 80.8 mph. For mental math, remember that 8 kmh ≈ 5 mph, or multiply kmh by 0.6 for a quick approximation. This is essential knowledge for safe driving when traveling internationally or driving rental cars in metric countries.",
-    },
-    {
-      question: "Is 0.621371 the exact conversion factor?",
-      answer:
-        "Yes, 0.621371 is the exact reciprocal of 1.60934 (the miles-to-kilometers factor). These are the precise, standardized conversion factors. In practice, both systems define 1 mile = 1.60934 kilometers exactly, making 1 km = 1/1.60934 = 0.621371 miles exactly. This precision is maintained in all official measurements, navigation, and regulations. While casual mental math might use 0.6 or even 5/8, professional work requires the full precision factor.",
-    },
-    {
-      question: "Why is the conversion factor different for kilometers and miles?",
-      answer:
-        "The conversion factors are reciprocals of each other: 1 mile × 1.60934 = 1.60934 km, and 1 km × 0.621371 ≈ 1 mile (actually 0.621371 km × 1.60934 = 1 mile exactly). They're different because one represents miles-to-km and the other km-to-miles, but they're mathematically linked. Using the correct factor for each direction ensures accurate conversions. The factors aren't simple whole numbers because the mile and kilometer were developed independently and then related by international agreement.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

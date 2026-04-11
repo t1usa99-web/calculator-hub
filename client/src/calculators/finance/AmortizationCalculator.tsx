@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { AMORTIZATION_FAQS } from "@/lib/faq-finance-loans";
 
 export default function AmortizationCalculator() {
   const [loanAmount, setLoanAmount] = useState(300000);
@@ -120,23 +118,3 @@ export default function AmortizationCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: AmortizationCalculator,
-  slug: "amortization-calculator",
-  title: "Amortization Calculator",
-  shortTitle: "Amortization",
-  description:
-    "Calculate monthly loan payments, total interest, and amortization schedule breakdown",
-  category: "finance",
-  icon: "🗓️",
-  keywords: [
-    "amortization",
-    "loan payment",
-    "mortgage",
-    "interest calculation",
-    "monthly payment",
-  ],
-  dateModified: "2026-04-09",
-  faqs: AMORTIZATION_FAQS,
-});

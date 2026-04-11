@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { SIMPLIFY_FRACTIONS_FAQS } from "@/lib/faq-math";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 function gcd(a: number, b: number): number {
   a = Math.abs(a);
@@ -111,23 +109,3 @@ export default function SimplifyFractionsCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SimplifyFractionsCalculator,
-  slug: "simplify-fractions-calculator",
-  title: "Simplify Fractions Calculator",
-  shortTitle: "Simplify Fractions",
-  description:
-    "Reduce fractions to simplest form with GCD and mixed number conversion",
-  category: "math",
-  icon: "⅓",
-  keywords: [
-    "simplify fractions",
-    "GCD",
-    "reduce fractions",
-    "mixed numbers",
-    "improper fractions",
-  ],
-  faqs: SIMPLIFY_FRACTIONS_FAQS,
-  dateModified: "2026-04-09",
-});

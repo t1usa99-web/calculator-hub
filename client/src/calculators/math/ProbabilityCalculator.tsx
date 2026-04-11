@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber, formatPercent } from "@/lib/utils";
-import { PROBABILITY_FAQS } from "@/lib/faq-math";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function ProbabilityCalculator() {
   const [favorableOutcomes, setFavorableOutcomes] = useState(3);
@@ -149,17 +147,3 @@ export default function ProbabilityCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ProbabilityCalculator,
-  slug: "probability-calculator",
-  title: "Probability Calculator",
-  shortTitle: "Probability",
-  description: "Calculate probability, odds, expected value, and complementary probability",
-  category: "math",
-  icon: "🎲",
-  keywords: ["probability", "odds", "expected value", "statistics", "likelihood"],
-  popular: false,
-  faqs: PROBABILITY_FAQS,
-  dateModified: "2026-04-09"
-});

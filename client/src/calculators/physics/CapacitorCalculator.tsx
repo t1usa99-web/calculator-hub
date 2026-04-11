@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { CAPACITOR_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function CapacitorCalculator() {
   const [capacitance, setCapacitance] = useState(0.001);
@@ -80,16 +78,3 @@ export default function CapacitorCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "capacitor-calculator",
-  title: "Capacitor Calculator",
-  shortTitle: "Capacitor",
-  description: "Calculate charge and energy in a capacitor",
-  category: "physics",
-  icon: "🔋",
-  keywords: ["capacitor", "charge", "capacitance", "energy"],
-  component: CapacitorCalculator,
-  faqs: CAPACITOR_FAQS,
-  dateModified: "2026-04-09",
-});

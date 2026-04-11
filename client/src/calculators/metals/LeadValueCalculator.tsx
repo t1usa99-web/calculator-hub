@@ -1,7 +1,5 @@
 import MetalValueCalculator from "@/components/MetalValueCalculator";
-import { registerCalculator } from "@/lib/calculator-registry";
 import { METALS } from "@/lib/metals-config";
-import { LEAD_VALUE_FAQS } from "@/lib/faq-metals";
 
 const metal = METALS.find((m) => m.apiKey === "lead")!;
 
@@ -32,14 +30,3 @@ const educational = (
 export default function LeadValueCalculator() {
   return <MetalValueCalculator metal={metal} educational={educational} />;
 }
-
-registerCalculator({
-  ...metal,
-  title: "Lead Value Calculator",
-  shortTitle: "Lead Value",
-  category: "metals",
-  popular: false,
-  faqs: LEAD_VALUE_FAQS,
-  dateModified: "2026-04-10",
-  component: LeadValueCalculator,
-});

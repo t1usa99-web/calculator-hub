@@ -395,3 +395,481 @@ export const NUMBERS_TO_WORDS_FAQS: FAQ[] = [
       "<strong>Decimals (Method 1):</strong> Say 'point' for the decimal. 3.456 = three point four five six. <strong>Decimals (Method 2):</strong> Name the place value. 3.456 = three and four hundred fifty-six thousandths. <strong>Fractions:</strong> Numerator in words, denominator as ordinal. 3/4 = three-fourths, 5/8 = five-eighths, 7/12 = seven-twelfths. <strong>Mixed numbers:</strong> Whole part, 'and', fraction. 2 3/4 = two and three-fourths. <strong>When denominator > 10:</strong> Can say 'over': 7/13 = seven thirteenths or seven over thirteen. <strong>Special names:</strong> 1/2 = one-half (not 'one-second'), 1/3 = one-third, 1/4 = one-quarter (or one-fourth). <strong>Percentage:</strong> 45% = forty-five percent. <strong>Context matters:</strong> 'Point' is faster colloquially; place-value naming is clearer formally.",
   },
 ];
+
+export const AVERAGE_FAQS: FAQ[] = [
+  {
+    question: "What is the difference between mean, median, and mode?",
+    answer:
+      "<strong>Mean:</strong> Sum all values, divide by count. Example: 2, 4, 6, 8. Sum = 20, count = 4. Mean = 20/4 = 5. <strong>Median:</strong> Middle value when sorted. Example: 2, 4, 6, 8. Median = (4+6)/2 = 5 (even count: average the two middle). <strong>Mode:</strong> Most frequent value. Example: 2, 4, 4, 6. Mode = 4. <strong>Which to use?</strong> Mean for typical values (no extreme outliers). Median for skewed data (outliers don't skew it). Mode for categorical data (favorite color). <strong>Example:</strong> Salaries $30k, $35k, $40k, $200k. Mean = $76.25k (inflated by outlier). Median = $37.5k (more realistic). Mode = none (all unique).",
+  },
+  {
+    question: "How do I calculate a weighted average?",
+    answer:
+      "<strong>Weighted average:</strong> Multiply each value by its weight, sum, divide by sum of weights. <strong>Formula:</strong> (v₁×w₁ + v₂×w₂ + ... + vₙ×wₙ) / (w₁ + w₂ + ... + wₙ). <strong>Example:</strong> Test scores: 85 (weight 2), 90 (weight 3), 78 (weight 1). Weighted = (85×2 + 90×3 + 78×1) / (2+3+1) = (170 + 270 + 78) / 6 = 518/6 ≈ 86.3. <strong>Real-world use:</strong> Grade calculation (homework 20%, exam 80%), portfolio performance (stocks weighted by % invested). <strong>Key:</strong> Weights represent importance or frequency; they don't need to sum to 1 (calculator handles normalization).",
+  },
+  {
+    question: "Why is the mean sensitive to outliers?",
+    answer:
+      "<strong>Outliers:</strong> Extreme values far from the typical range. <strong>Example:</strong> 2, 3, 4, 5, 100. Mean = 114/5 = 22.8 (skewed high by 100). Median = 4 (unaffected). <strong>Why?</strong> Mean uses every value; one extreme shifts the sum significantly. Median uses position; extremes at the ends don't change the middle. <strong>Impact:</strong> Misleading average. Dataset 2, 3, 4, 5 (mean = 3.5) vs. 2, 3, 4, 100 (mean = 27.25). <strong>Solution:</strong> Check both mean and median. If they differ greatly, investigate outliers. Remove outliers if erroneous; report both if legitimate.",
+  },
+  {
+    question: "How do I calculate the average of negative numbers?",
+    answer:
+      "<strong>Same as positive:</strong> Sum (including negatives), divide by count. <strong>Example:</strong> −5, −3, 0, 4. Sum = −5−3+0+4 = −4. Count = 4. Average = −4/4 = −1. <strong>Key:</strong> Negative values reduce the sum; average can be negative. <strong>Temperature example:</strong> −10°C, −5°C, 0°C, 5°C. Average = −10/4 = −2.5°C. <strong>Financial example:</strong> Profits/losses: −$100, −$50, $200, $150. Average = $200/4 = $50/unit (positive on average). <strong>Sign rule:</strong> Sum of negatives is negative; sum of mixed can be positive, negative, or zero depending on magnitudes.",
+  },
+];
+
+export const BINARY_FAQS: FAQ[] = [
+  {
+    question: "How do I convert binary to decimal?",
+    answer:
+      "<strong>Method:</strong> Multiply each bit by 2 raised to its position (right = 0), sum. <strong>Example:</strong> 1101₂. Position 3: 1×2³=8. Position 2: 1×2²=4. Position 1: 0×2¹=0. Position 0: 1×2⁰=1. Sum = 8+4+0+1 = 13₁₀. <strong>Quick check:</strong> Binary 10₂ = 1×2¹ + 0×2⁰ = 2₁₀. <strong>Powers of 2:</strong> 2⁰=1, 2¹=2, 2²=4, 2³=8, 2⁴=16, 2⁵=32. Memorize to speed up. <strong>Why?</strong> Computers use binary (0/1 = off/on). Humans use decimal (base 10). Understanding conversion bridges both systems.",
+  },
+  {
+    question: "How do I convert decimal to binary?",
+    answer:
+      "<strong>Method 1 (divide by 2):</strong> Repeatedly divide by 2, track remainders. Read remainders bottom-to-top. <strong>Example:</strong> 13₁₀. 13÷2=6 R 1, 6÷2=3 R 0, 3÷2=1 R 1, 1÷2=0 R 1. Read: 1101₂. <strong>Method 2 (subtraction):</strong> Subtract largest power of 2, mark 1, continue. 13: 13−8=5 (2³), 5−4=1 (2²), 1−1=0 (2⁰). Positions: 3,2,0 → 1101₂. <strong>Verification:</strong> Convert result back: 1101₂ = 8+4+0+1 = 13₁₀. ✓ <strong>Tip:</strong> Method 1 is algorithmic (easier to automate); Method 2 is intuitive for understanding.",
+  },
+  {
+    question: "What are binary operations (AND, OR, XOR)?",
+    answer:
+      "<strong>AND:</strong> Both bits 1 → result 1. Otherwise 0. Example: 1101 AND 1011 = 1001. <strong>OR:</strong> At least one bit 1 → result 1. Example: 1101 OR 1011 = 1111. <strong>XOR (exclusive OR):</strong> Bits differ → 1. Same → 0. Example: 1101 XOR 1011 = 0110. <strong>Truth table:</strong> Bit₁ | Bit₂ | AND | OR | XOR. 0|0|0|0|0. 0|1|0|1|1. 1|0|0|1|1. 1|1|1|1|0. <strong>Use:</strong> Logical comparisons, masking bits, encryption, computer logic gates.",
+  },
+  {
+    question: "Why do computers use binary instead of decimal?",
+    answer:
+      "<strong>Hardware:</strong> Electronic switches are ON (1) or OFF (0). Binary maps naturally to two states. <strong>Reliability:</strong> Decimal (10 levels) harder to distinguish electronically; noise/interference easier to misread. Binary (2 levels) has large margin: clearly high (1) or low (0). <strong>Efficiency:</strong> Operations simpler in binary (AND, OR, XOR fast in circuits). <strong>Scaling:</strong> Multiple switches (bits) create larger numbers: 8 bits = 256 values. <strong>Standard:</strong> All digital devices (phones, computers, servers) use binary at the core. Higher-level abstractions (decimal, text) are software layers converting to/from binary.",
+  },
+];
+
+export const CIRCLE_FAQS: FAQ[] = [
+  {
+    question: "What is the formula for circle circumference and area?",
+    answer:
+      "<strong>Circumference:</strong> C = 2πr = πd (r = radius, d = diameter). <strong>Example:</strong> r = 5. C = 2π(5) = 10π ≈ 31.42. <strong>Area:</strong> A = πr² (r = radius). <strong>Example:</strong> r = 5. A = π(5²) = 25π ≈ 78.54. <strong>Key constants:</strong> π ≈ 3.14159. Radius = half diameter. <strong>Relationship:</strong> Area = (C × r) / 2 (circumference times radius divided by 2). <strong>Units:</strong> Circumference in units (cm, m, inches). Area in square units (cm², m², in²).",
+  },
+  {
+    question: "How do I find the radius or diameter from circumference or area?",
+    answer:
+      "<strong>From circumference:</strong> C = 2πr → r = C/(2π). Example: C = 20. r = 20/(2π) ≈ 3.18. <strong>From area:</strong> A = πr² → r = √(A/π). Example: A = 50. r = √(50/π) ≈ 3.99. <strong>Diameter:</strong> d = 2r. <strong>Inverse formula:</strong> If given diameter and need radius: r = d/2. Always rearrange first, then substitute values. Use a calculator for π and square roots.",
+  },
+  {
+    question: "What are arc length and sector area?",
+    answer:
+      "<strong>Arc length:</strong> Part of circumference. Formula: L = (θ/360°) × 2πr (θ in degrees) or L = θr (θ in radians). <strong>Example:</strong> r = 5, θ = 60°. L = (60/360) × 2π(5) = (1/6) × 10π ≈ 5.24. <strong>Sector area:</strong> Pie-slice area. Formula: A = (θ/360°) × πr² (degrees) or A = (θ/2) × r² (radians). <strong>Example:</strong> r = 5, θ = 60°. A = (60/360) × π(25) = (1/6) × 25π ≈ 13.09. <strong>Key:</strong> θ must be in consistent units (degrees or radians). Sector = (angle proportion) × full circle.",
+  },
+];
+
+export const CONFIDENCE_INTERVAL_FAQS: FAQ[] = [
+  {
+    question: "What is a confidence interval and what does the confidence level mean?",
+    answer:
+      "<strong>Confidence interval:</strong> A range [lower, upper] estimated from sample data where a parameter (e.g., population mean) likely falls. <strong>Example:</strong> Mean income survey: CI = [$50k, $55k] with 95% confidence. <strong>95% confidence level:</strong> If repeated many times, ~95% of intervals would contain the true parameter. NOT 95% chance this specific interval is correct (it either does or doesn't). <strong>Common levels:</strong> 90%, 95%, 99%. Higher confidence = wider interval (trade-off: precision vs. certainty). <strong>Formula (approx):</strong> CI = sample_mean ± (critical_value × standard_error). Critical value depends on confidence level and distribution (z-score for normal, t-score for small samples).",
+  },
+  {
+    question: "How do I interpret a confidence interval correctly?",
+    answer:
+      "<strong>CORRECT:</strong> 'We are 95% confident the true mean lies in this interval.' <strong>INCORRECT:</strong> 'There is a 95% probability the true mean is in this interval' (the true mean is fixed; either it's in or it's not). <strong>Practical:</strong> Narrower interval = more precise estimate (good). Wider interval = less precise but higher confidence of capturing the parameter. <strong>Example:</strong> Margin of approval 52±3% is [$50k, $55k] — tighter than 52±10%. <strong>Context:</strong> 95% CI is standard in most fields; 99% for critical safety decisions (medical); 90% for exploratory analysis.",
+  },
+  {
+    question: "How does sample size affect confidence intervals?",
+    answer:
+      "<strong>Relationship:</strong> Larger samples = narrower CI (more precision). <strong>Why?</strong> Standard error = σ / √n. As n increases, denominator grows, standard error shrinks. <strong>Example:</strong> n=100: SE ≈ 10/√100 = 1. n=400: SE = 10/√400 = 0.5. CI halved by quadrupling sample size. <strong>Rule:</strong> To reduce interval width by half, increase sample size by 4×. <strong>Practical:</strong> Larger studies more expensive but give more reliable estimates. Sample size calculators help determine n for desired precision.",
+  },
+];
+
+export const DISTANCE_FAQS: FAQ[] = [
+  {
+    question: "What is the distance formula and how do I use it?",
+    answer:
+      "<strong>Formula:</strong> d = √[(x₂−x₁)² + (y₂−y₁)²] (2D). <strong>Example:</strong> Points (1, 2) and (4, 6). d = √[(4−1)² + (6−2)²] = √[9 + 16] = √25 = 5. <strong>3D version:</strong> d = √[(x₂−x₁)² + (y₂−y₁)² + (z₂−z₁)²]. <strong>Derive from Pythagoras:</strong> Δx = 4−1 = 3 (horizontal leg). Δy = 6−2 = 4 (vertical leg). Hypotenuse = √(3² + 4²) = 5. <strong>Always:</strong> Square differences, sum, take square root. Order of points doesn't matter (|4−1| = |1−4|).",
+  },
+  {
+    question: "How do I calculate distance between two cities or coordinates?",
+    answer:
+      "<strong>Straight-line (Euclidean):</strong> Use distance formula with coordinates. Most accurate for short distances on flat maps. <strong>Haversine formula:</strong> For actual Earth distances (curved surface). Accounts for latitude/longitude on a sphere. More complex; online calculators available. <strong>Example:</strong> NYC (40.7°N, 74.0°W) to LA (34.1°N, 118.2°W). Haversine ≈ 2,450 miles. Euclidean (if treated as flat) ≈ 2,244 miles (underestimate). <strong>Practical:</strong> GPS/maps use Haversine or more precise geodetic models. For homework: use Euclidean unless specified.",
+  },
+  {
+    question: "What is the difference between distance and displacement?",
+    answer:
+      "<strong>Distance:</strong> Total path length traveled (always positive). <strong>Displacement:</strong> Straight-line distance from start to end (can be zero). <strong>Example:</strong> Walk 5 m north, 5 m south. Distance = 10 m. Displacement = 0 m (back at start). <strong>Formula:</strong> Distance = sum of segment lengths. Displacement = √[(final−initial)²] = magnitude of displacement vector. <strong>Physics:</strong> Speed (distance/time) vs. Velocity (displacement/time). Car drives 50 mi in circle. Distance = 50 mi. Displacement = 0 mi. Average speed = 50 mi / time. Average velocity = 0 (no net movement).",
+  },
+];
+
+export const EXPONENT_FAQS: FAQ[] = [
+  {
+    question: "What are the basic exponent rules?",
+    answer:
+      "<strong>Product rule:</strong> aᵐ × aⁿ = aᵐ⁺ⁿ. Example: 2³ × 2⁵ = 2⁸ = 256. <strong>Quotient rule:</strong> aᵐ ÷ aⁿ = aᵐ⁻ⁿ. Example: 2⁸ ÷ 2³ = 2⁵ = 32. <strong>Power rule:</strong> (aᵐ)ⁿ = aᵐⁿ. Example: (2³)² = 2⁶ = 64. <strong>Product to power:</strong> (ab)ⁿ = aⁿbⁿ. Example: (2×3)² = 4 × 9 = 36. <strong>Quotient to power:</strong> (a/b)ⁿ = aⁿ/bⁿ. Example: (2/3)² = 4/9. <strong>Zero exponent:</strong> a⁰ = 1 (any nonzero a). <strong>Negative exponent:</strong> a⁻ⁿ = 1/aⁿ. Example: 2⁻³ = 1/8.",
+  },
+  {
+    question: "How do I evaluate expressions with fractional exponents?",
+    answer:
+      "<strong>Fractional exponent:</strong> aᵐ/ⁿ = ⁿ√(aᵐ) = (ⁿ√a)ᵐ. <strong>Example:</strong> 8²/³ = ³√(8²) = ³√64 = 4. OR (³√8)² = 2² = 4. <strong>Numerator:</strong> Power. Denominator: Root. <strong>Simplify:</strong> 8 = 2³, so ³√8 = 2. Then 2² = 4. <strong>Negative fractional:</strong> a⁻ᵐ/ⁿ = 1/aᵐ/ⁿ. Example: 4⁻¹/² = 1/√4 = 1/2. <strong>Order:</strong> You can root first then power, or power then root; choose easier path.",
+  },
+  {
+    question: "How do I solve exponential equations like 2^x = 16?",
+    answer:
+      "<strong>Method 1 (same base):</strong> Express both sides as same base. 2ˣ = 16 → 2ˣ = 2⁴ → x = 4. <strong>Method 2 (logarithm):</strong> Take log both sides. 2ˣ = 16 → log(2ˣ) = log(16) → x·log(2) = log(16) → x = log(16)/log(2) ≈ 4. <strong>Check:</strong> 2⁴ = 16. ✓ <strong>When bases don't match:</strong> Use logarithms. Example: 3ˣ = 50 → x·log(3) = log(50) → x = log(50)/log(3) ≈ 3.56.",
+  },
+];
+
+export const FACTORIAL_FAQS: FAQ[] = [
+  {
+    question: "What is a factorial and how do I calculate it?",
+    answer:
+      "<strong>Factorial (n!):</strong> Product of all positive integers ≤ n. <strong>Definition:</strong> n! = n × (n−1) × (n−2) × ... × 2 × 1. <strong>Examples:</strong> 5! = 5×4×3×2×1 = 120. 3! = 3×2×1 = 6. 1! = 1. 0! = 1 (by definition). <strong>Growth:</strong> Factorials grow very fast. 10! = 3,628,800. 20! ≈ 2.4 × 10¹⁸. <strong>Use:</strong> Combinatorics (permutations, combinations), probability, statistics. <strong>Calculator:</strong> Most have factorial (!) button. Larger factorials computed via Stirling's approximation or lookup tables.",
+  },
+  {
+    question: "How do I use factorials in permutations and combinations?",
+    answer:
+      "<strong>Permutations (order matters):</strong> P(n,k) = n! / (n−k)!. Choose k from n, order counts. <strong>Example:</strong> Arrange 3 books from 5. P(5,3) = 5! / (5−3)! = 120 / 2 = 60. <strong>Combinations (order doesn't matter):</strong> C(n,k) = n! / [k!(n−k)!]. Choose k from n, order irrelevant. <strong>Example:</strong> Choose 3 books from 5 (ignore order). C(5,3) = 120 / (6 × 2) = 10. <strong>Key difference:</strong> Permutation: {A,B,C} ≠ {C,B,A}. Combination: {A,B,C} = {C,B,A}. Use permutation for: arrangements, passwords, rank orderings. Use combination for: committees, selections, teams.",
+  },
+  {
+    question: "What is the relationship between n! and (n+1)!?",
+    answer:
+      "<strong>Relationship:</strong> (n+1)! = (n+1) × n!. <strong>Example:</strong> 5! = 120. 6! = 6 × 120 = 720. <strong>Proof:</strong> 6! = 6 × 5 × 4 × 3 × 2 × 1 = 6 × (5!). <strong>Recursive definition:</strong> n! = n × (n−1)!. Allows computing iteratively: 5! from 4!, which from 3!, etc. <strong>Implication:</strong> To divide factorials: 10! / 8! = (10 × 9 × 8!) / 8! = 10 × 9 = 90. Cancel common terms to avoid huge intermediate values.",
+  },
+];
+
+export const GCD_LCM_FAQS: FAQ[] = [
+  {
+    question: "What is the greatest common divisor (GCD) and how do I find it?",
+    answer:
+      "<strong>GCD:</strong> Largest number dividing both a and b evenly. <strong>Example:</strong> GCD(12, 18). Divisors of 12: 1,2,3,4,6,12. Divisors of 18: 1,2,3,6,9,18. Common: 1,2,3,6. GCD = 6. <strong>Method 1 (Euclidean algorithm):</strong> GCD(a,b) = GCD(b, a mod b) until remainder 0. <strong>Example:</strong> GCD(18,12): 18=12×1+6, 12=6×2+0. GCD=6. <strong>Method 2 (prime factorization):</strong> 12=2²×3, 18=2×3². Common primes with min power: 2¹×3¹=6. <strong>Use:</strong> Simplify fractions, reduce ratios.",
+  },
+  {
+    question: "What is the least common multiple (LCM) and how do I find it?",
+    answer:
+      "<strong>LCM:</strong> Smallest number divisible by both a and b. <strong>Example:</strong> LCM(12, 18). Multiples of 12: 12,24,36,48,... Multiples of 18: 18,36,54,... LCM = 36. <strong>Method 1 (prime factorization):</strong> 12=2²×3, 18=2×3². LCM = 2² × 3² = 4 × 9 = 36. <strong>Method 2 (formula):</strong> LCM(a,b) = (a × b) / GCD(a,b). Example: LCM(12,18) = (12×18) / 6 = 216/6 = 36. <strong>Use:</strong> Find common denominators for fractions, schedule problems (when events sync).",
+  },
+  {
+    question: "What is the relationship between GCD and LCM?",
+    answer:
+      "<strong>Product rule:</strong> GCD(a,b) × LCM(a,b) = a × b. <strong>Example:</strong> 12, 18. GCD = 6, LCM = 36. 6 × 36 = 216 = 12 × 18. ✓ <strong>Proof (via prime factorization):</strong> Let a = p₁ᵃ¹ × p₂ᵃ² × ... and b = p₁ᵇ¹ × p₂ᵇ² × ... Then GCD = p₁^min(a₁,b₁) × ... and LCM = p₁^max(a₁,b₁) × ... Product = p₁^(min+max) × ... = p₁^(a₁+b₁) × ... = a × b. <strong>Implication:</strong> If you know GCD, compute LCM via formula (faster than finding multiples).",
+  },
+];
+
+export const HEX_FAQS: FAQ[] = [
+  {
+    question: "How do I convert hexadecimal to decimal?",
+    answer:
+      "<strong>Hexadecimal (base 16):</strong> Uses digits 0−9 and A−F (A=10, B=11, ..., F=15). <strong>Method:</strong> Multiply each digit by 16 raised to its position, sum. <strong>Example:</strong> 1A3₁₆. Position 2: 1×16²=256. Position 1: A(10)×16¹=160. Position 0: 3×16⁰=3. Sum = 256+160+3 = 419₁₀. <strong>Powers of 16:</strong> 16⁰=1, 16¹=16, 16²=256, 16³=4096. <strong>Quick check:</strong> F₁₆ = 15₁₀. FF₁₆ = 15×16 + 15 = 255₁₀. <strong>Why hex?</strong> Compact representation for binary (1 hex digit = 4 binary bits).",
+  },
+  {
+    question: "How do I convert decimal to hexadecimal?",
+    answer:
+      "<strong>Method:</strong> Repeatedly divide by 16, track remainders. Read remainders bottom-to-top. <strong>Example:</strong> 419₁₀. 419÷16=26 R 3, 26÷16=1 R 10(A), 1÷16=0 R 1. Read: 1A3₁₆. <strong>Verification:</strong> 1×256 + 10×16 + 3 = 419. ✓ <strong>Large numbers:</strong> Divide step-by-step; convert remainder to hex (10→A, 11→B, etc.). <strong>Tip:</strong> Online converters available; understand the process for small numbers.",
+  },
+  {
+    question: "What is the relationship between binary and hexadecimal?",
+    answer:
+      "<strong>Key:</strong> 1 hex digit = 4 binary bits (nibble). <strong>Example:</strong> 1A3₁₆ = 0001 1010 0011₂. Breakdown: 1=0001, A=1010, 3=0011. <strong>Why useful?</strong> Programmers use hex as shorthand for binary. 11110101₂ (hard to read) = F5₁₆ (compact). <strong>Conversion:</strong> Group binary into 4-bit chunks, convert each to hex. 11110101 → 1111(F) 0101(5) → F5₁₆. <strong>Reverse:</strong> Each hex digit → 4 binary digits. A3 → 1010(A) 0011(3) → 10100011₂.",
+  },
+];
+
+export const HYPOTHESIS_TEST_FAQS: FAQ[] = [
+  {
+    question: "What is a hypothesis test and how does the p-value work?",
+    answer:
+      "<strong>Hypothesis test:</strong> Determine if sample data provides evidence for/against a claim (null hypothesis H₀). <strong>Null hypothesis (H₀):</strong> No effect/difference. <strong>Alternative hypothesis (H₁):</strong> Effect/difference exists. <strong>P-value:</strong> Probability of observing sample data if H₀ is true. <strong>Interpretation:</strong> p < 0.05 typically → reject H₀ (evidence against claim). p ≥ 0.05 → fail to reject H₀ (insufficient evidence). <strong>Example:</strong> Is coin fair? H₀: p=0.5. Flip 100 times, get 70 heads. p-value ≈ 0.00001 (very unlikely if fair) → reject H₀. <strong>Important:</strong> p-value is NOT probability H₀ is false; it's probability of data given H₀ is true.",
+  },
+  {
+    question: "What are Type I and Type II errors?",
+    answer:
+      "<strong>Type I error (α):</strong> Reject H₀ when it's true (false positive). <strong>Example:</strong> Conclude coin biased when it's actually fair. <strong>Type II error (β):</strong> Fail to reject H₀ when it's false (false negative). <strong>Example:</strong> Conclude coin fair when it's actually biased. <strong>Significance level (α):</strong> Chosen before test; typically 0.05 (5% chance of Type I). <strong>Trade-off:</strong> Decreasing α increases β. Reducing both requires larger sample. <strong>Power (1−β):</strong> Probability of detecting true effect. Higher power = better test.",
+  },
+  {
+    question: "What is a one-tailed vs. two-tailed test?",
+    answer:
+      "<strong>One-tailed:</strong> Test if parameter > or < specific value. <strong>Example:</strong> Is mean income > $50k? H₁: μ > 50. <strong>Two-tailed:</strong> Test if parameter ≠ specific value. <strong>Example:</strong> Is mean income different from $50k? H₁: μ ≠ 50. <strong>Difference:</strong> One-tailed concentrates α in one tail (more power to detect direction). Two-tailed splits α into both tails (tests both directions). <strong>P-value:</strong> One-tailed p ≈ half two-tailed p. <strong>Choose based on hypothesis:</strong> Directional claim → one-tailed. No direction → two-tailed.",
+  },
+];
+
+export const LINEAR_EQUATION_FAQS: FAQ[] = [
+  {
+    question: "What is a linear equation and how do I solve ax + b = c?",
+    answer:
+      "<strong>Linear equation:</strong> One variable to first power. Form: ax + b = c. <strong>Solve by isolating x:</strong> (1) Subtract b from both sides: ax = c − b. (2) Divide by a: x = (c − b) / a. <strong>Example:</strong> 2x + 5 = 13. Subtract 5: 2x = 8. Divide by 2: x = 4. <strong>Check:</strong> 2(4) + 5 = 13. ✓ <strong>Key:</strong> Whatever operation you do to one side, do to the other (balance principle). <strong>Special cases:</strong> If a = 0, equation is not linear (becomes b = c, either always true or never).",
+  },
+  {
+    question: "How do I solve systems of two linear equations (substitution/elimination)?",
+    answer:
+      "<strong>Substitution method:</strong> (1) Solve one equation for a variable. (2) Substitute into other equation. <strong>Example:</strong> x + y = 5, 2x − y = 4. From first: y = 5 − x. Substitute: 2x − (5 − x) = 4 → 3x − 5 = 4 → x = 3. Then y = 2. <strong>Elimination method:</strong> (1) Multiply equations so a variable's coefficients cancel. (2) Add/subtract equations. <strong>Example:</strong> x + y = 5, 2x − y = 4. Add: (x + 2x) + (y − y) = 9 → 3x = 9 → x = 3. <strong>Choose:</strong> Substitution if one variable easily isolated. Elimination if coefficients already set up nicely.",
+  },
+  {
+    question: "What is the slope-intercept form and how do I use it?",
+    answer:
+      "<strong>Slope-intercept form:</strong> y = mx + b. m = slope, b = y-intercept. <strong>Example:</strong> y = 2x + 3. Slope = 2 (rise 2 for every 1 right). Y-intercept = 3 (line crosses y-axis at (0,3)). <strong>Find from two points:</strong> Slope m = (y₂ − y₁) / (x₂ − x₁). <strong>Example:</strong> Points (1,5) and (3,9). m = (9−5)/(3−1) = 4/2 = 2. Then y = 2x + b. Plug point (1,5): 5 = 2(1) + b → b = 3. <strong>Equation:</strong> y = 2x + 3. <strong>Graph:</strong> Plot y-intercept (0,3), use slope to find another point (1,5), draw line.",
+  },
+];
+
+export const LOG_FAQS: FAQ[] = [
+  {
+    question: "What is a logarithm and how does it relate to exponents?",
+    answer:
+      "<strong>Logarithm:</strong> Inverse of exponent. logₐ(x) = y means aʸ = x. <strong>Example:</strong> log₂(8) = 3 because 2³ = 8. <strong>Common bases:</strong> log₁₀ (common log), ln = log_e (natural log, base e ≈ 2.718). <strong>Key property:</strong> logₐ(aˣ) = x and a^(logₐ(x)) = x. <strong>Why useful?</strong> Convert multiplication to addition: log(xy) = log(x) + log(y). Solve exponential equations: 2ˣ = 50 → x = log₂(50) = log(50)/log(2) ≈ 5.64. <strong>Inverse:</strong> If log(x) = y, then x = 10ʸ (for base 10).",
+  },
+  {
+    question: "What are the logarithm rules (product, quotient, power)?",
+    answer:
+      "<strong>Product rule:</strong> logₐ(xy) = logₐ(x) + logₐ(y). <strong>Example:</strong> log₁₀(100) = log₁₀(10 × 10) = log₁₀(10) + log₁₀(10) = 1 + 1 = 2. <strong>Quotient rule:</strong> logₐ(x/y) = logₐ(x) − logₐ(y). <strong>Power rule:</strong> logₐ(xⁿ) = n·logₐ(x). <strong>Example:</strong> log₁₀(10³) = 3·log₁₀(10) = 3·1 = 3. <strong>Change of base:</strong> logₐ(x) = log_b(x) / log_b(a). Converts between bases. <strong>Use:</strong> Simplify complex logs, solve equations.",
+  },
+  {
+    question: "How do I solve logarithmic equations like log(x) = 2?",
+    answer:
+      "<strong>Convert to exponential:</strong> logₐ(x) = b → x = aᵇ. <strong>Example:</strong> log₁₀(x) = 2 → x = 10² = 100. <strong>Verify:</strong> log₁₀(100) = 2. ✓ <strong>Complex example:</strong> log(x) + log(2) = 3 (base 10). Combine: log(2x) = 3. Convert: 2x = 10³ = 1000. x = 500. <strong>Check:</strong> log(500) + log(2) = log(1000) = 3. ✓",
+  },
+];
+
+export const LONG_DIVISION_FAQS: FAQ[] = [
+  {
+    question: "What are the steps for long division?",
+    answer:
+      "<strong>Steps (divide, multiply, subtract, bring down, repeat):</strong> (1) Divide: How many times does divisor fit into first few digits? (2) Multiply: Multiply divisor by quotient digit, write below. (3) Subtract: Subtract to find remainder. (4) Bring down: Bring next digit. (5) Repeat until all digits processed. <strong>Example:</strong> 456 ÷ 12. 12 fits into 45 three times (3×12=36). Subtract: 45−36=9. Bring 6 down: 96. 12 fits into 96 eight times (8×12=96). Subtract: 96−96=0. Answer: 38. <strong>Remainder:</strong> If not exact, final remainder written as fraction or decimal.",
+  },
+  {
+    question: "How do I handle remainders and convert to decimals?",
+    answer:
+      "<strong>Integer remainder:</strong> 17 ÷ 5 = 3 R 2 (quotient 3, remainder 2). <strong>Fraction:</strong> 3 2/5 (mixed number). <strong>Decimal:</strong> Continue dividing: add decimal point, append zeros. 17÷5: 3 (R 2). 20÷5 = 4. Answer: 3.4. <strong>Repeating decimal:</strong> 10÷3 = 3.333... (3 repeats). Long division shows the pattern. <strong>Key:</strong> Remainder becomes dividend for next step (×10 after decimal). Stop when remainder is 0 or pattern repeats.",
+  },
+  {
+    question: "How do I divide by multi-digit divisors?",
+    answer:
+      "<strong>Process same as single-digit but more estimation:</strong> (1) Identify how many digits needed in dividend (divisor must fit into them). <strong>Example:</strong> 5832 ÷ 18. 18 fits into 58 (first two digits) three times (3×18=54). Subtract: 58−54=4. Bring 3 down: 43. 18 fits into 43 twice (2×18=36). Continue. (2) If estimating hard, try different digits (18 fits into 43? Yes, 2 times). <strong>Check:</strong> Multiply quotient × divisor; should equal dividend (plus any remainder). Practice builds speed.",
+  },
+];
+
+export const MEAN_ABSOLUTE_DEVIATION_FAQS: FAQ[] = [
+  {
+    question: "What is mean absolute deviation (MAD) and how do I calculate it?",
+    answer:
+      "<strong>MAD:</strong> Average distance of data points from the mean (ignores direction). <strong>Formula:</strong> MAD = Σ|xᵢ − mean| / n. <strong>Steps:</strong> (1) Find mean. (2) Calculate distance from mean for each value (absolute value). (3) Average the distances. <strong>Example:</strong> Data: 2, 4, 6, 8. Mean = 5. Distances: |2−5|=3, |4−5|=1, |6−5|=1, |8−5|=3. Sum = 8. MAD = 8/4 = 2. <strong>Interpretation:</strong> On average, values deviate by 2 from the mean. <strong>Use:</strong> Measure spread; easier to interpret than standard deviation (same units as data, not squared).",
+  },
+  {
+    question: "How does MAD compare to standard deviation?",
+    answer:
+      "<strong>MAD:</strong> Absolute deviation. Simple, same units as data. Example: Data in cm → MAD in cm. <strong>Standard deviation:</strong> Square root of average squared deviations. More complex, mathematically convenient. <strong>Example dataset:</strong> 2, 4, 6, 8. MAD = 2 (as calculated). Std dev ≈ 2.37. <strong>Why both exist?</strong> MAD is intuitive and robust to outliers. Std dev is mathematically useful (easier for statistical tests). <strong>Rule:</strong> For normal distribution, std dev ≈ 1.25 × MAD.",
+  },
+  {
+    question: "What does a large or small MAD tell you?",
+    answer:
+      "<strong>Large MAD:</strong> Data spread widely from mean (high variability). <strong>Example:</strong> Test scores 10, 50, 90 (mean=50). Distances: 40, 0, 40. MAD=26.7 (large spread). <strong>Small MAD:</strong> Data clustered near mean (low variability). <strong>Example:</strong> Test scores 48, 50, 52 (mean=50). Distances: 2, 0, 2. MAD=1.3 (tight cluster). <strong>Compare datasets:</strong> MAD helps compare consistency. Two classes with same mean but different MADs have different spreadiness. Class A (MAD=5) more consistent than Class B (MAD=15).",
+  },
+];
+
+export const PERMUTATION_COMBINATION_FAQS: FAQ[] = [
+  {
+    question: "What is the difference between permutations and combinations?",
+    answer:
+      "<strong>Permutations:</strong> Order matters. Different arrangements = different outcomes. <strong>Formula:</strong> P(n,k) = n! / (n−k)!. <strong>Example:</strong> Arrange 3 books from 5. P(5,3) = 5!/(5−3)! = 120/2 = 60. Choosing {A,B,C} differs from {C,B,A}. <strong>Combinations:</strong> Order doesn't matter. Different arrangements = same outcome. <strong>Formula:</strong> C(n,k) = n! / [k!(n−k)!]. <strong>Example:</strong> Choose 3 books from 5 (ignore order). C(5,3) = 120/(6×2) = 10. Choosing {A,B,C} same as {C,B,A}. <strong>When to use:</strong> Permutation: passwords, rank orderings, line arrangements. Combination: committees, teams, selections.",
+  },
+  {
+    question: "How do I calculate permutations with repetition?",
+    answer:
+      "<strong>Without repetition (standard):</strong> P(n,k) = n!/(n−k)!. Each element used once. <strong>With repetition:</strong> P(n,k) = nᵏ. Each element can repeat. <strong>Example:</strong> Create 3-letter passwords from 26 letters. With repetition: 26³ = 17,576 (AAA, AAB, ... ZZZ allowed). Without repetition: P(26,3) = 26×25×24 = 15,600 (no repeats, e.g., AAA not allowed). <strong>Key:</strong> With repetition, first choice = n options, second = n (not n−1), third = n. Product = nᵏ.",
+  },
+  {
+    question: "How do I calculate combinations with repetition?",
+    answer:
+      "<strong>Without repetition (standard):</strong> C(n,k) = n! / [k!(n−k)!]. <strong>With repetition:</strong> C(n+k−1, k). Choose k items from n types, repetition allowed. <strong>Example:</strong> Choose 3 toppings from 5 available, repeats allowed (e.g., double pepperoni). C(5+3−1, 3) = C(7,3) = 35. <strong>Intuition:</strong> Equivalent to distributing k identical items into n bins. <strong>Formula derivation:</strong> Stars and bars method (combinatorics). <strong>Difference:</strong> Standard C(5,3) = 10 (no repeats). Repetition C(7,3) = 35 (repeats allowed).",
+  },
+];
+
+export const PRIME_FACTOR_FAQS: FAQ[] = [
+  {
+    question: "What is prime factorization and how do I find it?",
+    answer:
+      "<strong>Prime factorization:</strong> Express number as product of prime numbers. <strong>Example:</strong> 60 = 2² × 3 × 5. <strong>Method (divide by smallest primes):</strong> (1) Divide by 2 until odd. (2) Divide by 3 if divisible. (3) Continue with 5, 7, 11, ... until quotient = 1. <strong>Example:</strong> 60. 60÷2=30. 30÷2=15. 15÷3=5. 5÷5=1. Factors: 2,2,3,5. Written: 2²×3×5. <strong>Uniqueness:</strong> Every number has exactly one prime factorization (Fundamental Theorem of Arithmetic). <strong>Use:</strong> Simplify fractions, find GCD/LCM, test primality.",
+  },
+  {
+    question: "How is prime factorization used to find GCD and LCM?",
+    answer:
+      "<strong>GCD:</strong> Product of common primes with lowest power. <strong>Example:</strong> 12 = 2²×3, 18 = 2×3². Common: 2¹×3¹ = 6. <strong>LCM:</strong> Product of all primes with highest power. <strong>Example:</strong> 12 = 2²×3, 18 = 2×3². All: 2²×3² = 4×9 = 36. <strong>Why works:</strong> Prime factorization reveals shared factors and unique factors. GCD = intersection of prime sets. LCM = union with max powers. <strong>Compare:</strong> P(12,18) = 12×18 / GCD = 216 / 6 = 36 = LCM. ✓",
+  },
+  {
+    question: "What is a prime number and how do I test if a number is prime?",
+    answer:
+      "<strong>Prime:</strong> Natural number > 1, divisible only by 1 and itself. <strong>Examples:</strong> 2, 3, 5, 7, 11, 13, ... (2 is only even prime). <strong>Test (trial division):</strong> Check if divisible by any number up to √n. <strong>Example:</strong> Is 17 prime? √17 ≈ 4.1. Check divisibility by 2, 3, 4 (only need 2, 3). 17 not divisible by 2 or 3 → prime. <strong>Why √n?</strong> If n = a×b and a ≤ √n, then b ≥ √n. So checking up to √n suffices. <strong>Composite:</strong> Number with factors besides 1 and itself (e.g., 12 = 2²×3). <strong>1:</strong> Neither prime nor composite (by convention).",
+  },
+];
+
+export const PYTHAGOREAN_FAQS: FAQ[] = [
+  {
+    question: "What is the Pythagorean theorem and when do I use it?",
+    answer:
+      "<strong>Theorem:</strong> In right triangle, a² + b² = c² (c = hypotenuse, longest side). <strong>Example:</strong> Legs 3, 4. Hypotenuse = √(9+16) = √25 = 5. <strong>Use:</strong> Find missing side in right triangle. Verify if triangle is right (check if a²+b²=c²). Solve distance/geometry problems. <strong>Derivation:</strong> Area of square on hypotenuse = sum of areas on other sides. <strong>Common Pythagorean triples:</strong> (3,4,5), (5,12,13), (8,15,17), (7,24,25). Multiples also work: (6,8,10) = 2×(3,4,5).",
+  },
+  {
+    question: "How do I find missing sides in a right triangle?",
+    answer:
+      "<strong>Given two sides, find third:</strong> <strong>If a, b known (legs):</strong> c = √(a²+b²). <strong>Example:</strong> a=5, b=12. c = √(25+144) = √169 = 13. <strong>If c, a known (hypotenuse and one leg):</strong> b = √(c²−a²). <strong>Example:</strong> c=13, a=5. b = √(169−25) = √144 = 12. <strong>Always:</strong> Hypotenuse is longest side. Don't confuse which is which. <strong>Check:</strong> Plug back into a²+b²=c².",
+  },
+  {
+    question: "What are 3-4-5 and other Pythagorean triples?",
+    answer:
+      "<strong>Pythagorean triple:</strong> Three integers (a,b,c) satisfying a²+b²=c². <strong>Primitive triple:</strong> GCD(a,b,c)=1 (no common factor). <strong>Examples (primitive):</strong> (3,4,5), (5,12,13), (8,15,17), (7,24,25), (20,21,29). <strong>Non-primitive:</strong> Multiples of primitives. (6,8,10)=2×(3,4,5), (9,12,15)=3×(3,4,5). <strong>Generate:</strong> Use formulas: a=m²−n², b=2mn, c=m²+n² (m>n>0). Example: m=2, n=1 → a=3, b=4, c=5. <strong>Why useful?</strong> Quick mental calculation; no square roots needed.",
+  },
+];
+
+export const QUADRATIC_FAQS: FAQ[] = [
+  {
+    question: "What is a quadratic equation and how do I solve it?",
+    answer:
+      "<strong>Quadratic:</strong> Degree-2 polynomial equation: ax²+bx+c=0 (a≠0). <strong>Solutions (roots):</strong> Values of x satisfying equation. Up to 2 real roots. <strong>Quadratic formula:</strong> x = (−b ± √(b²−4ac)) / (2a). <strong>Example:</strong> x²−5x+6=0 (a=1, b=−5, c=6). Discriminant: b²−4ac = 25−24 = 1. x = (5±1)/2 = 3 or 2. <strong>Check:</strong> 3²−5(3)+6 = 0. ✓ <strong>Discriminant:</strong> > 0 (two real roots), = 0 (one root), < 0 (no real roots, complex).",
+  },
+  {
+    question: "How do I factor quadratic expressions like x² + 5x + 6?",
+    answer:
+      "<strong>Factoring:</strong> Express as (x+p)(x+q) where p+q=b and p×q=c. <strong>Example:</strong> x²+5x+6. Find p, q: p+q=5, p×q=6. p=2, q=3. Factor: (x+2)(x+3). <strong>Check:</strong> (x+2)(x+3) = x²+3x+2x+6 = x²+5x+6. ✓ <strong>When impossible:</strong> Use quadratic formula or complete the square. <strong>Leading coefficient≠1:</strong> 2x²+5x+3. Multiply a×c=6. Find factors of 6 summing to b=5: 2,3. Split: 2x²+2x+3x+3. Factor pairs: 2x(x+1)+3(x+1) = (2x+3)(x+1).",
+  },
+  {
+    question: "What does the discriminant tell you about solutions?",
+    answer:
+      "<strong>Discriminant:</strong> Δ = b²−4ac (expression under square root in quadratic formula). <strong>Δ > 0:</strong> Two distinct real roots (parabola crosses x-axis twice). <strong>Δ = 0:</strong> One repeated real root (parabola touches x-axis once). <strong>Δ < 0:</strong> No real roots, two complex conjugate roots (parabola doesn't cross x-axis). <strong>Examples:</strong> x²−5x+6: Δ=1>0 (two roots: 2, 3). x²−4x+4: Δ=0 (one root: 2 double). x²+1: Δ=−4<0 (no real roots). <strong>Quick check:</strong> Compute Δ before solving to know what to expect.",
+  },
+];
+
+export const RATIO_FAQS: FAQ[] = [
+  {
+    question: "What is a ratio and how do I simplify it?",
+    answer:
+      "<strong>Ratio:</strong> Comparison of two quantities (a:b or a/b). <strong>Example:</strong> 3:5 (read 'three to five'). <strong>Simplify:</strong> Divide both by GCD. <strong>Example:</strong> 12:18. GCD=6. Simplified: 2:3. <strong>Equivalent ratios:</strong> 2:3 = 4:6 = 6:9 = 12:18 (all same ratio). <strong>Scale:</strong> Multiply both by same number. 2:3 × 4 = 8:12. <strong>Use:</strong> Compare quantities, recipes, maps, probability. <strong>Forms:</strong> a:b or a/b or 'a to b' (all mean the same).",
+  },
+  {
+    question: "How do I solve problems involving ratios and proportions?",
+    answer:
+      "<strong>Proportion:</strong> Two ratios equal. a/b = c/d. <strong>Solve:</strong> Cross-multiply: ad = bc. <strong>Example:</strong> 2/3 = x/12. Cross: 2×12 = 3×x → 24 = 3x → x=8. <strong>Verify:</strong> 2/3 = 8/12 → 2×12=24, 3×8=24. ✓ <strong>Real-world:</strong> Recipe scaling. Recipe: 2 cups flour, 1 cup sugar (ratio 2:1). Scale to 6 cups flour. 2/1 = 6/x → x=3 cups sugar. <strong>Speed/distance:</strong> 60 miles per 2 hours. How far in 5 hours? 60/2 = x/5 → x = 150 miles.",
+  },
+  {
+    question: "What is the difference between ratio, rate, and proportion?",
+    answer:
+      "<strong>Ratio:</strong> Comparison of quantities (same units or not). Example: 3 boys to 5 girls (3:5). <strong>Rate:</strong> Ratio of quantities with different units. Example: 60 miles per 2 hours (60 mi/2 hrs = 30 mi/hr). <strong>Proportion:</strong> Statement that two ratios are equal. Example: 3/5 = 6/10. <strong>Key distinctions:</strong> Ratio (dimensionless). Rate (has units). Proportion (equation). <strong>Example:</strong> Recipe ratio 2:1 (flour:sugar). Rate: 2 cups flour per 1 cup sugar. Proportion: If 4 cups flour, then 2 cups sugar (4/2 = 2/1).",
+  },
+];
+
+export const SAMPLE_SIZE_FAQS: FAQ[] = [
+  {
+    question: "Why does sample size matter in statistics?",
+    answer:
+      "<strong>Larger samples:</strong> More reliable estimates, narrower confidence intervals, higher statistical power. <strong>Example:</strong> Poll 100 people vs. 1,000. The 1,000-person poll has tighter CI and higher confidence in true population proportion. <strong>Why?</strong> Standard error = σ/√n. As n ↑, SE ↓. Uncertainty decreases. <strong>Rule of thumb:</strong> To reduce error by half, quadruple sample size (√4 = 2). <strong>Trade-off:</strong> Larger samples cost more (time, money) but give better precision. <strong>Minimum:</strong> n ≥ 30 often recommended for normal approximation.",
+  },
+  {
+    question: "How do I calculate the sample size needed for a study?",
+    answer:
+      "<strong>Formula (approximate):</strong> n = (z² × σ²) / e². z = critical value (1.96 for 95% confidence), σ = std dev, e = margin of error. <strong>Example:</strong> Poll proportion to ±3% margin, 95% confidence. Use p=0.5 (worst case). n = (1.96² × 0.5 × 0.5) / (0.03²) ≈ 1,068. <strong>Factors affecting n:</strong> Confidence level (higher → larger n). Margin of error (smaller → larger n). Population variability (higher → larger n). <strong>Tools:</strong> Online calculators available. Formula varies by scenario (proportion, mean, survival, etc.).",
+  },
+  {
+    question: "What is statistical power and how is it related to sample size?",
+    answer:
+      "<strong>Statistical power:</strong> Probability of detecting true effect (1−β). <strong>Example:</strong> 80% power = 80% chance of rejecting H₀ if it's false. <strong>Relationship to n:</strong> Power ↑ as n ↑. Larger sample detects smaller effects. <strong>Trade-off:</strong> Type I error (α), Type II error (β), sample size, effect size interrelated. Choose 3, n determined. Typical targets: α=0.05, power=0.80. <strong>Example:</strong> Detect 10% improvement with 80% power, α=0.05. Requires sample of ~200. Detect 5% improvement? Need ~800. <strong>Design studies:</strong> Compute n to achieve desired power before data collection.",
+  },
+];
+
+export const SURFACE_AREA_FAQS: FAQ[] = [
+  {
+    question: "What is the formula for surface area of common shapes?",
+    answer:
+      "<strong>Cube (side s):</strong> SA = 6s². Example: s=2 → SA = 6(4) = 24. <strong>Rectangular prism (l, w, h):</strong> SA = 2(lw + lh + wh). Example: 2×3×4 → SA = 2(6+8+12) = 52. <strong>Sphere (radius r):</strong> SA = 4πr². Example: r=3 → SA = 4π(9) = 36π ≈ 113. <strong>Cylinder (radius r, height h):</strong> SA = 2πr² + 2πrh (two circles + lateral). Example: r=2, h=5 → SA = 2π(4) + 2π(2)(5) = 8π + 20π = 28π ≈ 88. <strong>Cone (radius r, slant height l):</strong> SA = πr² + πrl. <strong>Key:</strong> Surface area = sum of all face areas.",
+  },
+  {
+    question: "How do I calculate surface area of a composite shape?",
+    answer:
+      "<strong>Composite:</strong> Combination of simple shapes. <strong>Method:</strong> (1) Break into simple parts. (2) Calculate each surface area. (3) Add together (accounting for shared faces). <strong>Example:</strong> Cylinder with cone on top. Cylinder: SA = 2πr² + 2πrh (but top circle hidden). Cone: SA = πrl. Together: πr² (cylinder bottom) + 2πrh (cylinder side) + πrl (cone). <strong>Watch:</strong> Don't double-count shared surfaces. If cylinder top and cone base coincide, exclude that face from count.",
+  },
+  {
+    question: "How do I find surface area if given volume or one dimension?",
+    answer:
+      "<strong>Relationship:</strong> Surface area and volume related but distinct. Different formulas. <strong>Example:</strong> Volume of cube = s³. Surface area = 6s². If V=27 → s=3 → SA = 54. <strong>Reverse:</strong> Given SA, find s. 6s²=54 → s²=9 → s=3. <strong>Scaling:</strong> If all dimensions scale by factor k: SA scales by k². V scales by k³. Example: Scale 2×. SA × 4, V × 8. <strong>Optimization:</strong> For fixed volume, sphere minimizes surface area (why bubbles are round). For fixed surface area, sphere maximizes volume.",
+  },
+];
+
+export const TRIG_FAQS: FAQ[] = [
+  {
+    question: "What are sine, cosine, and tangent in a right triangle?",
+    answer:
+      "<strong>SOH-CAH-TOA mnemonic:</strong> <strong>sin(θ) = opposite/hypotenuse</strong> (Sine = Opposite/Hypotenuse). <strong>cos(θ) = adjacent/hypotenuse</strong> (Cosine = Adjacent/Hypotenuse). <strong>tan(θ) = opposite/adjacent</strong> (Tangent = Opposite/Adjacent). <strong>Example:</strong> Right triangle, θ=30°, opposite=5, hypotenuse=10. sin(30°) = 5/10 = 0.5. <strong>Common values:</strong> sin(30°)=0.5, cos(30°)≈0.866, tan(30°)≈0.577. sin(45°)≈0.707, cos(45°)≈0.707, tan(45°)=1. sin(60°)≈0.866, cos(60°)=0.5, tan(60°)≈1.732. <strong>Use:</strong> Find missing sides/angles, navigation, engineering.",
+  },
+  {
+    question: "How do I solve for missing sides or angles?",
+    answer:
+      "<strong>Known two sides, find angle:</strong> Use inverse trig. Example: opposite=3, hypotenuse=5. sin(θ) = 3/5 = 0.6 → θ = arcsin(0.6) ≈ 36.87°. <strong>Known one side and angle, find another:</strong> Use appropriate trig ratio. Example: angle=40°, hypotenuse=10, find opposite. sin(40°) = opposite/10 → opposite = 10×sin(40°) ≈ 6.43. <strong>Check:</strong> Verify with Pythagorean theorem or other trig function. <strong>Units:</strong> Angle in degrees or radians (ensure calculator mode matches).",
+  },
+  {
+    question: "What is the unit circle and why is it important?",
+    answer:
+      "<strong>Unit circle:</strong> Circle radius 1 centered at origin. Any angle θ maps to point (cos(θ), sin(θ)). <strong>Why?</strong> Simplifies trig. At θ=0°: (1, 0). θ=90°: (0, 1). θ=180°: (−1, 0). θ=270°: (0, −1). <strong>Angles in quadrants:</strong> Q1 (0°−90°): sin, cos both positive. Q2 (90°−180°): sin positive, cos negative. Q3 (180°−270°): sin, cos both negative. Q4 (270°−360°): sin negative, cos positive. <strong>Radians:</strong> π radians = 180°. Unit circle shows radian values. <strong>Extends:</strong> Beyond 0°−360° using periodicity (sin, cos repeat every 360° or 2π radians).",
+  },
+];
+
+export const VARIANCE_FAQS: FAQ[] = [
+  {
+    question: "What is variance and how do I calculate it?",
+    answer:
+      "<strong>Variance:</strong> Average squared deviation from mean. Measures spread. <strong>Formula:</strong> σ² = Σ(xᵢ − mean)² / n (population) or s² = Σ(xᵢ − mean)² / (n−1) (sample). <strong>Example:</strong> Data: 2, 4, 6, 8. Mean=5. Squared deviations: (2−5)²=9, (4−5)²=1, (6−5)²=1, (8−5)²=9. Sum=20. Variance = 20/4 = 5 (population). <strong>Sample (n−1):</strong> Used when estimating from sample; accounts for freedom lost in computing mean. Variance = 20/3 ≈ 6.67. <strong>Units:</strong> Variance squared (e.g., if data in cm, variance in cm²). <strong>Interpretation:</strong> Larger variance = more spread.",
+  },
+  {
+    question: "How is variance related to standard deviation?",
+    answer:
+      "<strong>Standard deviation:</strong> Square root of variance. σ = √σ². <strong>Example:</strong> Variance = 5 → Std dev = √5 ≈ 2.24. <strong>Why?</strong> Std dev in original units (easier interpretation). Variance in squared units (mathematically convenient for calculations). <strong>Properties:</strong> Std dev always ≥ 0. Wider distribution → larger std dev. <strong>Example:</strong> Dataset 48,49,50,51,52 (tight, mean=50, std dev≈1.4). Dataset 10,30,50,70,90 (wide, mean=50, std dev≈31.6). <strong>Use:</strong> Report std dev for readability; compute variance for statistical formulas.",
+  },
+  {
+    question: "What is the difference between population and sample variance?",
+    answer:
+      "<strong>Population variance (σ²):</strong> All data available. Divide by n. <strong>Sample variance (s²):</strong> Estimating from sample. Divide by n−1 (Bessel's correction). <strong>Why n−1?</strong> Sample mean inherently closer to sample than to population mean. Using n underestimates variance. (n−1) corrects for this bias. <strong>Example:</strong> Population: 2,4,6,8 (known all). Variance = 5 (÷4). Sample from population: 2,6 (estimate). Variance = (−1)² + (3)² / (2−1) = 10 (÷1). <strong>Rule:</strong> If you compute mean from same data, use sample variance (n−1). If mean is external, use population variance (n).",
+  },
+];
+
+export const Z_SCORE_FAQS: FAQ[] = [
+  {
+    question: "What is a z-score and how do I calculate it?",
+    answer:
+      "<strong>Z-score:</strong> Standard score. Measures how many standard deviations a value is from mean. <strong>Formula:</strong> z = (x − mean) / std_dev. <strong>Example:</strong> Data mean=100, std_dev=15. x=130. z = (130−100)/15 = 2. Value 130 is 2 std devs above mean. <strong>Interpretation:</strong> z=0 (at mean). z>0 (above mean). z<0 (below mean). z=2 (top ~2.3%). z=−1 (bottom ~15.9%). <strong>Use:</strong> Standardize scores (different units/scales). Compare values across datasets. Identify outliers (|z| > 3 rare).",
+  },
+  {
+    question: "How do I use z-scores to find probabilities?",
+    answer:
+      "Use a standard normal table (z-table) or calculator to convert z-scores to probabilities. For example, z=1.5 gives P(Z less than 1.5) of about 0.933, meaning 93.3% of data falls below. To find P(Z greater than 1.5), calculate 1 minus 0.933 = 0.067 (6.7% above). For probabilities between two z-scores, subtract: P(0 to 1.5) = 0.933 minus 0.5 = 0.433 (43.3%). For inverse lookups, P=0.975 corresponds to z of about 1.96 (used for 95% confidence intervals). This assumes data is normally distributed."
+  },
+  {
+    question: "How do I identify outliers using z-scores?",
+    answer:
+      "<strong>Outlier threshold:</strong> Typically |z| > 2 or |z| > 3. <strong>|z| > 2:</strong> Value 2+ std devs from mean (~2.3% of data in normal distribution, so unusually far). <strong>|z| > 3:</strong> Stronger threshold (~0.13% of data). <strong>Example:</strong> Mean=50, std_dev=10. x=80 → z=(80−50)/10 = 3. Outlier (|z|>3). x=75 → z=2.5. Borderline (2<|z|<3). <strong>Visual:</strong> Plot z-scores; anything beyond ±3 on horizontal axis stands out. <strong>Context:</strong> Some fields use |z|>2.5 or relax to |z|>2.5. Choose threshold based on tolerance for false positives.",
+  },
+];
+
+export const MATRIX_FAQS: FAQ[] = [
+  {
+    question: "What is a matrix and how do I add or subtract matrices?",
+    answer:
+      "<strong>Matrix:</strong> Rectangular array of numbers (rows × columns). <strong>Example:</strong> 2×3 matrix: [[1,2,3], [4,5,6]]. <strong>Addition:</strong> Add corresponding elements. Matrices must be same size. [[1,2], [3,4]] + [[5,6], [7,8]] = [[6,8], [10,12]]. <strong>Subtraction:</strong> Subtract corresponding elements. [[5,6], [7,8]] − [[1,2], [3,4]] = [[4,4], [4,4]]. <strong>Properties:</strong> Order doesn't matter (commutative). Can combine multiple additions. <strong>Use:</strong> System of equations, transformations, data tables.",
+  },
+  {
+    question: "How do I multiply matrices?",
+    answer:
+      "<strong>Matrix multiplication:</strong> (rows of A) × (columns of B). Dot product of rows and columns. <strong>Example:</strong> A is 2×3, B is 3×2. Result is 2×2. A = [[1,2,3], [4,5,6]], B = [[7,8], [9,10], [11,12]]. A×B[0][0] = 1(7)+2(9)+3(11) = 7+18+33 = 58. <strong>Key:</strong> A×B ≠ B×A (not commutative). (A×B)×C = A×(B×C) (associative). Inner dimensions must match (A: m×n, B: n×p → result: m×p). <strong>Identity matrix (I):</strong> A×I = A. I has 1s on diagonal, 0s elsewhere.",
+  },
+  {
+    question: "What is matrix inverse and determinant?",
+    answer:
+      "<strong>Determinant (det or |A|):</strong> Scalar value. For 2×2: det([[a,b], [c,d]]) = ad−bc. <strong>Example:</strong> [[3,2], [1,4]]. det = 3(4)−2(1) = 10. <strong>Use:</strong> Non-singular (invertible) if det ≠ 0. det=0 → singular (no inverse). <strong>Inverse (A⁻¹):</strong> Matrix such that A×A⁻¹ = I. Exists only if det ≠ 0. 2×2 inverse: A⁻¹ = (1/det) × [[d,−b], [−c,a]]. <strong>Example:</strong> A = [[3,2], [1,4]], det=10. A⁻¹ = (1/10) × [[4,−2], [−1,3]]. <strong>Use:</strong> Solve matrix equations Ax=b → x=A⁻¹b.",
+  },
+];
+
+export const RANDOM_NUMBER_FAQS: FAQ[] = [
+  {
+    question: "What is a random number and how are they generated?",
+    answer:
+      "<strong>Random number:</strong> Value unpredictable (within a range). <strong>True randomness:</strong> Physical processes (radioactive decay, atmospheric noise). <strong>Pseudo-random:</strong> Algorithm-generated, deterministic but appears random. <strong>Seed:</strong> Initial value determining sequence. Same seed → same sequence. Different seed → different sequence. <strong>Example:</strong> Linear congruential generator: x_{n+1} = (a×x_n + c) mod m. Simple but used historically. <strong>Modern:</strong> Mersenne Twister (used in most programming languages). Cryptographic: ChaCha20 (stronger randomness). <strong>Use:</strong> Simulations, games, cryptography, statistical sampling.",
+  },
+    {
+    question: "How do I generate random numbers in a specific range?",
+    answer:
+      "<strong>Random integer a to b:</strong> rand() × (b−a+1) + a (then floor). <strong>Example:</strong> Range 1−6 (dice): rand()×6+1, floor to get 1−6. <strong>Random decimal 0 to 1:</strong> Most generators default to [0,1). <strong>Decimal a to b:</strong> rand()×(b−a)+a. <strong>Example:</strong> Range 5.5 to 10.5: rand()×5+5.5. <strong>Sampling:</strong> Pick n random from list. Shuffle (Fisher-Yates) or weighted selection. <strong>Weighted:</strong> Higher probability for some outcomes. Example: Probability 0.7 for heads, 0.3 for tails. Use cumulative distribution.",
+  },
+  {
+    question: "What is the difference between random and pseudo-random?",
+    answer:
+      "<strong>True random:</strong> Truly unpredictable. Based on physical phenomena. Example: atmospheric noise, quantum events. <strong>Properties:</strong> Each number independent, uniform distribution. <strong>Pseudo-random:</strong> Deterministic algorithm mimicking randomness. Repeats after period (predictable if seed known). <strong>Advantage:</strong> Reproducible (same seed = same sequence, useful for debugging). <strong>Disadvantage:</strong> Predictable with enough data and knowing algorithm. <strong>Security:</strong> Cryptographic RNGs (slow but unpredictable). Pseudo-RNGs (fast, non-cryptographic). <strong>Use:</strong> Simulations/games: pseudo-random. Cryptography/gambling: true random or cryptographic RNG.",
+  },
+];

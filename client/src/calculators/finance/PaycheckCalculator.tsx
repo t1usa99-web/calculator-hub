@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { PAYCHECK_FAQS } from "@/lib/faq-finance-invest";
 
 export default function PaycheckCalculator() {
   const [grossSalary, setGrossSalary] = useState(60000);
@@ -202,16 +200,3 @@ export default function PaycheckCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PaycheckCalculator,
-  slug: "paycheck-calculator",
-  title: "Paycheck Calculator",
-  shortTitle: "Paycheck",
-  description: "Calculate your take-home pay and understand all your paycheck deductions",
-  category: "finance",
-  icon: "💼",
-  keywords: ["paycheck", "taxes", "deductions", "net pay", "401k", "FICA"],
-  popular: true,
-  faqs: PAYCHECK_FAQS,
-});

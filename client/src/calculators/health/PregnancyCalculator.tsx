@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { PREGNANCY_FAQS } from "@/lib/faq-health";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PregnancyCalculator() {
   const [lmpDate, setLmpDate] = useState("2026-01-08");
@@ -153,17 +151,3 @@ export default function PregnancyCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PregnancyCalculator,
-  slug: "pregnancy-due-date-calculator",
-  title: "Pregnancy Due Date Calculator",
-  shortTitle: "Due Date",
-  description: "Calculate your estimated due date and track your pregnancy week by week",
-  category: "health",
-  icon: "🤰",
-  keywords: ["pregnancy", "due date", "pregnancy calculator", "gestational age", "trimester"],
-  popular: true,
-  faqs: PREGNANCY_FAQS,
-  dateModified: "2026-04-09",
-});

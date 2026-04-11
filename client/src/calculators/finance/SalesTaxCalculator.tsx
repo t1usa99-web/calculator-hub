@@ -4,8 +4,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatPercent } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { SALES_TAX_FAQS } from "@/lib/faq-finance-loans";
 
 export default function SalesTaxCalculator() {
   const [amount, setAmount] = useState(100);
@@ -120,17 +118,3 @@ export default function SalesTaxCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SalesTaxCalculator,
-  slug: "sales-tax-calculator",
-  title: "Sales Tax Calculator",
-  shortTitle: "Sales Tax",
-  description:
-    "Calculate sales tax, total amounts, and reverse-calculate pre-tax prices",
-  category: "finance",
-  icon: "🛒",
-  keywords: ["sales tax", "tax calculation", "total", "price", "retail"],
-  dateModified: "2026-04-09",
-  faqs: SALES_TAX_FAQS,
-});

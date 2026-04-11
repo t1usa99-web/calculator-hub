@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function SampleSizeCalculator() {
   const [confidenceLevel, setConfidenceLevel] = useState("95");
@@ -164,38 +163,3 @@ export default function SampleSizeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: SampleSizeCalculator,
-  slug: "sample-size-calculator",
-  title: "Sample Size Calculator",
-  shortTitle: "Sample Size",
-  description: "Calculate required sample size for research studies and surveys",
-  category: "math",
-  icon: "📊",
-  keywords: ["sample size", "statistics", "survey", "confidence level", "margin of error", "research"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the relationship between confidence level and sample size?",
-      answer: "Higher confidence levels require larger sample sizes. To be 99% confident instead of 95%, you need a larger sample. This is because you{'\''}re asking to be more certain about your results."
-    },
-    {
-      question: "Should I use 0.5 as the population proportion?",
-      answer: "Yes, use 0.5 when you don{'\''}t know the expected proportion. This gives the most conservative (largest) sample size. If you have prior information that the proportion is around 30%, using 0.3 will require a smaller sample."
-    },
-    {
-      question: "What if I can{'\''}t reach the recommended sample size?",
-      answer: "If budget or time constraints prevent reaching the calculated sample size, your results will have wider confidence intervals and lower precision. Be transparent about this limitation and interpret results cautiously. Consider if a smaller margin of error or lower confidence level is acceptable."
-    },
-    {
-      question: "When do I include population size?",
-      answer: "Include population size only when it{'\''}s small relative to your sample size (usually under 10,000). For large populations (over 100,000), the correction has minimal effect. This correction accounts for sampling without replacement."
-    },
-    {
-      question: "Why does 5% margin of error need more samples than 10%?",
-      answer: "A smaller margin of error means you want greater precision. To be more precise, you need more data points. The relationship is inverse and non-linear: cutting margin of error in half requires 4 times as many samples."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

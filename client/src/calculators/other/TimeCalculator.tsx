@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { TIME_FAQS } from "@/lib/faq-other";
 
 export default function TimeCalculator() {
   const [hours1, setHours1] = useState(2);
@@ -188,17 +186,3 @@ export default function TimeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: TimeCalculator,
-  slug: "time-calculator",
-  title: "Time Calculator",
-  shortTitle: "Time",
-  description: "Add or subtract time values and convert between units",
-  category: "other",
-  icon: "⏱️",
-  keywords: ["time calculator", "add time", "subtract time", "time conversion"],
-  popular: false,
-  faqs: TIME_FAQS,
-  dateModified: "2026-04-09",
-});

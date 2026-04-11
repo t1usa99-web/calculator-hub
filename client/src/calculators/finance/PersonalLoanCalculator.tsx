@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PersonalLoanCalculator() {
   const [loanAmount, setLoanAmount] = useState(25000);
@@ -241,50 +240,3 @@ export default function PersonalLoanCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PersonalLoanCalculator,
-  slug: "personal-loan-calculator",
-  title: "Personal Loan Calculator",
-  shortTitle: "Personal Loan",
-  description:
-    "Calculate personal loan payments with origination fees and APR",
-  category: "finance",
-  icon: "💳",
-  keywords: [
-    "personal loan",
-    "loan payment",
-    "unsecured loan",
-    "debt consolidation",
-    "APR",
-  ],
-  popular: false,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is a personal loan?",
-      answer:
-        "A personal loan is an unsecured loan from a bank or online lender, meaning it has no collateral. Unlike mortgages or auto loans, personal loans are based on your credit profile, income, and creditworthiness. Typical interest rates range from 6-36% depending on credit score. Repayment terms typically run 12-84 months with fixed monthly payments.",
-    },
-    {
-      question: "What is an origination fee?",
-      answer:
-        "An origination fee is an upfront cost (typically 1-8% of the loan amount) charged by the lender for processing and underwriting. If you borrow $25,000 with a 2.5% fee, you receive $24,375 but owe $25,000, so the effective cost is higher. APR includes origination fees, making it the true cost of borrowing.",
-    },
-    {
-      question: "How does credit score affect personal loan rates?",
-      answer:
-        "Credit score dramatically affects rates. Excellent credit (740+) gets 6-12% APR, good credit (670-739) gets 12-20%, fair credit (580-669) gets 18-36%, poor credit gets 25-36%+. On a $25,000 loan at 8% vs. 25% APR, the difference is over $7,000 in interest. Always check your credit before applying and improve it if possible.",
-    },
-    {
-      question: "Can I use a personal loan for debt consolidation?",
-      answer:
-        "Yes, personal loans are excellent for consolidating high-interest credit card debt. Consolidating $10,000 in credit card debt at 20% APR into a personal loan at 12% APR for 5 years saves roughly $2,500 in interest and simplifies payments. After consolidation, close or freeze the credit cards to prevent re-borrowing and doubling your debt.",
-    },
-    {
-      question: "What happens if I pay off the loan early?",
-      answer:
-        "Most personal loans allow early repayment without prepayment penalties. Paying off early saves interest and improves your credit utilization. Always ask about prepayment penalties before accepting a personal loan; some lenders charge a fee if you pay off the loan in full too early, though this is uncommon. Early payoff is usually beneficial.",
-    },
-  ],
-});

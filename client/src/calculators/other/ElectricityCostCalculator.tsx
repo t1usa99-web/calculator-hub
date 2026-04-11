@@ -4,8 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { ELECTRICITY_COST_FAQS } from "@/lib/faq-other";
 
 export default function ElectricityCostCalculator() {
   const [watts, setWatts] = useState(1000);
@@ -178,17 +176,3 @@ export default function ElectricityCostCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ElectricityCostCalculator,
-  slug: "electricity-cost-calculator",
-  title: "Electricity Cost Calculator",
-  shortTitle: "Electricity Cost",
-  description: "Calculate electricity costs and energy consumption for appliances",
-  category: "other",
-  icon: "⚡",
-  keywords: ["electricity cost", "power calculator", "energy cost", "kWh calculator"],
-  popular: false,
-  faqs: ELECTRICITY_COST_FAQS,
-  dateModified: "2026-04-09",
-});

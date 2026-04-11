@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function PeriodCalculator() {
   const [lastPeriodDate, setLastPeriodDate] = useState("2026-03-15");
@@ -169,38 +168,3 @@ export default function PeriodCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: PeriodCalculator,
-  slug: "period-calculator",
-  title: "Period Calculator",
-  shortTitle: "Period Tracker",
-  description: "Predict your upcoming periods based on your average cycle length and period duration",
-  category: "health",
-  icon: "📅",
-  keywords: ["period calculator", "menstrual cycle", "period tracker", "period prediction", "cycle calendar"],
-  popular: true,
-  faqs: [
-    {
-      question: "How accurate is period prediction?",
-      answer: "This calculator is accurate for people with regular, predictable cycles. If your cycle length is consistent within 2{'\u2013'}3 days, predictions are reliable. However, cycles can shift due to stress, travel, illness, weight changes, intense exercise, or medications. Hormonal birth control typically makes cycles very predictable (or eliminates them). Irregular cycles (varying by 5+ days) make prediction difficult; track multiple months to find your pattern or discuss irregularities with a healthcare provider.",
-    },
-    {
-      question: "What's considered a normal period?",
-      answer: "Normal periods typically last 2{'\u2013'}7 days and occur every 21{'\u2013'}35 days. Flow varies from light to heavy. Most people use 5{'\u2013'}8 tampons or pads daily at peak flow. You might pass small clots (golf ball size is normal). Periods are usually heaviest the first 2{'\u2013'}3 days and taper toward the end. If your period is unusually heavy (soaking a pad hourly for consecutive hours), lasts longer than 7 days, or is extremely painful, consult a healthcare provider.",
-    },
-    {
-      question: "Why do I have period pain and what helps?",
-      answer: "Period pain (dysmenorrhea) results from uterine muscle contractions as the lining sheds. Prostaglandin hormones trigger these contractions. Over-the-counter pain relievers like ibuprofen block prostaglandins and are most effective if taken at the first sign of pain or before it starts. Heat therapy (heating pad or warm bath), light exercise, massage, and relaxation techniques also help. If pain is severe or interferes with daily life, stronger medications or underlying conditions may need evaluation.",
-    },
-    {
-      question: "Can I predict ovulation based on my period?",
-      answer: "Yes, roughly. Ovulation typically occurs about 14 days before your next period (or cycle length minus 14 days). If your cycle is 28 days, ovulation usually occurs around day 14. If it's 30 days, ovulation is around day 16. However, ovulation timing varies more than period timing in the same person. For more accurate ovulation prediction, use ovulation tests, track basal body temperature, observe cervical mucus changes, or use an ovulation calculator alongside period tracking.",
-    },
-    {
-      question: "What if my period suddenly changes?",
-      answer: "Sudden changes in flow, duration, or timing can indicate hormonal shifts or health changes. Common causes: stress, dietary changes, new medications, pregnancy (if applicable), thyroid issues, PCOS, fibroids, or polyps. Tracking your normal pattern helps identify changes. Report sudden changes to your healthcare provider, especially if accompanied by new pain, excessive bleeding, or missed periods. Documenting the change (duration, flow, dates) helps your provider diagnose any underlying issues.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

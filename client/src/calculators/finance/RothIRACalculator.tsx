@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatCurrency, formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function RothIRACalculator() {
   const [currentAge, setCurrentAge] = useState(35);
@@ -175,38 +174,3 @@ export default function RothIRACalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: RothIRACalculator,
-  slug: "roth-ira-calculator",
-  title: "Roth IRA Calculator",
-  shortTitle: "Roth IRA",
-  description: "Project Roth IRA growth with tax-free earnings and withdrawals in retirement",
-  category: "finance",
-  icon: "🎯",
-  keywords: ["Roth IRA", "retirement savings", "tax-free", "IRA", "retirement planning"],
-  popular: true,
-  dateModified: "2026-04-10",
-  faqs: [
-    {
-      question: "What is a Roth IRA and how is it different from a Traditional IRA?",
-      answer: "A Roth IRA is a retirement account where you contribute after-tax dollars, but all growth and withdrawals in retirement are tax-free. A Traditional IRA lets you deduct contributions from your taxable income (saving taxes now), but withdrawals in retirement are taxed. Choose Roth if you expect to be in a higher tax bracket in retirement; choose Traditional if you want immediate tax savings. Both have annual contribution limits and early withdrawal penalties before age 59½.",
-    },
-    {
-      question: "Can I withdraw my Roth IRA contributions before retirement?",
-      answer: "Yes, one major advantage of Roth IRAs is that you can withdraw your contributions anytime without taxes or penalties. If you contributed {formatCurrency(50000)}, you can withdraw that {formatCurrency(50000)} whenever you need it. However, you cannot withdraw earnings (investment gains) before age 59½ without a 10% penalty and taxes, unless you qualify for an exception like a first-time home purchase (up to {formatCurrency(10000)} lifetime).",
-    },
-    {
-      question: "What is the Roth IRA income limit?",
-      answer: "For 2026, Roth IRA contributions begin phasing out for single filers at {formatCurrency(146000)} income and are completely restricted above {formatCurrency(161000)}. For married couples filing jointly, the range is {formatCurrency(230000)} to {formatCurrency(240000)}. If you exceed the limit, you cannot contribute directly, but you may be able to use a backdoor Roth strategy (contribute to Traditional IRA, then convert to Roth).",
-    },
-    {
-      question: "Can I have both a Roth IRA and a Traditional IRA?",
-      answer: "<strong>Yes, you can have both</strong>, but your total contributions across all IRAs cannot exceed {formatCurrency(7000)} per year (2026 limit). If you contribute {formatCurrency(4000)} to a Traditional IRA, you can only contribute {formatCurrency(3000)} to a Roth IRA that year. Many people use a Roth IRA for higher growth potential investments and a Traditional IRA for tax deductions during high-income years.",
-    },
-    {
-      question: "What happens to my Roth IRA when I die?",
-      answer: "Your beneficiaries inherit the Roth IRA tax-free. The inherited funds continue growing tax-free for them. They must take withdrawals (typically over 10 years under newer rules), but the withdrawals are tax-free since Roth contributions and growth are not taxed. This makes Roth IRAs excellent for leaving a tax-free legacy. Compare this to Traditional IRAs, where beneficiaries owe income taxes on withdrawals.",
-    },
-  ],
-});

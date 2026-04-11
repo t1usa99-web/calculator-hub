@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function ExponentCalculator() {
   const [base, setBase] = useState(2);
@@ -133,38 +132,3 @@ export default function ExponentCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: ExponentCalculator,
-  slug: "exponent-calculator",
-  title: "Exponent Calculator",
-  shortTitle: "Exponent",
-  description: "Calculate powers, roots, and view exponential curves",
-  category: "math",
-  icon: "⬆️",
-  keywords: ["exponent", "power", "square root", "cube root", "scientific notation", "exponential"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is an exponent?",
-      answer: "An exponent tells you how many times to multiply a number by itself. 2^3 = 2 × 2 × 2 = 8."
-    },
-    {
-      question: "What does a negative exponent mean?",
-      answer: "A negative exponent gives you the reciprocal. For example, 2^-3 = 1/2^3 = 1/8."
-    },
-    {
-      question: "What is a fractional exponent?",
-      answer: "A fractional exponent indicates a root. For example, 4^(1/2) = 2 (square root), and 8^(1/3) = 2 (cube root)."
-    },
-    {
-      question: "What are exponent rules?",
-      answer: "Key rules: a^m × a^n = a^(m+n), a^m ÷ a^n = a^(m-n), (a^m)^n = a^(mn), and a^0 = 1."
-    },
-    {
-      question: "What is scientific notation?",
-      answer: "Scientific notation expresses numbers as coefficient × 10^power. For example, 6.02 × 10^23 is Avogadro{'\''}s number."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

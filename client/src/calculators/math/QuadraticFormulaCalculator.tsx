@@ -4,7 +4,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function QuadraticFormulaCalculator() {
   const [a, setA] = useState(1);
@@ -147,38 +146,3 @@ export default function QuadraticFormulaCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: QuadraticFormulaCalculator,
-  slug: "quadratic-formula-calculator",
-  title: "Quadratic Formula Calculator",
-  shortTitle: "Quadratic Formula",
-  description: "Solve quadratic equations and find roots, discriminant, and vertex",
-  category: "math",
-  icon: "📐",
-  keywords: ["quadratic", "formula", "roots", "discriminant", "algebra", "equation"],
-  popular: true,
-  faqs: [
-    {
-      question: "What is the quadratic formula?",
-      answer: "The quadratic formula is x = (-b ± √(b² - 4ac)) / 2a. It solves any equation in the form ax² + bx + c = 0."
-    },
-    {
-      question: "What does the discriminant tell us?",
-      answer: "The discriminant (b² - 4ac) determines if roots are real or complex. If positive: two real roots. If zero: one repeated root. If negative: two complex roots."
-    },
-    {
-      question: "What is the vertex?",
-      answer: "The vertex is the turning point of the parabola at x = -b/2a, y = c - b²/4a. It{'\''}s the minimum or maximum point depending on whether a is positive or negative."
-    },
-    {
-      question: "When does a quadratic have no real solutions?",
-      answer: "When the discriminant is negative (b² - 4ac {'<'} 0), the equation has no real solutions, only complex roots."
-    },
-    {
-      question: "How do parabolas relate to quadratic equations?",
-      answer: "A quadratic equation y = ax² + bx + c represents a parabola. The roots are where the parabola crosses the x-axis."
-    }
-  ],
-  dateModified: "2026-04-10",
-});

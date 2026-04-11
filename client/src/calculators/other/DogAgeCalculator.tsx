@@ -5,7 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
 
 export default function DogAgeCalculator() {
   const [dogAge, setDogAge] = useState(3.5);
@@ -164,43 +163,3 @@ export default function DogAgeCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: DogAgeCalculator,
-  slug: "dog-age-calculator",
-  title: "Dog Age Calculator",
-  shortTitle: "Dog Age",
-  description: "Calculate your dog's human equivalent age using modern science",
-  category: "other",
-  icon: "🐕",
-  keywords: ["dog age calculator", "dog years human years", "dog age converter", "pet age"],
-  popular: true,
-  faqs: [
-    {
-      question: "Why is the 'multiply by 7' method for dog years inaccurate?",
-      answer:
-        "The 'seven dog years per human year' myth oversimplifies and doesn't account for rapid early growth. A one-year-old dog is not 7 years old in human terms; it's approximately 15 years old because it reaches full maturity in that first year. A two-year-old dog is about 24 human years old, not 14. After year two, the rate of aging slows. The simplified formula fails because it doesn't reflect the accelerated development in puppyhood or the varying rates based on dog size. Modern veterinary science shows the reality is much more nuanced, making size-specific calculations more accurate.",
-    },
-    {
-      question: "How does dog size affect aging rate?",
-      answer:
-        "Large and giant breeds age faster than small breeds. After the first two years, small dogs age at about 4 human years per dog year, medium dogs at 5, large dogs at 6, and giant dogs at 7 per dog year. A small dog at age 10 is about 56 in human years, while a giant breed at age 10 is about 75 in human years. This difference stems from metabolic rate—larger dogs burn energy faster and have shorter lifespans. Small breeds often live 15-20 years; giant breeds typically live 7-10 years. Choosing appropriate exercise and diet based on size helps account for these different aging trajectories.",
-    },
-    {
-      question: "At what age should I switch my dog to senior food?",
-      answer:
-        "Senior food is typically introduced when dogs reach 'senior' status: around age 7 for small breeds, age 6 for medium breeds, age 5-6 for large breeds, and age 5 for giant breeds. Senior foods are lower in calories and fat, with added joint support (glucosamine) and potentially adjusted protein levels. The exact age depends on individual health and breed. Some dogs age faster than others. Consult your veterinarian about transitioning to senior food, as the timing varies by dog. Early transition (if your dog is overweight) or delayed transition (for very active dogs) may be appropriate. Monitoring weight and body condition helps determine the right time for dietary changes.",
-    },
-    {
-      question: "What are common health issues in senior dogs?",
-      answer:
-        "Senior dogs commonly develop arthritis (joint pain and stiffness), dental disease, cognitive decline, hearing and vision loss, and organ function decline. Cancer incidence increases with age. Weight management becomes important because overweight seniors have more joint stress. Joint supplements (glucosamine, chondroitin, omega-3s) and pain management medications help with arthritis. Cognitive dysfunction (canine dementia) causes confusion, disorientation, and behavior changes. More frequent veterinary checkups (every 6 months instead of annually) help catch health issues early. Adjusted exercise (shorter, gentler walks instead of intense activity) keeps seniors active without overexertion. Mental stimulation and comfort accommodations (orthopedic beds, ramps, easy food access) improve senior quality of life.",
-    },
-    {
-      question: "Can mixed-breed dogs have different aging rates than purebreds?",
-      answer:
-        "Mixed-breed dogs often live longer and age more slowly than purebreds, a phenomenon called hybrid vigor. Genetic diversity from mixed parentage may confer health advantages. A mixed-breed dog might live 15+ years, while a purebred of similar size might live 12 years. However, this is a general trend, not a guarantee. Individual health, genetics, diet, exercise, and veterinary care significantly affect each dog's lifespan. Some purebreds are healthier and longer-lived than some mixed breeds. The formula in this calculator provides an estimate based on size, but individual dogs may age faster or slower based on health and genetics. Regular veterinary care and healthy lifestyle support longevity regardless of breed.",
-    },
-  ],
-  dateModified: "2026-04-10",
-});

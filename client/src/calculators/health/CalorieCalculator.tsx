@@ -5,8 +5,6 @@ import InputField from "@/components/InputField";
 import SelectField from "@/components/SelectField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { CALORIE_FAQS } from "@/lib/faq-content";
 
 export default function CalorieCalculator() {
   const [age, setAge] = useState(30);
@@ -162,17 +160,3 @@ export default function CalorieCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  component: CalorieCalculator,
-  slug: "calorie-calculator",
-  title: "Calorie Calculator",
-  shortTitle: "Calories",
-  description: "Calculate your daily calorie needs using the Mifflin-St Jeor equation based on BMR and activity level",
-  category: "health",
-  icon: "🔥",
-  keywords: ["calorie calculator", "daily calories", "TDEE", "BMR", "weight loss", "calorie needs"],
-  popular: true,
-  faqs: CALORIE_FAQS,
-  dateModified: "2026-04-09",
-});

@@ -3,8 +3,6 @@ import CalculatorLayout from "@/components/CalculatorLayout";
 import InputField from "@/components/InputField";
 import ResultCard from "@/components/ResultCard";
 import { formatNumber } from "@/lib/utils";
-import { registerCalculator } from "@/lib/calculator-registry";
-import { THERMAL_EXPANSION_FAQS } from "@/lib/faq-physics-advanced";
 
 export default function ThermalExpansionCalculator() {
   const [length, setLength] = useState(1);
@@ -85,16 +83,3 @@ export default function ThermalExpansionCalculator() {
     </CalculatorLayout>
   );
 }
-
-registerCalculator({
-  slug: "thermal-expansion-calculator",
-  title: "Thermal Expansion Calculator",
-  shortTitle: "Thermal Expansion",
-  description: "Calculate thermal expansion of materials with temperature change",
-  category: "physics",
-  icon: "📏",
-  keywords: ["thermal expansion", "temperature", "coefficient", "material"],
-  component: ThermalExpansionCalculator,
-  faqs: THERMAL_EXPANSION_FAQS,
-  dateModified: "2026-04-09",
-});
